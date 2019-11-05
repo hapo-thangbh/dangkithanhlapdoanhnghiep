@@ -1,0 +1,13 @@
+.btn{
+    border-radius: 0px!important;
+    &:focus{
+        box-shadow: none!important;
+    }
+}
+
+.swal2-styled{
+    border-radius: 0px!important;
+    &:focus{
+        box-shadow:none!important;
+    }
+}

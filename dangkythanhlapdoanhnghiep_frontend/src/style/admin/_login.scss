@@ -1,0 +1,110 @@
+@media screen and (max-width: 768px){
+    .item-md{
+        display: none;
+    }
+    .item-sp{
+        display: block;
+    }
+}
+@media screen and (min-width: 769px){
+    .item-md{
+        display: block;
+    }
+    .item-sp{
+        display: none;
+    }
+}
+
+.box-md-login{
+    .box-login{
+      background: #dee2e65c;
+      position: relative;
+      margin-top: 100px;
+      form{
+        padding: 30px;
+        .btn-login{
+          font-size: 17px;
+          border-radius: 50px!important;
+          padding: 8px;
+          background:#3896bb!important;
+          border-color:#3896bb!important;
+          font-weight: 700;
+          &:focus{
+            box-shadow: none!important;
+          }
+        }
+        .text-color-login{
+            color: #3896bb;
+            text-transform: uppercase;
+        }
+        .frm-position{
+          position: relative;
+          .frm-color-btn{
+            position: relative;
+            &:focus{
+              border-color:#3896bb!important;
+            }
+          }
+          .btn-show-password{
+            color: #ec5328;
+            position: absolute;
+            top: 50%;
+            transform: translate(0%,-50%);
+            right: 0;
+            font-weight: 600;
+            z-index: 10;
+            &:focus{
+              box-shadow: none!important;
+            }
+          }
+        }
+        .text-btn-login{
+          color:#3896bb!important;
+          text-decoration: none;
+          font-size: 13px;
+        }
+        .frm-check-login{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+      }
+      a{
+        color: cornflowerblue;
+      }
+    }
+  }
+  
+  
+  @media screen and (min-width: 768px){
+    .box-md-login{
+      min-width: 425px;
+    }
+  }
+  @media screen and (max-width: 767px){
+    .box-md-login{
+      max-width: 425px;
+    }
+  }
+  @media screen and (max-width: 424px){
+    form{
+      padding: 2vw!important;
+      font-size: 14px;
+    }
+    .text-footer{
+      font-size: 13px;
+    }
+  }
+.input-group-prepend {
+    width: 40px;
+    border: 1px solid #ced4da;
+}
+  .input-group-icon{
+    height: calc(1.35em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem; 
+    border: 1px solid #ced4da;
+    width: 100%;
+  }
+  
+  
+  
