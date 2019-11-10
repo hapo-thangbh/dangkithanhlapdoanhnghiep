@@ -1,5 +1,4 @@
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 import swal from 'sweetalert2'
@@ -16,9 +15,19 @@ window.toast = toast;
 
 Vue.use(VueRouter)
 let routes = [
-    { path: '/dashboard', component: require('./components/Dashboard.vue').default },
-    { path: '/user', component: require('./components/Users.vue').default },
-    { path: '/profile', name:'profile', component: require('./components/Profile.vue').default }
+    { 
+        path: '/dashboard', 
+        component: require('./components/Dashboard.vue').default 
+    },
+    { 
+        path: '/user', 
+        component: require('./components/Users.vue').default 
+    },
+    { 
+        path: '/profile', 
+        name:'profile', 
+        component: require('./components/Profile.vue').default 
+    }
 ]
 
 const router = new VueRouter({
