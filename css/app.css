@@ -11100,3 +11100,12 @@ a.text-dark:focus {
   }
 }
 
+.navbar:before,
+.navbar:after {
+  content: none !important;
+}
+
+.navbar {
+  padding: 0px !important;
+}
+

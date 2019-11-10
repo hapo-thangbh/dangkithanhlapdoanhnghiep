@@ -15,9 +15,12 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+        name: 'Dashboard',
+        data() {
+            return {
+                
+            }
+        },
     }
 
 </script>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,11 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+@extends('Admin.Elements.master')
+
+@section('content')
+    <!--Hiển thị nội dung của Component phía router-->
+    <router-view></router-view>
 @endsection

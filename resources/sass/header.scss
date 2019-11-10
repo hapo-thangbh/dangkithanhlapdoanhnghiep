@@ -1,0 +1,6 @@
+.navbar{
+    &:before,
+    &:after{
+        content: none!important;
+    }
+}

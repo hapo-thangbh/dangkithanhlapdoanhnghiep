@@ -14,7 +14,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                src="modules/admin/images/default.jpg" alt="User profile picture">
+                                src="/images/default.jpg" alt="User profile picture">
 
                             <h3 class="profile-username text-center">Administrator</h3>
 
