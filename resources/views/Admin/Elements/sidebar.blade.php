@@ -7,8 +7,7 @@
                 <img src="{{ asset('images/default.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Administrator</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p>Supper admin</p>
             </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -19,27 +18,27 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a> --}}
                 <router-link to="/dashboard">
-                    <i class="fa fa-dashboard" style="color:rgb(230, 186, 16);"></i> <span>Dashboard</span>
+                    <i class="fa fa-dashboard" style="color:rgb(230, 186, 16);"></i> <span>Trang chủ</span>
                 </router-link>
             </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-cog" style="color:#209219"></i>
-                    <span>Management</span>
+                    <span>Quản lý người dùng</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu" style="display: none;">
-                    <li><router-link to="/user"><i class="fa fa-users"></i> User</router-link></li>
+                    <li><router-link to="/user"><i class="fa fa-users"></i> Danh sách người dùng</router-link></li>
                     <li>
-                        <router-link :to="{ name:'profile' }"><i class="fa fa-user" style="color:#ff8000;"></i> <span>Profile</span></router-link>
+                        <router-link :to="{ name:'profile' }"><i class="fa fa-user" style="color:#ff8000;"></i> <span>Cập nhật thông tin</span></router-link>
                     </li>
                 </ul>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        <i class="fa fa-power-off text-red"></i> <span>Logout</span>
+                        <i class="fa fa-power-off text-red"></i> <span>Đăng xuất</span>
                     
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

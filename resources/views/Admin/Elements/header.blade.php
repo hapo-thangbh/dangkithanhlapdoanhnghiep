@@ -16,9 +16,6 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-
-
-
                 <!-- Messages: style can be found in dropdown.less-->
                 {{-- <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -116,7 +113,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ asset('images/default.jpg') }}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Administrator</span>
+                        <span class="hidden-xs">Supper admin</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -124,33 +121,18 @@
                             <img src="{{ asset('images/default.jpg') }}" class="img-circle" alt="User Image">
 
                             <p>
-                                Aadministrator
-                                <small>Member since Nov. 2012</small>
+                                Supper admin
+                                <small>admin@gmail.com</small>
                             </p>
-                        </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </div>
-                            <!-- /.row -->
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <router-link :to="{ name: 'profile' }" class="btn btn-default btn-flat">Profile</router-link>
+                                <router-link :to="{ name: 'profile' }" class="btn btn-default btn-flat">Thông tin cá nhân</router-link>
                             </div>
                             <div class="pull-right">
                                 <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Sign out
+                                document.getElementById('logout-form').submit();">Đăng xuất
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>    

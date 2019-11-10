@@ -8444,7 +8444,6 @@ body {
 }
 
 .content {
-    min-height: 250px;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -14323,7 +14322,6 @@ body {
 }
 
 .content {
-    min-height: 250px;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;

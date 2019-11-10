@@ -1853,6 +1853,174 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
@@ -1968,6 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -40298,22 +40468,331 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("section", { staticClass: "content-header" }, [
-        _c("h1", [_vm._v("Dashboard")]),
+        _c("h1", [_vm._v("Trang chủ")]),
         _vm._v(" "),
         _c("ol", { staticClass: "breadcrumb" }, [
           _c("li", [
             _c("a", { attrs: { href: "#" } }, [
               _c("i", { staticClass: "fa fa-dashboard" }),
-              _vm._v(" Home")
+              _vm._v(" Trang chủ")
             ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "active" }, [_vm._v("Dashboard")])
+          ])
         ])
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "content" }, [
-        _c("h5", [_vm._v("I'm dashboard component")])
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+            _c("div", { staticClass: "small-box bg-aqua" }, [
+              _c("div", { staticClass: "inner" }, [
+                _c("h3", [_vm._v("150")]),
+                _vm._v(" "),
+                _c("p", [_vm._v("New Orders")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon" }, [
+                _c("i", { staticClass: "fa fa-shopping-cart" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "small-box-footer", attrs: { href: "#" } },
+                [
+                  _vm._v("More info "),
+                  _c("i", { staticClass: "fa fa-arrow-circle-right" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+            _c("div", { staticClass: "small-box bg-green" }, [
+              _c("div", { staticClass: "inner" }, [
+                _c("h3", [
+                  _vm._v("53"),
+                  _c("sup", { staticStyle: { "font-size": "20px" } }, [
+                    _vm._v("%")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Bounce Rate")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon" }, [
+                _c("i", { staticClass: "fa fa-newspaper-o" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "small-box-footer", attrs: { href: "#" } },
+                [
+                  _vm._v("More info "),
+                  _c("i", { staticClass: "fa fa-arrow-circle-right" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+            _c("div", { staticClass: "small-box bg-yellow" }, [
+              _c("div", { staticClass: "inner" }, [
+                _c("h3", [_vm._v("44")]),
+                _vm._v(" "),
+                _c("p", [_vm._v("User Registrations")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon" }, [
+                _c("i", { staticClass: "fa fa-user-plus" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "small-box-footer", attrs: { href: "#" } },
+                [
+                  _vm._v("More info "),
+                  _c("i", { staticClass: "fa fa-arrow-circle-right" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+            _c("div", { staticClass: "small-box bg-red" }, [
+              _c("div", { staticClass: "inner" }, [
+                _c("h3", [_vm._v("65")]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Unique Visitors")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon" }, [
+                _c("i", { staticClass: "fa fa-pie-chart" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "small-box-footer", attrs: { href: "#" } },
+                [
+                  _vm._v("More info "),
+                  _c("i", { staticClass: "fa fa-arrow-circle-right" })
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "col-lg-7 connectedSortable ui-sortable" }, [
+        _c(
+          "div",
+          {
+            staticClass: "box box-primary",
+            staticStyle: { position: "relative", left: "0px", top: "0px" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "box-header ui-sortable-handle",
+                staticStyle: { cursor: "move" }
+              },
+              [
+                _c("i", { staticClass: "ion ion-clipboard" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "box-title" }, [_vm._v("To Do List")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "box-tools pull-right" }, [
+                  _c("ul", { staticClass: "pagination pagination-sm inline" }, [
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("«")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("1")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("2")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("3")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("»")])])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "box-body" }, [
+              _c("ul", { staticClass: "todo-list ui-sortable" }, [
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Design a nice theme")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-danger" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 2 mins")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Make the theme responsive")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-info" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 4 hours")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Let theme shine like a star")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-warning" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 1 day")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Let theme shine like a star")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-success" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 3 days")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Check your messages and notifications")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-primary" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 1 week")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "handle ui-sortable-handle" }, [
+                    _c("i", { staticClass: "fa fa-ellipsis-v" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-ellipsis-v" })
+                  ]),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "checkbox", value: "" } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v("Let theme shine like a star")
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "label label-default" }, [
+                    _c("i", { staticClass: "fa fa-clock-o" }),
+                    _vm._v(" 1 month")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tools" }, [
+                    _c("i", { staticClass: "fa fa-edit" }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fa fa-trash-o" })
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "box-footer clearfix no-border" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default pull-right",
+                  attrs: { type: "button" }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-plus" }),
+                  _vm._v(" Add\n                    item")
+                ]
+              )
+            ])
+          ]
+        )
       ])
     ])
   }
@@ -40577,31 +41056,29 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { staticClass: "text-center" }, [
                     _c(
-                      "a",
+                      "button",
                       {
-                        attrs: { href: "#" },
+                        staticClass: "btn btn-sm btn-primary",
                         on: {
                           click: function($event) {
                             return _vm.editUser()
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fa fa-edit blue" })]
+                      [_c("i", { staticClass: "fa fa-edit" })]
                     ),
-                    _vm._v(
-                      "\n                                /\n                                "
-                    ),
+                    _vm._v(" "),
                     _c(
-                      "a",
+                      "button",
                       {
-                        attrs: { href: "#" },
+                        staticClass: "btn btn-sm btn-danger",
                         on: {
                           click: function($event) {
                             return _vm.deleteUser()
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fa fa-times red" })]
+                      [_c("i", { staticClass: "fa fa-times" })]
                     )
                   ])
                 ]),
@@ -40617,31 +41094,29 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { staticClass: "text-center" }, [
                     _c(
-                      "a",
+                      "button",
                       {
-                        attrs: { href: "#" },
+                        staticClass: "btn btn-sm btn-primary",
                         on: {
                           click: function($event) {
                             return _vm.editUser()
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fa fa-edit blue" })]
+                      [_c("i", { staticClass: "fa fa-edit" })]
                     ),
-                    _vm._v(
-                      "\n                                /\n                                "
-                    ),
+                    _vm._v(" "),
                     _c(
-                      "a",
+                      "button",
                       {
-                        attrs: { href: "#" },
+                        staticClass: "btn btn-sm btn-danger",
                         on: {
                           click: function($event) {
                             return _vm.deleteUser()
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fa fa-times red" })]
+                      [_c("i", { staticClass: "fa fa-times" })]
                     )
                   ])
                 ])
@@ -40665,11 +41140,11 @@ var staticRenderFns = [
         _c("li", [
           _c("a", { attrs: { href: "#" } }, [
             _c("i", { staticClass: "fa fa-dashboard" }),
-            _vm._v(" Home")
+            _vm._v(" Trang chủ")
           ])
         ]),
         _vm._v(" "),
-        _c("li", { staticClass: "active" }, [_vm._v("user")])
+        _c("li", { staticClass: "active" }, [_vm._v("Danh sách người dùng")])
       ])
     ])
   },

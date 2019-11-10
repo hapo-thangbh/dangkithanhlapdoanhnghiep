@@ -3,8 +3,10 @@
         <section class="content-header">
             <h1>List User</h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">user</li>
+                <li>
+                    <a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a>
+                </li>
+                <li class="active">Danh sách người dùng</li>
             </ol>
         </section>
         <section class="content">
@@ -34,13 +36,13 @@
                                 <td>dangthang@gmail.com</td>
                                 <td>admin</td>
                                 <td class="text-center">
-                                    <a href="#" @click="editUser()">
-                                        <i class="fa fa-edit blue"></i>
-                                    </a>
-                                    /
-                                    <a href="#" @click="deleteUser()">
-                                        <i class="fa fa-times red"></i>
-                                    </a>
+                                    <button @click="editUser()" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+
+                                    <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </td>
                             </tr>
 
@@ -50,13 +52,13 @@
                                 <td>admin@gmail.com</td>
                                 <td>admin</td>
                                 <td class="text-center">
-                                    <a href="#" @click="editUser()">
-                                        <i class="fa fa-edit blue"></i>
-                                    </a>
-                                    /
-                                    <a href="#" @click="deleteUser()">
-                                        <i class="fa fa-times red"></i>
-                                    </a>
+                                    <button @click="editUser()" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+
+                                    <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
