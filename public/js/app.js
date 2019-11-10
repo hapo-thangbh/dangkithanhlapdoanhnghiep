@@ -37289,7 +37289,7 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.1.6
+* sweetalert2 v9.2.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -37555,29 +37555,29 @@ var DismissReason = Object.freeze({
   timer: 'timer'
 });
 
+var isJqueryElement = function isJqueryElement(elem) {
+  return _typeof(elem) === 'object' && elem.jquery;
+};
+
+var isElement = function isElement(elem) {
+  return elem instanceof Element || isJqueryElement(elem);
+};
+
 var argsToParams = function argsToParams(args) {
   var params = {};
 
-  switch (_typeof(args[0])) {
-    case 'object':
-      _extends(params, args[0]);
+  if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
+    _extends(params, args[0]);
+  } else {
+    ['title', 'html', 'icon'].forEach(function (name, index) {
+      var arg = args[index];
 
-      break;
-
-    default:
-      ['title', 'html', 'icon'].forEach(function (name, index) {
-        switch (_typeof(args[index])) {
-          case 'string':
-            params[name] = args[index];
-            break;
-
-          case 'undefined':
-            break;
-
-          default:
-            error("Unexpected type of ".concat(name, "! Expected \"string\", got ").concat(_typeof(args[index])));
-        }
-      });
+      if (typeof arg === 'string' || isElement(arg)) {
+        params[name] = arg;
+      } else if (arg !== undefined) {
+        error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+      }
+    });
   }
 
   return params;
@@ -40185,7 +40185,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.1.6';
+SweetAlert.version = '9.2.0';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -40370,7 +40370,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "profile-user-img img-responsive img-circle",
                   attrs: {
-                    src: "modules/admin/images/default.jpg",
+                    src: "/images/default.jpg",
                     alt: "User profile picture"
                   }
                 }),
@@ -40561,10 +40561,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "table",
-            {
-              staticClass:
-                "table table-bordered table-striped table-hover table-responsive"
-            },
+            { staticClass: "table table-bordered table-striped table-hover" },
             [
               _vm._m(2),
               _vm._v(" "),
