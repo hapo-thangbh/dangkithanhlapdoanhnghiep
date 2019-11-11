@@ -177,7 +177,109 @@
                         item</button>
                 </div>
             </div>
+
+            <!-- <div class="box box-success">
+                <div class="box-header ui-sortable-handle" style="cursor: move;">
+                    <i class="fa fa-comments-o"></i>
+                    <h3 class="box-title">Bình luận bài viết</h3>
+                </div>
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;">
+                    <div class="box-body chat" id="chat-box" style="overflow: hidden; width: auto; height: 250px;">
+                        <div class="item">
+                            <img src="images/default.jpg" alt="user image" class="online">
+
+                            <p class="message">
+                                <a href="#" class="name">
+                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                    Mike Doe
+                                </a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </p>
+                            <div class="attachment">
+                                <h4>Attachments:</h4>
+
+                                <p class="filename">
+                                    Theme-thumbnail-image.jpg
+                                </p>
+
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/default.jpg" alt="user image" class="offline">
+
+                            <p class="message">
+                                <a href="#" class="name">
+                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                    Alexander Pierce
+                                </a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slimScrollBar"
+                        style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 184.911px;">
+                    </div>
+                    <div class="slimScrollRail"
+                        style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Type message...">
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </section>
+
+        <section class="col-lg-5 connectedSortable ui-sortable">
+            <div class="box box-primary" style="position: relative; left: 0px; top: 0px;">
+                <div class="box-header ui-sortable-handle" style="cursor: move;">
+                    <i class="fa fa-user"></i>
+                    <h3 class="box-title">Tài khoản</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-hover table-striped text-center">
+                        <tr>
+                            <th>STT</th>
+                            <th>Tài khoản</th>
+                            <th>Bài viết</th>
+                            <th>Lượt xem</th>
+                            <th>Thời gian truy cập (phút)</th>
+                        </tr>
+
+                        <tr>
+                            <td>1</td>
+                            <td>Supper admin</td>
+                            <td>100</td>
+                            <td>3000</td>
+                            <td>10</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>dangthang</td>
+                            <td>50</td>
+                            <td>3000</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
     </div>
 </template>
 

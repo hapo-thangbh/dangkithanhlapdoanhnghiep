@@ -2021,6 +2021,108 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
@@ -40788,6 +40890,74 @@ var staticRenderFns = [
                 [
                   _c("i", { staticClass: "fa fa-plus" }),
                   _vm._v(" Add\n                    item")
+                ]
+              )
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "col-lg-5 connectedSortable ui-sortable" }, [
+        _c(
+          "div",
+          {
+            staticClass: "box box-primary",
+            staticStyle: { position: "relative", left: "0px", top: "0px" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "box-header ui-sortable-handle",
+                staticStyle: { cursor: "move" }
+              },
+              [
+                _c("i", { staticClass: "fa fa-user" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "box-title" }, [_vm._v("Tài khoản")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "box-body" }, [
+              _c(
+                "table",
+                { staticClass: "table table-hover table-striped text-center" },
+                [
+                  _c("tr", [
+                    _c("th", [_vm._v("STT")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Tài khoản")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Bài viết")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Lượt xem")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Thời gian truy cập (phút)")])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Supper admin")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("100")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("3000")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("10")])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("dangthang")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("50")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("3000")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("5")])
+                  ])
                 ]
               )
             ])
