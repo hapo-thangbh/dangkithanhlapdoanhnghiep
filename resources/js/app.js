@@ -12,23 +12,124 @@ const toast = swal.mixin({
     timer: 5000
   });
 window.toast = toast;
+import Dashboard from './components/Dashboard.vue'
+import User from './components/User.vue'
+import Profile from './components/Profile.vue'
 
 Vue.use(VueRouter)
 let routes = [
     { 
-        path: '/dashboard', 
-        component: require('./components/Dashboard.vue').default 
+        path: '/admin/dashboard', 
+        // component: require('./components/Dashboard.vue').default 
+        component: Dashboard
     },
     { 
-        path: '/user', 
+        path: '/admin/user', 
         component: require('./components/Users.vue').default 
     },
     { 
-        path: '/profile', 
+        path: '/admin/profile', 
         name:'profile', 
         component: require('./components/Profile.vue').default 
     }
 ]
+
+// export default new Router({
+//     mode: 'history',
+//     base: '/',
+//     linkActiveClass: 'open active',
+//     routes: [{
+//       path: '/',
+//       component: DefaultContainer,
+//       children: [{
+//         path: '/',
+//         component: ListVoice,
+//         name: 'listVoice',
+//         beforeEnter: guard
+//       },
+//       {
+//         path: '/voice/list',
+//         component: ListVoice,
+//         name: 'listVoice',
+//         beforeEnter: guard
+//       },
+//       {
+//         path: '/bookmark/list',
+//         component: ListBookmark,
+//         name: 'listBookmark',
+//         beforeEnter: guard
+//       },
+//       {
+//         path: '/history/list',
+//         component: ListHistory,
+//         name: 'listHistory',
+//         beforeEnter: guard
+//       },
+//       {
+//         path: '/auth/changepassword',
+//         component: ChangePassword,
+//         name: 'changePassword',
+//         beforeEnter: guard
+//       }
+//       ]
+//     },
+//     {
+//       path: '/admin',
+//       component: AdminContainer,
+//       children: [{
+//         path: '/',
+//         component: Dashboard,
+//         name: 'dashboard',
+//         beforeEnter: guardAdmin
+//       },
+//       {
+//         path: '/admin/user',
+//         name: 'listUserAdmin',
+//         component: User,
+//         beforeEnter: guardAdmin
+//       },
+//       {
+//         path: '/admin/user/add',
+//         name: 'addUser',
+//         component: AddUser,
+//         beforeEnter: guardAdmin
+//       },
+//       {
+//         path: '/admin/user/:id/edit',
+//         name: 'editUser',
+//         component: EditUser,
+//         beforeEnter: guardAdmin
+//       }, {
+//         path: '/admin/group',
+//         name: 'listGroupAdmin',
+//         component: Group,
+//         beforeEnter: guardAdmin
+//       },
+//       {
+//         path: '/admin/group/add',
+//         name: 'addGroup',
+//         component: AddGroup,
+//         beforeEnter: guardAdmin
+//       },
+//     },
+//     {
+//       path: '*',
+//       redirect: {
+//         name: '404'
+//       }
+//     },
+//     {
+//       path: '/404',
+//       name: '404',
+//       component: PageNotFound
+//     },
+//     {
+//       path: '/login',
+//       component: Login,
+//       name: 'login'
+//     }]   
+// })
+
 
 const router = new VueRouter({
     mode:'history', 

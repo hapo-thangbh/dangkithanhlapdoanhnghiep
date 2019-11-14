@@ -10,6 +10,7 @@ mix.js([
 	'resources/css/modules/admin/js/app.js',
 ], './js/app.js')
 .setPublicPath('./')
+
 mix.styles([
     'resources/css/modules/admin/css/bootstrap.min.css',
     'resources/css/modules/admin/css/font-awesome/css/font-awesome.min.css',
@@ -17,8 +18,8 @@ mix.styles([
     'resources/css/modules/admin/css/_all-skins.min.css',
     'resources/css/modules/admin/css/bootstrap-datepicker.min.css',
     'resources/css/modules/admin/css/app.css',
-], './css/all.css')
+], './css/backend/all.css')
+mix.sass('resources/sass/backend/app.scss', './css/backend/app.css')
 
-mix.sass('resources/sass/app.scss', './css/app.css')
-
+mix.sass('resources/sass/frontend/app.scss', './css/frontend/app.css')
 mix.disableNotifications()
