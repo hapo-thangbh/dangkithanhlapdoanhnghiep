@@ -19,7 +19,7 @@ import Profile from './components/Profile.vue'
 Vue.use(VueRouter)
 let routes = [
     { 
-        path: '/admin/dashboard', 
+        path: '/admin', 
         name: 'dashboard',
         component: Dashboard
     },
