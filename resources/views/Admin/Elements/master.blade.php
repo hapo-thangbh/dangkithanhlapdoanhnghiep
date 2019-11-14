@@ -20,7 +20,7 @@
             @include('Admin.Elements.sidebar')
 
             <div class="content-wrapper">
-                @yield('content')
+                <router-view></router-view>
             </div>
             
             @include('Admin.Elements.footer')

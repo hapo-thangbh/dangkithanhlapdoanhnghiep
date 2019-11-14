@@ -17,7 +17,7 @@
                 {{-- <a href="/dashboard">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a> --}}
-                <router-link to="/dashboard">
+                <router-link :to="{ name: 'dashboard' }">
                     <i class="fa fa-dashboard" style="color:rgb(230, 186, 16);"></i> <span>Trang chủ</span>
                 </router-link>
             </li>
@@ -30,7 +30,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu" style="display: none;">
-                    <li><router-link to="/user"><i class="fa fa-users"></i> Danh sách người dùng</router-link></li>
+                    <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Danh sách người dùng</router-link></li>
                     <li>
                         <router-link :to="{ name:'profile' }"><i class="fa fa-user" style="color:#ff8000;"></i> <span>Cập nhật thông tin</span></router-link>
                     </li>
