@@ -20,6 +20,10 @@ Vue.use(VueRouter)
 let routes = [
     { 
         path: '/admin', 
+        redirect: '/admin/dashboard'
+    },
+    { 
+        path: '/admin/dashboard', 
         name: 'dashboard',
         component: Dashboard
     },

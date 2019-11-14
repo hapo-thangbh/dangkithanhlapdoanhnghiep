@@ -64041,6 +64041,9 @@ window.toast = toast;
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
   path: '/admin',
+  redirect: '/admin/dashboard'
+}, {
+  path: '/admin/dashboard',
   name: 'dashboard',
   component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
