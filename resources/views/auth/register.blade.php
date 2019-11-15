@@ -6,8 +6,8 @@
     <title>Đăng ký tài khoản</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/backend/app.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/backend/all.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -77,7 +77,7 @@
         <!-- /.form-box -->
       </div>
       <!-- /.register-box -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>
 
 </html>
