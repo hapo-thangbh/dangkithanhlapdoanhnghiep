@@ -19,12 +19,16 @@
 
             @include('Admin.Elements.sidebar')
 
-            <div class="content-wrapper">
-                <router-view></router-view>
-            </div>
+            <router-view></router-view>
             
             @include('Admin.Elements.footer')
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('body').layout('fix');
+    });
+</script>

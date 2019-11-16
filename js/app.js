@@ -40568,7 +40568,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "content-wrapper dashboard" }, [
       _c("section", { staticClass: "content-header" }, [
         _c("h1", [_vm._v("Trang chủ")]),
         _vm._v(" "),
@@ -40894,7 +40894,166 @@ var staticRenderFns = [
               )
             ])
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "box box-success" }, [
+          _c(
+            "div",
+            {
+              staticClass: "box-header ui-sortable-handle",
+              staticStyle: { cursor: "move" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-comments-o" }),
+              _vm._v(" "),
+              _c("h3", { staticClass: "box-title" }, [
+                _vm._v("Bình luận bài viết")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "slimScrollDiv",
+              staticStyle: {
+                position: "relative",
+                overflow: "hidden",
+                width: "auto",
+                height: "250px"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "box-body chat",
+                  staticStyle: {
+                    overflow: "hidden",
+                    width: "auto",
+                    height: "250px"
+                  },
+                  attrs: { id: "chat-box" }
+                },
+                [
+                  _c("div", { staticClass: "item" }, [
+                    _c("img", {
+                      staticClass: "online",
+                      attrs: { src: "images/default.jpg", alt: "user image" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "message" }, [
+                      _c("a", { staticClass: "name", attrs: { href: "#" } }, [
+                        _c("small", { staticClass: "text-muted pull-right" }, [
+                          _c("i", { staticClass: "fa fa-clock-o" }),
+                          _vm._v(" 2:15")
+                        ]),
+                        _vm._v(
+                          "\n                                Mike Doe\n                            "
+                        )
+                      ]),
+                      _vm._v(
+                        "\n                            I would like to meet you to discuss the latest news about\n                            the arrival of the new theme. They say it is going to be one the\n                            best themes on the market\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "attachment" }, [
+                      _c("h4", [_vm._v("Attachments:")]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "filename" }, [
+                        _vm._v(
+                          "\n                                Theme-thumbnail-image.jpg\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "pull-right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary btn-sm btn-flat",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Open")]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "item" }, [
+                    _c("img", {
+                      staticClass: "offline",
+                      attrs: { src: "images/default.jpg", alt: "user image" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "message" }, [
+                      _c("a", { staticClass: "name", attrs: { href: "#" } }, [
+                        _c("small", { staticClass: "text-muted pull-right" }, [
+                          _c("i", { staticClass: "fa fa-clock-o" }),
+                          _vm._v(" 5:15")
+                        ]),
+                        _vm._v(
+                          "\n                                Alexander Pierce\n                            "
+                        )
+                      ]),
+                      _vm._v(
+                        "\n                            I would like to meet you to discuss the latest news about\n                            the arrival of the new theme. They say it is going to be one the\n                            best themes on the market\n                        "
+                      )
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slimScrollBar",
+                staticStyle: {
+                  background: "rgb(0, 0, 0)",
+                  width: "7px",
+                  position: "absolute",
+                  top: "0px",
+                  opacity: "0.4",
+                  display: "none",
+                  "border-radius": "7px",
+                  "z-index": "99",
+                  right: "1px",
+                  height: "184.911px"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slimScrollRail",
+                staticStyle: {
+                  width: "7px",
+                  height: "100%",
+                  position: "absolute",
+                  top: "0px",
+                  display: "none",
+                  "border-radius": "7px",
+                  background: "rgb(51, 51, 51)",
+                  opacity: "0.2",
+                  "z-index": "90",
+                  right: "1px"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "box-footer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { placeholder: "Type message..." }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-btn" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-success", attrs: { type: "button" } },
+                  [_c("i", { staticClass: "fa fa-plus" })]
+                )
+              ])
+            ])
+          ])
+        ])
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "col-lg-5 connectedSortable ui-sortable" }, [
@@ -40995,7 +41154,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "content-wrapper" }, [
       _c("section", { staticClass: "content-header" }, [
         _c("h1", [_vm._v("Profile")]),
         _vm._v(" "),
@@ -41200,7 +41359,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "content-wrapper" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [

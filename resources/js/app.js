@@ -12,6 +12,7 @@ const toast = swal.mixin({
     timer: 5000
   });
 window.toast = toast;
+
 import Dashboard from './components/Dashboard.vue'
 import User from './components/Users.vue'
 import Profile from './components/Profile.vue'

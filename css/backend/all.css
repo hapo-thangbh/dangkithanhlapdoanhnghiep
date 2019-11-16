@@ -8384,10 +8384,11 @@ body {
     }
 }
 
+
 .content-wrapper {
-    min-height: calc(100% - 102px);
+    min-height: 400px;
     background-color: #ecf0f5;
-    z-index: 800
+    z-index: 800;
 }
 
 .main-footer {

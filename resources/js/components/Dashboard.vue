@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper dashboard">
         <section class="content-header">
             <h1>Trang chủ</h1>
             <ol class="breadcrumb">
@@ -178,7 +178,7 @@
                 </div>
             </div>
 
-            <!-- <div class="box box-success">
+            <div class="box box-success">
                 <div class="box-header ui-sortable-handle" style="cursor: move;">
                     <i class="fa fa-comments-o"></i>
                     <h3 class="box-title">Bình luận bài viết</h3>
@@ -239,7 +239,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </section>
 
         <section class="col-lg-5 connectedSortable ui-sortable">
