@@ -15,7 +15,7 @@
                     <div class="box">
                         <div class="row">
                             <div class="col-md-12">
-                                <router-link :to="{ name:'listUser' }" class="txt-white">
+                                <router-link :to="{ name:'listPost' }">
                                     <button class="btn btn-primary pull-right mr-3 mt-3">
                                             <i class="fa fa-backward"></i> Trở về
                                     </button>
@@ -44,6 +44,13 @@
                                         <textarea cols="30" rows="10" class="form-control"></textarea>
                                     </div>
                                 </div>
+
+                                <!-- <div class="row form-group">
+                                    <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" data-toggle="toggle">
+                                    </div>
+                                </div> -->
 
                                 <div class="row form-group">
                                     <div class="col-md-12 text-center">

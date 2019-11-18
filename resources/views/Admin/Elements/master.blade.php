@@ -26,9 +26,3 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
-
-<script>
-    $(document).ready(function () {
-        $('body').layout('fix');
-    });
-</script>

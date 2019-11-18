@@ -2240,6 +2240,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AddPost'
 });
@@ -2255,6 +2262,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41770,23 +41784,16 @@ var render = function() {
                 "div",
                 { staticClass: "col-md-12" },
                 [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "txt-white",
-                      attrs: { to: { name: "listUser" } }
-                    },
-                    [
-                      _c(
-                        "button",
-                        { staticClass: "btn btn-primary pull-right mr-3 mt-3" },
-                        [
-                          _c("i", { staticClass: "fa fa-backward" }),
-                          _vm._v(" Trở về\n                                ")
-                        ]
-                      )
-                    ]
-                  )
+                  _c("router-link", { attrs: { to: { name: "listPost" } } }, [
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-primary pull-right mr-3 mt-3" },
+                      [
+                        _c("i", { staticClass: "fa fa-backward" }),
+                        _vm._v(" Trở về\n                                ")
+                      ]
+                    )
+                  ])
                 ],
                 1
               )
@@ -41940,23 +41947,16 @@ var render = function() {
                 "div",
                 { staticClass: "col-md-12" },
                 [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "txt-white",
-                      attrs: { to: { name: "listUser" } }
-                    },
-                    [
-                      _c(
-                        "button",
-                        { staticClass: "btn btn-primary pull-right mr-3 mt-3" },
-                        [
-                          _c("i", { staticClass: "fa fa-backward" }),
-                          _vm._v(" Trở về\n                                ")
-                        ]
-                      )
-                    ]
-                  )
+                  _c("router-link", { attrs: { to: { name: "listPost" } } }, [
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-primary pull-right mr-3 mt-3" },
+                      [
+                        _c("i", { staticClass: "fa fa-backward" }),
+                        _vm._v(" Trở về\n                                ")
+                      ]
+                    )
+                  ])
                 ],
                 1
               )
@@ -42238,7 +42238,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_c("i", { staticClass: "fa fa-indent" }), _vm._v(" Bài viết")]),
+      _c("h1", [_c("i", { staticClass: "fa fa-paste" }), _vm._v(" Bài viết")]),
       _vm._v(" "),
       _c("ol", { staticClass: "breadcrumb" }, [
         _c("li", [
@@ -59852,6 +59852,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
+/***/ "./resources/css/modules/admin/js/bootstrap-toggle.min.js":
+/*!****************************************************************!*\
+  !*** ./resources/css/modules/admin/js/bootstrap-toggle.min.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\Freelancer\\dangkithanhlapdoanhnghiep\\resources\\css\\modules\\admin\\js\\bootstrap-toggle.min.js'");
+
+/***/ }),
+
 /***/ "./resources/css/modules/admin/js/bootstrap.min.js":
 /*!*********************************************************!*\
   !*** ./resources/css/modules/admin/js/bootstrap.min.js ***!
@@ -66593,9 +66604,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/modules/admin/js/jquery.min.js ./resources/css/modules/admin/js/bootstrap.min.js ./resources/css/modules/admin/js/bootstrap-datepicker.min.js ./resources/css/modules/admin/js/fastclick.js ./resources/css/modules/admin/js/adminlte.min.js ./resources/css/modules/admin/js/app.js ./resources/sass/backend/app.scss ./resources/sass/frontend/app.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/modules/admin/js/jquery.min.js ./resources/css/modules/admin/js/bootstrap.min.js ./resources/css/modules/admin/js/bootstrap-datepicker.min.js ./resources/css/modules/admin/js/fastclick.js ./resources/css/modules/admin/js/adminlte.min.js ./resources/css/modules/admin/js/bootstrap-toggle.min.js ./resources/css/modules/admin/js/app.js ./resources/sass/backend/app.scss ./resources/sass/frontend/app.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66605,6 +66616,7 @@ __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\res
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-toggle.min.js */"./resources/css/modules/admin/js/bootstrap-toggle.min.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
