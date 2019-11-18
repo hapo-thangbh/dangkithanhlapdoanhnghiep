@@ -13,32 +13,36 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
-                        <div class="row d-flex justify-content-center ml-3">
-                            <div class="col-md-3 form-group">
-                                <input type="text" class="form-control" placeholder="ID">
-                            </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-3 form-group">
+                                    <input type="text" class="form-control" placeholder="ID">
+                                </div>
 
-                            <div class="col-md-3 form-group">
-                                <input type="text" class="form-control" placeholder="Tiêu đề">
-                            </div>
+                                <div class="col-md-3 form-group">
+                                    <input type="text" class="form-control" placeholder="Tiêu đề">
+                                </div>
 
-                            <div class="col-md-3 form-group">
-                                <input type="text" class="form-control">
-                            </div>
+                                <div class="col-md-3 form-group">
+                                    <input type="text" class="form-control">
+                                </div>
 
-                            <div class="col-md-3 form-group">
-                                <button class="btn btn-primary">
-                                    <i class="fa fa-search"></i> Tìm kiếm
-                                </button>
+                                <div class="col-md-3 form-group">
+                                    <button class="btn btn-primary">
+                                        <i class="fa fa-search"></i> Tìm kiếm
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <hr>
                         <button class="btn btn-primary ml-3">
                             <i class="fa fa-refresh"></i> Làm mới
                         </button>
-                        <button class="btn btn-success pull-right mb-3 mr-3">
-                            <i class="fa fa-plus"></i> Tạo mới
-                        </button>
+                        <router-link :to="{ name:'addPost' }">
+                            <button class="btn btn-success pull-right mb-3 mr-3">
+                                <i class="fa fa-plus"></i> Tạo mới
+                            </button>
+                        </router-link>
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>

@@ -11117,6 +11117,10 @@ a.text-dark:focus {
   min-height: 600px !important;
 }
 
+.h-700 {
+  min-height: 700px !important;
+}
+
 .h-800 {
   min-height: 800px !important;
 }
@@ -11163,5 +11167,17 @@ thead {
 
 .swal2-styled:focus {
   box-shadow: none !important;
+}
+
+.txt-white {
+  color: #ffffff;
+}
+
+.txt-white:hover {
+  color: #ffffff;
+}
+
+label {
+  font-weight: 500 !important;
 }
 

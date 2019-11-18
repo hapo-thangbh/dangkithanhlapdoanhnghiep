@@ -14,9 +14,14 @@ const toast = swal.mixin({
 window.toast = toast;
 
 import Dashboard from './components/Dashboard.vue'
-import User from './components/Users.vue'
-import Posts from './components/Posts.vue'
-import Profile from './components/Profile.vue'
+
+import ListUser from './components/User/ListUser.vue'
+import AddUser from './components/User/AddUser.vue'
+import EditUser from './components/User/EditUser.vue'
+import Profile from './components/User/Profile.vue'
+
+import ListPost from './components/Post/ListPost.vue'
+import AddPost from './components/Post/AddPost.vue'
 
 Vue.use(VueRouter)
 let routes = [
@@ -32,7 +37,17 @@ let routes = [
     { 
         path: '/admin/user', 
         name: 'listUser',
-        component: User
+        component: ListUser
+    },
+    { 
+        path: '/admin/user/add', 
+        name: 'addUser',
+        component: AddUser
+    },
+    { 
+        path: '/admin/user/edit', 
+        name: 'editUser',
+        component: EditUser
     },
     { 
         path: '/admin/profile', 
@@ -40,9 +55,14 @@ let routes = [
         component: Profile
     },
     { 
-        path: '/admin/posts', 
+        path: '/admin/post', 
         name:'listPost', 
-        component: Posts
+        component: ListPost
+    },
+    { 
+        path: '/admin/post/add', 
+        name:'addPost', 
+        component: AddPost
     }
 ]
 

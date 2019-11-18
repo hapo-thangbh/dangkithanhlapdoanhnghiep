@@ -23,10 +23,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'HomeController@dashboard');
 Route::get('/admin/dashboard', 'HomeController@dashboard');
+
 Route::get('/admin/user', 'HomeController@dashboard');
+Route::get('/admin/user/add', 'HomeController@dashboard');
+Route::get('/admin/user/edit', 'HomeController@dashboard');
+
 Route::get('/admin/profile', 'HomeController@dashboard');
 
-Route::get('/admin/posts', 'HomeController@dashboard');
+Route::get('/admin/post', 'HomeController@dashboard');
+Route::get('/admin/post/add', 'HomeController@dashboard');
 
 // Route::get('{any}', function () {
 //     return view('Admin.Elements.master');
