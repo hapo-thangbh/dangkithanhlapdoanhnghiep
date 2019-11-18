@@ -2299,6 +2299,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
   methods: {
@@ -2434,6 +2437,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -41415,6 +41421,8 @@ var render = function() {
                     _vm._v(" "),
                     _vm._m(6),
                     _vm._v(" "),
+                    _c("td", [_vm._v("18/11/2019")]),
+                    _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _c(
                         "button",
@@ -41452,6 +41460,8 @@ var render = function() {
                     _vm._m(7),
                     _vm._v(" "),
                     _vm._m(8),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("18/11/2019")]),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _c(
@@ -41581,6 +41591,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticStyle: { width: "50px" } }, [_vm._v("Trạng thái")]),
         _vm._v(" "),
+        _c("th", { staticStyle: { width: "50px" } }, [_vm._v("Ngày tạo")]),
+        _vm._v(" "),
         _c(
           "th",
           { staticClass: "text-center", staticStyle: { width: "100px" } },
@@ -41658,7 +41670,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper" }, [
+    return _c("div", { staticClass: "content-wrapper h-600" }, [
       _c("section", { staticClass: "content-header" }, [
         _c("h1", [_vm._v("Profile")]),
         _vm._v(" "),
@@ -41894,6 +41906,8 @@ var render = function() {
                     _vm._v(" "),
                     _vm._m(5),
                     _vm._v(" "),
+                    _c("td", [_vm._v("18/11/2019")]),
+                    _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _c(
                         "button",
@@ -41931,6 +41945,8 @@ var render = function() {
                     _c("td", [_vm._v("admin@gmail.com")]),
                     _vm._v(" "),
                     _vm._m(6),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("18/11/2019")]),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _c(
@@ -42021,7 +42037,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-3 form-group" }, [
           _c("button", { staticClass: "btn btn-primary" }, [
             _c("i", { staticClass: "fa fa-search" }),
-            _vm._v(" Tìm kiếm\n                            ")
+            _vm._v(" Tìm kiếm\n                                ")
           ])
         ])
       ]
@@ -42033,7 +42049,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("button", { staticClass: "btn btn-primary ml-3" }, [
       _c("i", { staticClass: "fa fa-refresh" }),
-      _vm._v(" Làm mới\n                    ")
+      _vm._v(" Làm mới\n                        ")
     ])
   },
   function() {
@@ -42045,7 +42061,7 @@ var staticRenderFns = [
       { staticClass: "btn btn-success pull-right mb-3 mr-3" },
       [
         _c("i", { staticClass: "fa fa-plus" }),
-        _vm._v(" Tạo mới\n                    ")
+        _vm._v(" Tạo mới\n                        ")
       ]
     )
   },
@@ -42055,13 +42071,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("ID")]),
+        _c("th", { staticStyle: { width: "20px" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("Tên tài khoản")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
         _c("th", [_vm._v("Quyền người dùng")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Ngày tạo")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Hành động")])
       ])

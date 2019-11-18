@@ -11113,6 +11113,10 @@ a.text-dark:focus {
   min-height: 1200px !important;
 }
 
+.h-600 {
+  min-height: 600px !important;
+}
+
 .h-800 {
   min-height: 800px !important;
 }

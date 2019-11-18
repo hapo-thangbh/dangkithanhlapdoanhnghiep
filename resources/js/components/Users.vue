@@ -42,10 +42,11 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th style="width: 20px">ID</th>
                                     <th>Tên tài khoản</th>
                                     <th>Email</th>
                                     <th>Quyền người dùng</th>
+																		<td>Ngày tạo</td>
                                     <th class="text-center">Hành động</th>
                                 </tr>
                             </thead>
@@ -58,6 +59,7 @@
                                     <td>
                                         <label class="label label-warning">admin</label>
                                     </td>
+																		<td>18/11/2019</td>
                                     <td class="text-center">
                                         <button @click="editUser()" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i>
@@ -76,6 +78,7 @@
                                     <td>
                                         <label class="label label-primary">user</label>
                                     </td>
+																		<td>18/11/2019</td>
                                     <td class="text-center">
                                         <button @click="editUser()" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i>

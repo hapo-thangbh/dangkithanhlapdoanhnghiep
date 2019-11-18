@@ -46,6 +46,7 @@
                                     <th style="width: 100px">Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th style="width: 50px">Trạng thái</th>
+                                    <th style="width: 50px">Ngày tạo</th>
                                     <th class="text-center" style="width: 100px">Hành động</th>
                                 </tr>
                             </thead>
@@ -72,6 +73,7 @@
                                     <td>
                                         <label class="label label-warning">Công khai</label>
                                     </td>
+                                    <td>18/11/2019</td>
                                     <td class="text-center">
                                         <button @click="editPost()" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i>
@@ -104,6 +106,7 @@
                                     <td>
                                         <label class="label label-warning">Riêng tư</label>
                                     </td>
+                                    <td>18/11/2019</td>
                                     <td class="text-center">
                                         <button @click="editPost()" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i>
