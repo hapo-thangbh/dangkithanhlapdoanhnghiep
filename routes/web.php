@@ -26,6 +26,8 @@ Route::get('/admin/dashboard', 'HomeController@dashboard');
 Route::get('/admin/user', 'HomeController@dashboard');
 Route::get('/admin/profile', 'HomeController@dashboard');
 
+Route::get('/admin/posts', 'HomeController@dashboard');
+
 // Route::get('{any}', function () {
 //     return view('Admin.Elements.master');
 // })->where('any','.*');

@@ -15,6 +15,7 @@ window.toast = toast;
 
 import Dashboard from './components/Dashboard.vue'
 import User from './components/Users.vue'
+import Posts from './components/Posts.vue'
 import Profile from './components/Profile.vue'
 
 Vue.use(VueRouter)
@@ -37,6 +38,11 @@ let routes = [
         path: '/admin/profile', 
         name:'profile', 
         component: Profile
+    },
+    { 
+        path: '/admin/posts', 
+        name:'listPost', 
+        component: Posts
     }
 ]
 

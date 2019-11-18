@@ -11113,3 +11113,51 @@ a.text-dark:focus {
   min-height: 1200px !important;
 }
 
+.h-800 {
+  min-height: 800px !important;
+}
+
+.h-1000 {
+  min-height: 1000px !important;
+}
+
+.h-1200 {
+  min-height: 1200px !important;
+}
+
+.h-1400 {
+  min-height: 1400px !important;
+}
+
+.btn {
+  border-radius: 0px !important;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+hr {
+  border-top: 1px solid #ddd !important;
+  margin: 10px 0 !important;
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+thead {
+  font-size: 12px;
+}
+
+.swal2-styled {
+  box-shadow: none !important;
+  margin: 0.3125em !important;
+  padding: 0.35em 1.15em !important;
+  border-radius: 0 !important;
+}
+
+.swal2-styled:focus {
+  box-shadow: none !important;
+}
+
