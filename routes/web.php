@@ -32,6 +32,7 @@ Route::get('/admin/profile', 'HomeController@dashboard');
 
 Route::get('/admin/post', 'HomeController@dashboard');
 Route::get('/admin/post/add', 'HomeController@dashboard');
+Route::get('/admin/post/edit', 'HomeController@dashboard');
 
 // Route::get('{any}', function () {
 //     return view('Admin.Elements.master');

@@ -79,9 +79,11 @@
                                     </td>
                                     <td>18/11/2019</td>
                                     <td class="text-center">
-                                        <button @click="editPost()" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
+                                        <router-link :to="{ name:'editPost' }">
+                                            <button class="btn btn-sm btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </router-link>
 
                                         <button @click="deletePost()" class="btn btn-sm btn-danger">
                                             <i class="fa fa-times"></i>
@@ -112,9 +114,11 @@
                                     </td>
                                     <td>18/11/2019</td>
                                     <td class="text-center">
-                                        <button @click="editPost()" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
+                                        <router-link :to="{ name:'editPost' }">
+                                            <button class="btn btn-sm btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </router-link>
 
                                         <button @click="deletePost()" class="btn btn-sm btn-danger">
                                             <i class="fa fa-times"></i>

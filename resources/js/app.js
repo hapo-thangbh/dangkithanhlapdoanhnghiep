@@ -22,6 +22,7 @@ import Profile from './components/User/Profile.vue'
 
 import ListPost from './components/Post/ListPost.vue'
 import AddPost from './components/Post/AddPost.vue'
+import EditPost from './components/Post/EditPost.vue'
 
 Vue.use(VueRouter)
 let routes = [
@@ -63,6 +64,11 @@ let routes = [
         path: '/admin/post/add', 
         name:'addPost', 
         component: AddPost
+    },
+    { 
+        path: '/admin/post/edit', 
+        name:'editPost', 
+        component: EditPost
     }
 ]
 
