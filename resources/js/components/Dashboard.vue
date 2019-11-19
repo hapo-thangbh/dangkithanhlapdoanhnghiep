@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper dashboard">
+    <div class="content-wrapper h-1400">
         <section class="content-header">
             <h1><i class="fa fa-dashboard"></i> Trang chủ</h1>
             <ol class="breadcrumb">

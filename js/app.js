@@ -2247,6 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AddPost'
 });
@@ -2262,6 +2263,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -41176,7 +41178,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper dashboard" }, [
+    return _c("div", { staticClass: "content-wrapper h-1400" }, [
       _c("section", { staticClass: "content-header" }, [
         _c("h1", [
           _c("i", { staticClass: "fa fa-dashboard" }),
@@ -41884,6 +41886,30 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row form-group" }, [
+          _c(
+            "label",
+            { staticClass: "col-md-3 text-md-right", attrs: { for: "status" } },
+            [_vm._v("Trạng thái")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("input", {
+              staticClass: "toggle-ios toggle-primary",
+              attrs: { type: "checkbox", id: "switch" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "lbl-checkbox lbl-primary",
+                attrs: { for: "switch" }
+              },
+              [_vm._v("Toggle")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row form-group" }, [
           _c("div", { staticClass: "col-md-12 text-center" }, [
             _c(
               "button",
@@ -42043,6 +42069,30 @@ var staticRenderFns = [
               staticClass: "form-control",
               attrs: { cols: "30", rows: "10" }
             })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row form-group" }, [
+          _c(
+            "label",
+            { staticClass: "col-md-3 text-md-right", attrs: { for: "status" } },
+            [_vm._v("Trạng thái")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("input", {
+              staticClass: "toggle-ios toggle-primary",
+              attrs: { type: "checkbox", id: "switch" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "lbl-checkbox lbl-primary",
+                attrs: { for: "switch" }
+              },
+              [_vm._v("Toggle")]
+            )
           ])
         ]),
         _vm._v(" "),
@@ -59852,17 +59902,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "./resources/css/modules/admin/js/bootstrap-toggle.min.js":
-/*!****************************************************************!*\
-  !*** ./resources/css/modules/admin/js/bootstrap-toggle.min.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\Freelancer\\dangkithanhlapdoanhnghiep\\resources\\css\\modules\\admin\\js\\bootstrap-toggle.min.js'");
-
-/***/ }),
-
 /***/ "./resources/css/modules/admin/js/bootstrap.min.js":
 /*!*********************************************************!*\
   !*** ./resources/css/modules/admin/js/bootstrap.min.js ***!
@@ -66604,9 +66643,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/modules/admin/js/jquery.min.js ./resources/css/modules/admin/js/bootstrap.min.js ./resources/css/modules/admin/js/bootstrap-datepicker.min.js ./resources/css/modules/admin/js/fastclick.js ./resources/css/modules/admin/js/adminlte.min.js ./resources/css/modules/admin/js/bootstrap-toggle.min.js ./resources/css/modules/admin/js/app.js ./resources/sass/backend/app.scss ./resources/sass/frontend/app.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/modules/admin/js/jquery.min.js ./resources/css/modules/admin/js/bootstrap.min.js ./resources/css/modules/admin/js/bootstrap-datepicker.min.js ./resources/css/modules/admin/js/fastclick.js ./resources/css/modules/admin/js/adminlte.min.js ./resources/css/modules/admin/js/app.js ./resources/sass/backend/app.scss ./resources/sass/frontend/app.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66616,7 +66655,6 @@ __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\res
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-toggle.min.js */"./resources/css/modules/admin/js/bootstrap-toggle.min.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
 __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");

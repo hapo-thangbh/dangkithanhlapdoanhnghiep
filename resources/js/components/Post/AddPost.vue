@@ -45,12 +45,13 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="row form-group">
+                                <div class="row form-group">
                                     <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
                                     <div class="col-md-6">
-                                        <input type="checkbox" data-toggle="toggle">
+                                        <input type="checkbox" id="switch" class="toggle-ios toggle-primary"/>
+                                        <label for="switch" class="lbl-checkbox lbl-primary">Toggle</label>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <div class="row form-group">
                                     <div class="col-md-12 text-center">
