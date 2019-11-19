@@ -49,7 +49,7 @@
                                     <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
                                     <div class="col-md-6">
                                         <input type="checkbox" id="switch" class="toggle-ios toggle-primary"/>
-                                        <label for="switch" class="lbl-checkbox lbl-primary">Toggle</label>
+                                        <label for="switch" class="tgl-checkbox tgl-primary"></label>
                                     </div>
                                 </div>
 

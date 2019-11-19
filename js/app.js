@@ -41898,14 +41898,10 @@ var staticRenderFns = [
               attrs: { type: "checkbox", id: "switch" }
             }),
             _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "tgl-checkbox tgl-primary",
-                attrs: { for: "switch" }
-              },
-              [_vm._v("Toggle")]
-            )
+            _c("label", {
+              staticClass: "tgl-checkbox tgl-primary",
+              attrs: { for: "switch" }
+            })
           ])
         ]),
         _vm._v(" "),
@@ -42085,14 +42081,10 @@ var staticRenderFns = [
               attrs: { type: "checkbox", id: "switch" }
             }),
             _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "lbl-checkbox lbl-primary",
-                attrs: { for: "switch" }
-              },
-              [_vm._v("Toggle")]
-            )
+            _c("label", {
+              staticClass: "tgl-checkbox tgl-primary",
+              attrs: { for: "switch" }
+            })
           ])
         ]),
         _vm._v(" "),
