@@ -41569,7 +41569,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),
@@ -41723,7 +41723,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),
@@ -42763,7 +42763,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),
@@ -42946,7 +42946,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),
@@ -43422,7 +43422,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),
@@ -43611,7 +43611,7 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-sm btn-default",
-                attrs: { type: "rest" }
+                attrs: { type: "reset" }
               },
               [
                 _c("i", { staticClass: "fa fa-refresh" }),

@@ -55,7 +55,7 @@
 
                                 <div class="row form-group">
                                     <div class="col-md-12 text-center">
-                                        <button type="rest" class="btn btn-sm btn-default">
+                                        <button type="reset" class="btn btn-sm btn-default">
                                             <i class="fa fa-refresh"></i> Làm mới
                                         </button>
                                         <button type="submit" class="btn btn-sm btn-success">
