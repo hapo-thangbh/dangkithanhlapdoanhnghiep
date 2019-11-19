@@ -34,6 +34,10 @@ Route::get('/admin/post', 'HomeController@dashboard');
 Route::get('/admin/post/add', 'HomeController@dashboard');
 Route::get('/admin/post/edit', 'HomeController@dashboard');
 
+Route::get('/admin/category', 'HomeController@dashboard');
+Route::get('/admin/category/add', 'HomeController@dashboard');
+Route::get('/admin/category/edit', 'HomeController@dashboard');
+
 // Route::get('{any}', function () {
 //     return view('Admin.Elements.master');
 // })->where('any','.*');

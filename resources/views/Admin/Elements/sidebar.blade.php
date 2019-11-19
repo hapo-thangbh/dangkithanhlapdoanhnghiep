@@ -20,6 +20,7 @@
             </li>
             <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Người dùng</router-link></li>
             <li><router-link :to="{ name: 'listPost' }"><i class="fa fa-paste"></i> Bài viết</router-link></li>
+            <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Chuyên mục</router-link></li>
             <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

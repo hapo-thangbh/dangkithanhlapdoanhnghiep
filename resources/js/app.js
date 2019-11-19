@@ -24,6 +24,10 @@ import ListPost from './components/Post/ListPost.vue'
 import AddPost from './components/Post/AddPost.vue'
 import EditPost from './components/Post/EditPost.vue'
 
+import ListCategory from './components/Category/ListCategory.vue'
+import AddCategory from './components/Category/AddCategory.vue'
+import EditCategory from './components/Category/EditCategory.vue'
+
 Vue.use(VueRouter)
 let routes = [
     { 
@@ -69,6 +73,21 @@ let routes = [
         path: '/admin/post/edit', 
         name:'editPost', 
         component: EditPost
+    },
+    { 
+        path: '/admin/category', 
+        name:'listCategory', 
+        component: ListCategory
+    },
+    { 
+        path: '/admin/category/add', 
+        name:'addCategory', 
+        component: AddCategory
+    },
+    { 
+        path: '/admin/category/edit', 
+        name:'editCategory', 
+        component: EditCategory
     }
 ]
 
