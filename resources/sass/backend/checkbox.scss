@@ -1,22 +1,22 @@
-.toggle-ios{
-	height: 0;
-	width: 0;
-	visibility: hidden;
+.toggle-ios {
+    height: 0;
+    width: 0;
+    visibility: hidden;
 }
 
-.lbl-checkbox {
-	cursor: pointer;
-	text-indent: -9999px;
-	width: 70px;
-	height: 32px;
-	background: grey;
-	display: block;
-	border-radius: 100px;
-	position: relative;
-	top: -22px;
+.tgl-checkbox {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 70px;
+    height: 32px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    top: -22px;
 }
 
-.lbl-checkbox:after {
+.tgl-checkbox:after {
     content: "";
     position: absolute;
     top: 1px;
@@ -29,18 +29,176 @@
     transition: 0.3s;
 }
 
-.toggle-ios:checked + .lbl-checkbox {
-	background: #008a23;
-}
-.toggle-primary:checked + .lbl-primary{
-	background: #2d36a6!important;
+.toggle-ios:checked+.tgl-checkbox {
+    background: #008a23;
 }
 
-.toggle-ios:checked + .lbl-checkbox:after {
-	left: calc(100% - 1px);
-	transform: translateX(-100%);
+.toggle-primary:checked+.tgl-primary {
+    background: #2d36a6 !important;
 }
 
-.lbl-checkbox:active:after {
-	width: 130px;
+.toggle-ios:checked+.tgl-checkbox:after {
+    left: calc(100% - 1px);
+    transform: translateX(-100%);
+}
+
+.tgl-checkbox:active:after {
+    width: 130px;
+}
+
+
+.checkbox-danger {
+	margin-right: 5px;
+    span {
+        cursor: pointer;
+    }
+
+    input {
+        &:checked+span {
+			background-color: #ff0000;
+			transition: .6s ease;
+
+            &:before {
+                content: "";
+                display: block;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                position: absolute;
+                width: 16px;
+                top: 8px;
+                left: 4px;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                width: 7px;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 11px;
+                left: 1px;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #da1212;
+        position: relative;
+    }
+}
+.checkbox-success {
+	margin-right: 5px;
+    span {
+        cursor: pointer;
+    }
+
+    input {
+        &:checked+span {
+			background-color: #1fe4d0;
+			transition: .6s ease;
+
+            &:before {
+                content: "";
+                display: block;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                position: absolute;
+                width: 16px;
+                top: 8px;
+                left: 4px;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                width: 7px;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 11px;
+                left: 1px;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #1fe4d0;
+		position: relative;
+    }
+}
+
+.lbl-checkbox-success,
+.lbl-checkbox-danger,
+.lbl-checkbox-primary {
+	position: absolute;
+	cursor: pointer;
+}
+
+.checkbox-primary {
+	margin-right: 5px;
+    span {
+        cursor: pointer;
+    }
+
+    input {
+        &:checked+span {
+			background-color: #2636a4;
+			transition: .6s ease;
+
+            &:before {
+                content: "";
+                display: block;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                position: absolute;
+                width: 16px;
+                top: 8px;
+                left: 4px;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                width: 7px;
+                border-top: 2px solid #fff;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 11px;
+                left: 1px;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #2636a4;
+        position: relative;
+    }
 }

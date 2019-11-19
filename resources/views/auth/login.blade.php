@@ -31,11 +31,11 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <div class="checkbox icheck" style="margin-left: 20px">
-                            <label>
-                                <input type="checkbox"> Nhớ mật khẩu
-                            </label>
-                        </div>
+                        <label class="checkbox-primary">
+                            <input type="checkbox" id="check">
+                            <span></span>
+                        </label>
+                        <label class="lbl-checkbox-primary" for="check">Nhớ mật khẩu</label>
                     </div>
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>

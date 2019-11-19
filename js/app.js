@@ -41901,7 +41901,7 @@ var staticRenderFns = [
             _c(
               "label",
               {
-                staticClass: "lbl-checkbox lbl-primary",
+                staticClass: "tgl-checkbox tgl-primary",
                 attrs: { for: "switch" }
               },
               [_vm._v("Toggle")]
