@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('website.contact');
+    return view('website.index');
 });
