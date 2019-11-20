@@ -26,6 +26,10 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function contact(){
+        return view('User.contact');
+    }
+
     public function dashboard(){
         return view('Admin.Elements.master');
     }

@@ -1,7 +1,6 @@
 @extends('User.Elements.master')
 @section('content')
 <div class="page-wrapper">
-
     <section id="widget-ticker">
         <div class="latest-news ">
             <h2><a href="/" title="Tin tức 24h">Tin tức 24h</a></h2>

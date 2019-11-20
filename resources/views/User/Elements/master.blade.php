@@ -11,8 +11,8 @@
 	{{-- <link rel="stylesheet" href="{{ asset('css/frontend/media.css') }}" type="text/css"> --}}
     <link rel="stylesheet" href="{{ asset('js/frontend/slick/slick.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/frontend/font-awesome.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/frontend/tooltipster.bundle.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset('css/frontend/app.css') }}">
 </head>
 <body>
     @include('User.Elements.header')
@@ -22,8 +22,7 @@
     @include('User.Elements.footer')
     <script src="{{ asset('js/frontend/jquery-2.2.1.min.js') }}"></script>
 	<script src="{{ asset('js/frontend/slick/slick.js') }}"></script>
-	<script src="{{ asset('js/frontend/app.js') }}"></script>
-	<script src="{{ asset('js/frontend/tooltipster.bundle.min.js') }}"></script>
 	<script src="{{ asset('js/frontend/script.js') }}"></script>
+	<script src="{{ asset('js/frontend/app.js') }}"></script>
 </body>
 </html>
