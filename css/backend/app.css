@@ -11337,7 +11337,7 @@ label {
 }
 
 .checkbox-primary input:checked + span {
-  background-color: #2636a4;
+  background-color: #3c8dbc;
   -webkit-transition: 0.6s ease;
   transition: 0.6s ease;
 }
@@ -11374,7 +11374,7 @@ label {
   display: block;
   width: 20px;
   height: 20px;
-  border: 1px solid #2636a4;
+  border: 1px solid #3c8dbc;
   position: relative;
 }
 

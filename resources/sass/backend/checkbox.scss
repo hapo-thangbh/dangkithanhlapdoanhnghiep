@@ -161,7 +161,7 @@
 
     input {
         &:checked+span {
-			background-color: #2636a4;
+			background-color: #3c8dbc;
 			transition: .6s ease;
 
             &:before {
@@ -198,7 +198,7 @@
         display: block;
         width: 20px;
         height: 20px;
-        border: 1px solid #2636a4;
+        border: 1px solid #3c8dbc;
         position: relative;
     }
 }
