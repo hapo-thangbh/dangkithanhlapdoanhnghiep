@@ -19,7 +19,7 @@ class AuthController extends Controller
             'username' => $request['username'],
             'password' => $request['password'],
         ];
-        if(auth()->attempt($credentials)) {
+        if(auth()->attempt($credentials, $request->remember)) {
             return redirect()->route('admin.dashboard');     
         }
         return redirect()->back()->with('fail','Tên tài khoản hoặc mật khẩu không chính xác!');
