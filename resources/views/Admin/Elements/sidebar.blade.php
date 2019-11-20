@@ -22,13 +22,8 @@
             <li><router-link :to="{ name: 'listPost' }"><i class="fa fa-paste"></i> Bài viết</router-link></li>
             <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Chuyên mục</router-link></li>
             <li>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                <a href="{{ route('admin.logout') }}">
                     <i class="fa fa-power-off"></i> <span>Đăng xuất</span>
-                
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
                 </a>
             </li>
 

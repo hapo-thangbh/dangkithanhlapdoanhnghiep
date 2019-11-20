@@ -131,11 +131,7 @@
                                 <router-link :to="{ name: 'profile' }" class="btn btn-default btn-flat">Thông tin cá nhân</router-link>
                             </div>
                             <div class="pull-right">
-                                <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Đăng xuất
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>    
+                                <a class="btn btn-default btn-flat" href="{{ route('admin.logout') }}">Đăng xuất
                             </a>
                             </div>
                         </li>
