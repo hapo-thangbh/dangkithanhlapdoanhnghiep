@@ -66792,7 +66792,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Post/EditPost.vue */ "./resources/js/components/Post/EditPost.vue");
 /* harmony import */ var _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Category/ListCategory.vue */ "./resources/js/components/Category/ListCategory.vue");
 /* harmony import */ var _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Category/AddCategory.vue */ "./resources/js/components/Category/AddCategory.vue");
-/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
+/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -66864,7 +66864,7 @@ var routes = [{
 }, {
   path: '/admin/category/edit',
   name: 'editCategory',
-  component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+  component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
