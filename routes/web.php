@@ -32,3 +32,10 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
 
 
+/* api */
+Route::group(['prefix' => 'api'], function() {
+    Route::get('/posts','PostController@index');
+    Route::post('/posts/add','PostController@addPost');
+});
+/* end api */
+

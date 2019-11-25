@@ -50,69 +50,23 @@
                                     <th style="width: 100px">Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th style="width: 50px">Trạng thái</th>
-                                    <th style="width: 50px">Ngày tạo</th>
+                                    <th style="width: 100px">Ngày tạo</th>
                                     <th class="text-center" style="width: 100px">Hành động</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Bài viết 1</td>
+                                <tr v-for="post in posts" :key="post.id">
+                                    <td>{{ post.id }}</td>
+                                    <td>{{ post.title }}</td>
                                     <td>
-                                        <p>Omnis ornare interdum sem porro consectetuer, rem! Quae quisquam dicta,
-                                            reprehenderit nostra! Venenatis penatibus accusantium ipsum inventore diam?
-                                            Iure consequat, ultricies cumque tristique vulputate, aliquip eligendi
-                                            facere eget sociosqu vestibulum, officia sociis hac per parturient
-                                            repudiandae? Fringilla quod, cumque, ultrices, ornare dolorem! Officiis
-                                            deleniti facilisi, ullamco similique porta, curabitur scelerisque nulla
-                                            convallis! Vero adipisicing? Dictumst cras quos ducimus. Quas proident nihil
-                                            alias venenatis. Venenatis? Egestas, earum? Hic temporibus consectetuer,
-                                            perspiciatis, dictum molestias? Occaecati duis iure condimentum fringilla.
-                                            Placerat ridiculus sequi blanditiis, libero porttitor officia, occaecati!
-                                            Necessitatibus esse hendrerit optio per sapiente, iaculis eaque? Ac
-                                            blanditiis tellus deleniti aut incidunt. Asperiores.
-                                        </p>
+                                        <p>{{ post.description }}</p>
                                     </td>
                                     <td>
-                                        <label class="label label-success">Công khai</label>
+                                        <label class="label label-success" v-if="post.status == 0">Công khai</label>
+                                        <label class="label label-danger" v-else>Riêng tư</label>
                                     </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editPost' }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </router-link>
-
-                                        <button @click="deletePost()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Bài viết 2</td>
-                                    <td>
-                                        <p>Omnis ornare interdum sem porro consectetuer, rem! Quae quisquam dicta,
-                                            reprehenderit nostra! Venenatis penatibus accusantium ipsum inventore diam?
-                                            Iure consequat, ultricies cumque tristique vulputate, aliquip eligendi
-                                            facere eget sociosqu vestibulum, officia sociis hac per parturient
-                                            repudiandae? Fringilla quod, cumque, ultrices, ornare dolorem! Officiis
-                                            deleniti facilisi, ullamco similique porta, curabitur scelerisque nulla
-                                            convallis! Vero adipisicing? Dictumst cras quos ducimus. Quas proident nihil
-                                            alias venenatis. Venenatis? Egestas, earum? Hic temporibus consectetuer,
-                                            perspiciatis, dictum molestias? Occaecati duis iure condimentum fringilla.
-                                            Placerat ridiculus sequi blanditiis, libero porttitor officia, occaecati!
-                                            Necessitatibus esse hendrerit optio per sapiente, iaculis eaque? Ac
-                                            blanditiis tellus deleniti aut incidunt. Asperiores.
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <label class="label label-danger">Riêng tư</label>
-                                    </td>
-                                    <td>18/11/2019</td>
+                                    <td>{{ formartDate(post.created_at) }}</td>
                                     <td class="text-center">
                                         <router-link :to="{ name:'editPost' }">
                                             <button class="btn btn-sm btn-primary">
@@ -135,22 +89,33 @@
 </template>
 
 <script>
-    export default {
-        name: 'ListPost',
-        methods: {
-          editPost() {
+import { mapState, mapActions } from 'vuex'
+export default {
+    name: 'ListPost',
+    components: {
+        
+    },
+    computed: {
+        ...mapState('post',['posts'])
+    },
+    mounted() {
+      this.getPosts()
+    },
+    methods: {
+        ...mapActions('post',['getPosts']),
+        editPost() {
             return alert('Edit Post')
-          },
-          deletePost() {
+        },
+        deletePost() {
             swal.fire({
-              title: '',
-              text: "Bạn có chắc chắn muốn xóa?",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Đồng ý',
-              cancelButtonText: 'Hủy bỏ'
+                title: '',
+                text: "Bạn có chắc chắn muốn xóa?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ'
             })
             .then((result) => {
                 if (result.value) {
@@ -168,8 +133,11 @@
                   'warning'
                 )
             })
-          }
-        }
+        },
+        formartDate (date) {
+            return moment(date).format('DD/MM/YYYY')
+        },
     }
+}
 
 </script>

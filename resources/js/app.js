@@ -3,7 +3,20 @@ window.Vue = require('vue');
 
 import swal from 'sweetalert2'
 import VueRouter from 'vue-router'
+import store from './store/index'
+import moment from 'moment'
+import { extend } from 'vee-validate'
+import {
+    min,
+    required,
+    email
+} from 'vee-validate/dist/rules'
+  
+extend('required', required)
+extend('min', min)
+extend('email', email)
 
+window.moment = moment
 window.swal = swal;
 const toast = swal.mixin({
     toast: true,
@@ -99,5 +112,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
+    store,
     router
 });
