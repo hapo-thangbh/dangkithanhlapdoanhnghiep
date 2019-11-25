@@ -37,6 +37,7 @@ export default {
             }
             context.commit('setPosts', data)
         },
+        //get list post
         getPosts (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/posts')
@@ -49,24 +50,24 @@ export default {
                     })
             })
         },
-
+        
+        //add post
         addPost (context, data) {
             return new Promise(resolve => {
                 ApiService.post('/api/posts/add', data)
                     .then(({data}) => {
                         if (data.status === 200) {
                             context.commit('setPost', data.message)
-                            dispatch('clearPost')
                             router.push({ name: 'listPost' })
-                            
+
                             window.toast.fire({
-                                type: 'success',
+                                icon: 'success',
                                 title: 'Tạo bài viết thành công!'
                             })
                             resolve(data)
                         } else {
                             window.toast.fire({
-                                type: 'error',
+                                icon: 'error',
                                 message: 'Tạo bài viết thất bại!'
                             })
                         }

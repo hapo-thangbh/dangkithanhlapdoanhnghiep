@@ -65301,7 +65301,7 @@ var render = function() {
                               staticClass: "col-md-3 text-md-right",
                               attrs: { for: "status" }
                             },
-                            [_vm._v("Trạng thái")]
+                            [_vm._v("Công khai")]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
@@ -90292,13 +90292,13 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('min', vee_validate_
 Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('email', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_6__["email"]);
 window.moment = moment__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a;
-var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+window.toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
-  timer: 5000
+  timerProgressBar: true,
+  timer: 10000
 });
-window.toast = toast;
 var app = new Vue({
   el: '#app',
   store: _store_index__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -91364,6 +91364,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       context.commit('setPosts', data);
     },
+    //get list post
     getPosts: function getPosts(context) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (_ref) {
@@ -91375,6 +91376,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    //add post
     addPost: function addPost(context, data) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
@@ -91382,18 +91384,17 @@ __webpack_require__.r(__webpack_exports__);
 
           if (data.status === 200) {
             context.commit('setPost', data.message);
-            dispatch('clearPost');
             _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
               name: 'listPost'
             });
             window.toast.fire({
-              type: 'success',
+              icon: 'success',
               title: 'Tạo bài viết thành công!'
             });
             resolve(data);
           } else {
             window.toast.fire({
-              type: 'error',
+              icon: 'error',
               message: 'Tạo bài viết thất bại!'
             });
           }

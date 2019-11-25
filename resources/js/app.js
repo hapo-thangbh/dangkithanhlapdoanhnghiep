@@ -16,13 +16,13 @@ extend('email', email)
 
 window.moment = moment
 window.swal = swal;
-const toast = swal.mixin({
+window.toast = swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 5000
-  });
-window.toast = toast;
+    timerProgressBar: true,
+    timer: 10000
+})
 
 const app = new Vue({
     el: '#app',

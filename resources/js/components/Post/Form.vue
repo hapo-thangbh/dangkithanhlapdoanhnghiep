@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
+                                <label for="status" class="col-md-3 text-md-right">Công khai</label>
                                 <div class="col-md-6">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
