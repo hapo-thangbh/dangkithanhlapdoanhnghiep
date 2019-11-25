@@ -25,6 +25,7 @@ Route::get('/admin/logout','AuthController@logout')->name('admin.logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
 
 Route::get('/admin', 'HomeController@dashboard')->name('admin.dashboard');
 Route::get('/admin/{any}', 'HomeController@dashboard')->where('any', '.*');
