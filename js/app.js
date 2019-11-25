@@ -65475,7 +65475,7 @@ var render = function() {
                         _c("td", [_c("p", [_vm._v(_vm._s(post.description))])]),
                         _vm._v(" "),
                         _c("td", [
-                          post.status == 0
+                          post.status == 1
                             ? _c(
                                 "label",
                                 { staticClass: "label label-success" },
