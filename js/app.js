@@ -90275,18 +90275,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vee-validate/dist/rules */ "./node_modules/vee-validate/dist/rules.js");
-/* harmony import */ var _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue");
-/* harmony import */ var _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/User/ListUser.vue */ "./resources/js/components/User/ListUser.vue");
-/* harmony import */ var _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/User/AddUser.vue */ "./resources/js/components/User/AddUser.vue");
-/* harmony import */ var _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/User/EditUser.vue */ "./resources/js/components/User/EditUser.vue");
-/* harmony import */ var _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/User/Profile.vue */ "./resources/js/components/User/Profile.vue");
-/* harmony import */ var _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Post/ListPost.vue */ "./resources/js/components/Post/ListPost.vue");
-/* harmony import */ var _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Post/AddPost.vue */ "./resources/js/components/Post/AddPost.vue");
-/* harmony import */ var _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Post/EditPost.vue */ "./resources/js/components/Post/EditPost.vue");
-/* harmony import */ var _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Category/ListCategory.vue */ "./resources/js/components/Category/ListCategory.vue");
-/* harmony import */ var _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Category/AddCategory.vue */ "./resources/js/components/Category/AddCategory.vue");
-/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
+/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./router/index */ "./resources/js/router/index.js");
+/* harmony import */ var vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vee-validate/dist/rules */ "./node_modules/vee-validate/dist/rules.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -90296,9 +90286,10 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('required', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_5__["required"]);
-Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('min', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_5__["min"]);
-Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('email', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_5__["email"]);
+
+Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('required', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_6__["required"]);
+Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('min', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_6__["min"]);
+Object(vee_validate__WEBPACK_IMPORTED_MODULE_4__["extend"])('email', vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_6__["email"]);
 window.moment = moment__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a;
 var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
@@ -90308,75 +90299,10 @@ var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   timer: 5000
 });
 window.toast = toast;
-
-
-
-
-
-
-
-
-
-
-
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var routes = [{
-  path: '/admin',
-  redirect: '/admin/dashboard'
-}, {
-  path: '/admin/dashboard',
-  name: 'dashboard',
-  component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
-}, {
-  path: '/admin/user',
-  name: 'listUser',
-  component: _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, {
-  path: '/admin/user/add',
-  name: 'addUser',
-  component: _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
-}, {
-  path: '/admin/user/edit',
-  name: 'editUser',
-  component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
-}, {
-  path: '/admin/profile',
-  name: 'profile',
-  component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
-}, {
-  path: '/admin/post',
-  name: 'listPost',
-  component: _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
-}, {
-  path: '/admin/post/add',
-  name: 'addPost',
-  component: _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
-}, {
-  path: '/admin/post/edit',
-  name: 'editPost',
-  component: _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
-}, {
-  path: '/admin/category',
-  name: 'listCategory',
-  component: _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
-}, {
-  path: '/admin/category/add',
-  name: 'addCategory',
-  component: _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
-}, {
-  path: '/admin/category/edit',
-  name: 'editCategory',
-  component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
-}];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: 'history',
-  linkActiveClass: 'open active',
-  routes: routes
-});
 var app = new Vue({
   el: '#app',
   store: _store_index__WEBPACK_IMPORTED_MODULE_2__["default"],
-  router: router
+  router: _router_index__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 
 /***/ }),
@@ -91261,6 +91187,98 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/router/index.js":
+/*!**************************************!*\
+  !*** ./resources/js/router/index.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/Dashboard.vue */ "./resources/js/components/Dashboard.vue");
+/* harmony import */ var _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/User/ListUser.vue */ "./resources/js/components/User/ListUser.vue");
+/* harmony import */ var _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/User/AddUser.vue */ "./resources/js/components/User/AddUser.vue");
+/* harmony import */ var _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/User/EditUser.vue */ "./resources/js/components/User/EditUser.vue");
+/* harmony import */ var _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/User/Profile.vue */ "./resources/js/components/User/Profile.vue");
+/* harmony import */ var _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/Post/ListPost.vue */ "./resources/js/components/Post/ListPost.vue");
+/* harmony import */ var _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/Post/AddPost.vue */ "./resources/js/components/Post/AddPost.vue");
+/* harmony import */ var _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/Post/EditPost.vue */ "./resources/js/components/Post/EditPost.vue");
+/* harmony import */ var _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/Category/ListCategory.vue */ "./resources/js/components/Category/ListCategory.vue");
+/* harmony import */ var _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/Category/AddCategory.vue */ "./resources/js/components/Category/AddCategory.vue");
+/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
+
+
+
+
+
+
+
+
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  mode: 'history',
+  linkActiveClass: 'open active',
+  routes: [{
+    path: '/admin',
+    redirect: '/admin/dashboard'
+  }, {
+    path: '/admin/dashboard',
+    name: 'dashboard',
+    component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/admin/user',
+    name: 'listUser',
+    component: _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }, {
+    path: '/admin/user/add',
+    name: 'addUser',
+    component: _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/admin/user/edit',
+    name: 'editUser',
+    component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, {
+    path: '/admin/profile',
+    name: 'profile',
+    component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }, {
+    path: '/admin/post',
+    name: 'listPost',
+    component: _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }, {
+    path: '/admin/post/add',
+    name: 'addPost',
+    component: _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }, {
+    path: '/admin/post/edit',
+    name: 'editPost',
+    component: _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: '/admin/category',
+    name: 'listCategory',
+    component: _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: '/admin/category/add',
+    name: 'addCategory',
+    component: _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }, {
+    path: '/admin/category/edit',
+    name: 'editCategory',
+    component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }]
+}));
+
+/***/ }),
+
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -91307,8 +91325,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
 /* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! q */ "./node_modules/q/q.js");
 /* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(q__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../router */ "./resources/js/router/index.js");
 
- // import router from '@/routers'
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
@@ -91363,14 +91382,14 @@ __webpack_require__.r(__webpack_exports__);
 
           if (data.status === 200) {
             context.commit('setPost', data.message);
-            router.push({
+            dispatch('clearPost');
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
               name: 'listPost'
             });
             window.toast.fire({
               type: 'success',
               title: 'Tạo bài viết thành công!'
             });
-            dispatch('clearPost');
             resolve(data);
           } else {
             window.toast.fire({

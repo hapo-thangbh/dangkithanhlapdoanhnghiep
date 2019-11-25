@@ -1,6 +1,6 @@
 import ApiService from '../../api'
 import { reject } from 'q'
-// import router from '@/routers'
+import router from './../../router'
 
 export default {
     namespaced: true,
@@ -56,12 +56,13 @@ export default {
                     .then(({data}) => {
                         if (data.status === 200) {
                             context.commit('setPost', data.message)
+                            dispatch('clearPost')
                             router.push({ name: 'listPost' })
+                            
                             window.toast.fire({
                                 type: 'success',
                                 title: 'Tạo bài viết thành công!'
                             })
-                            dispatch('clearPost')
                             resolve(data)
                         } else {
                             window.toast.fire({
