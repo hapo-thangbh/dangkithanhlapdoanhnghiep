@@ -2467,6 +2467,86 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue */ "./resources/js/components/Post/Form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AddPost',
+  data: function data() {
+    return {
+      post: []
+    };
+  },
+  components: {
+    FormInput: _Form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/EditPost.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Post/EditPost.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue */ "./resources/js/components/Post/Form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'EditPost',
+  components: {
+    FormInput: _Form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/Form.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Post/Form.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
 //
 //
@@ -2548,106 +2628,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'AddPost',
+  props: {
+    type: String
+  },
+  data: function data() {
+    return {
+      post: []
+    };
+  },
   components: {
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
     ValidationObserver: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"]
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      if (this.type === 'create') {
+        this.addPost(this.post);
+      }
+    }
   }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/EditPost.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Post/EditPost.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'EditPost'
 });
 
 /***/ }),
@@ -64977,248 +64978,7 @@ var render = function() {
     _c(
       "section",
       { staticClass: "content" },
-      [
-        _c("ValidationObserver", {
-          scopedSlots: _vm._u([
-            {
-              key: "default",
-              fn: function(ref) {
-                var passes = ref.passes
-                return [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "box" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "col-md-12" },
-                            [
-                              _c(
-                                "router-link",
-                                { attrs: { to: { name: "listPost" } } },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-primary pull-right mr-3 mt-3"
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-backward"
-                                      }),
-                                      _vm._v(
-                                        " Trở về\n                                    "
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "box-body" }, [
-                          _c(
-                            "form",
-                            {
-                              staticClass: "pb-5",
-                              attrs: { action: "", method: "post" }
-                            },
-                            [
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-md-3 text-md-right",
-                                    attrs: { for: "title" }
-                                  },
-                                  [_vm._v("Tiêu đề")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-md-6" },
-                                  [
-                                    _c("input", {
-                                      staticClass: "form-control",
-                                      attrs: { type: "text" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        rules: "required",
-                                        name: "title"
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function(ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value: _vm.post.title,
-                                                      expression: "post.title"
-                                                    }
-                                                  ],
-                                                  staticClass: "form-control",
-                                                  class: errors[0]
-                                                    ? "border-danger"
-                                                    : "",
-                                                  attrs: { type: "text" },
-                                                  domProps: {
-                                                    value: _vm.post.title
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        _vm.post,
-                                                        "title",
-                                                        $event.target.value
-                                                      )
-                                                    }
-                                                  }
-                                                }),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "span",
-                                                  {
-                                                    staticClass: "text-danger"
-                                                  },
-                                                  [_vm._v(_vm._s(errors[0]))]
-                                                )
-                                              ]
-                                            }
-                                          }
-                                        ],
-                                        null,
-                                        true
-                                      )
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-md-3 text-md-right",
-                                    attrs: { for: "tag" }
-                                  },
-                                  [_vm._v("Tag")]
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c("input", {
-                                    staticClass: "form-control",
-                                    attrs: { type: "text" }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-md-3 text-md-right",
-                                    attrs: { for: "description" }
-                                  },
-                                  [_vm._v("Nội dung")]
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c("textarea", {
-                                    staticClass: "form-control",
-                                    attrs: { cols: "30", rows: "10" }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-md-3 text-md-right",
-                                    attrs: { for: "status" }
-                                  },
-                                  [_vm._v("Trạng thái")]
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c("input", {
-                                    staticClass: "toggle-ios toggle-primary",
-                                    attrs: { type: "checkbox", id: "switch" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", {
-                                    staticClass: "tgl-checkbox tgl-primary",
-                                    attrs: { for: "switch" }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-md-12 text-center" },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-sm btn-default",
-                                        attrs: { type: "reset" }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa fa-refresh"
-                                        }),
-                                        _vm._v(
-                                          " Làm mới\n                                        "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-sm btn-success",
-                                        attrs: { type: "submit" }
-                                      },
-                                      [
-                                        _c("i", { staticClass: "fa fa-check" }),
-                                        _vm._v(
-                                          " Xác nhận\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ]
-              }
-            }
-          ])
-        })
-      ],
+      [_c("form-input", { attrs: { type: "create" } })],
       1
     )
   ])
@@ -65271,35 +65031,12 @@ var render = function() {
   return _c("div", { staticClass: "content-wrapper h-700" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("section", { staticClass: "content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "box" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-md-12" },
-                [
-                  _c("router-link", { attrs: { to: { name: "listPost" } } }, [
-                    _c(
-                      "button",
-                      { staticClass: "btn btn-primary pull-right mr-3 mt-3" },
-                      [
-                        _c("i", { staticClass: "fa fa-backward" }),
-                        _vm._v(" Trở về\n                                ")
-                      ]
-                    )
-                  ])
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
-        ])
-      ])
-    ])
+    _c(
+      "section",
+      { staticClass: "content" },
+      [_c("form-input", { attrs: { type: "edit" } })],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -65324,112 +65061,292 @@ var staticRenderFns = [
         _c("li", { staticClass: "active" }, [_vm._v("Chỉnh sửa bài viết")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box-body" }, [
-      _c("form", { staticClass: "pb-5", attrs: { action: "" } }, [
-        _c("div", { staticClass: "row form-group" }, [
-          _c(
-            "label",
-            { staticClass: "col-md-3 text-md-right", attrs: { for: "title" } },
-            [_vm._v("Tiêu đề")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row form-group" }, [
-          _c(
-            "label",
-            { staticClass: "col-md-3 text-md-right", attrs: { for: "tag" } },
-            [_vm._v("Tag")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row form-group" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-md-3 text-md-right",
-              attrs: { for: "description" }
-            },
-            [_vm._v("Nội dung")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("textarea", {
-              staticClass: "form-control",
-              attrs: { cols: "30", rows: "10" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row form-group" }, [
-          _c(
-            "label",
-            { staticClass: "col-md-3 text-md-right", attrs: { for: "status" } },
-            [_vm._v("Trạng thái")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("input", {
-              staticClass: "toggle-ios toggle-primary",
-              attrs: { type: "checkbox", id: "switch" }
-            }),
-            _vm._v(" "),
-            _c("label", {
-              staticClass: "tgl-checkbox tgl-primary",
-              attrs: { for: "switch" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row form-group" }, [
-          _c("div", { staticClass: "col-md-12 text-center" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-default",
-                attrs: { type: "reset" }
-              },
-              [
-                _c("i", { staticClass: "fa fa-refresh" }),
-                _vm._v(" Làm mới\n                                    ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-success",
-                attrs: { type: "submit" }
-              },
-              [
-                _c("i", { staticClass: "fa fa-check" }),
-                _vm._v(" Xác nhận\n                                    ")
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("ValidationObserver", {
+    scopedSlots: _vm._u([
+      {
+        key: "default",
+        fn: function(ref) {
+          var passes = ref.passes
+          return [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "box" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-md-12" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "listPost" } } },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-primary pull-right mr-3 mt-3"
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-backward" }),
+                                _vm._v(" Trở về\n                            ")
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-body" }, [
+                    _c(
+                      "form",
+                      {
+                        staticClass: "pb-5",
+                        attrs: { method: "post" },
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return passes(_vm.onSubmit)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "row form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-md-3 text-md-right",
+                              attrs: { for: "title" }
+                            },
+                            [_vm._v("Tiêu đề")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-md-6" },
+                            [
+                              _c("ValidationProvider", {
+                                attrs: { rules: "required", name: "title" },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.post.title,
+                                                expression: "post.title"
+                                              }
+                                            ],
+                                            staticClass: "form-control",
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: { type: "text" },
+                                            domProps: { value: _vm.post.title },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "title",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-md-3 text-md-right",
+                              attrs: { for: "description" }
+                            },
+                            [_vm._v("Nội dung")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-md-6" },
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  rules: "required",
+                                  name: "description"
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.post.description,
+                                                expression: "post.description"
+                                              }
+                                            ],
+                                            staticClass: "form-control",
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: { cols: "30", rows: "10" },
+                                            domProps: {
+                                              value: _vm.post.description
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "description",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-md-3 text-md-right",
+                              attrs: { for: "status" }
+                            },
+                            [_vm._v("Trạng thái")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c("input", {
+                              staticClass: "toggle-ios toggle-primary",
+                              attrs: { type: "checkbox", id: "switch" }
+                            }),
+                            _vm._v(" "),
+                            _c("label", {
+                              staticClass: "tgl-checkbox tgl-primary",
+                              attrs: { for: "switch" }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row form-group" }, [
+                          _c("div", { staticClass: "col-md-12 text-center" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-sm btn-default",
+                                attrs: { type: "reset" }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-refresh" }),
+                                _vm._v(
+                                  " Làm mới\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-sm btn-success",
+                                attrs: { type: "submit" }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-check" }),
+                                _vm._v(
+                                  " Xác nhận\n                                "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]
+        }
+      }
+    ])
+  })
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -90864,6 +90781,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPost_vue_vue_type_template_id_57ab7d9e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPost_vue_vue_type_template_id_57ab7d9e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Post/Form.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Post/Form.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue?vue&type=template&id=6c82d4d0& */ "./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0&");
+/* harmony import */ var _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form.vue?vue&type=script&lang=js& */ "./resources/js/components/Post/Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Post/Form.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Post/Form.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/Post/Form.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Form.vue?vue&type=template&id=6c82d4d0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_6c82d4d0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
