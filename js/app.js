@@ -2642,9 +2642,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     type: String
   },
   data: function data() {
-    return {
-      post: []
-    };
+    return {};
   },
   components: {
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
@@ -2654,6 +2652,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.addPost();
     this.clearPost();
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('post', ['post'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['addPost', 'clearPost']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
@@ -91315,8 +91314,13 @@ __webpack_require__.r(__webpack_exports__);
   namespaced: true,
   state: {
     posts: [],
-    errors: [],
-    message: []
+    errors: '',
+    message: '',
+    post: {
+      title: '',
+      description: '',
+      status: ''
+    }
   },
   mutations: {
     setPosts: function setPosts(state, data) {
@@ -91327,6 +91331,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     setMessage: function setMessage(state, data) {
       state.message = data;
+    },
+    setPost: function setPost(state, data) {
+      state.post = data;
     }
   },
   actions: {
@@ -91351,11 +91358,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     addPost: function addPost(context, data) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add').then(function (_ref2) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
           var data = _ref2.data;
 
           if (data.status === 200) {
-            context.commit('setMessage', data.message);
+            context.commit('setPost', data.message);
             router.push({
               name: 'listPost'
             });

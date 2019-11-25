@@ -87,7 +87,7 @@ export default {
     },
     data() {
         return {
-            post:[]
+            
         }
     },
     components: {
@@ -97,6 +97,9 @@ export default {
     mouted() {
         this.addPost()
         this.clearPost()
+    },
+    computed: {
+        ...mapState('post',['post'])
     },
     methods: {
         ...mapActions('post',['addPost','clearPost']),

@@ -6,8 +6,13 @@ export default {
     namespaced: true,
     state: {
         posts:[],
-        errors: [],
-        message: []
+        errors: '',
+        message: '',
+        post: {
+            title: '',
+            description: '',
+            status: ''
+        }
     },
     mutations: {
         setPosts (state, data) {
@@ -18,6 +23,9 @@ export default {
         },
         setMessage (state, data) {
             state.message = data
+        },
+        setPost (state, data) {
+            state.post = data
         }
     },
     actions: {
@@ -44,10 +52,10 @@ export default {
 
         addPost (context, data) {
             return new Promise(resolve => {
-                ApiService.post('/api/posts/add')
+                ApiService.post('/api/posts/add', data)
                     .then(({data}) => {
                         if (data.status === 200) {
-                            context.commit('setMessage', data.message)
+                            context.commit('setPost', data.message)
                             router.push({ name: 'listPost' })
                             window.toast.fire({
                                 type: 'success',
