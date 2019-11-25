@@ -23,10 +23,12 @@ Route::get('/admin/register','AuthController@getRegister')->name('admin.register
 Route::post('/admin/register','AuthController@postRegister')->name('admin.register');
 Route::get('/admin/logout','AuthController@logout')->name('admin.logout');
 
+Route::get('/admin', 'HomeController@dashboard')->name('admin.dashboard');
+Route::get('/admin/{any}', 'HomeController@dashboard')->where('any', '.*');
+
+/* Người dùng */
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
 
-Route::get('/admin', 'HomeController@dashboard')->name('admin.dashboard');
-Route::get('/admin/{any}', 'HomeController@dashboard')->where('any', '.*');
 
