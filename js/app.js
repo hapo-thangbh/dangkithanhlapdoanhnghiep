@@ -2548,6 +2548,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2629,6 +2636,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     type: String
@@ -2642,13 +2650,20 @@ __webpack_require__.r(__webpack_exports__);
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
     ValidationObserver: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"]
   },
-  methods: {
+  mouted: function mouted() {
+    this.addPost();
+    this.clearPost();
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['addPost', 'clearPost']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addPost(this.post);
       }
+    },
+    refresh: function refresh() {
+      this.clearPost();
     }
-  }
+  })
 });
 
 /***/ }),
@@ -65292,8 +65307,51 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.post.status,
+                                  expression: "post.status"
+                                }
+                              ],
                               staticClass: "toggle-ios toggle-primary",
-                              attrs: { type: "checkbox", id: "switch" }
+                              attrs: { type: "checkbox", id: "switch" },
+                              domProps: {
+                                checked: Array.isArray(_vm.post.status)
+                                  ? _vm._i(_vm.post.status, null) > -1
+                                  : _vm.post.status
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.post.status,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.post,
+                                          "status",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.post,
+                                          "status",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.post, "status", $$c)
+                                  }
+                                }
+                              }
                             }),
                             _vm._v(" "),
                             _c("label", {
@@ -65309,7 +65367,11 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "btn btn-sm btn-default",
-                                attrs: { type: "reset" }
+                                on: {
+                                  click: function($event) {
+                                    return _vm.refresh()
+                                  }
+                                }
                               },
                               [
                                 _c("i", { staticClass: "fa fa-refresh" }),
