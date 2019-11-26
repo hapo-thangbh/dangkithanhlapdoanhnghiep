@@ -15,11 +15,18 @@ class PostController extends Controller
     //add post
     public function addPost(Request $request) {
         $data = $request->all();
-        Post::create($data);
-        return response()->json([
-            'status' => 200,
-            'message' => 'Add post success'
-        ]);
+        $post = Post::create($data);
+        if ($post) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'Tạo bài viết thành công!'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 400,
+                'message' => 'Tạo bài viết thất bại!'
+            ]);
+        }
     }
 
     //edit post
@@ -30,22 +37,36 @@ class PostController extends Controller
 
     //update post
     public function updatePost(Request $request, $id) {
-        $post = Post::find($id);
-        $post->update($request->all());
-        return response()->json([
-            'status' => 200,
-            'message' => 'Cập nhật bài viết thành công!'
-        ]);
+        $post = Post::findOrFail($id);
+        if ($post) {
+            $post->update($request->all());
+            return response()->json([
+                'status' => 200,
+                'message' => 'Cập nhật bài viết thành công!'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 400,
+                'error' => 'Cập nhật bài viết thất bại!'
+            ]);
+        }
     }
 
     //delete post
     public function deletePost($id) {
         $post = Post::find($id);
-        $post->delete($id);
-
-        return response()->json([
-            'status' => 200,
-            'message' => 'Xoá bài viết thành công!'
-        ]);
+        $deletePost = $post->delete($id);
+        if ($deletePost) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'Xoá bài viết thành công!'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 400,
+                'error' => 'Xoá bài viết thất bại!'
+            ]);
+        }
+        
     }
 }

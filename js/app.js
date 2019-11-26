@@ -91422,13 +91422,13 @@ __webpack_require__.r(__webpack_exports__);
             });
             window.toast.fire({
               icon: 'success',
-              title: 'Tạo bài viết thành công!'
+              title: data.message
             });
             resolve(data);
           } else {
             window.toast.fire({
               icon: 'error',
-              message: 'Tạo bài viết thất bại!'
+              message: data.error
             });
           }
         })["catch"](function (err) {
@@ -91447,10 +91447,11 @@ __webpack_require__.r(__webpack_exports__);
 
           if (data.status === 200) {
             dispatch('getPosts');
-            window.swal.fire('', 'Xoá bài viết thành công!', 'success');
+            window.swal.fire('', data.message, 'success');
             resolve(data);
           } else {
-            context.commit('setErrors', 'Xoá bài viết thất bại!');
+            window.swal.fire('', data.error, 'error');
+            context.commit('setErrors', data.error);
           }
         })["catch"](function (err) {
           console.log(err);
@@ -91484,13 +91485,13 @@ __webpack_require__.r(__webpack_exports__);
             });
             window.toast.fire({
               icon: 'success',
-              title: 'Cập nhật bài viết thành công!'
+              title: data.message
             });
             resolve(data);
           } else {
             window.toast.fire({
               icon: 'error',
-              title: 'Cập nhật bài viết thất bại!'
+              title: data.error
             });
           }
         })["catch"](function (err) {
