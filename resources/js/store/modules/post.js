@@ -68,9 +68,11 @@ export default {
                             })
                             resolve(data)
                         } else {
-                            window.toast.fire({
-                                icon: 'error',
-                                message: data.error
+                            data.errors.forEach(function(e) {
+                                window.toast.fire({
+                                    icon: 'error',
+                                    message: e.status
+                                })
                             })
                         }
                     })

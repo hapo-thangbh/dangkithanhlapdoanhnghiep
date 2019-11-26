@@ -80,8 +80,8 @@
 
 <script>
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
-import { mapState, mapActions } from 'vuex'
 import { extend } from 'vee-validate'
+import { mapState, mapActions } from 'vuex'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -98,7 +98,7 @@ export default {
     },
     data() {
         return {
-
+            
         }
     },
     components: {
