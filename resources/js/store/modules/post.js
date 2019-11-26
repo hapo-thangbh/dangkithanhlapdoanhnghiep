@@ -103,6 +103,52 @@ export default {
                         reject(err)
                     })
             })
+        },
+
+        //get info post
+        editPost (context, idPost) {
+            return new Promise(resolve => {
+                ApiService.get('/api/posts/edit/' + idPost)
+                    .then(({ data }) => {
+                        context.commit('setPost', data)
+                        resolve(data)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+        },
+
+        //update post
+        updatePost (context, data) {
+            return new Promise(resolve => {
+                const idPost = data.id
+                ApiService.put('/api/posts/update/' + idPost, data)
+                    .then(({ data }) => {
+                        if(data.status === 200) {
+                            context.commit('setPosts', data)
+                            router.push({
+                                name: 'listPost'
+                            })
+                            window.swal.fire(
+                                '',
+                                'Câp nhật bài viết thành công!',
+                                'success'
+                            )
+                            resolve(data)
+                        } else {
+                            window.swal.fire(
+                                '',
+                                'Cập nhật bài viết thất bại!',
+                                'error'
+                            )
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
         }
+
     }
 }

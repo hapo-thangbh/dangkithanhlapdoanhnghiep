@@ -36,6 +36,10 @@ Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
 Route::group(['prefix' => 'api'], function() {
     Route::get('/posts','PostController@index');
     Route::post('/posts/add','PostController@addPost');
+
+    Route::get('/posts/edit/{id}','PostController@editPost');
+    Route::put('/posts/update/{id}','PostController@updatePost');
+
     Route::delete('/posts/delete/{id}','PostController@deletePost');
 });
 /* end api */

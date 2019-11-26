@@ -108,16 +108,21 @@ export default {
     mounted() {
         if (this.type === 'create') {
             this.clearPost()
+        } else {
+            let idPost = this.$route.params.id
+            this.editPost(idPost)
         }
     },
     computed: {
         ...mapState('post',['post'])
     },
     methods: {
-        ...mapActions('post',['addPost','clearPost']),
+        ...mapActions('post',['clearPost','addPost','editPost','updatePost']),
         onSubmit () {
             if (this.type === 'create') {
                 this.addPost(this.post)
+            } else {
+                this.updatePost(this.post)
             }
         },
         refresh () {

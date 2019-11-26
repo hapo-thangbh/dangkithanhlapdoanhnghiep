@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    //Show all post
+    //show all post
     public function index(){
         return Post::all();
     }
 
-    //Add Post
+    //add post
     public function addPost(Request $request) {
         $data = $request->all();
         Post::create($data);
@@ -22,7 +22,23 @@ class PostController extends Controller
         ]);
     }
 
-    //Delete Post
+    //edit post
+    public function editPost($id) {
+        $post = Post::find($id);
+        return response($post);
+    }
+
+    //update post
+    public function updatePost(Request $request, $id) {
+        $post = Post::find($id);
+        $post->update($request->all());
+        return response()->json([
+            'status' => 200,
+            'message' => 'Cập nhật bài viết thành công!'
+        ]);
+    }
+
+    //delete post
     public function deletePost($id) {
         $post = Post::find($id);
         $post->delete($id);

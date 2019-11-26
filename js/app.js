@@ -2659,13 +2659,18 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
   mounted: function mounted() {
     if (this.type === 'create') {
       this.clearPost();
+    } else {
+      var idPost = this.$route.params.id;
+      this.editPost(idPost);
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('post', ['post'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['addPost', 'clearPost']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['clearPost', 'addPost', 'editPost', 'updatePost']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addPost(this.post);
+      } else {
+        this.updatePost(this.post);
       }
     },
     refresh: function refresh() {
@@ -65647,7 +65652,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c(
           "th",
-          { staticClass: "text-center", staticStyle: { "min-width": "100px" } },
+          { staticClass: "text-center", staticStyle: { "min-width": "150px" } },
           [_vm._v("Hành động")]
         )
       ])
@@ -91452,6 +91457,40 @@ __webpack_require__.r(__webpack_exports__);
           Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
         });
       });
+    },
+    //get info post
+    editPost: function editPost(context, idPost) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref5) {
+          var data = _ref5.data;
+          context.commit('setPost', data);
+          resolve(data);
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      });
+    },
+    //update post
+    updatePost: function updatePost(context, data) {
+      return new Promise(function (resolve) {
+        var idPost = data.id;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
+          var data = _ref6.data;
+
+          if (data.status === 200) {
+            context.commit('setPosts', data);
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
+              name: 'listPost'
+            });
+            window.swal.fire('', 'Câp nhật bài viết thành công!', 'success');
+            resolve(data);
+          } else {
+            window.swal.fire('', 'Cập nhật bài viết thất bại!', 'error');
+          }
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      });
     }
   }
 });
@@ -91487,15 +91526,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })

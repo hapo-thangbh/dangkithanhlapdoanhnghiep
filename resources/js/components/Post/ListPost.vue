@@ -51,7 +51,7 @@
                                     <th>Nội dung</th>
                                     <th style="min-width: 50px">Trạng thái</th>
                                     <th style="min-width: 100px">Ngày tạo</th>
-                                    <th class="text-center" style="min-width: 100px">Hành động</th>
+                                    <th class="text-center" style="min-width: 150px">Hành động</th>
                                 </tr>
                             </thead>
 
