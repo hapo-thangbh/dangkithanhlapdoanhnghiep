@@ -90327,7 +90327,7 @@ window.toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   position: 'top-end',
   showConfirmButton: false,
   timerProgressBar: true,
-  timer: 10000
+  timer: 5000
 });
 var app = new Vue({
   el: '#app',
@@ -91426,11 +91426,9 @@ __webpack_require__.r(__webpack_exports__);
             });
             resolve(data);
           } else {
-            data.errors.forEach(function (e) {
-              window.toast.fire({
-                icon: 'error',
-                message: e.status
-              });
+            window.toast.fire({
+              icon: 'error',
+              message: 'Tạo bài viết thất bại!'
             });
           }
         })["catch"](function (err) {

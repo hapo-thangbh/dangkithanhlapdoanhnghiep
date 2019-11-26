@@ -21,7 +21,7 @@ window.toast = swal.mixin({
     position: 'top-end',
     showConfirmButton: false,
     timerProgressBar: true,
-    timer: 10000
+    timer: 5000
 })
 
 const app = new Vue({

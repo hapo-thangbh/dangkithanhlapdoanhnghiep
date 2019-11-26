@@ -68,11 +68,9 @@ export default {
                             })
                             resolve(data)
                         } else {
-                            data.errors.forEach(function(e) {
-                                window.toast.fire({
-                                    icon: 'error',
-                                    message: e.status
-                                })
+                            window.toast.fire({
+                                icon: 'error',
+                                message: 'Tạo bài viết thất bại!'
                             })
                         }
                     })
