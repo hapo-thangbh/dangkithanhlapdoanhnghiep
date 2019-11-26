@@ -2781,11 +2781,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getPosts();
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {
     editPost: function editPost() {
       return alert('Edit Post');
     },
-    deletePost: function deletePost() {
+    deletePost: function deletePost(id) {
+      var _this = this;
+
       swal.fire({
         title: '',
         text: "Bạn có chắc chắn muốn xóa?",
@@ -2797,7 +2799,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         cancelButtonText: 'Hủy bỏ'
       }).then(function (result) {
         if (result.value) {
-          swal.fire('Thành công', 'Bạn đã xóa thành công', 'success');
+          _this.deletePost(id);
         }
       })["catch"](function () {
         swal.fire('Thất bại', 'Xóa không thành công', 'warning');
@@ -65514,7 +65516,7 @@ var render = function() {
                                 staticClass: "btn btn-sm btn-danger",
                                 on: {
                                   click: function($event) {
-                                    return _vm.deletePost()
+                                    return _vm.deletePost(post.id)
                                   }
                                 }
                               },
@@ -91353,6 +91355,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     setPost: function setPost(state, data) {
       state.post = data;
+    },
+    deletePost: function deletePost(state, data) {
+      state.posts = data;
     }
   },
   actions: {
@@ -91397,6 +91402,30 @@ __webpack_require__.r(__webpack_exports__);
               icon: 'error',
               message: 'Tạo bài viết thất bại!'
             });
+          }
+        })["catch"](function (err) {
+          console.log(err);
+          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
+        });
+      });
+    },
+    //delete post
+    deletePost: function deletePost(context, id) {
+      console.log(context);
+      var postId = id;
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/delete/' + postId).then(function (_ref3) {
+          var data = _ref3.data;
+
+          if (data.status === 200) {
+            dispatch('getPosts');
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
+              name: 'listPost'
+            });
+            window.swal.fire('Xoá bài viết thành công!', '', 'success');
+            resolve(data);
+          } else {
+            context.commit('setErrors', 'Xoá bài viết thất bại!');
           }
         })["catch"](function (err) {
           console.log(err);

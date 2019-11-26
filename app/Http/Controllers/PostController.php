@@ -21,4 +21,15 @@ class PostController extends Controller
             'message' => 'Add post success'
         ]);
     }
+
+    //Delete Post
+    public function deletePost($id) {
+        $post = Post::find($id);
+        $post->delete($id);
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Xoá bài viết thành công!'
+        ]);
+    }
 }

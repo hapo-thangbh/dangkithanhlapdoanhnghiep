@@ -26,6 +26,9 @@ export default {
         },
         setPost (state, data) {
             state.post = data
+        },
+        deletePost (state, data) {
+            state.posts = data
         }
     },
     actions: {
@@ -59,7 +62,6 @@ export default {
                         if (data.status === 200) {
                             context.commit('setPost', data.message)
                             router.push({ name: 'listPost' })
-
                             window.toast.fire({
                                 icon: 'success',
                                 title: 'Tạo bài viết thành công!'
@@ -70,6 +72,33 @@ export default {
                                 icon: 'error',
                                 message: 'Tạo bài viết thất bại!'
                             })
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        reject(err)
+                    })
+            })
+        },
+
+        //delete post
+        deletePost (context, id) {
+            console.log(context)
+            const postId = id
+            return new Promise(resolve => {
+                ApiService.get('/api/posts/delete/' +  postId)
+                    .then(({data}) => {
+                        if (data.status === 200) {
+                            dispatch('getPosts')
+                            router.push({ name: 'listPost' })
+                            window.swal.fire(
+                                'Xoá bài viết thành công!',
+                                '',
+                                'success'
+                            )
+                            resolve(data)
+                        } else {
+                            context.commit('setErrors', 'Xoá bài viết thất bại!')
                         }
                     })
                     .catch(err => {

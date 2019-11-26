@@ -74,7 +74,7 @@
                                             </button>
                                         </router-link>
 
-                                        <button @click="deletePost()" class="btn btn-sm btn-danger">
+                                        <button @click="deletePost(post.id)" class="btn btn-sm btn-danger">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -102,11 +102,11 @@ export default {
       this.getPosts()
     },
     methods: {
-        ...mapActions('post',['getPosts']),
+        ...mapActions('post',['getPosts','deletePost']),
         editPost() {
             return alert('Edit Post')
         },
-        deletePost() {
+        deletePost(id) {
             swal.fire({
                 title: '',
                 text: "Bạn có chắc chắn muốn xóa?",
@@ -119,11 +119,7 @@ export default {
             })
             .then((result) => {
                 if (result.value) {
-                    swal.fire(
-                      'Thành công',
-                      'Bạn đã xóa thành công',
-                      'success'
-                    )
+                    this.deletePost(id)
                 }
             })
             .catch(() => {
