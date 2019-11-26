@@ -130,18 +130,16 @@ export default {
                             router.push({
                                 name: 'listPost'
                             })
-                            window.swal.fire(
-                                '',
-                                'Câp nhật bài viết thành công!',
-                                'success'
-                            )
+                            window.toast.fire({
+                                icon: 'success',
+                                title: 'Cập nhật bài viết thành công!'
+                            })
                             resolve(data)
                         } else {
-                            window.swal.fire(
-                                '',
-                                'Cập nhật bài viết thất bại!',
-                                'error'
-                            )
+                            window.toast.fire({
+                                icon: 'error',
+                                title: 'Cập nhật bài viết thất bại!'
+                            })
                         }
                     })
                     .catch(err => {

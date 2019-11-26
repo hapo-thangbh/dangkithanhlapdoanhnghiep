@@ -91482,10 +91482,16 @@ __webpack_require__.r(__webpack_exports__);
             _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
               name: 'listPost'
             });
-            window.swal.fire('', 'Câp nhật bài viết thành công!', 'success');
+            window.toast.fire({
+              icon: 'success',
+              title: 'Cập nhật bài viết thành công!'
+            });
             resolve(data);
           } else {
-            window.swal.fire('', 'Cập nhật bài viết thất bại!', 'error');
+            window.toast.fire({
+              icon: 'error',
+              title: 'Cập nhật bài viết thất bại!'
+            });
           }
         })["catch"](function (err) {
           console.log(err);
