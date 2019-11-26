@@ -68,7 +68,7 @@
                                     </td>
                                     <td>{{ formartDate(post.created_at) }}</td>
                                     <td class="text-center">
-                                        <router-link :to="{ name:'editPost' }">
+                                        <router-link :to="{ path: '/admin/post/edit/' + post.id }">
                                             <button class="btn btn-sm btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </button>

@@ -22,63 +22,63 @@ export default new VueRouter({
     mode:'history',
     linkActiveClass: 'open active',
     routes: [
-        { 
-            path: '/admin', 
+        {
+            path: '/admin',
             redirect: '/admin/dashboard'
         },
-        { 
-            path: '/admin/dashboard', 
+        {
+            path: '/admin/dashboard',
             name: 'dashboard',
             component: Dashboard
         },
-        { 
-            path: '/admin/user', 
+        {
+            path: '/admin/user',
             name: 'listUser',
             component: ListUser
         },
-        { 
-            path: '/admin/user/add', 
+        {
+            path: '/admin/user/add',
             name: 'addUser',
             component: AddUser
         },
-        { 
-            path: '/admin/user/edit', 
+        {
+            path: '/admin/user/edit',
             name: 'editUser',
             component: EditUser
         },
-        { 
-            path: '/admin/profile', 
-            name:'profile', 
+        {
+            path: '/admin/profile',
+            name:'profile',
             component: Profile
         },
-        { 
-            path: '/admin/post', 
-            name:'listPost', 
+        {
+            path: '/admin/post',
+            name:'listPost',
             component: ListPost
         },
-        { 
-            path: '/admin/post/add', 
-            name:'addPost', 
+        {
+            path: '/admin/post/add',
+            name:'addPost',
             component: AddPost
         },
-        { 
-            path: '/admin/post/edit', 
-            name:'editPost', 
+        {
+            path: '/admin/post/edit/:id',
+            name:'editPost',
             component: EditPost
         },
-        { 
-            path: '/admin/category', 
-            name:'listCategory', 
+        {
+            path: '/admin/category',
+            name:'listCategory',
             component: ListCategory
         },
-        { 
-            path: '/admin/category/add', 
-            name:'addCategory', 
+        {
+            path: '/admin/category/add',
+            name:'addCategory',
             component: AddCategory
         },
-        { 
-            path: '/admin/category/edit', 
-            name:'editCategory', 
+        {
+            path: '/admin/category/edit',
+            name:'editCategory',
             component: EditCategory
         }
     ]

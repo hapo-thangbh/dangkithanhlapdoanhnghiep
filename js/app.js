@@ -65513,7 +65513,11 @@ var render = function() {
                           [
                             _c(
                               "router-link",
-                              { attrs: { to: { name: "editPost" } } },
+                              {
+                                attrs: {
+                                  to: { path: "/admin/post/edit/" + post.id }
+                                }
+                              },
                               [
                                 _c(
                                   "button",
@@ -91271,7 +91275,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'addPost',
     component: _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   }, {
-    path: '/admin/post/edit',
+    path: '/admin/post/edit/:id',
     name: 'editPost',
     component: _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }, {
