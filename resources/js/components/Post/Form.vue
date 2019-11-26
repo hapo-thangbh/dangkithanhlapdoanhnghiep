@@ -15,8 +15,8 @@
                     <div class="box-body">
                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
                             <div class="row form-group">
-                                <label for="title" class="col-md-3 text-md-right">Tiêu đề</label>
-                                <div class="col-md-6">
+                                <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
+                                <div class="col-md-8">
                                     <ValidationProvider rules="required" name="title" v-slot="{ errors }">
                                         <input
                                             type="text"
@@ -37,8 +37,8 @@
                             </div> -->
 
                             <div class="row form-group">
-                                <label for="description" class="col-md-3 text-md-right">Nội dung</label>
-                                <div class="col-md-6">
+                                <label for="description" class="col-md-2 text-md-right">Nội dung</label>
+                                <div class="col-md-8">
                                     <ValidationProvider rules="required" name="description" v-slot="{ errors }">
                                         <textarea
                                             cols="30"
@@ -53,8 +53,8 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="status" class="col-md-3 text-md-right">Công khai</label>
-                                <div class="col-md-6">
+                                <label for="status" class="col-md-2 text-md-right">Công khai</label>
+                                <div class="col-md-8">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
                                 </div>

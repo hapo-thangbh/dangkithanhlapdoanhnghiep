@@ -65154,7 +65154,7 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-3 text-md-right",
+                              staticClass: "col-md-2 text-md-right",
                               attrs: { for: "title" }
                             },
                             [_vm._v("Tiêu đề")]
@@ -65162,7 +65162,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "col-md-6" },
+                            { staticClass: "col-md-8" },
                             [
                               _c("ValidationProvider", {
                                 attrs: { rules: "required", name: "title" },
@@ -65224,7 +65224,7 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-3 text-md-right",
+                              staticClass: "col-md-2 text-md-right",
                               attrs: { for: "description" }
                             },
                             [_vm._v("Nội dung")]
@@ -65232,7 +65232,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "col-md-6" },
+                            { staticClass: "col-md-8" },
                             [
                               _c("ValidationProvider", {
                                 attrs: {
@@ -65299,13 +65299,13 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-3 text-md-right",
+                              staticClass: "col-md-2 text-md-right",
                               attrs: { for: "status" }
                             },
                             [_vm._v("Công khai")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-8" }, [
                             _c("input", {
                               directives: [
                                 {
