@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -13,7 +14,7 @@ class PostController extends Controller
     }
 
     //add post
-    public function addPost(Request $request) {
+    public function addPost(PostRequest $request) {
         $data = $request->all();
         $post = Post::create($data);
         if ($post) {
@@ -36,7 +37,7 @@ class PostController extends Controller
     }
 
     //update post
-    public function updatePost(Request $request, $id) {
+    public function updatePost(PostRequest $request, $id) {
         $post = Post::findOrFail($id);
         if ($post) {
             $post->update($request->all());
