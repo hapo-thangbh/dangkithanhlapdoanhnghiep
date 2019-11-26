@@ -96,16 +96,13 @@ export default {
 
     },
     computed: {
-        ...mapState('post',['posts','post'])
+        ...mapState('post',['posts'])
     },
     mounted() {
         this.getPosts()
-        if (this.type === 'create') {
-            this.clearPost()
-        }
     },
     methods: {
-        ...mapActions('post',['getPosts','deletePost', 'clearPost']),
+        ...mapActions('post',['getPosts','deletePost']),
         destroyPost(id) {
             swal.fire({
                 title: '',

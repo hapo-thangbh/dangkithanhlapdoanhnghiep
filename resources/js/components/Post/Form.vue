@@ -18,9 +18,9 @@
                                 <label for="title" class="col-md-3 text-md-right">Tiêu đề</label>
                                 <div class="col-md-6">
                                     <ValidationProvider rules="required" name="title" v-slot="{ errors }">
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
+                                        <input
+                                            type="text"
+                                            class="form-control"
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.title"
                                         >
@@ -40,9 +40,9 @@
                                 <label for="description" class="col-md-3 text-md-right">Nội dung</label>
                                 <div class="col-md-6">
                                     <ValidationProvider rules="required" name="description" v-slot="{ errors }">
-                                        <textarea 
-                                            cols="30" 
-                                            rows="10" 
+                                        <textarea
+                                            cols="30"
+                                            rows="10"
                                             class="form-control"
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.description"
@@ -87,16 +87,17 @@ export default {
     },
     data() {
         return {
-            
+
         }
     },
     components: {
-        ValidationProvider, 
+        ValidationProvider,
         ValidationObserver
     },
-    mouted() {
-        this.addPost()
-        this.clearPost()
+    mounted() {
+        if (this.type === 'create') {
+            this.clearPost()
+        }
     },
     computed: {
         ...mapState('post',['post'])

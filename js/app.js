@@ -2646,9 +2646,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
     ValidationObserver: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"]
   },
-  mouted: function mouted() {
-    this.addPost();
-    this.clearPost();
+  mounted: function mounted() {
+    if (this.type === 'create') {
+      this.clearPost();
+    }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('post', ['post'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['addPost', 'clearPost']), {
@@ -2775,15 +2776,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
   components: {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts', 'post'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts'])),
   mounted: function mounted() {
     this.getPosts();
-
-    if (this.type === 'create') {
-      this.clearPost();
-    }
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost', 'clearPost']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {
     destroyPost: function destroyPost(id) {
       var _this = this;
 
