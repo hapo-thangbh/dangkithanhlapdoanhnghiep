@@ -62,7 +62,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-12 text-center">
-                                    <button @click="refresh()" class="btn btn-sm btn-default">
+                                    <button @click="refresh()" type="button" class="btn btn-sm btn-default">
                                         <i class="fa fa-refresh"></i> Làm mới
                                     </button>
                                     <button type="submit" class="btn btn-sm btn-success">

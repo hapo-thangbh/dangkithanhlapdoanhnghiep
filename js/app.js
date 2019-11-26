@@ -65367,6 +65367,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "btn btn-sm btn-default",
+                                attrs: { type: "button" },
                                 on: {
                                   click: function($event) {
                                     return _vm.refresh()

@@ -11181,6 +11181,11 @@ label {
   font-size: 14px !important;
 }
 
+.sidebar-menu .active {
+  background: #0a3954 !important;
+  color: #fff !important;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;
