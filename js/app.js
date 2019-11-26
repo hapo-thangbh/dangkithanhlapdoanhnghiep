@@ -64144,7 +64144,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper h-800" }, [
+  return _c("div", { staticClass: "content-wrapper h-900" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
@@ -65442,7 +65442,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper h-800" }, [
+  return _c("div", { staticClass: "content-wrapper h-900" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
@@ -66066,7 +66066,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper h-700" }, [
+  return _c("div", { staticClass: "content-wrapper h-900" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
@@ -66333,7 +66333,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper h-600" }, [
+    return _c("div", { staticClass: "content-wrapper h-900" }, [
       _c("section", { staticClass: "content-header" }, [
         _c("h1", [_vm._v("Profile")]),
         _vm._v(" "),
@@ -82648,17 +82648,17 @@ module.exports = function(module) {
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*! AdminLTE app.js
-* ================
-* Main JS application file for AdminLTE v2. This file
-* should be included in all pages. It controls some layout
-* options and implements exclusive AdminLTE plugins.
-*
-* @author Colorlib
-* @support <https://github.com/ColorlibHQ/AdminLTE/issues>
-* @version 2.4.12
-* @repository git://github.com/ColorlibHQ/AdminLTE.git
-* @license MIT <http://opensource.org/licenses/MIT>
-*/
+ * ================
+ * Main JS application file for AdminLTE v2. This file
+ * should be included in all pages. It controls some layout
+ * options and implements exclusive AdminLTE plugins.
+ *
+ * @author Colorlib
+ * @support <https://github.com/ColorlibHQ/AdminLTE/issues>
+ * @version 2.4.12
+ * @repository git://github.com/ColorlibHQ/AdminLTE.git
+ * @license MIT <http://opensource.org/licenses/MIT>
+ */
 if ("undefined" == typeof jQuery) throw new Error("AdminLTE requires jQuery");
 +function (a) {
   "use strict";
@@ -83197,20 +83197,7 @@ if ("undefined" == typeof jQuery) throw new Error("AdminLTE requires jQuery");
     }.bind(this)), a(e.sidebarMenu).on("collapsed.tree", function () {
       this.fix(), this.fixSidebar();
     }.bind(this));
-  }, g.prototype.fix = function () {
-    a(e.layoutBoxed + " > " + e.wrapper).css("overflow", "hidden");
-    var b = a(e.mainFooter).outerHeight() || 0,
-        c = a(e.mainHeader).outerHeight() || 0,
-        d = c + b,
-        g = a(window).height(),
-        h = a(e.sidebar).height() || 0;
-    if (a("body").hasClass(f.fixed)) a(e.contentWrapper).css("min-height", g - b);else {
-      var i;
-      g >= h + c ? (a(e.contentWrapper).css("min-height", g - d), i = g - d) : (a(e.contentWrapper).css("min-height", h), i = h);
-      var j = a(e.controlSidebar);
-      void 0 !== j && j.height() > i && a(e.contentWrapper).css("min-height", j.height());
-    }
-  }, g.prototype.fixSidebar = function () {
+  }, g.prototype.fix = function () {}, g.prototype.fixSidebar = function () {
     if (!a("body").hasClass(f.fixed)) return void (void 0 !== a.fn.slimScroll && a(e.sidebar).slimScroll({
       destroy: !0
     }).height("auto"));

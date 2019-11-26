@@ -57,7 +57,7 @@
 
 /*!
  * AdminLTE v2.4.12
- * 
+ *
  *   Author:  Colorlib
  *   Support: <https://github.com/ColorlibHQ/AdminLTE/issues>
  *   Repository: git://github.com/ColorlibHQ/AdminLTE.git
@@ -152,7 +152,7 @@ body {
 }
 
 .content-wrapper {
-    min-height: calc(100% - 102px);
+    /*min-height: calc(100% - 102px);*/
     background-color: #ecf0f5;
     z-index: 800
 }

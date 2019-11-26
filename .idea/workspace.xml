@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="9b371574-b023-492e-8454-71d872d24ac6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Elements/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/backend/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/backend/all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/modules/admin/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/modules/admin/css/AdminLTE.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/modules/admin/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/modules/admin/js/adminlte.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/modules/admin/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/modules/admin/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Category/ListCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Category/ListCategory.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/User/ListUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/User/ListUser.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/User/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/User/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Elements/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Elements/master.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574685541821</updated>
       <workItem from="1574685548934" duration="5215000" />
-      <workItem from="1574738751854" duration="9831000" />
+      <workItem from="1574738751854" duration="11150000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper h-800">
+    <div class="content-wrapper h-900">
         <section class="content-header">
             <h1><i class="fa fa-book"></i> Chuyên mục</h1>
             <ol class="breadcrumb">

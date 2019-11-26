@@ -20,7 +20,7 @@
             @include('Admin.Elements.sidebar')
 
             <router-view></router-view>
-            
+
             @include('Admin.Elements.footer')
         </div>
         <script src="{{ asset('js/app.js') }}"></script>

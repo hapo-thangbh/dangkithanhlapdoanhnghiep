@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper h-700">
+    <div class="content-wrapper h-900">
         <section class="content-header">
             <h1><i class="fa fa-users"></i> Người dùng</h1>
             <ol class="breadcrumb">
