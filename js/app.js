@@ -2489,9 +2489,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AddPost',
   data: function data() {
-    return {
-      post: []
-    };
+    return {};
   },
   components: {
     FormInput: _Form_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -2777,14 +2775,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
   components: {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts', 'post'])),
   mounted: function mounted() {
     this.getPosts();
+
+    if (this.type === 'create') {
+      this.clearPost();
+    }
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {
-    editPost: function editPost() {
-      return alert('Edit Post');
-    },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost', 'clearPost']), {
     destroyPost: function destroyPost(id) {
       var _this = this;
 
@@ -2807,6 +2806,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     formartDate: function formartDate(date) {
       return moment(date).format('DD/MM/YYYY');
+    },
+    refresh: function refresh() {
+      this.getPosts();
     }
   })
 });
@@ -64988,7 +64990,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper h-700" }, [
+  return _c("div", { staticClass: "content-wrapper h-1000" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -65044,7 +65046,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper h-700" }, [
+  return _c("div", { staticClass: "content-wrapper h-1000" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -65445,7 +65447,21 @@ var render = function() {
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _vm._m(2),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary ml-3",
+                  on: {
+                    click: function($event) {
+                      return _vm.refresh()
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-refresh" }),
+                  _vm._v(" Làm mới\n                    ")
+                ]
+              ),
               _vm._v(" "),
               _c("router-link", { attrs: { to: { name: "addPost" } } }, [
                 _c(
@@ -65464,7 +65480,7 @@ var render = function() {
                   staticClass: "table table-bordered table-striped table-hover"
                 },
                 [
-                  _vm._m(3),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -65596,30 +65612,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-primary ml-3" }, [
-      _c("i", { staticClass: "fa fa-refresh" }),
-      _vm._v(" Làm mới\n                    ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { staticStyle: { width: "20px" } }, [_vm._v("ID")]),
+        _c("th", { staticStyle: { "min-width": "20px" } }, [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", { staticStyle: { width: "100px" } }, [_vm._v("Tiêu đề")]),
+        _c("th", { staticStyle: { "min-width": "100px" } }, [
+          _vm._v("Tiêu đề")
+        ]),
         _vm._v(" "),
         _c("th", [_vm._v("Nội dung")]),
         _vm._v(" "),
-        _c("th", { staticStyle: { width: "50px" } }, [_vm._v("Trạng thái")]),
+        _c("th", { staticStyle: { "min-width": "50px" } }, [
+          _vm._v("Trạng thái")
+        ]),
         _vm._v(" "),
-        _c("th", { staticStyle: { width: "100px" } }, [_vm._v("Ngày tạo")]),
+        _c("th", { staticStyle: { "min-width": "100px" } }, [
+          _vm._v("Ngày tạo")
+        ]),
         _vm._v(" "),
         _c(
           "th",
-          { staticClass: "text-center", staticStyle: { width: "100px" } },
+          { staticClass: "text-center", staticStyle: { "min-width": "100px" } },
           [_vm._v("Hành động")]
         )
       ])
@@ -91367,7 +91380,7 @@ __webpack_require__.r(__webpack_exports__);
         description: '',
         statue: ''
       };
-      context.commit('setPosts', data);
+      context.commit('setPost', data);
     },
     //get list post
     getPosts: function getPosts(context) {

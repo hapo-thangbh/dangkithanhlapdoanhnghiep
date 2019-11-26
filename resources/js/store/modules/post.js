@@ -38,7 +38,7 @@ export default {
                 description: '',
                 statue: ''
             }
-            context.commit('setPosts', data)
+            context.commit('setPost', data)
         },
         //get list post
         getPosts (context) {
@@ -53,7 +53,7 @@ export default {
                     })
             })
         },
-        
+
         //add post
         addPost (context, data) {
             return new Promise(resolve => {

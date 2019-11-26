@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper h-700">
+    <div class="content-wrapper h-1000">
         <section class="content-header">
             <h1><i class="fa fa-paste"></i> Chỉnh sửa bài viết</h1>
             <ol class="breadcrumb">

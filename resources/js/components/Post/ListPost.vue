@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <hr>
-                        <button class="btn btn-primary ml-3">
+                        <button class="btn btn-primary ml-3" v-on:click="refresh()">
                             <i class="fa fa-refresh"></i> Làm mới
                         </button>
                         <router-link :to="{ name:'addPost' }">
@@ -46,12 +46,12 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th style="width: 100px">Tiêu đề</th>
+                                    <th style="min-width: 20px">ID</th>
+                                    <th style="min-width: 100px">Tiêu đề</th>
                                     <th>Nội dung</th>
-                                    <th style="width: 50px">Trạng thái</th>
-                                    <th style="width: 100px">Ngày tạo</th>
-                                    <th class="text-center" style="width: 100px">Hành động</th>
+                                    <th style="min-width: 50px">Trạng thái</th>
+                                    <th style="min-width: 100px">Ngày tạo</th>
+                                    <th class="text-center" style="min-width: 100px">Hành động</th>
                                 </tr>
                             </thead>
 
@@ -93,19 +93,19 @@ import { mapState, mapActions } from 'vuex'
 export default {
     name: 'ListPost',
     components: {
-        
+
     },
     computed: {
-        ...mapState('post',['posts'])
+        ...mapState('post',['posts','post'])
     },
     mounted() {
-      this.getPosts()
+        this.getPosts()
+        if (this.type === 'create') {
+            this.clearPost()
+        }
     },
     methods: {
-        ...mapActions('post',['getPosts','deletePost']),
-        editPost() {
-            return alert('Edit Post')
-        },
+        ...mapActions('post',['getPosts','deletePost', 'clearPost']),
         destroyPost(id) {
             swal.fire({
                 title: '',
@@ -133,6 +133,9 @@ export default {
         formartDate (date) {
             return moment(date).format('DD/MM/YYYY')
         },
+        refresh () {
+            this.getPosts()
+        }
     }
 }
 
