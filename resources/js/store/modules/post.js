@@ -82,18 +82,16 @@ export default {
         },
 
         //delete post
-        deletePost (context, id) {
-            console.log(context)
-            const postId = id
+        deletePost ({context, dispatch}, id) {
             return new Promise(resolve => {
-                ApiService.get('/api/posts/delete/' +  postId)
+                ApiService.delete('/api/posts/delete/' +  id)
                     .then(({data}) => {
                         if (data.status === 200) {
                             dispatch('getPosts')
                             router.push({ name: 'listPost' })
                             window.swal.fire(
-                                'Xoá bài viết thành công!',
                                 '',
+                                'Xoá bài viết thành công!',
                                 'success'
                             )
                             resolve(data)

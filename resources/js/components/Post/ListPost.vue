@@ -74,7 +74,7 @@
                                             </button>
                                         </router-link>
 
-                                        <button @click="deletePost(post.id)" class="btn btn-sm btn-danger">
+                                        <button @click="destroyPost(post.id)" class="btn btn-sm btn-danger">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -106,7 +106,7 @@ export default {
         editPost() {
             return alert('Edit Post')
         },
-        deletePost(id) {
+        destroyPost(id) {
             swal.fire({
                 title: '',
                 text: "Bạn có chắc chắn muốn xóa?",

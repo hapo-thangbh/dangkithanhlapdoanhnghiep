@@ -2785,7 +2785,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     editPost: function editPost() {
       return alert('Edit Post');
     },
-    deletePost: function deletePost(id) {
+    destroyPost: function destroyPost(id) {
       var _this = this;
 
       swal.fire({
@@ -65516,7 +65516,7 @@ var render = function() {
                                 staticClass: "btn btn-sm btn-danger",
                                 on: {
                                   click: function($event) {
-                                    return _vm.deletePost(post.id)
+                                    return _vm.destroyPost(post.id)
                                   }
                                 }
                               },
@@ -91410,19 +91410,19 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     //delete post
-    deletePost: function deletePost(context, id) {
-      console.log(context);
-      var postId = id;
+    deletePost: function deletePost(_ref3, id) {
+      var context = _ref3.context,
+          dispatch = _ref3.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/delete/' + postId).then(function (_ref3) {
-          var data = _ref3.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref4) {
+          var data = _ref4.data;
 
           if (data.status === 200) {
             dispatch('getPosts');
             _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
               name: 'listPost'
             });
-            window.swal.fire('Xoá bài viết thành công!', '', 'success');
+            window.swal.fire('', 'Xoá bài viết thành công!', 'success');
             resolve(data);
           } else {
             context.commit('setErrors', 'Xoá bài viết thất bại!');
