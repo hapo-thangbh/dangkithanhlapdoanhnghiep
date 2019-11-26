@@ -91419,9 +91419,6 @@ __webpack_require__.r(__webpack_exports__);
 
           if (data.status === 200) {
             dispatch('getPosts');
-            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-              name: 'listPost'
-            });
             window.swal.fire('', 'Xoá bài viết thành công!', 'success');
             resolve(data);
           } else {

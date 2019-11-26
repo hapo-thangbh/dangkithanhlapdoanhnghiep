@@ -88,7 +88,6 @@ export default {
                     .then(({data}) => {
                         if (data.status === 200) {
                             dispatch('getPosts')
-                            router.push({ name: 'listPost' })
                             window.swal.fire(
                                 '',
                                 'Xoá bài viết thành công!',
