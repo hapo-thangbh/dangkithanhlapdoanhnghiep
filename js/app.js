@@ -2635,6 +2635,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
+
+Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
+  validate: function validate(value, _ref) {
+    var required = _ref.required;
+    var length = value && value.length;
+    return length >= 0;
+  },
+  params: ['required'],
+  message: '{_field_} không được để trống.'
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     type: String
@@ -65169,7 +65179,7 @@ var render = function() {
                             { staticClass: "col-md-8" },
                             [
                               _c("ValidationProvider", {
-                                attrs: { rules: "required", name: "title" },
+                                attrs: { rules: "required", name: "Tiêu đề" },
                                 scopedSlots: _vm._u(
                                   [
                                     {
@@ -65239,10 +65249,7 @@ var render = function() {
                             { staticClass: "col-md-8" },
                             [
                               _c("ValidationProvider", {
-                                attrs: {
-                                  rules: "required",
-                                  name: "description"
-                                },
+                                attrs: { rules: "required", name: "Nội dung" },
                                 scopedSlots: _vm._u(
                                   [
                                     {

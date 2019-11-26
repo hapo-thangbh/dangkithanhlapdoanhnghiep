@@ -17,7 +17,7 @@
                             <div class="row form-group">
                                 <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
                                 <div class="col-md-8">
-                                    <ValidationProvider rules="required" name="title" v-slot="{ errors }">
+                                    <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
                                         <input
                                             type="text"
                                             class="form-control"
@@ -39,7 +39,7 @@
                             <div class="row form-group">
                                 <label for="description" class="col-md-2 text-md-right">Nội dung</label>
                                 <div class="col-md-8">
-                                    <ValidationProvider rules="required" name="description" v-slot="{ errors }">
+                                    <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
                                         <textarea
                                             cols="30"
                                             rows="10"
@@ -81,6 +81,17 @@
 <script>
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
+import { extend } from 'vee-validate'
+
+extend('required', {
+    validate: (value, { required }) => {
+        const length = value && value.length;
+        return length >= 0
+    },
+    params: ['required'],
+    message: '{_field_} không được để trống.'
+});
+
 export default {
     props: {
         type: String
