@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9b371574-b023-492e-8454-71d872d24ac6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_20_135939_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_20_135939_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/backend/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/backend/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Post/Form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post/Form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/backend/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/backend/custom.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +157,7 @@
       <updated>1574685541821</updated>
       <workItem from="1574685548934" duration="5215000" />
       <workItem from="1574738751854" duration="11505000" />
-      <workItem from="1574926980111" duration="655000" />
+      <workItem from="1574926980111" duration="1578000" />
     </task>
     <servers />
   </component>

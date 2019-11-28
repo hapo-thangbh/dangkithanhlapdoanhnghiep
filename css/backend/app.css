@@ -11186,6 +11186,10 @@ label {
   color: #fff !important;
 }
 
+.ck-content {
+  min-height: 400px;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;

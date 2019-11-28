@@ -40,13 +40,12 @@
                                 <label for="description" class="col-md-2 text-md-right">Nội dung</label>
                                 <div class="col-md-8">
                                     <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
-                                        <textarea
-                                            cols="30"
-                                            rows="10"
+                                        <ckeditor
+                                            :editor="editor"
+                                            :config="editorConfig"
                                             class="form-control"
-                                            v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.description"
-                                        ></textarea>
+                                        ></ckeditor>
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                 </div>
@@ -82,6 +81,7 @@
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -98,7 +98,10 @@ export default {
     },
     data() {
         return {
-            
+            editor: ClassicEditor,
+            editorConfig: {
+                // The configuration of the editor.
+            }
         }
     },
     components: {

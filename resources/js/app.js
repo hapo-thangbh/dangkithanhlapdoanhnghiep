@@ -7,9 +7,10 @@ import store from './store/index'
 import moment from 'moment'
 import { extend } from 'vee-validate'
 import router from './router/index'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 import { min, required, email } from 'vee-validate/dist/rules'
-  
+
 extend('required', required)
 extend('min', min)
 extend('email', email)
@@ -23,6 +24,8 @@ window.toast = swal.mixin({
     timerProgressBar: true,
     timer: 5000
 })
+
+Vue.use(CKEditor)
 
 const app = new Vue({
     el: '#app',
