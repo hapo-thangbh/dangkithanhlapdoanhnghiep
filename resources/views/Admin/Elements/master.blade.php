@@ -24,5 +24,7 @@
             @include('Admin.Elements.footer')
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script> CKEDITOR.replace('editor'); </script>
     </body>
 </html>
