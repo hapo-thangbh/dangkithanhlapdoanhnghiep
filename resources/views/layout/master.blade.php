@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{{ asset('css/reset.css') }}" type="text/css">
 	<link rel="stylesheet" href="{{ asset('scss/style.css') }}" type="text/css">
 	<link rel="stylesheet" href="{{ asset('slick/slick.css') }}" type="text/css">
-	{{-- <link rel="stylesheet" href="{{ asset('scss/media.css') }}" type="text/css"> --}}
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
 </head>
 <body>
 
