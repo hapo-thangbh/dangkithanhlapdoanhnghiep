@@ -1,0 +1,16 @@
+a{
+    text-decoration: none;
+}
+.form-control{
+    border-radius: 0px !important;
+    &:hover{
+        box-shadow: none !important;
+    }
+    &:focus{
+        box-shadow: none !important;
+    }
+}
+
+.btn{
+    border-radius: 0px !important;
+}

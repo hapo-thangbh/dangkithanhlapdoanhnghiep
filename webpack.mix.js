@@ -1,15 +1,25 @@
 const mix = require('laravel-mix');
+// mix.js('resources/js/app.js', '/js')
+mix.js([
+    'resources/js/app.js',
+	'resources/css/modules/admin/js/jquery.min.js',
+	'resources/css/modules/admin/js/bootstrap.min.js',
+	'resources/css/modules/admin/js/bootstrap-datepicker.min.js',
+	'resources/css/modules/admin/js/fastclick.js',
+	'resources/css/modules/admin/js/adminlte.min.js',
+	'resources/css/modules/admin/js/app.js',
+], './js/app.js')
+.setPublicPath('./')
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix.styles([
+    'resources/css/modules/admin/css/bootstrap.min.css',
+    'resources/css/modules/admin/css/font-awesome/css/font-awesome.min.css',
+    'resources/css/modules/admin/css/AdminLTE.min.css',
+    'resources/css/modules/admin/css/_all-skins.min.css',
+    'resources/css/modules/admin/css/bootstrap-datepicker.min.css',
+    'resources/css/modules/admin/css/app.css',
+], './css/backend/all.css')
+mix.sass('resources/sass/backend/app.scss', './css/backend/app.css')
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/frontend/app.scss', './css/frontend/app.css')
+mix.disableNotifications()

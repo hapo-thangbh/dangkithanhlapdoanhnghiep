@@ -1,0 +1,38 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" id="app">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{{ asset('images/default.jpg') }}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Supper admin</p>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">ADMIN</li>
+            <li class="treeview">
+                <router-link :to="{ name: 'dashboard' }">
+                    <i class="fa fa-dashboard"></i> <span>Trang chủ</span>
+                </router-link>
+            </li>
+            <li><router-link :to="{ name: 'listPost' }"><i class="fa fa-paste"></i> Bài viết</router-link></li>
+            <li><a href="#"><i class="fa fa-comment-o"></i> Bình luận</a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> Hộp thư</a></li>
+            <li><router-link :to="{ name:'profile' }"><i class="fa fa-info-circle"></i> Hồ sơ</router-link></li>
+            <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Tài khoản</router-link></li>
+            <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Menu</router-link></li>
+            <li>
+                <a href="{{ route('admin.logout') }}">
+                    <i class="fa fa-power-off"></i> <span>Đăng xuất</span>
+                </a>
+            </li>
+
+            <!--<li class="header">LABELS</li>
+             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li> -->
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
