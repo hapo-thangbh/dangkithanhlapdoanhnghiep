@@ -30,11 +30,25 @@
                             </div>
 
                             <!-- <div class="row form-group">
-                                <label for="tag" class="col-md-3 text-md-right">Tag</label>
-                                <div class="col-md-6">
+                                <label for="tag" class="col-md-2 text-md-right">Tag</label>
+                                <div class="col-md-8">
                                     <input type="text" class="form-control">
                                 </div>
                             </div> -->
+
+                            <div class="row form-group">
+                                <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
+                                <div class="col-md-8">
+                                    <input type="file">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
 
                             <div class="row form-group">
                                 <label for="description" class="col-md-2 text-md-right">Nội dung</label>

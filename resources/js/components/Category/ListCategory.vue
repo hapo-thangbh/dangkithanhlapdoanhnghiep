@@ -95,7 +95,7 @@ export default {
         this.getCategories()
     },
     methods: {
-        ...mapActions('category',['getCategories']),
+        ...mapActions('category',['getCategories','deleteCategory']),
         destroyCategory(id) {
             swal.fire({
                 title: '',
