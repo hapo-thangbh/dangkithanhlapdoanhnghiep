@@ -66303,10 +66303,7 @@ var render = function() {
                                   )
                                 : _c("div", { staticClass: "text-center" }, [
                                     _c("img", {
-                                      staticStyle: {
-                                        width: "200px",
-                                        height: "200px"
-                                      },
+                                      staticClass: "image-preview",
                                       attrs: { src: _vm.image }
                                     }),
                                     _vm._v(" "),

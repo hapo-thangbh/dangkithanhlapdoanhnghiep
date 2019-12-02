@@ -55,7 +55,7 @@
                                         </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="image" style="width: 200px; height: 200px"/> <br/>
+                                        <img :src="image" class="image-preview"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
