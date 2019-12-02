@@ -1,4 +1,4 @@
-.editr {
+.editor {
     min-height: 600px;
 
     .editr--toolbar {
@@ -9,5 +9,19 @@
 
     .editr--content {
         min-height: 600px;
+    }
+}
+
+.h-editor-40 {
+    min-height: 40px;
+
+    .editr--toolbar {
+        align-items: center;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+
+    .editr--content {
+        min-height: 40px;
     }
 }

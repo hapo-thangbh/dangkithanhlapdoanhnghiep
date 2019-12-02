@@ -2729,6 +2729,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2747,9 +2755,7 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     type: String
   },
   data: function data() {
-    return {
-      image: ''
-    };
+    return {};
   },
   components: {
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
@@ -2784,18 +2790,18 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
       this.createImage(files[0]);
     },
     createImage: function createImage(file) {
-      var image = new Image();
+      var image_thumb = new Image();
       var reader = new FileReader();
       var vm = this;
 
       reader.onload = function (e) {
-        vm.image = e.target.result;
+        vm.post.image_thumb = e.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     removeImage: function removeImage(e) {
-      this.image = '';
+      this.post.image_thumb = '';
     }
   })
 });
@@ -66177,32 +66183,18 @@ var render = function() {
                                       fn: function(ref) {
                                         var errors = ref.errors
                                         return [
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.post.title,
-                                                expression: "post.title"
-                                              }
-                                            ],
-                                            staticClass: "form-control",
+                                          _c("wysiwyg", {
+                                            staticClass: "h-editor-40",
                                             class: errors[0]
                                               ? "border-danger"
                                               : "",
-                                            attrs: { type: "text" },
-                                            domProps: { value: _vm.post.title },
-                                            on: {
-                                              input: function($event) {
-                                                if ($event.target.composing) {
-                                                  return
-                                                }
-                                                _vm.$set(
-                                                  _vm.post,
-                                                  "title",
-                                                  $event.target.value
-                                                )
-                                              }
+                                            attrs: { placeholder: "" },
+                                            model: {
+                                              value: _vm.post.title,
+                                              callback: function($$v) {
+                                                _vm.$set(_vm.post, "title", $$v)
+                                              },
+                                              expression: "post.title"
                                             }
                                           }),
                                           _vm._v(" "),
@@ -66241,7 +66233,7 @@ var render = function() {
                                 "col-md-3 d-flex justify-content-start"
                             },
                             [
-                              !_vm.image
+                              !_vm.post.image_thumb
                                 ? _c(
                                     "div",
                                     [
@@ -66304,7 +66296,7 @@ var render = function() {
                                 : _c("div", { staticClass: "text-center" }, [
                                     _c("img", {
                                       staticClass: "image-preview",
-                                      attrs: { src: _vm.image }
+                                      attrs: { src: _vm.post.image_thumb }
                                     }),
                                     _vm._v(" "),
                                     _c("br"),
@@ -66411,6 +66403,7 @@ var render = function() {
                                         var errors = ref.errors
                                         return [
                                           _c("wysiwyg", {
+                                            staticClass: "editor",
                                             class: errors[0]
                                               ? "border-danger"
                                               : "",
@@ -92818,7 +92811,8 @@ __webpack_require__.r(__webpack_exports__);
     message: '',
     post: {
       title: '',
-      imgThumb: '',
+      image_thumb: '',
+      category_id: '',
       description: '',
       status: ''
     }
@@ -92844,7 +92838,8 @@ __webpack_require__.r(__webpack_exports__);
     clearPost: function clearPost(context) {
       var data = {
         title: '',
-        imgThumb: '',
+        image_thumb: '',
+        category_id: '',
         description: '',
         statue: ''
       };

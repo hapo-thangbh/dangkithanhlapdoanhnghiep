@@ -10,7 +10,8 @@ export default {
         message: '',
         post: {
             title: '',
-            imgThumb: '',
+            image_thumb: '',
+            category_id: '',
             description: '',
             status: ''
         }
@@ -36,7 +37,8 @@ export default {
         clearPost (context) {
             const data = {
                 title: '',
-                imgThumb: '',
+                image_thumb: '',
+                category_id: '',
                 description: '',
                 statue: ''
             }
