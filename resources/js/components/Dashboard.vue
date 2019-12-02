@@ -324,6 +324,8 @@
 
             }
         },
+        mounted() {
+            console.log('dashboard')
+        }
     }
-
 </script>

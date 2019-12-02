@@ -67,3 +67,26 @@ label{
 .toast{
     font-size: 14px !important;
 }
+.sidebar-menu{
+    .active{
+        background: #0a3954!important;
+        color: #fff!important;
+    }
+}
+
+.ck-content {
+    min-height: 400px;
+}
+.editr {
+    min-height: 600px;
+
+    .editr--toolbar {
+        align-items: center;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+
+    .editr--content {
+        min-height: 600px;
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper h-600">
+    <div class="content-wrapper h-900">
         <section class="content-header">
             <h1>Profile</h1>
             <ol class="breadcrumb">
