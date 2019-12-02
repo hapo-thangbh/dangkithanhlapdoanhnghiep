@@ -9,6 +9,7 @@ import { extend } from 'vee-validate'
 import router from './router/index'
 import { min, required, email } from 'vee-validate/dist/rules'
 import wysiwyg from "vue-wysiwyg"
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 Vue.use(wysiwyg, {})
 
@@ -32,3 +33,4 @@ const app = new Vue({
     store,
     router
 })
+

@@ -77,16 +77,13 @@ label{
 .ck-content {
     min-height: 400px;
 }
-.editr {
-    min-height: 600px;
 
-    .editr--toolbar {
-        align-items: center;
-        height: 100%;
-        flex-wrap: wrap;
-    }
+.icon-upload-thumb {
+    font-size: 30px !important;
+    cursor: pointer;
+}
 
-    .editr--content {
-        min-height: 600px;
-    }
+.multiselect__tags {
+    border-radius: 0px !important;
+    border: 1px solid #d2d6de !important;
 }
