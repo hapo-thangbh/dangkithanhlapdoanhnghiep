@@ -43,62 +43,64 @@
                                     <i class="fa fa-plus"></i> Tạo mới
                             </button>
                         </router-link>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th>Tên tài khoản</th>
-                                    <th>Email</th>
-                                    <th>Quyền người dùng</th>
-                                    <td>Ngày tạo</td>
-                                    <th class="text-center">Hành động</th>
-                                </tr>
-                            </thead>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px">ID</th>
+                                        <th>Tên tài khoản</th>
+                                        <th>Email</th>
+                                        <th>Quyền người dùng</th>
+                                        <td>Ngày tạo</td>
+                                        <th class="text-center">Hành động</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>dangthang</td>
-                                    <td>dangthang@gmail.com</td>
-                                    <td>
-                                        <label class="label label-warning">admin</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editUser' }" class="txt-white">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>dangthang</td>
+                                        <td>dangthang@gmail.com</td>
+                                        <td>
+                                            <label class="label label-warning">admin</label>
+                                        </td>
+                                        <td>18/11/2019</td>
+                                        <td class="text-center">
+                                            <router-link :to="{ name:'editUser' }" class="txt-white">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
+
+                                            <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </router-link>
+                                        </td>
+                                    </tr>
 
-                                        <button @click="deleteUser()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>administrator</td>
+                                        <td>admin@gmail.com</td>
+                                        <td>
+                                            <label class="label label-primary">user</label>
+                                        </td>
+                                        <td>18/11/2019</td>
+                                        <td class="text-center">
+                                            <router-link :to="{ name:'editUser' }">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
 
-                                <tr>
-                                    <td>2</td>
-                                    <td>administrator</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>
-                                        <label class="label label-primary">user</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editUser' }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                            <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </router-link>
-
-                                        <button @click="deleteUser()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

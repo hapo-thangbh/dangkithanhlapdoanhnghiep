@@ -43,40 +43,42 @@
                                 <i class="fa fa-plus"></i> Tạo mới
                             </button>
                         </router-link>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th style="width: 300px">Tên danh mục</th>
-                                    <th style="width: 50px">Trạng thái</th>
-                                    <th style="width: 50px">Ngày tạo</th>
-                                    <th class="text-center" style="width: 100px">Hành động</th>
-                                </tr>
-                            </thead>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px">ID</th>
+                                        <th style="width: 300px">Tên danh mục</th>
+                                        <th style="width: 50px">Trạng thái</th>
+                                        <th style="width: 50px">Ngày tạo</th>
+                                        <th class="text-center" style="width: 100px">Hành động</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr v-for="category in categories" :key="category.id">
-                                    <td>{{ category.id }}</td>
-                                    <td>{{ category.name }}</td>
-                                    <td>
-                                        <label class="label label-success" v-if="category.status === 1">Công khai</label>
-                                        <label class="label label-danger" v-else>Riêng tư</label>
-                                    </td>
-                                    <td>{{ formartDate(category.created_at) }}</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ path: '/admin/category/edit/' + category.id }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                <tbody>
+                                    <tr v-for="category in categories" :key="category.id">
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.name }}</td>
+                                        <td>
+                                            <label class="label label-success" v-if="category.status === 1">Công khai</label>
+                                            <label class="label label-danger" v-else>Riêng tư</label>
+                                        </td>
+                                        <td>{{ formartDate(category.created_at) }}</td>
+                                        <td class="text-center">
+                                            <router-link :to="{ path: '/admin/category/edit/' + category.id }">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
+
+                                            <button @click="destroyCategory(category.id)" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </router-link>
-
-                                        <button @click="destroyCategory(category.id)" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
