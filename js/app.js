@@ -65267,7 +65267,7 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-2 text-md-right",
+                              staticClass: "col-md-1 text-md-right",
                               attrs: { for: "title" }
                             },
                             [_vm._v("Tiêu đề")]
@@ -65275,7 +65275,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "col-md-8" },
+                            { staticClass: "col-md-11" },
                             [
                               _c("ValidationProvider", {
                                 attrs: { rules: "required", name: "Tiêu đề" },
@@ -65337,13 +65337,13 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-2 text-md-right",
+                              staticClass: "col-md-1 text-md-right",
                               attrs: { for: "tag" }
                             },
                             [_vm._v("Ảnh thumbnail")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-8" }, [
+                          _c("div", { staticClass: "col-md-11" }, [
                             _c("input", { attrs: { type: "file" } })
                           ])
                         ]),
@@ -65352,13 +65352,13 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-2 text-md-right",
+                              staticClass: "col-md-1 text-md-right",
                               attrs: { for: "tag" }
                             },
                             [_vm._v("Danh mục")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-8" }, [
+                          _c("div", { staticClass: "col-md-11" }, [
                             _c("input", {
                               staticClass: "form-control",
                               attrs: { type: "text" }
@@ -65370,7 +65370,7 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-2 text-md-right",
+                              staticClass: "col-md-1 text-md-right",
                               attrs: { for: "description" }
                             },
                             [_vm._v("Nội dung")]
@@ -65378,7 +65378,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "col-md-8" },
+                            { staticClass: "col-md-11" },
                             [
                               _c("ValidationProvider", {
                                 attrs: { rules: "required", name: "Nội dung" },
@@ -65428,13 +65428,13 @@ var render = function() {
                           _c(
                             "label",
                             {
-                              staticClass: "col-md-2 text-md-right",
+                              staticClass: "col-md-1 text-md-right",
                               attrs: { for: "status" }
                             },
                             [_vm._v("Công khai")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-8" }, [
+                          _c("div", { staticClass: "col-md-11" }, [
                             _c("input", {
                               directives: [
                                 {

@@ -11663,6 +11663,17 @@ label {
   min-height: 400px;
 }
 
+.editr {
+  min-height: 600px;
+}
+
+.editr .editr--toolbar {
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;

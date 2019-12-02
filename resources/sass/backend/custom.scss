@@ -77,3 +77,12 @@ label{
 .ck-content {
     min-height: 400px;
 }
+.editr {
+    min-height: 600px;
+
+    .editr--toolbar {
+        align-items: center;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+}

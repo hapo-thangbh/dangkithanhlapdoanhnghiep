@@ -15,8 +15,8 @@
                     <div class="box-body">
                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
                             <div class="row form-group">
-                                <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
-                                <div class="col-md-8">
+                                <label for="title" class="col-md-1 text-md-right">Tiêu đề</label>
+                                <div class="col-md-11">
                                     <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
                                         <input
                                             type="text"
@@ -30,29 +30,29 @@
                             </div>
 
                             <!-- <div class="row form-group">
-                                <label for="tag" class="col-md-2 text-md-right">Tag</label>
-                                <div class="col-md-8">
+                                <label for="tag" class="col-md-1 text-md-right">Tag</label>
+                                <div class="col-md-11">
                                     <input type="text" class="form-control">
                                 </div>
                             </div> -->
 
                             <div class="row form-group">
-                                <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
-                                <div class="col-md-8">
+                                <label for="tag" class="col-md-1 text-md-right">Ảnh thumbnail</label>
+                                <div class="col-md-11">
                                     <input type="file">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
-                                <div class="col-md-8">
+                                <label for="tag" class="col-md-1 text-md-right">Danh mục</label>
+                                <div class="col-md-11">
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label for="description" class="col-md-2 text-md-right">Nội dung</label>
-                                <div class="col-md-8">
+                                <label for="description" class="col-md-1 text-md-right">Nội dung</label>
+                                <div class="col-md-11">
                                     <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
                                         <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
@@ -64,8 +64,8 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="status" class="col-md-2 text-md-right">Công khai</label>
-                                <div class="col-md-8">
+                                <label for="status" class="col-md-1 text-md-right">Công khai</label>
+                                <div class="col-md-11">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
                                 </div>
