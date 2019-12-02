@@ -11674,6 +11674,10 @@ label {
   flex-wrap: wrap;
 }
 
+.editr .editr--content {
+  min-height: 600px;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;
