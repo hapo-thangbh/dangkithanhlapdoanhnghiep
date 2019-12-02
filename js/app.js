@@ -2716,6 +2716,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -66221,45 +66234,96 @@ var render = function() {
                             [_vm._v("Ảnh thumbnail")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-2" }, [
-                            !_vm.image
-                              ? _c("div", [
-                                  _c(
-                                    "label",
-                                    { attrs: { for: "chooseImage" } },
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "col-md-3 d-flex justify-content-start"
+                            },
+                            [
+                              !_vm.image
+                                ? _c(
+                                    "div",
                                     [
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-cloud-upload icon-upload-thumb"
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "chooseImage" } },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-cloud-upload icon-upload-thumb"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("ValidationProvider", {
+                                        staticClass: "d-flex",
+                                        attrs: {
+                                          rules: "required",
+                                          name: "Ảnh thumbnail"
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(ref) {
+                                                var errors = ref.errors
+                                                return [
+                                                  _c("input", {
+                                                    staticClass: "d-none",
+                                                    class: errors[0]
+                                                      ? "border-danger"
+                                                      : "",
+                                                    attrs: {
+                                                      type: "file",
+                                                      id: "chooseImage"
+                                                    },
+                                                    on: {
+                                                      change: _vm.onFileChange
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass: "text-danger"
+                                                    },
+                                                    [_vm._v(_vm._s(errors[0]))]
+                                                  )
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
                                       })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    staticClass: "d-none",
-                                    attrs: { type: "file", id: "chooseImage" },
-                                    on: { change: _vm.onFileChange }
-                                  })
-                                ])
-                              : _c("div", { staticClass: "text-center" }, [
-                                  _c("img", {
-                                    staticStyle: {
-                                      width: "200px",
-                                      height: "200px"
-                                    },
-                                    attrs: { src: _vm.image }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn btn-sm btn-danger mt-2",
-                                      on: { click: _vm.removeImage }
-                                    },
-                                    [_vm._v("Xóa ảnh")]
+                                    ],
+                                    1
                                   )
-                                ])
-                          ])
+                                : _c("div", { staticClass: "text-center" }, [
+                                    _c("img", {
+                                      staticStyle: {
+                                        width: "200px",
+                                        height: "200px"
+                                      },
+                                      attrs: { src: _vm.image }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-sm btn-danger mt-2",
+                                        on: { click: _vm.removeImage }
+                                      },
+                                      [_vm._v("Xóa ảnh")]
+                                    )
+                                  ])
+                            ]
+                          )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row form-group" }, [
@@ -66276,20 +66340,50 @@ var render = function() {
                             "div",
                             { staticClass: "col-md-10" },
                             [
-                              _c("multiselect", {
-                                attrs: {
-                                  options: _vm.categories,
-                                  label: "name",
-                                  "track-by": "id",
-                                  placeholder: ""
-                                },
-                                model: {
-                                  value: _vm.post.category,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.post, "category", $$v)
-                                  },
-                                  expression: "post.category"
-                                }
+                              _c("ValidationProvider", {
+                                attrs: { rules: "required", name: "Danh mục" },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("multiselect", {
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: {
+                                              options: _vm.categories,
+                                              label: "name",
+                                              "track-by": "id",
+                                              placeholder: ""
+                                            },
+                                            model: {
+                                              value: _vm.post.category,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "category",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "post.category"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
                               })
                             ],
                             1

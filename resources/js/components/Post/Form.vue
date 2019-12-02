@@ -38,15 +38,24 @@
 
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
-                                <div class="col-md-2">
+                                <div class="col-md-3 d-flex justify-content-start">
                                     <div v-if="!image">
                                         <label for="chooseImage">
                                             <i class="fa fa-cloud-upload icon-upload-thumb"></i>
                                         </label>
-                                        <input type="file" id="chooseImage" class="d-none" @change="onFileChange">
+                                        <ValidationProvider class="d-flex" rules="required" name="Ảnh thumbnail" v-slot="{ errors }">
+                                            <input 
+                                                type="file" 
+                                                id="chooseImage" 
+                                                class="d-none" 
+                                                @change="onFileChange"
+                                                v-bind:class="errors[0]?'border-danger':''"
+                                            >
+                                            <span class="text-danger">{{ errors[0] }}</span>
+                                        </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="image" style="width: 200px; height: 200px"/>
+                                        <img :src="image" style="width: 200px; height: 200px"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
@@ -55,14 +64,18 @@
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
                                 <div class="col-md-10">
-                                    <!-- <input type="text" class="form-control"> -->
-                                    <multiselect 
-                                        v-model="post.category" 
-                                        :options="categories"
-                                        label="name"
-                                        track-by="id"
-                                        placeholder=""
-                                    ></multiselect>
+                                    <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
+                                        <multiselect 
+                                            v-model="post.category" 
+                                            :options="categories"
+                                            label="name"
+                                            track-by="id"
+                                            placeholder=""
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                        ></multiselect>
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+
                                 </div>
                             </div>
 
