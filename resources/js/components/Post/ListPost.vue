@@ -43,48 +43,56 @@
                                 <i class="fa fa-plus"></i> Tạo mới
                             </button>
                         </router-link>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="min-width: 20px">ID</th>
-                                    <th style="min-width: 100px">Tiêu đề</th>
-                                    <th>Nội dung</th>
-                                    <th style="min-width: 50px">Trạng thái</th>
-                                    <th style="min-width: 100px">Ngày tạo</th>
-                                    <th class="text-center" style="min-width: 150px">Hành động</th>
-                                </tr>
-                            </thead>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="min-width: 20px">ID</th>
+                                        <th style="min-width: 100px">Tiêu đề</th>
+                                        <th style="min-width: 100px">Ảnh thumbnail</th>
+                                        <th>Nội dung</th>
+                                        <th style="min-width: 60px">Danh mục</th>
+                                        <th style="min-width: 50px">Trạng thái</th>
+                                        <th style="min-width: 100px">Ngày tạo</th>
+                                        <th class="text-center" style="min-width: 150px">Hành động</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr v-for="post in posts" :key="post.id">
-                                    <td>{{ post.id }}</td>
-                                    <td>{{ post.title }}</td>
-                                    <td>
-                                        <p v-html="post.description">{{ post.description }}</p>
-                                    </td>
-                                    <td>
-                                        <label class="label label-success" v-if="post.status == 1">Công khai</label>
-                                        <label class="label label-danger" v-else>Riêng tư</label>
-                                    </td>
-                                    <td>{{ formartDate(post.created_at) }}</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-sm btn-success">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-
-                                        <router-link :to="{ path: '/admin/post/edit/' + post.id }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                <tbody>
+                                    <tr v-for="post in posts" :key="post.id">
+                                        <td>{{ post.id }}</td>
+                                        <td>{{ post.title }}</td>
+                                        <td>
+                                            {{ post.image_thumb }}
+                                        </td>
+                                        <td>
+                                            <p v-html="post.description">{{ post.description }}</p>
+                                        </td>
+                                        <td>{{ post.category_name }}</td>
+                                        <td>
+                                            <label class="label label-success" v-if="post.status == 1">Công khai</label>
+                                            <label class="label label-danger" v-else>Riêng tư</label>
+                                        </td>
+                                        <td>{{ formartDate(post.created_at) }}</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-success">
+                                                <i class="fa fa-eye"></i>
                                             </button>
-                                        </router-link>
 
-                                        <button @click="destroyPost(post.id)" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <router-link :to="{ path: '/admin/post/edit/' + post.id }">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
+
+                                            <button @click="destroyPost(post.id)" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

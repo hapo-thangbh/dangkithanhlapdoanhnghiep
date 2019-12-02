@@ -43,62 +43,44 @@
                                     <i class="fa fa-plus"></i> Tạo mới
                             </button>
                         </router-link>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th>Tên tài khoản</th>
-                                    <th>Email</th>
-                                    <th>Quyền người dùng</th>
-                                    <td>Ngày tạo</td>
-                                    <th class="text-center">Hành động</th>
-                                </tr>
-                            </thead>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px">ID</th>
+                                        <th>Tên tài khoản</th>
+                                        <th>Email</th>
+                                        <th>Quyền người dùng</th>
+                                        <td>Ngày tạo</td>
+                                        <th class="text-center">Hành động</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>dangthang</td>
-                                    <td>dangthang@gmail.com</td>
-                                    <td>
-                                        <label class="label label-warning">admin</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editUser' }" class="txt-white">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                <tbody>
+                                    <tr v-for="user in users" :key="user.id">
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            <label class="label label-warning" v-if="user.level === 1">Quản trị viên</label>
+                                            <label class="label label-primary" v-else>Người dùng</label>
+                                        </td>
+                                        <td>{{ user.created_at }}</td>
+                                        <td class="text-center">
+                                            <router-link :to="{ name:'editUser' }" class="txt-white">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
+
+                                            <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </router-link>
-
-                                        <button @click="deleteUser()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>administrator</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>
-                                        <label class="label label-primary">user</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editUser' }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </router-link>
-
-                                        <button @click="deleteUser()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,38 +89,47 @@
 </template>
 
 <script>
-    export default {
-        name: 'ListUser',
-        methods: {
-            deleteUser() {
-                swal.fire({
-                        title: '',
-                        text: "Bạn có chắc chắn muốn xóa?",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Đồng ý',
-                        cancelButtonText: 'Hủy bỏ'
-                    })
-                    .then((result) => {
-                        if (result.value) {
-                            swal.fire(
-                                'Thành công',
-                                'Bạn đã xóa thành công',
-                                'success'
-                            )
-                        }
-                    })
-                    .catch(() => {
+import { mapState, mapActions } from 'vuex'
+
+export default {
+    name: 'ListUser',
+    mounted() {
+        this.getUsers()
+    },
+    computed: {
+        ...mapState('user', ['users'])
+    },
+    methods: {
+        ...mapActions('user', ['getUsers']),
+        deleteUser() {
+            swal.fire({
+                    title: '',
+                    text: "Bạn có chắc chắn muốn xóa?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Đồng ý',
+                    cancelButtonText: 'Hủy bỏ'
+                })
+                .then((result) => {
+                    if (result.value) {
                         swal.fire(
-                            'Thất bại',
-                            'Xóa không thành công',
-                            'warning'
+                            'Thành công',
+                            'Bạn đã xóa thành công',
+                            'success'
                         )
-                    })
-            }
+                    }
+                })
+                .catch(() => {
+                    swal.fire(
+                        'Thất bại',
+                        'Xóa không thành công',
+                        'warning'
+                    )
+                })
         }
     }
+}
 
 </script>

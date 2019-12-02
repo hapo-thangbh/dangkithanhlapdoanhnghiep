@@ -11929,6 +11929,11 @@ label {
   border: 1px solid #d2d6de !important;
 }
 
+.image-preview {
+  width: 200px;
+  height: 200px;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;
@@ -12148,18 +12153,33 @@ label {
   min-height: 1200px !important;
 }
 
-.editr {
+.editor {
   min-height: 600px;
 }
 
-.editr .editr--toolbar {
+.editor .editr--toolbar {
   -webkit-box-align: center;
           align-items: center;
   height: 100%;
   flex-wrap: wrap;
 }
 
-.editr .editr--content {
+.editor .editr--content {
   min-height: 600px;
+}
+
+.h-editor-40 {
+  min-height: 40px;
+}
+
+.h-editor-40 .editr--toolbar {
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.h-editor-40 .editr--content {
+  min-height: 40px;
 }
 

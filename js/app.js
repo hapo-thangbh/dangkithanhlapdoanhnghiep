@@ -2133,6 +2133,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListCategory',
@@ -2716,6 +2718,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2734,9 +2757,7 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     type: String
   },
   data: function data() {
-    return {
-      image: ''
-    };
+    return {};
   },
   components: {
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
@@ -2771,18 +2792,18 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
       this.createImage(files[0]);
     },
     createImage: function createImage(file) {
-      var image = new Image();
+      var image_thumb = new Image();
       var reader = new FileReader();
       var vm = this;
 
       reader.onload = function (e) {
-        vm.image = e.target.result;
+        vm.post.image_thumb = e.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     removeImage: function removeImage(e) {
-      this.image = '';
+      this.post.image_thumb = '';
     }
   })
 });
@@ -2805,6 +2826,14 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3138,6 +3167,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3228,27 +3264,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListUser',
-  methods: {
+  mounted: function mounted() {
+    this.getUsers();
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('user', ['users'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('user', ['getUsers']), {
     deleteUser: function deleteUser() {
       swal.fire({
         title: '',
@@ -3267,7 +3290,7 @@ __webpack_require__.r(__webpack_exports__);
         swal.fire('Thất bại', 'Xóa không thành công', 'warning');
       });
     }
-  }
+  })
 });
 
 /***/ }),
@@ -65184,83 +65207,87 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "table",
-                {
-                  staticClass: "table table-bordered table-striped table-hover"
-                },
-                [
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.categories, function(category) {
-                      return _c("tr", { key: category.id }, [
-                        _c("td", [_vm._v(_vm._s(category.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(category.name))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          category.status === 1
-                            ? _c(
-                                "label",
-                                { staticClass: "label label-success" },
-                                [_vm._v("Công khai")]
-                              )
-                            : _c(
-                                "label",
-                                { staticClass: "label label-danger" },
-                                [_vm._v("Riêng tư")]
-                              )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.formartDate(category.created_at)))
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "text-center" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    path: "/admin/category/edit/" + category.id
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  { staticClass: "btn btn-sm btn-primary" },
-                                  [_c("i", { staticClass: "fa fa-edit" })]
+              _c("div", { staticClass: "box-body table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-bordered table-striped table-hover"
+                  },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.categories, function(category) {
+                        return _c("tr", { key: category.id }, [
+                          _c("td", [_vm._v(_vm._s(category.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(category.name))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            category.status === 1
+                              ? _c(
+                                  "label",
+                                  { staticClass: "label label-success" },
+                                  [_vm._v("Công khai")]
                                 )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.destroyCategory(category.id)
+                              : _c(
+                                  "label",
+                                  { staticClass: "label label-danger" },
+                                  [_vm._v("Riêng tư")]
+                                )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.formartDate(category.created_at)))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "text-center" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      path:
+                                        "/admin/category/edit/" + category.id
+                                    }
                                   }
-                                }
-                              },
-                              [_c("i", { staticClass: "fa fa-times" })]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              )
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    { staticClass: "btn btn-sm btn-primary" },
+                                    [_c("i", { staticClass: "fa fa-edit" })]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-sm btn-danger",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.destroyCategory(category.id)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-times" })]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
             ],
             1
           )
@@ -66164,32 +66191,18 @@ var render = function() {
                                       fn: function(ref) {
                                         var errors = ref.errors
                                         return [
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.post.title,
-                                                expression: "post.title"
-                                              }
-                                            ],
-                                            staticClass: "form-control",
+                                          _c("wysiwyg", {
+                                            staticClass: "h-editor-40",
                                             class: errors[0]
                                               ? "border-danger"
                                               : "",
-                                            attrs: { type: "text" },
-                                            domProps: { value: _vm.post.title },
-                                            on: {
-                                              input: function($event) {
-                                                if ($event.target.composing) {
-                                                  return
-                                                }
-                                                _vm.$set(
-                                                  _vm.post,
-                                                  "title",
-                                                  $event.target.value
-                                                )
-                                              }
+                                            attrs: { placeholder: "" },
+                                            model: {
+                                              value: _vm.post.title,
+                                              callback: function($$v) {
+                                                _vm.$set(_vm.post, "title", $$v)
+                                              },
+                                              expression: "post.title"
                                             }
                                           }),
                                           _vm._v(" "),
@@ -66221,45 +66234,93 @@ var render = function() {
                             [_vm._v("Ảnh thumbnail")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-2" }, [
-                            !_vm.image
-                              ? _c("div", [
-                                  _c(
-                                    "label",
-                                    { attrs: { for: "chooseImage" } },
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "col-md-3 d-flex justify-content-start"
+                            },
+                            [
+                              !_vm.post.image_thumb
+                                ? _c(
+                                    "div",
                                     [
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-cloud-upload icon-upload-thumb"
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "chooseImage" } },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-cloud-upload icon-upload-thumb"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("ValidationProvider", {
+                                        staticClass: "d-flex",
+                                        attrs: {
+                                          rules: "required",
+                                          name: "Ảnh thumbnail"
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(ref) {
+                                                var errors = ref.errors
+                                                return [
+                                                  _c("input", {
+                                                    staticClass: "d-none",
+                                                    class: errors[0]
+                                                      ? "border-danger"
+                                                      : "",
+                                                    attrs: {
+                                                      type: "file",
+                                                      id: "chooseImage"
+                                                    },
+                                                    on: {
+                                                      change: _vm.onFileChange
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass: "text-danger"
+                                                    },
+                                                    [_vm._v(_vm._s(errors[0]))]
+                                                  )
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
                                       })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    staticClass: "d-none",
-                                    attrs: { type: "file", id: "chooseImage" },
-                                    on: { change: _vm.onFileChange }
-                                  })
-                                ])
-                              : _c("div", { staticClass: "text-center" }, [
-                                  _c("img", {
-                                    staticStyle: {
-                                      width: "200px",
-                                      height: "200px"
-                                    },
-                                    attrs: { src: _vm.image }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn btn-sm btn-danger mt-2",
-                                      on: { click: _vm.removeImage }
-                                    },
-                                    [_vm._v("Xóa ảnh")]
+                                    ],
+                                    1
                                   )
-                                ])
-                          ])
+                                : _c("div", { staticClass: "text-center" }, [
+                                    _c("img", {
+                                      staticClass: "image-preview",
+                                      attrs: { src: _vm.post.image_thumb }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-sm btn-danger mt-2",
+                                        on: { click: _vm.removeImage }
+                                      },
+                                      [_vm._v("Xóa ảnh")]
+                                    )
+                                  ])
+                            ]
+                          )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row form-group" }, [
@@ -66276,20 +66337,50 @@ var render = function() {
                             "div",
                             { staticClass: "col-md-10" },
                             [
-                              _c("multiselect", {
-                                attrs: {
-                                  options: _vm.categories,
-                                  label: "name",
-                                  "track-by": "id",
-                                  placeholder: ""
-                                },
-                                model: {
-                                  value: _vm.post.category,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.post, "category", $$v)
-                                  },
-                                  expression: "post.category"
-                                }
+                              _c("ValidationProvider", {
+                                attrs: { rules: "required", name: "Danh mục" },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("multiselect", {
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: {
+                                              options: _vm.categories,
+                                              label: "name",
+                                              "track-by": "id",
+                                              placeholder: ""
+                                            },
+                                            model: {
+                                              value: _vm.post.category,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "category",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "post.category"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
                               })
                             ],
                             1
@@ -66320,6 +66411,7 @@ var render = function() {
                                         var errors = ref.errors
                                         return [
                                           _c("wysiwyg", {
+                                            staticClass: "editor",
                                             class: errors[0]
                                               ? "border-danger"
                                               : "",
@@ -66532,93 +66624,108 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "table",
-                {
-                  staticClass: "table table-bordered table-striped table-hover"
-                },
-                [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.posts, function(post) {
-                      return _c("tr", { key: post.id }, [
-                        _c("td", [_vm._v(_vm._s(post.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(post.title))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "p",
-                            {
-                              domProps: { innerHTML: _vm._s(post.description) }
-                            },
-                            [_vm._v(_vm._s(post.description))]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          post.status == 1
-                            ? _c(
-                                "label",
-                                { staticClass: "label label-success" },
-                                [_vm._v("Công khai")]
-                              )
-                            : _c(
-                                "label",
-                                { staticClass: "label label-danger" },
-                                [_vm._v("Riêng tư")]
-                              )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.formartDate(post.created_at)))
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "text-center" },
-                          [
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: { path: "/admin/post/edit/" + post.id }
-                                }
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  { staticClass: "btn btn-sm btn-primary" },
-                                  [_c("i", { staticClass: "fa fa-edit" })]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.destroyPost(post.id)
-                                  }
-                                }
-                              },
-                              [_c("i", { staticClass: "fa fa-times" })]
+              _c("div", { staticClass: "box-body table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-bordered table-striped table-hover"
+                  },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.posts, function(post) {
+                        return _c("tr", { key: post.id }, [
+                          _c("td", [_vm._v(_vm._s(post.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(post.title))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(post.image_thumb) +
+                                "\n                                    "
                             )
-                          ],
-                          1
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "p",
+                              {
+                                domProps: {
+                                  innerHTML: _vm._s(post.description)
+                                }
+                              },
+                              [_vm._v(_vm._s(post.description))]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(post.category_name))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            post.status == 1
+                              ? _c(
+                                  "label",
+                                  { staticClass: "label label-success" },
+                                  [_vm._v("Công khai")]
+                                )
+                              : _c(
+                                  "label",
+                                  { staticClass: "label label-danger" },
+                                  [_vm._v("Riêng tư")]
+                                )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.formartDate(post.created_at)))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "text-center" },
+                            [
+                              _vm._m(3, true),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: { path: "/admin/post/edit/" + post.id }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    { staticClass: "btn btn-sm btn-primary" },
+                                    [_c("i", { staticClass: "fa fa-edit" })]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-sm btn-danger",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.destroyPost(post.id)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-times" })]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
             ],
             1
           )
@@ -66692,7 +66799,15 @@ var staticRenderFns = [
           _vm._v("Tiêu đề")
         ]),
         _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "100px" } }, [
+          _vm._v("Ảnh thumbnail")
+        ]),
+        _vm._v(" "),
         _c("th", [_vm._v("Nội dung")]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "60px" } }, [
+          _vm._v("Danh mục")
+        ]),
         _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "50px" } }, [
           _vm._v("Trạng thái")
@@ -67150,108 +67265,83 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "table",
-                {
-                  staticClass: "table table-bordered table-striped table-hover"
-                },
-                [
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [
-                      _c("td", [_vm._v("1")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("dangthang")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("dangthang@gmail.com")]),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("18/11/2019")]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "txt-white",
-                              attrs: { to: { name: "editUser" } }
-                            },
-                            [
-                              _c(
-                                "button",
-                                { staticClass: "btn btn-sm btn-primary" },
-                                [_c("i", { staticClass: "fa fa-edit" })]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm btn-danger",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteUser()
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fa fa-times" })]
-                          )
-                        ],
-                        1
-                      )
-                    ]),
+              _c("div", { staticClass: "box-body table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-bordered table-striped table-hover"
+                  },
+                  [
+                    _vm._m(3),
                     _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("2")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("administrator")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("admin@gmail.com")]),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("18/11/2019")]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center" },
-                        [
-                          _c(
-                            "router-link",
-                            { attrs: { to: { name: "editUser" } } },
-                            [
-                              _c(
-                                "button",
-                                { staticClass: "btn btn-sm btn-primary" },
-                                [_c("i", { staticClass: "fa fa-edit" })]
-                              )
-                            ]
-                          ),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.users, function(user) {
+                        return _c("tr", { key: user.id }, [
+                          _c("td", [_vm._v(_vm._s(user.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.username))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.email))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            user.level === 1
+                              ? _c(
+                                  "label",
+                                  { staticClass: "label label-warning" },
+                                  [_vm._v("Quản trị viên")]
+                                )
+                              : _c(
+                                  "label",
+                                  { staticClass: "label label-primary" },
+                                  [_vm._v("Người dùng")]
+                                )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.created_at))]),
                           _vm._v(" "),
                           _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm btn-danger",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteUser()
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fa fa-times" })]
+                            "td",
+                            { staticClass: "text-center" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "txt-white",
+                                  attrs: { to: { name: "editUser" } }
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    { staticClass: "btn btn-sm btn-primary" },
+                                    [_c("i", { staticClass: "fa fa-edit" })]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-sm btn-danger",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteUser()
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-times" })]
+                              )
+                            ],
+                            1
                           )
-                        ],
-                        1
-                      )
-                    ])
-                  ])
-                ]
-              )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
             ],
             1
           )
@@ -67343,22 +67433,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Hành động")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("label", { staticClass: "label label-warning" }, [_vm._v("admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("label", { staticClass: "label label-primary" }, [_vm._v("user")])
     ])
   }
 ]
@@ -92521,9 +92595,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/post */ "./resources/js/store/modules/post.js");
 /* harmony import */ var _modules_category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/category */ "./resources/js/store/modules/category.js");
+/* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 var state = {};
@@ -92532,7 +92608,8 @@ var mutations = {};
 var actions = {};
 var modules = {
   post: _modules_post__WEBPACK_IMPORTED_MODULE_2__["default"],
-  category: _modules_category__WEBPACK_IMPORTED_MODULE_3__["default"]
+  category: _modules_category__WEBPACK_IMPORTED_MODULE_3__["default"],
+  user: _modules_user__WEBPACK_IMPORTED_MODULE_4__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: state,
@@ -92727,7 +92804,8 @@ __webpack_require__.r(__webpack_exports__);
     message: '',
     post: {
       title: '',
-      imgThumb: '',
+      image_thumb: '',
+      category_id: '',
       description: '',
       status: ''
     }
@@ -92753,7 +92831,8 @@ __webpack_require__.r(__webpack_exports__);
     clearPost: function clearPost(context) {
       var data = {
         title: '',
-        imgThumb: '',
+        image_thumb: '',
+        category_id: '',
         description: '',
         statue: ''
       };
@@ -92858,6 +92937,55 @@ __webpack_require__.r(__webpack_exports__);
           }
         })["catch"](function (err) {
           console.log(err);
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/user.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/user.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! q */ "./node_modules/q/q.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(q__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../router */ "./resources/js/router/index.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: {
+    users: [],
+    errors: ''
+  },
+  mutations: {
+    setUsers: function setUsers(state, data) {
+      state.users = data;
+    },
+    setErrors: function setErrors(state, data) {
+      state.errors = data;
+    }
+  },
+  actions: {
+    getUsers: function getUsers(context, commit) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/users').then(function (_ref) {
+          var data = _ref.data;
+          context.commit('setUsers', data);
+          resolve(data);
+        })["catch"](function (err) {
+          console.log(err);
+          context.commit('setErrors', err);
+          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
         });
       });
     }

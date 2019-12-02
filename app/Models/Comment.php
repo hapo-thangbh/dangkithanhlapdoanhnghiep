@@ -11,4 +11,12 @@ class Comment extends Model
     protected $fillable=[
         'user_id','post_id','description','status'
     ];
+
+    public function users() {
+        return $this->hasMany(User::class);
+    }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }

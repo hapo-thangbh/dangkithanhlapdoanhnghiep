@@ -10,7 +10,8 @@ export default {
         message: '',
         post: {
             title: '',
-            imgThumb: '',
+            image_thumb: '',
+            category_id: '',
             description: '',
             status: ''
         }
@@ -36,7 +37,8 @@ export default {
         clearPost (context) {
             const data = {
                 title: '',
-                imgThumb: '',
+                image_thumb: '',
+                category_id: '',
                 description: '',
                 statue: ''
             }
@@ -46,7 +48,9 @@ export default {
         getPosts (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/posts')
-                    .then(({data}) => {
+                    .then(({
+                        data
+                    }) => {
                         context.commit('setPosts', data)
                         resolve(data)
                     })

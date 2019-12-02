@@ -45,6 +45,8 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('/categories/edit/{id}','CategoryController@editCategory');
     Route::put('/categories/update/{id}','CategoryController@updateCategory');
     Route::delete('/categories/delete/{id}','CategoryController@deleteCategory');
+
+    Route::get('/users', 'UserController@index');
 });
 /* end api */
 

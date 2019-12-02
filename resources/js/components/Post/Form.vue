@@ -18,12 +18,19 @@
                                 <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
                                 <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
-                                        <input
+                                        <!-- <input
                                             type="text"
                                             class="form-control"
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.title"
-                                        >
+                                        > -->
+                                        <wysiwyg 
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                            v-model="post.title" 
+                                            placeholder=""
+                                            class="h-editor-40"
+                                        />
+
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                 </div>
@@ -38,15 +45,24 @@
 
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
-                                <div class="col-md-2">
-                                    <div v-if="!image">
+                                <div class="col-md-3 d-flex justify-content-start">
+                                    <div v-if="!post.image_thumb">
                                         <label for="chooseImage">
                                             <i class="fa fa-cloud-upload icon-upload-thumb"></i>
                                         </label>
-                                        <input type="file" id="chooseImage" class="d-none" @change="onFileChange">
+                                        <ValidationProvider class="d-flex" rules="required" name="Ảnh thumbnail" v-slot="{ errors }">
+                                            <input 
+                                                type="file" 
+                                                id="chooseImage" 
+                                                class="d-none" 
+                                                @change="onFileChange"
+                                                v-bind:class="errors[0]?'border-danger':''"
+                                            >
+                                            <span class="text-danger">{{ errors[0] }}</span>
+                                        </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="image" style="width: 200px; height: 200px"/>
+                                        <img :src="post.image_thumb" class="image-preview"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
@@ -55,14 +71,18 @@
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
                                 <div class="col-md-10">
-                                    <!-- <input type="text" class="form-control"> -->
-                                    <multiselect 
-                                        v-model="post.category" 
-                                        :options="categories"
-                                        label="name"
-                                        track-by="id"
-                                        placeholder=""
-                                    ></multiselect>
+                                    <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
+                                        <multiselect 
+                                            v-model="post.category" 
+                                            :options="categories"
+                                            label="name"
+                                            track-by="id"
+                                            placeholder=""
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                        ></multiselect>
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+
                                 </div>
                             </div>
 
@@ -74,6 +94,7 @@
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.description" 
                                             placeholder=""
+                                            class="editor"
                                         />
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
@@ -127,7 +148,7 @@ export default {
     },
     data() {
         return {
-            image: ''
+            
         }
     },
     components: {
@@ -168,17 +189,17 @@ export default {
             this.createImage(files[0])
         },
         createImage (file) {
-            var image = new Image();
+            var image_thumb = new Image();
             var reader = new FileReader()
             var vm = this;
 
             reader.onload = (e) => {
-                vm.image = e.target.result
+                vm.post.image_thumb = e.target.result
             }
             reader.readAsDataURL(file)
         },
         removeImage (e) {
-            this.image = ''
+            this.post.image_thumb = ''
         }
     }
 }
