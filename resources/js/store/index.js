@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 import post from './modules/post'
 import category from './modules/category'
+import user from './modules/user'
 
 const state = {
 
@@ -22,7 +23,8 @@ const actions = {
 
 const modules = {
     post,
-    category
+    category,
+    user
 }
 
 export default new Vuex.Store({
