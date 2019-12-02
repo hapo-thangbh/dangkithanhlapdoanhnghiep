@@ -1,5 +1,5 @@
-require('./bootstrap');
-window.Vue = require('vue');
+require('./bootstrap')
+window.Vue = require('vue')
 
 import swal from 'sweetalert2'
 import VueRouter from 'vue-router'
@@ -7,9 +7,10 @@ import store from './store/index'
 import moment from 'moment'
 import { extend } from 'vee-validate'
 import router from './router/index'
-import CKEditor from '@ckeditor/ckeditor5-vue';
-
 import { min, required, email } from 'vee-validate/dist/rules'
+import wysiwyg from "vue-wysiwyg"
+
+Vue.use(wysiwyg, {})
 
 extend('required', required)
 extend('min', min)
@@ -25,10 +26,9 @@ window.toast = swal.mixin({
     timer: 5000
 })
 
-Vue.use(CKEditor)
 
 const app = new Vue({
     el: '#app',
     store,
     router
-});
+})

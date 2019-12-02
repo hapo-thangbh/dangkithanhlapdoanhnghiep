@@ -54,11 +54,10 @@
                                 <label for="description" class="col-md-2 text-md-right">Nội dung</label>
                                 <div class="col-md-8">
                                     <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
-                                        <textarea 
-                                            id="editor"
+                                        <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
-                                            v-model="post.description"
-                                        ></textarea>
+                                            v-model="post.description" 
+                                        />
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                 </div>
@@ -124,7 +123,6 @@ export default {
             let idPost = this.$route.params.id
             this.editPost(idPost)
         }
-        this.getCkeditor()
     },
     computed: {
         ...mapState('post',['post'])
@@ -140,9 +138,6 @@ export default {
         },
         refresh () {
             this.clearPost()
-        },
-        getCkeditor(){
-            CKEDITOR.replace('editor');
         }
     }
 }
