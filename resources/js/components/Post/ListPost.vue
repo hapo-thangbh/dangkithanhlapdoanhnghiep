@@ -126,7 +126,7 @@ export default {
             .catch(() => {
                 swal.fire(
                   'Thất bại',
-                  'Xóa không thành công',
+                  'Xóa danh mục không thành công',
                   'warning'
                 )
             })

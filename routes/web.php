@@ -36,11 +36,15 @@ Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
 Route::group(['prefix' => 'api'], function() {
     Route::get('/posts','PostController@index');
     Route::post('/posts/add','PostController@addPost');
-
     Route::get('/posts/edit/{id}','PostController@editPost');
     Route::put('/posts/update/{id}','PostController@updatePost');
-
     Route::delete('/posts/delete/{id}','PostController@deletePost');
+
+    Route::get('/categories','CategoryController@index');
+    Route::post('/categories/add','CategoryController@addCategory');
+    Route::get('/categories/edit/{id}','CategoryController@editCategory');
+    Route::put('/categories/update/{id}','CategoryController@updateCategory');
+    Route::delete('/categories/delete/{id}','CategoryController@deleteCategory');
 });
 /* end api */
 
