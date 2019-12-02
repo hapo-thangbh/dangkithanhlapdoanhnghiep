@@ -65617,7 +65617,15 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(post.title))]),
                         _vm._v(" "),
-                        _c("td", [_c("p", [_vm._v(_vm._s(post.description))])]),
+                        _c("td", [
+                          _c(
+                            "p",
+                            {
+                              domProps: { innerHTML: _vm._s(post.description) }
+                            },
+                            [_vm._v(_vm._s(post.description))]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [
                           post.status == 1

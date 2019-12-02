@@ -60,7 +60,7 @@
                                     <td>{{ post.id }}</td>
                                     <td>{{ post.title }}</td>
                                     <td>
-                                        <p>{{ post.description }}</p>
+                                        <p v-html="post.description">{{ post.description }}</p>
                                     </td>
                                     <td>
                                         <label class="label label-success" v-if="post.status == 1">Công khai</label>
