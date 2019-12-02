@@ -15,8 +15,8 @@
                     <div class="box-body">
                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
                             <div class="row form-group">
-                                <label for="title" class="col-md-1 text-md-right">Tiêu đề</label>
-                                <div class="col-md-11">
+                                <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
+                                <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
                                         <input
                                             type="text"
@@ -37,26 +37,43 @@
                             </div> -->
 
                             <div class="row form-group">
-                                <label for="tag" class="col-md-1 text-md-right">Ảnh thumbnail</label>
-                                <div class="col-md-11">
-                                    <input type="file">
+                                <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
+                                <div class="col-md-2">
+                                    <div v-if="!image">
+                                        <label for="chooseImage">
+                                            <i class="fa fa-cloud-upload icon-upload-thumb"></i>
+                                        </label>
+                                        <input type="file" id="chooseImage" class="d-none" @change="onFileChange">
+                                    </div>
+                                    <div v-else class="text-center">
+                                        <img :src="image" style="width: 200px; height: 200px"/>
+                                        <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label for="tag" class="col-md-1 text-md-right">Danh mục</label>
-                                <div class="col-md-11">
-                                    <input type="text" class="form-control">
+                                <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
+                                <div class="col-md-10">
+                                    <!-- <input type="text" class="form-control"> -->
+                                    <multiselect 
+                                        v-model="post.category" 
+                                        :options="categories"
+                                        label="name"
+                                        track-by="id"
+                                        placeholder=""
+                                    ></multiselect>
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label for="description" class="col-md-1 text-md-right">Nội dung</label>
-                                <div class="col-md-11">
+                                <label for="description" class="col-md-2 text-md-right">Nội dung</label>
+                                <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
                                         <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.description" 
+                                            placeholder=""
                                         />
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
@@ -64,8 +81,8 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="status" class="col-md-1 text-md-right">Công khai</label>
-                                <div class="col-md-11">
+                                <label for="status" class="col-md-2 text-md-right">Công khai</label>
+                                <div class="col-md-10">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
                                 </div>
@@ -93,6 +110,7 @@
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
+import Multiselect from 'vue-multiselect'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -109,12 +127,13 @@ export default {
     },
     data() {
         return {
-            
+            image: ''
         }
     },
     components: {
         ValidationProvider,
-        ValidationObserver
+        ValidationObserver,
+        Multiselect
     },
     mounted() {
         if (this.type === 'create') {
@@ -123,12 +142,15 @@ export default {
             let idPost = this.$route.params.id
             this.editPost(idPost)
         }
+        this.getCategories()
     },
     computed: {
-        ...mapState('post',['post'])
+        ...mapState('post', ['post']),
+        ...mapState('category', ['categories'])
     },
     methods: {
         ...mapActions('post',['clearPost','addPost','editPost','updatePost']),
+        ...mapActions('category', ['getCategories']),
         onSubmit () {
             if (this.type === 'create') {
                 this.addPost(this.post)
@@ -138,7 +160,28 @@ export default {
         },
         refresh () {
             this.clearPost()
+        },
+        onFileChange (e) {
+            var files = e.target.files || e.dataTransfer.files
+            if (!files.length)
+                return
+            this.createImage(files[0])
+        },
+        createImage (file) {
+            var image = new Image();
+            var reader = new FileReader()
+            var vm = this;
+
+            reader.onload = (e) => {
+                vm.image = e.target.result
+            }
+            reader.readAsDataURL(file)
+        },
+        removeImage (e) {
+            this.image = ''
         }
     }
 }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
