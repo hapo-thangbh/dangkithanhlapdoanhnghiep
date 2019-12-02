@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{ countPost }}</h3>
                             <p>Bài viết</p>
                         </div>
                         <div class="icon">
@@ -33,7 +33,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>2</h3>
+                            <h3>{{ countUser }}</h3>
                             <p>Tài khoản</p>
                         </div>
                         <div class="icon">
