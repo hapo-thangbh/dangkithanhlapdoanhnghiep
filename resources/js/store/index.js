@@ -4,6 +4,7 @@ Vue.use(Vuex)
 import post from './modules/post'
 import category from './modules/category'
 import user from './modules/user'
+import dashboard from './modules/dashboard'
 
 const state = {
 
@@ -24,7 +25,8 @@ const actions = {
 const modules = {
     post,
     category,
-    user
+    user,
+    dashboard
 }
 
 export default new Vuex.Store({

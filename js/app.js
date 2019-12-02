@@ -2183,6 +2183,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2501,14 +2508,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
     return {};
   },
   mounted: function mounted() {
-    console.log('dashboard');
-  }
+    this.getCountPost();
+    this.getCountUser();
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']))
 });
 
 /***/ }),
@@ -65454,7 +65465,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
             _c("div", { staticClass: "small-box bg-green" }, [
               _c("div", { staticClass: "inner" }, [
-                _c("h3", [_vm._v("2")]),
+                _c("h3", [_vm._v("0")]),
                 _vm._v(" "),
                 _c("p", [_vm._v("Bài viết")])
               ]),
@@ -92596,9 +92607,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/post */ "./resources/js/store/modules/post.js");
 /* harmony import */ var _modules_category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/category */ "./resources/js/store/modules/category.js");
 /* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
+/* harmony import */ var _modules_dashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/dashboard */ "./resources/js/store/modules/dashboard.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -92609,7 +92622,8 @@ var actions = {};
 var modules = {
   post: _modules_post__WEBPACK_IMPORTED_MODULE_2__["default"],
   category: _modules_category__WEBPACK_IMPORTED_MODULE_3__["default"],
-  user: _modules_user__WEBPACK_IMPORTED_MODULE_4__["default"]
+  user: _modules_user__WEBPACK_IMPORTED_MODULE_4__["default"],
+  dashboard: _modules_dashboard__WEBPACK_IMPORTED_MODULE_5__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: state,
@@ -92772,6 +92786,71 @@ __webpack_require__.r(__webpack_exports__);
           }
         })["catch"](function (err) {
           console.log(err);
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/dashboard.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/dashboard.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! q */ "./node_modules/q/q.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(q__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../router */ "./resources/js/router/index.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: {
+    countPost: '',
+    countUser: ''
+  },
+  mutations: {
+    setErrors: function setErrors(state, data) {
+      state.errors = data;
+    },
+    setCountPost: function setCountPost(state, data) {
+      state.countPost = data;
+    },
+    setCountUser: function setCountUser(state, data) {
+      state.countUser = data;
+    }
+  },
+  actions: {
+    getCountPost: function getCountPost(context, commit) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/count').then(function (_ref) {
+          var data = _ref.data;
+          context.commit('setCountPost', data);
+          resolve(data);
+        })["catch"](function (err) {
+          console.log(err);
+          context.commit('setErrors', err);
+          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
+        });
+      });
+    },
+    getCountUser: function getCountUser(context, commit) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/users/count').then(function (_ref2) {
+          var data = _ref2.data;
+          context.commit('setCountUser', data);
+          resolve(data);
+        })["catch"](function (err) {
+          console.log(err);
+          context.commit('setErrors', err);
+          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
         });
       });
     }

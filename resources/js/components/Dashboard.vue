@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>2</h3>
+                            <h3>0</h3>
                             <p>Bài viết</p>
                         </div>
                         <div class="icon">
@@ -317,15 +317,24 @@
 </template>
 
 <script>
-    export default {
-        name: 'Dashboard',
-        data() {
-            return {
+import { mapState, mapActions } from 'vuex'
 
-            }
-        },
-        mounted() {
-            console.log('dashboard')
+export default {
+    name: 'Dashboard',
+    data() {
+        return {
+
         }
+    },
+    mounted() {
+        this.getCountPost()
+        this.getCountUser()
+    },
+    computed: {
+        ...mapState('dashboard', ['countPost', 'countUser']),
+    },
+    methods: {
+        ...mapActions('dashboard', ['getCountPost', 'getCountUser']),
     }
+}
 </script>
