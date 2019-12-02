@@ -2508,6 +2508,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
@@ -65435,24 +65437,39 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
-          _c("div", { staticClass: "small-box bg-yellow" }, [
-            _c("div", { staticClass: "inner" }, [
-              _c("h3", [_vm._v(_vm._s(_vm.countUser))]),
+          _c(
+            "div",
+            { staticClass: "small-box bg-yellow" },
+            [
+              _c("div", { staticClass: "inner" }, [
+                _c("h3", [_vm._v(_vm._s(_vm.countUser))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Tài khoản")])
+              ]),
               _vm._v(" "),
-              _c("p", [_vm._v("Tài khoản")])
-            ]),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _vm._m(5)
-          ])
+              _vm._m(4),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "small-box-footer",
+                  attrs: { to: { name: "listUser" } }
+                },
+                [
+                  _vm._v("\n                        Xem thêm "),
+                  _c("i", { staticClass: "fa fa-arrow-circle-right" })
+                ]
+              )
+            ],
+            1
+          )
         ]),
         _vm._v(" "),
-        _vm._m(6)
+        _vm._m(5)
       ])
     ]),
     _vm._v(" "),
-    _vm._m(7)
+    _vm._m(6)
   ])
 }
 var staticRenderFns = [
@@ -65522,15 +65539,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "icon" }, [
       _c("i", { staticClass: "fa fa-user-plus" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-      _vm._v("Xem thêm "),
-      _c("i", { staticClass: "fa fa-arrow-circle-right" })
     ])
   },
   function() {

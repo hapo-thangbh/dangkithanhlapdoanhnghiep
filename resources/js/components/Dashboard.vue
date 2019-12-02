@@ -39,7 +39,9 @@
                         <div class="icon">
                             <i class="fa fa-user-plus"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                        <router-link :to="{ name: 'listUser' }" class="small-box-footer">
+                            Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                        </router-link>
                     </div>
                 </div>
                 <div class="col-lg-3 col-xs-6">
