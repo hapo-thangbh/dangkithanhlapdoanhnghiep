@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use DB;
 
 class PostController extends Controller
 {
     //show all post
     public function index(){
-        return Post::all();
+        // $post = DB::table('posts')
+        //     ->join('categories','categories.id','=','posts.category_id')
+        //     ->get();
+        $post = Post::without(['categories'])->get();
+        return $post;
     }
 
     //add post

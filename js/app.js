@@ -2946,18 +2946,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
   components: {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
   mounted: function mounted() {
     this.getPosts();
+    this.getCategories();
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {
     destroyPost: function destroyPost(id) {
       var _this = this;
 
@@ -66723,19 +66721,13 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "td",
-                            _vm._l(_vm.categories, function(category) {
-                              return _c("span", { key: category }, [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(category.name) +
-                                    "\n                                            "
-                                )
-                              ])
-                            }),
-                            0
-                          ),
+                          _c("td", [
+                            _c(
+                              "label",
+                              { staticClass: "label label-default mr-1" },
+                              [_vm._v(_vm._s(post.name))]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("td", [
                             post.status == 1
@@ -92967,14 +92959,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deletePost: function deletePost(state, data) {
       state.posts = data;
-    } // setCategories (state, data) {
-    //     data.forEach(function (item) {
-    //       state.companies.push({
-    //         id: item.id
-    //       })
-    //     })
-    // },
-
+    }
   },
   actions: {
     clearPost: function clearPost(context) {

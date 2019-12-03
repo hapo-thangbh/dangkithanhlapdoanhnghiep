@@ -71,10 +71,7 @@
                                             <p v-html="post.description">{{ post.description }}</p>
                                         </td>
                                         <td>
-                                            <span v-for="category in categories" :key="category">
-                                                {{ category.name }}
-                                                <!-- {{ post.category_name }} -->
-                                            </span>
+                                            <label class="label label-default mr-1">{{ post.name }}</label>
                                         </td>
                                         <td>
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
@@ -115,13 +112,16 @@ export default {
 
     },
     computed: {
-        ...mapState('post',['posts'])
+        ...mapState('post',['posts']),
+        ...mapState('category',['categories']),
     },
     mounted() {
         this.getPosts()
+        this.getCategories()
     },
     methods: {
         ...mapActions('post',['getPosts','deletePost']),
+        ...mapActions('category',['getCategories']),
         destroyPost(id) {
             swal.fire({
                 title: '',

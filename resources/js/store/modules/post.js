@@ -32,14 +32,7 @@ export default {
         },
         deletePost (state, data) {
             state.posts = data
-        },
-        // setCategories (state, data) {
-        //     data.forEach(function (item) {
-        //       state.companies.push({
-        //         id: item.id
-        //       })
-        //     })
-        // },
+        }
     },
     actions: {
         clearPost (context) {
