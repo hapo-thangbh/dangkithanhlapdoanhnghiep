@@ -2942,6 +2942,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
@@ -66690,7 +66697,13 @@ var render = function() {
                         return _c("tr", { key: post.id }, [
                           _c("td", [_vm._v(_vm._s(post.id))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(post.title))]),
+                          _c("td", [
+                            _c(
+                              "p",
+                              { domProps: { innerHTML: _vm._s(post.title) } },
+                              [_vm._v(_vm._s(post.title))]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("td", [
                             _c("img", {
@@ -66710,7 +66723,19 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(post.category_name))]),
+                          _c(
+                            "td",
+                            _vm._l(_vm.categories, function(category) {
+                              return _c("span", { key: category }, [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(category.name) +
+                                    "\n                                            "
+                                )
+                              ])
+                            }),
+                            0
+                          ),
                           _vm._v(" "),
                           _c("td", [
                             post.status == 1
@@ -92968,6 +92993,7 @@ __webpack_require__.r(__webpack_exports__);
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (_ref) {
           var data = _ref.data;
           context.commit('setPosts', data);
+          console.log(data);
           resolve(data);
         })["catch"](function (err) {
           context.commit('setErrors', err);

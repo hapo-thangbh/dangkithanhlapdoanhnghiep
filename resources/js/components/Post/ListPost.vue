@@ -61,14 +61,21 @@
                                 <tbody>
                                     <tr v-for="post in posts" :key="post.id">
                                         <td>{{ post.id }}</td>
-                                        <td>{{ post.title }}</td>
+                                        <td>
+                                            <p v-html="post.title">{{ post.title }}</p>
+                                        </td>
                                         <td>
                                             <img :src="showImage()" alt="">
                                         </td>
                                         <td>
                                             <p v-html="post.description">{{ post.description }}</p>
                                         </td>
-                                        <td>{{ post.category_name }}</td>
+                                        <td>
+                                            <span v-for="category in categories" :key="category">
+                                                {{ category.name }}
+                                                <!-- {{ post.category_name }} -->
+                                            </span>
+                                        </td>
                                         <td>
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
                                             <label class="label label-danger" v-else>Riêng tư</label>

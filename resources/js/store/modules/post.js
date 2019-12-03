@@ -60,6 +60,7 @@ export default {
                         data
                     }) => {
                         context.commit('setPosts', data)
+                        console.log(data)
                         resolve(data)
                     })
                     .catch( err => {
