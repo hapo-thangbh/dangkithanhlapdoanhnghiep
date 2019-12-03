@@ -17,10 +17,10 @@ class PostController extends Controller
     public function addPost(PostRequest $request) {
         $data = $request->all();
 
-        if ($request->hasFile('image_thumb')) {
-            $fileExtension = $request->file('image_thumb')->getClientOriginalExtension();
-            $fileName = uniqid() . '.' . $fileExtension;
-            $request->file('image_thumb')->storeAs('public/post/images', $fileName);
+        if ($request->image_thumb) {
+            $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
+            ($request->image_thumb, ';')))[1])[1];
+            \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
             $data['image_thumb'] = $fileName;
         }
 

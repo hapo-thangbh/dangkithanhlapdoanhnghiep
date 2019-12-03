@@ -2976,6 +2976,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     refresh: function refresh() {
       this.getPosts();
+    },
+    showImage: function showImage() {
+      return "images/post/" + this.posts.image_thumb;
     }
   })
 });
@@ -66690,11 +66693,9 @@ var render = function() {
                           _c("td", [_vm._v(_vm._s(post.title))]),
                           _vm._v(" "),
                           _c("td", [
-                            _vm._v(
-                              "\n                                        " +
-                                _vm._s(post.image_thumb) +
-                                "\n                                    "
-                            )
+                            _c("img", {
+                              attrs: { src: _vm.showImage(), alt: "" }
+                            })
                           ]),
                           _vm._v(" "),
                           _c("td", [

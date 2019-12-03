@@ -63,7 +63,7 @@
                                         <td>{{ post.id }}</td>
                                         <td>{{ post.title }}</td>
                                         <td>
-                                            {{ post.image_thumb }}
+                                            <img :src="showImage()" alt="">
                                         </td>
                                         <td>
                                             <p v-html="post.description">{{ post.description }}</p>
@@ -144,6 +144,9 @@ export default {
         },
         refresh () {
             this.getPosts()
+        },
+        showImage () {
+            return "images/post/"+this.posts.image_thumb
         }
     }
 }
