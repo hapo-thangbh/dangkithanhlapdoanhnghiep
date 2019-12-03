@@ -33,13 +33,13 @@ export default {
         deletePost (state, data) {
             state.posts = data
         },
-        setCategories (state, data) {
-            data.forEach(function (item) {
-              state.companies.push({
-                id: item.id
-              })
-            })
-        },
+        // setCategories (state, data) {
+        //     data.forEach(function (item) {
+        //       state.companies.push({
+        //         id: item.id
+        //       })
+        //     })
+        // },
     },
     actions: {
         clearPost (context) {
@@ -71,36 +71,34 @@ export default {
         //add post
         addPost (context, data) {
             data.selected = []
-            console.log(data.selected)
             if (data.categorySelected.length > 0) {
                 data.categorySelected.forEach(function (item) {
                     data.selected.push(item.id)
                 })
             }
-            
-            // return new Promise(resolve => {
-            //     ApiService.post('/api/posts/add', data)
-            //         .then(({data}) => {
-            //             if (data.status === 200) {
-            //                 context.commit('setPost', data.message)
-            //                 router.push({ name: 'listPost' })
-            //                 window.toast.fire({
-            //                     icon: 'success',
-            //                     title: data.message
-            //                 })
-            //                 resolve(data)
-            //             } else {
-            //                 window.toast.fire({
-            //                     icon: 'error',
-            //                     message: 'Tạo bài viết thất bại!'
-            //                 })
-            //             }
-            //         })
-            //         .catch(err => {
-            //             console.log(err)
-            //             reject(err)
-            //         })
-            // })
+            return new Promise(resolve => {
+                ApiService.post('/api/posts/add', data)
+                    .then(({data}) => {
+                        if (data.status === 200) {
+                            context.commit('setPost', data.message)
+                            router.push({ name: 'listPost' })
+                            window.toast.fire({
+                                icon: 'success',
+                                title: data.message
+                            })
+                            resolve(data)
+                        } else {
+                            window.toast.fire({
+                                icon: 'error',
+                                message: 'Tạo bài viết thất bại!'
+                            })
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        reject(err)
+                    })
+            })
         },
 
         //delete post

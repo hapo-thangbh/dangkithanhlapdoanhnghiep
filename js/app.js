@@ -92941,14 +92941,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     deletePost: function deletePost(state, data) {
       state.posts = data;
-    },
-    setCategories: function setCategories(state, data) {
-      data.forEach(function (item) {
-        state.companies.push({
-          id: item.id
-        });
-      });
-    }
+    } // setCategories (state, data) {
+    //     data.forEach(function (item) {
+    //       state.companies.push({
+    //         id: item.id
+    //       })
+    //     })
+    // },
+
   },
   actions: {
     clearPost: function clearPost(context) {
@@ -92976,44 +92976,46 @@ __webpack_require__.r(__webpack_exports__);
     //add post
     addPost: function addPost(context, data) {
       data.selected = [];
-      console.log(data.selected);
 
       if (data.categorySelected.length > 0) {
         data.categorySelected.forEach(function (item) {
           data.selected.push(item.id);
         });
-      } // return new Promise(resolve => {
-      //     ApiService.post('/api/posts/add', data)
-      //         .then(({data}) => {
-      //             if (data.status === 200) {
-      //                 context.commit('setPost', data.message)
-      //                 router.push({ name: 'listPost' })
-      //                 window.toast.fire({
-      //                     icon: 'success',
-      //                     title: data.message
-      //                 })
-      //                 resolve(data)
-      //             } else {
-      //                 window.toast.fire({
-      //                     icon: 'error',
-      //                     message: 'Tạo bài viết thất bại!'
-      //                 })
-      //             }
-      //         })
-      //         .catch(err => {
-      //             console.log(err)
-      //             reject(err)
-      //         })
-      // })
+      }
 
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
+          var data = _ref2.data;
+
+          if (data.status === 200) {
+            context.commit('setPost', data.message);
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
+              name: 'listPost'
+            });
+            window.toast.fire({
+              icon: 'success',
+              title: data.message
+            });
+            resolve(data);
+          } else {
+            window.toast.fire({
+              icon: 'error',
+              message: 'Tạo bài viết thất bại!'
+            });
+          }
+        })["catch"](function (err) {
+          console.log(err);
+          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
+        });
+      });
     },
     //delete post
-    deletePost: function deletePost(_ref2, id) {
-      var context = _ref2.context,
-          dispatch = _ref2.dispatch;
+    deletePost: function deletePost(_ref3, id) {
+      var context = _ref3.context,
+          dispatch = _ref3.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref3) {
-          var data = _ref3.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref4) {
+          var data = _ref4.data;
 
           if (data.status === 200) {
             dispatch('getPosts');
@@ -93032,8 +93034,8 @@ __webpack_require__.r(__webpack_exports__);
     //get info post
     editPost: function editPost(context, idPost) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref4) {
-          var data = _ref4.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref5) {
+          var data = _ref5.data;
           context.commit('setPost', data);
           resolve(data);
         })["catch"](function (err) {
@@ -93045,8 +93047,8 @@ __webpack_require__.r(__webpack_exports__);
     updatePost: function updatePost(context, data) {
       return new Promise(function (resolve) {
         var idPost = data.id;
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
+          var data = _ref6.data;
 
           if (data.status === 200) {
             context.commit('setPosts', data);
@@ -93152,15 +93154,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })

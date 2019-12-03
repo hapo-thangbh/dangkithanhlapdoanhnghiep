@@ -16,7 +16,20 @@ class PostController extends Controller
     //add post
     public function addPost(PostRequest $request) {
         $data = $request->all();
-        $post = Post::create($data);
+
+        if ($request->hasFile('image_thumb')) {
+            $fileExtension = $request->file('image_thumb')->getClientOriginalExtension();
+            $fileName = uniqid() . '.' . $fileExtension;
+            $request->file('image_thumb')->storeAs('public/post/images', $fileName);
+            $data['image_thumb'] = $fileName;
+        }
+
+        $categoryId = $request->selected;
+        for($i = 0; $i < count($categoryId); $i++) {
+            $data['category_id'] = $categoryId[$i];
+            $post = Post::create($data);
+        }
+        
         if ($post) {
             return response()->json([
                 'status' => 200,
