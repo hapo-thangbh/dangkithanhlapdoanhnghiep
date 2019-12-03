@@ -11934,6 +11934,10 @@ label {
   height: 200px;
 }
 
+.multiselect__option {
+  font-size: 14px;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;
