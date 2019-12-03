@@ -66403,15 +66403,16 @@ var render = function() {
                                               multiple: true
                                             },
                                             model: {
-                                              value: _vm.post.category,
+                                              value: _vm.post.categorySelected,
                                               callback: function($$v) {
                                                 _vm.$set(
                                                   _vm.post,
-                                                  "category",
+                                                  "categorySelected",
                                                   $$v
                                                 )
                                               },
-                                              expression: "post.category"
+                                              expression:
+                                                "post.categorySelected"
                                             }
                                           }),
                                           _vm._v(" "),
@@ -92919,10 +92920,11 @@ __webpack_require__.r(__webpack_exports__);
     post: {
       title: '',
       image_thumb: '',
-      category_id: '',
+      categorySelected: [],
       description: '',
       status: ''
-    }
+    },
+    companies: []
   },
   mutations: {
     setPosts: function setPosts(state, data) {
@@ -92939,6 +92941,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     deletePost: function deletePost(state, data) {
       state.posts = data;
+    },
+    setCategories: function setCategories(state, data) {
+      data.forEach(function (item) {
+        state.companies.push({
+          id: item.id
+        });
+      });
     }
   },
   actions: {
@@ -92946,7 +92955,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         title: '',
         image_thumb: '',
-        category_id: '',
+        categorySelected: [],
         description: '',
         statue: ''
       };
@@ -92966,39 +92975,45 @@ __webpack_require__.r(__webpack_exports__);
     },
     //add post
     addPost: function addPost(context, data) {
-      return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
-          var data = _ref2.data;
+      data.selected = [];
+      console.log(data.selected);
 
-          if (data.status === 200) {
-            context.commit('setPost', data.message);
-            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-              name: 'listPost'
-            });
-            window.toast.fire({
-              icon: 'success',
-              title: data.message
-            });
-            resolve(data);
-          } else {
-            window.toast.fire({
-              icon: 'error',
-              message: 'Tạo bài viết thất bại!'
-            });
-          }
-        })["catch"](function (err) {
-          console.log(err);
-          Object(q__WEBPACK_IMPORTED_MODULE_1__["reject"])(err);
+      if (data.categorySelected.length > 0) {
+        data.categorySelected.forEach(function (item) {
+          data.selected.push(item.id);
         });
-      });
+      } // return new Promise(resolve => {
+      //     ApiService.post('/api/posts/add', data)
+      //         .then(({data}) => {
+      //             if (data.status === 200) {
+      //                 context.commit('setPost', data.message)
+      //                 router.push({ name: 'listPost' })
+      //                 window.toast.fire({
+      //                     icon: 'success',
+      //                     title: data.message
+      //                 })
+      //                 resolve(data)
+      //             } else {
+      //                 window.toast.fire({
+      //                     icon: 'error',
+      //                     message: 'Tạo bài viết thất bại!'
+      //                 })
+      //             }
+      //         })
+      //         .catch(err => {
+      //             console.log(err)
+      //             reject(err)
+      //         })
+      // })
+
     },
     //delete post
-    deletePost: function deletePost(_ref3, id) {
-      var context = _ref3.context,
-          dispatch = _ref3.dispatch;
+    deletePost: function deletePost(_ref2, id) {
+      var context = _ref2.context,
+          dispatch = _ref2.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref4) {
-          var data = _ref4.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref3) {
+          var data = _ref3.data;
 
           if (data.status === 200) {
             dispatch('getPosts');
@@ -93017,8 +93032,8 @@ __webpack_require__.r(__webpack_exports__);
     //get info post
     editPost: function editPost(context, idPost) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref4) {
+          var data = _ref4.data;
           context.commit('setPost', data);
           resolve(data);
         })["catch"](function (err) {
@@ -93030,8 +93045,8 @@ __webpack_require__.r(__webpack_exports__);
     updatePost: function updatePost(context, data) {
       return new Promise(function (resolve) {
         var idPost = data.id;
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
-          var data = _ref6.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref5) {
+          var data = _ref5.data;
 
           if (data.status === 200) {
             context.commit('setPosts', data);
