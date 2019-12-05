@@ -62,7 +62,7 @@
                                         </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="post.image_thumb" class="image-preview"/> <br/>
+                                        <img :src="showImage(post.image_thumb)" class="image-preview"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
@@ -73,12 +73,11 @@
                                 <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
                                         <multiselect 
-                                            v-model="post.categorySelected" 
+                                            v-model="post.categories" 
                                             :options="categories"
                                             label="name"
                                             track-by="id"
                                             placeholder=""
-                                            :multiple="true"
                                             v-bind:class="errors[0]?'border-danger':''"
                                         ></multiselect>
                                         <span class="text-danger">{{ errors[0] }}</span>
@@ -201,6 +200,9 @@ export default {
         },
         removeImage (e) {
             this.post.image_thumb = ''
+        },
+        showImage (img) {
+            return '/public/images/post/'+img
         }
     }
 }

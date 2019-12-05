@@ -11,7 +11,7 @@ export default {
         post: {
             title: '',
             image_thumb: '',
-            categorySelected: [],
+            categories: '',
             description: '',
             status: ''
         },
@@ -39,7 +39,7 @@ export default {
             const data = {
                 title: '',
                 image_thumb: '',
-                categorySelected: [],
+                categories: [],
                 description: '',
                 statue: ''
             }
@@ -53,7 +53,6 @@ export default {
                         data
                     }) => {
                         context.commit('setPosts', data)
-                        console.log(data)
                         resolve(data)
                     })
                     .catch( err => {
@@ -64,12 +63,8 @@ export default {
 
         //add post
         addPost (context, data) {
-            data.selected = []
-            if (data.categorySelected.length > 0) {
-                data.categorySelected.forEach(function (item) {
-                    data.selected.push(item.id)
-                })
-            }
+            data.selected = []            
+            data.selected.push(data.categories.id)
             return new Promise(resolve => {
                 ApiService.post('/api/posts/add', data)
                     .then(({data}) => {
@@ -140,6 +135,8 @@ export default {
 
         //update post
         updatePost (context, data) {
+            data.selected = []            
+            data.selected.push(data.categories.id)
             return new Promise(resolve => {
                 const idPost = data.id
                 ApiService.put('/api/posts/update/' + idPost, data)
