@@ -53,7 +53,7 @@ class PostController extends Controller
     //update post
     public function updatePost(PostRequest $request, $id) {
         $post = Post::findOrFail($id);
-
+        $data = $request->all();
         if ($request->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
@@ -64,7 +64,7 @@ class PostController extends Controller
         $categoryId = $request->selected;
         for($i = 0; $i < count($categoryId); $i++) {
             $data['category_id'] = $categoryId[$i];
-            $post->update($request->all());
+            $post->update($data);
         }
 
         if ($post) {
