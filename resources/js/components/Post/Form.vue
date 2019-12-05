@@ -62,7 +62,7 @@
                                         </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="post.image_thumb" class="image-preview"/> <br/>
+                                        <img :src="showImage(post.image_thumb)" class="image-preview"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
@@ -200,6 +200,9 @@ export default {
         },
         removeImage (e) {
             this.post.image_thumb = ''
+        },
+        showImage (img) {
+            return '/public/images/post/'+img
         }
     }
 }

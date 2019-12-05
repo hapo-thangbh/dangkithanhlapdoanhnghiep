@@ -65,7 +65,7 @@
                                             <p v-html="post.title">{{ post.title }}</p>
                                         </td>
                                         <td>
-                                            <img :src="showImage()" alt="">
+                                            <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">
                                         </td>
                                         <td>
                                             <p v-html="post.description">{{ post.description }}</p>
@@ -152,8 +152,8 @@ export default {
         refresh () {
             this.getPosts()
         },
-        showImage () {
-            return "images/post/"+this.posts.image_thumb
+        showImage (img) {
+            return "/public/images/post/"+img
         }
     }
 }
