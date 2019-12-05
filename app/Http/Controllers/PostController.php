@@ -14,7 +14,7 @@ class PostController extends Controller
         // $post = DB::table('posts')
         //     ->join('categories','categories.id','=','posts.category_id')
         //     ->get();
-        $post = Post::without(['categories'])->get();
+        $post = Post::with(['categories'])->get();
         return $post;
     }
 
@@ -50,7 +50,7 @@ class PostController extends Controller
 
     //edit post
     public function editPost($id) {
-        $post = Post::find($id);
+        $post = Post::with('categories')->find($id);
         return response($post);
     }
 

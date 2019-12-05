@@ -11,7 +11,7 @@ export default {
         post: {
             title: '',
             image_thumb: '',
-            categorySelected: [],
+            categorySelected: '',
             description: '',
             status: ''
         },
@@ -64,12 +64,8 @@ export default {
 
         //add post
         addPost (context, data) {
-            data.selected = []
-            if (data.categorySelected.length > 0) {
-                data.categorySelected.forEach(function (item) {
-                    data.selected.push(item.id)
-                })
-            }
+            data.selected = []            
+            data.selected.push(data.categorySelected.id)
             return new Promise(resolve => {
                 ApiService.post('/api/posts/add', data)
                     .then(({data}) => {

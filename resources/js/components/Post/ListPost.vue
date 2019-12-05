@@ -71,7 +71,7 @@
                                             <p v-html="post.description">{{ post.description }}</p>
                                         </td>
                                         <td>
-                                            <label class="label label-default mr-1">{{ post.name }}</label>
+                                            <label class="label label-default mr-1">{{ post.categories.name }}</label>
                                         </td>
                                         <td>
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
