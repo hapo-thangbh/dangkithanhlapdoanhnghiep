@@ -2510,6 +2510,138 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
@@ -65436,7 +65568,7 @@ var render = function() {
             _c("div", { staticClass: "inner" }, [
               _c("h3", [_vm._v(_vm._s(_vm.countPost))]),
               _vm._v(" "),
-              _c("p", [_vm._v("Bài viết")])
+              _c("p", [_vm._v("Lượt truy cập bài viết")])
             ]),
             _vm._v(" "),
             _vm._m(2),
@@ -65453,7 +65585,7 @@ var render = function() {
               _c("div", { staticClass: "inner" }, [
                 _c("h3", [_vm._v(_vm._s(_vm.countUser))]),
                 _vm._v(" "),
-                _c("p", [_vm._v("Tài khoản")])
+                _c("p", [_vm._v("Thời gian truy cập")])
               ]),
               _vm._v(" "),
               _vm._m(4),
@@ -65465,7 +65597,7 @@ var render = function() {
                   attrs: { to: { name: "listUser" } }
                 },
                 [
-                  _vm._v("\n                        Xem thêm "),
+                  _vm._v("\n                        Thêm thông tin "),
                   _c("i", { staticClass: "fa fa-arrow-circle-right" })
                 ]
               )
@@ -65511,15 +65643,15 @@ var staticRenderFns = [
         _c("div", { staticClass: "inner" }, [
           _c("h3", [_vm._v("0")]),
           _vm._v(" "),
-          _c("p", [_vm._v("New Orders")])
+          _c("p", [_vm._v("Bài viết mới")])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "icon" }, [
-          _c("i", { staticClass: "fa fa-shopping-cart" })
+          _c("i", { staticClass: "fa fa-newspaper-o" })
         ]),
         _vm._v(" "),
         _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-          _vm._v("Xem thêm "),
+          _vm._v("Thêm thông tin "),
           _c("i", { staticClass: "fa fa-arrow-circle-right" })
         ])
       ])
@@ -65530,7 +65662,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-newspaper-o" })
+      _c("i", { staticClass: "fa fa-signal" })
     ])
   },
   function() {
@@ -65538,7 +65670,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-      _vm._v("Xem thêm "),
+      _vm._v("Thêm thông tin "),
       _c("i", { staticClass: "fa fa-arrow-circle-right" })
     ])
   },
@@ -65559,7 +65691,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "inner" }, [
           _c("h3", [_vm._v("0")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Unique Visitors")])
+          _c("p", [_vm._v("Khách truy cập")])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "icon" }, [
@@ -65567,7 +65699,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-          _vm._v("Xem thêm "),
+          _vm._v("Thêm thông tin "),
           _c("i", { staticClass: "fa fa-arrow-circle-right" })
         ])
       ])
@@ -65583,9 +65715,88 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-md-7" }, [
             _c("div", { staticClass: "box box-primary post" }, [
               _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-paste" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [_vm._v("Bài viết")])
+                _c("div", { staticClass: "row row-custom-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-3 form-group form-custom-group-10" },
+                    [
+                      _c("i", { staticClass: "fa fa-paste" }),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "box-title" }, [
+                        _vm._v("Bài viết")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-2 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "text", placeholder: "Tài khoản" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-2 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "text", placeholder: "Danh mục" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-2 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Từ ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-2 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Đến ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-1 form-group text-center form-custom-group-10"
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+                        _c("i", { staticClass: "fa fa-search" })
+                      ])
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "box-body" }, [
@@ -65616,7 +65827,15 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c("td", [_vm._v("100,000")]),
                       _vm._v(" "),
-                      _c("td", { staticClass: "text-center" }, [_vm._v("3")])
+                      _c("td", { staticClass: "text-center" }, [
+                        _c("span", { staticClass: "mr-1" }, [_vm._v("10")]),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-eye" }),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "fa fa-edit" })
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
@@ -65628,7 +65847,15 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c("td", [_vm._v("50,000")]),
                       _vm._v(" "),
-                      _c("td", { staticClass: "text-center" }, [_vm._v("4")])
+                      _c("td", { staticClass: "text-center" }, [
+                        _c("span", { staticClass: "mr-1" }, [_vm._v("04")]),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-eye" }),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "fa fa-edit" })
+                        ])
+                      ])
                     ])
                   ]
                 )
@@ -65694,21 +65921,21 @@ var staticRenderFns = [
                                 ]
                               ),
                               _vm._v(
-                                "\n                                        Mike Doe\n                                    "
+                                "\n                                        Ngọc Linh\n                                    "
                               )
                             ]
                           ),
                           _vm._v(
-                            "\n                                    I would like to meet you to discuss the latest news about\n                                    the arrival of the new theme. They say it is going to be one the\n                                    best themes on the market\n                                "
+                            "\n                                    Anh Thắng ơi gửi em tài liệu với\n                                "
                           )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "attachment" }, [
-                          _c("h4", [_vm._v("Attachments:")]),
+                          _c("h4", [_vm._v("Tài liệu đính kèm:")]),
                           _vm._v(" "),
                           _c("p", { staticClass: "filename" }, [
                             _vm._v(
-                              "\n                                        Theme-thumbnail-image.jpg\n                                    "
+                              "\n                                        Tailieu.zip\n                                    "
                             )
                           ]),
                           _vm._v(" "),
@@ -65719,7 +65946,7 @@ var staticRenderFns = [
                                 staticClass: "btn btn-primary btn-sm btn-flat",
                                 attrs: { type: "button" }
                               },
-                              [_vm._v("Open")]
+                              [_vm._v("Tải xuống")]
                             )
                           ])
                         ])
@@ -65751,12 +65978,12 @@ var staticRenderFns = [
                                 ]
                               ),
                               _vm._v(
-                                "\n                                        Alexander Pierce\n                                    "
+                                "\n                                        Bùi Nam\n                                    "
                               )
                             ]
                           ),
                           _vm._v(
-                            "\n                                    I would like to meet you to discuss the latest news about\n                                    the arrival of the new theme. They say it is going to be one the\n                                    best themes on the market\n                                "
+                            "\n                                    Thế có đi xuống không?\n                                "
                           )
                         ])
                       ])
@@ -65833,34 +66060,60 @@ var staticRenderFns = [
                   { staticClass: "table table-striped table-hover" },
                   [
                     _c("tr", [
-                      _c("th", [_vm._v("STT")]),
-                      _vm._v(" "),
-                      _c("th", { staticStyle: { width: "550px" } }, [
-                        _vm._v("Bài viết")
+                      _c("td", { staticStyle: { width: "20px" } }, [
+                        _c("label", { staticClass: "checkbox-success" }, [
+                          _c("input", {
+                            attrs: {
+                              type: "checkbox",
+                              id: "check",
+                              name: "remember"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span")
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Hành động")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("01")]),
+                      _c("td", { staticStyle: { "min-width": "20px" } }, [
+                        _vm._v("01")
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 01")]),
+                      _c("td", { staticStyle: { "min-width": "550px" } }, [
+                        _vm._v("Những cách chụp ảnh đẹp cùng bạn bè")
+                      ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-default" }, [
+                        _c("a", { attrs: { href: "#" } }, [
                           _c("i", { staticClass: "fa fa-edit" })
                         ])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
-                      _c("td", [_vm._v("02")]),
+                      _c("td", { staticStyle: { width: "20px" } }, [
+                        _c("label", { staticClass: "checkbox-success" }, [
+                          _c("input", {
+                            attrs: {
+                              type: "checkbox",
+                              id: "check",
+                              name: "remember"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span")
+                        ])
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 02")]),
+                      _c("td", { staticStyle: { "min-width": "20px" } }, [
+                        _vm._v("02")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { "min-width": "550px" } }, [
+                        _vm._v("Chấm chấm chấm chấm chấm chấm")
+                      ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-default" }, [
+                        _c("a", { attrs: { href: "#" } }, [
                           _c("i", { staticClass: "fa fa-edit" })
                         ])
                       ])
@@ -65885,34 +66138,60 @@ var staticRenderFns = [
                   { staticClass: "table table-striped table-hover" },
                   [
                     _c("tr", [
-                      _c("th", [_vm._v("STT")]),
-                      _vm._v(" "),
-                      _c("th", { staticStyle: { width: "550px" } }, [
-                        _vm._v("Bài viết")
+                      _c("td", { staticStyle: { width: "20px" } }, [
+                        _c("label", { staticClass: "checkbox-success" }, [
+                          _c("input", {
+                            attrs: {
+                              type: "checkbox",
+                              id: "check",
+                              name: "remember"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span")
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Hành động")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("01")]),
+                      _c("td", { staticStyle: { "min-width": "20px" } }, [
+                        _vm._v("01")
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 01")]),
+                      _c("td", { staticStyle: { "min-width": "550px" } }, [
+                        _vm._v("Việc làm đầu tiên là đi chơi")
+                      ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-default" }, [
+                        _c("a", { attrs: { href: "#" } }, [
                           _c("i", { staticClass: "fa fa-edit" })
                         ])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
-                      _c("td", [_vm._v("02")]),
+                      _c("td", { staticStyle: { width: "20px" } }, [
+                        _c("label", { staticClass: "checkbox-success" }, [
+                          _c("input", {
+                            attrs: {
+                              type: "checkbox",
+                              id: "check",
+                              name: "remember"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span")
+                        ])
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 02")]),
+                      _c("td", { staticStyle: { "min-width": "20px" } }, [
+                        _vm._v("02")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { "min-width": "550px" } }, [
+                        _vm._v("Việc làm thứ hai là nằm xem film")
+                      ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-default" }, [
+                        _c("a", { attrs: { href: "#" } }, [
                           _c("i", { staticClass: "fa fa-edit" })
                         ])
                       ])
@@ -65926,9 +66205,74 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-md-5" }, [
             _c("div", { staticClass: "box box-primary users" }, [
               _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-user" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [_vm._v("Tài khoản")])
+                _c("div", { staticClass: "row row-custom-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-3 form-group form-custom-group-10" },
+                    [
+                      _c("i", { staticClass: "fa fa-user" }),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "box-title" }, [
+                        _vm._v("Tài khoản")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "text", placeholder: "Tài khoản" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-2 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Từ ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Đến ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-1 form-group text-center form-custom-group-10"
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+                        _c("i", { staticClass: "fa fa-search" })
+                      ])
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "box-body" }, [
@@ -65980,9 +66324,58 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "box box-primary file" }, [
               _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-file" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [_vm._v("Hồ sơ")])
+                _c("div", { staticClass: "row row-custom-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-5 form-group form-custom-group-10" },
+                    [
+                      _c("i", { staticClass: "fa fa-file" }),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "box-title" }, [_vm._v("Hồ sơ")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Từ ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                    },
+                    [
+                      _c("input", {
+                        staticClass: "form-control form-sm",
+                        attrs: { type: "date", placeholder: "Đến ngày" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-1 form-group text-center form-custom-group-10"
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+                        _c("i", { staticClass: "fa fa-search" })
+                      ])
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "box-body" }, [
@@ -65992,40 +66385,96 @@ var staticRenderFns = [
                     staticClass: "table table-hover table-striped text-center"
                   },
                   [
-                    _c("tr", [
-                      _c("th", [_vm._v("STT")]),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "table",
+                          {
+                            staticClass:
+                              "table table-responsive border-none table-color"
+                          },
+                          [
+                            _c("tr", [
+                              _c(
+                                "td",
+                                { staticStyle: { "vertical-align": "middle" } },
+                                [_vm._v("Doanh thu")]
+                              ),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("table", [
+                                  _c("tr", [
+                                    _c("td", [_vm._v("Đã tiếp nhận")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Huỷ")])])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("table", [
+                                  _c("tr", [_c("td", [_vm._v("1000")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("500")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("400")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("100")])])
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Tài khoản")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Bài viết")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Lượt xem")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Thời gian truy cập (phút)")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("1")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Supper admin")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("100")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("3000")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("10")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("2")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("dangthang")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("50")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("3000")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("5")])
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "table",
+                          {
+                            staticClass:
+                              "table table-responsive border-none table-color"
+                          },
+                          [
+                            _c("tr", [
+                              _c(
+                                "td",
+                                { staticStyle: { "vertical-align": "middle" } },
+                                [_vm._v("Hồ sơ")]
+                              ),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("table", [
+                                  _c("tr", [
+                                    _c("td", [_vm._v("Đã tiếp nhận")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("Huỷ")])])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("table", [
+                                  _c("tr", [_c("td", [_vm._v("1000")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("500")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("400")])]),
+                                  _vm._v(" "),
+                                  _c("tr", [_c("td", [_vm._v("100")])])
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -93166,15 +93615,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })
