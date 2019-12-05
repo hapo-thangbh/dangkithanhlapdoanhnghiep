@@ -73,11 +73,12 @@
                                 <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
                                         <multiselect 
-                                            v-model="post.category" 
+                                            v-model="post.categorySelected" 
                                             :options="categories"
                                             label="name"
                                             track-by="id"
                                             placeholder=""
+                                            :multiple="true"
                                             v-bind:class="errors[0]?'border-danger':''"
                                         ></multiselect>
                                         <span class="text-danger">{{ errors[0] }}</span>

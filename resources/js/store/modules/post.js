@@ -11,10 +11,11 @@ export default {
         post: {
             title: '',
             image_thumb: '',
-            category_id: '',
+            categorySelected: [],
             description: '',
             status: ''
-        }
+        },
+        companies: []
     },
     mutations: {
         setPosts (state, data) {
@@ -38,7 +39,7 @@ export default {
             const data = {
                 title: '',
                 image_thumb: '',
-                category_id: '',
+                categorySelected: [],
                 description: '',
                 statue: ''
             }
@@ -52,6 +53,7 @@ export default {
                         data
                     }) => {
                         context.commit('setPosts', data)
+                        console.log(data)
                         resolve(data)
                     })
                     .catch( err => {
@@ -62,6 +64,12 @@ export default {
 
         //add post
         addPost (context, data) {
+            data.selected = []
+            if (data.categorySelected.length > 0) {
+                data.categorySelected.forEach(function (item) {
+                    data.selected.push(item.id)
+                })
+            }
             return new Promise(resolve => {
                 ApiService.post('/api/posts/add', data)
                     .then(({data}) => {

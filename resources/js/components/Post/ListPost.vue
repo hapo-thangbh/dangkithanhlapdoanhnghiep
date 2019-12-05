@@ -61,14 +61,18 @@
                                 <tbody>
                                     <tr v-for="post in posts" :key="post.id">
                                         <td>{{ post.id }}</td>
-                                        <td>{{ post.title }}</td>
                                         <td>
-                                            {{ post.image_thumb }}
+                                            <p v-html="post.title">{{ post.title }}</p>
+                                        </td>
+                                        <td>
+                                            <img :src="showImage()" alt="">
                                         </td>
                                         <td>
                                             <p v-html="post.description">{{ post.description }}</p>
                                         </td>
-                                        <td>{{ post.category_name }}</td>
+                                        <td>
+                                            <label class="label label-default mr-1">{{ post.name }}</label>
+                                        </td>
                                         <td>
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
                                             <label class="label label-danger" v-else>Riêng tư</label>
@@ -108,13 +112,16 @@ export default {
 
     },
     computed: {
-        ...mapState('post',['posts'])
+        ...mapState('post',['posts']),
+        ...mapState('category',['categories']),
     },
     mounted() {
         this.getPosts()
+        this.getCategories()
     },
     methods: {
         ...mapActions('post',['getPosts','deletePost']),
+        ...mapActions('category',['getCategories']),
         destroyPost(id) {
             swal.fire({
                 title: '',
@@ -144,6 +151,9 @@ export default {
         },
         refresh () {
             this.getPosts()
+        },
+        showImage () {
+            return "images/post/"+this.posts.image_thumb
         }
     }
 }
