@@ -62,8 +62,8 @@
                                         </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="showImage(post.image_thumb)" class="image-preview" v-if="type==='edit'"/> <br/>
-                                        <img :src="post.image_thumb" class="image-preview" v-if="type==='create'"/> <br/>
+                                        <img :src="showImage()" class="image-preview"/> <br/>
+                                        <!-- <img :src="post.image_thumb" class="image-preview" v-if="type==='create'"/> <br/> -->
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>
@@ -202,8 +202,13 @@ export default {
         removeImage (e) {
             this.post.image_thumb = ''
         },
-        showImage (img) {
-            return '/public/images/post/'+img
+        showImage () {
+            let image = this.post.image_thumb
+            if (image.length > 100) {
+                return this.post.image_thumb
+            } else {
+                return '/public/images/post/'+this.post.image_thumb
+            }
         }
     }
 }

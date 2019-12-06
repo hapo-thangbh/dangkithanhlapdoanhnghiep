@@ -2951,8 +2951,14 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     removeImage: function removeImage(e) {
       this.post.image_thumb = '';
     },
-    showImage: function showImage(img) {
-      return '/public/images/post/' + img;
+    showImage: function showImage() {
+      var image = this.post.image_thumb;
+
+      if (image.length > 100) {
+        return this.post.image_thumb;
+      } else {
+        return '/public/images/post/' + this.post.image_thumb;
+      }
     }
   })
 });
@@ -66807,25 +66813,10 @@ var render = function() {
                                     1
                                   )
                                 : _c("div", { staticClass: "text-center" }, [
-                                    _vm.type === "edit"
-                                      ? _c("img", {
-                                          staticClass: "image-preview",
-                                          attrs: {
-                                            src: _vm.showImage(
-                                              _vm.post.image_thumb
-                                            )
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _c("br"),
-                                    _vm._v(" "),
-                                    _vm.type === "create"
-                                      ? _c("img", {
-                                          staticClass: "image-preview",
-                                          attrs: { src: _vm.post.image_thumb }
-                                        })
-                                      : _vm._e(),
+                                    _c("img", {
+                                      staticClass: "image-preview",
+                                      attrs: { src: _vm.showImage() }
+                                    }),
                                     _vm._v(" "),
                                     _c("br"),
                                     _vm._v(" "),
