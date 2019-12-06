@@ -39,7 +39,7 @@ export default {
             const data = {
                 title: '',
                 image_thumb: '',
-                categories: [],
+                categories: '',
                 description: '',
                 statue: ''
             }

@@ -91978,6 +91978,7 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.post['Access-Contr
 axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
 axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers["delete"]['Content-Type'] = 'application/json';
 axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.put['Content-Type'] = 'application/json';
+axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 var ApiService = {
   get: function get(url) {
     var slug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -93425,7 +93426,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         title: '',
         image_thumb: '',
-        categories: [],
+        categories: '',
         description: '',
         statue: ''
       };

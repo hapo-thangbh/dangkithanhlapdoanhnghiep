@@ -5,6 +5,7 @@ axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'
 axios.defaults.headers.delete['Content-Type'] = 'application/json'
 axios.defaults.headers.put['Content-Type'] = 'application/json'
+axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 export const ApiService = {
   get (url, slug = '') {
