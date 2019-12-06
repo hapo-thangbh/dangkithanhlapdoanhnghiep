@@ -62,7 +62,8 @@
                                         </ValidationProvider>
                                     </div>
                                     <div v-else class="text-center">
-                                        <img :src="showImage(post.image_thumb)" class="image-preview"/> <br/>
+                                        <img :src="showImage(post.image_thumb)" class="image-preview" v-if="type==='edit'"/> <br/>
+                                        <img :src="post.image_thumb" class="image-preview" v-if="type==='create'"/> <br/>
                                         <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
                                     </div>
                                 </div>

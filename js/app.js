@@ -2884,6 +2884,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -66806,12 +66807,25 @@ var render = function() {
                                     1
                                   )
                                 : _c("div", { staticClass: "text-center" }, [
-                                    _c("img", {
-                                      staticClass: "image-preview",
-                                      attrs: {
-                                        src: _vm.showImage(_vm.post.image_thumb)
-                                      }
-                                    }),
+                                    _vm.type === "edit"
+                                      ? _c("img", {
+                                          staticClass: "image-preview",
+                                          attrs: {
+                                            src: _vm.showImage(
+                                              _vm.post.image_thumb
+                                            )
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _vm.type === "create"
+                                      ? _c("img", {
+                                          staticClass: "image-preview",
+                                          attrs: { src: _vm.post.image_thumb }
+                                        })
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c("br"),
                                     _vm._v(" "),

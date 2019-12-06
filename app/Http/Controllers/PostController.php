@@ -54,7 +54,8 @@ class PostController extends Controller
     public function updatePost(PostRequest $request, $id) {
         $post = Post::findOrFail($id);
         $data = $request->all();
-        if ($request->image_thumb) {
+
+        if ($request->image_thumb != $post->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
             \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);

@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 // Auth::routes();
 Route::get('/admin/login','AuthController@getLogin')->name('admin.login');
 Route::post('/admin/login','AuthController@postLogin')->name('admin.login');
@@ -27,6 +23,7 @@ Route::get('/admin', 'HomeController@dashboard')->name('admin.dashboard');
 Route::get('/admin/{any}', 'HomeController@dashboard')->where('any', '.*');
 
 /* Người dùng */
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
