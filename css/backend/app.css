@@ -11983,6 +11983,11 @@ label {
   color: #fff !important;
 }
 
+.image-preview-100 {
+  width: 100px;
+  height: 100px;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;

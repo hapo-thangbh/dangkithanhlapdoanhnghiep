@@ -2884,7 +2884,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -2950,6 +2949,9 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     },
     removeImage: function removeImage(e) {
       this.post.image_thumb = '';
+    },
+    showImage: function showImage(img) {
+      return '/public/images/post/' + img;
     }
   })
 });
@@ -3114,8 +3116,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     refresh: function refresh() {
       this.getPosts();
     },
-    showImage: function showImage() {
-      return "images/post/" + this.posts.image_thumb;
+    showImage: function showImage(img) {
+      return "/public/images/post/" + img;
     }
   })
 });
@@ -66806,7 +66808,9 @@ var render = function() {
                                 : _c("div", { staticClass: "text-center" }, [
                                     _c("img", {
                                       staticClass: "image-preview",
-                                      attrs: { src: _vm.post.image_thumb }
+                                      attrs: {
+                                        src: _vm.showImage(_vm.post.image_thumb)
+                                      }
                                     }),
                                     _vm._v(" "),
                                     _c("br"),
@@ -66856,20 +66860,18 @@ var render = function() {
                                               options: _vm.categories,
                                               label: "name",
                                               "track-by": "id",
-                                              placeholder: "",
-                                              multiple: true
+                                              placeholder: ""
                                             },
                                             model: {
-                                              value: _vm.post.categorySelected,
+                                              value: _vm.post.categories,
                                               callback: function($$v) {
                                                 _vm.$set(
                                                   _vm.post,
-                                                  "categorySelected",
+                                                  "categories",
                                                   $$v
                                                 )
                                               },
-                                              expression:
-                                                "post.categorySelected"
+                                              expression: "post.categories"
                                             }
                                           }),
                                           _vm._v(" "),
@@ -67154,7 +67156,11 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             _c("img", {
-                              attrs: { src: _vm.showImage(), alt: "" }
+                              staticClass: "image-preview-100",
+                              attrs: {
+                                src: _vm.showImage(post.image_thumb),
+                                alt: "Image not found"
+                              }
                             })
                           ]),
                           _vm._v(" "),
@@ -67174,7 +67180,7 @@ var render = function() {
                             _c(
                               "label",
                               { staticClass: "label label-default mr-1" },
-                              [_vm._v(_vm._s(post.name))]
+                              [_vm._v(_vm._s(post.categories.name))]
                             )
                           ]),
                           _vm._v(" "),
@@ -93387,7 +93393,7 @@ __webpack_require__.r(__webpack_exports__);
     post: {
       title: '',
       image_thumb: '',
-      categorySelected: [],
+      categories: '',
       description: '',
       status: ''
     },
@@ -93415,7 +93421,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         title: '',
         image_thumb: '',
-        categorySelected: [],
+        categories: [],
         description: '',
         statue: ''
       };
@@ -93427,7 +93433,6 @@ __webpack_require__.r(__webpack_exports__);
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (_ref) {
           var data = _ref.data;
           context.commit('setPosts', data);
-          console.log(data);
           resolve(data);
         })["catch"](function (err) {
           context.commit('setErrors', err);
@@ -93437,13 +93442,7 @@ __webpack_require__.r(__webpack_exports__);
     //add post
     addPost: function addPost(context, data) {
       data.selected = [];
-
-      if (data.categorySelected.length > 0) {
-        data.categorySelected.forEach(function (item) {
-          data.selected.push(item.id);
-        });
-      }
-
+      data.selected.push(data.categories.id);
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
           var data = _ref2.data;
@@ -93506,6 +93505,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     //update post
     updatePost: function updatePost(context, data) {
+      data.selected = [];
+      data.selected.push(data.categories.id);
       return new Promise(function (resolve) {
         var idPost = data.id;
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
