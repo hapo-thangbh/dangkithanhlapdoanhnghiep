@@ -11988,12 +11988,25 @@ label {
   height: 100px;
 }
 
-.description {
-  max-width: 650px;
-  max-height: 170px;
+.txt-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: "Times New Roman", Times, serif;
+}
+
+.description {
+  max-width: 650px;
+  max-height: 170px;
+}
+
+.title {
+  max-width: 400px;
+  max-height: 170px;
+}
+
+.description_short {
+  max-width: 400px;
+  max-height: 170px;
 }
 
 .toggle-ios {

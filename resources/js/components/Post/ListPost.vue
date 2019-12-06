@@ -63,16 +63,16 @@
                                     <tr v-for="post in posts" :key="post.id">
                                         <td>{{ post.id }}</td>
                                         <td>
-                                            <p v-html="post.title">{{ post.title }}</p>
+                                            <p v-html="post.title" class="title txt-ellipsis">{{ post.title }}</p>
                                         </td>
                                         <td>
-                                            <p v-html="post.description_short">{{ post.description_short }}</p>
+                                            <p v-html="post.description_short" class="description_short txt-ellipsis">{{ post.description_short }}</p>
                                         </td>
                                         <td>
                                             <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">
                                         </td>
                                         <td>
-                                            <p v-html="post.description" class="description">{{ post.description }}</p>
+                                            <p v-html="post.description" class="description txt-ellipsis">{{ post.description }}</p>
                                         </td>
                                         <td>
                                             <label class="label label-default mr-1">{{ post.categories.name }}</label>

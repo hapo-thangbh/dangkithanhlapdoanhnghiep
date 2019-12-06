@@ -67228,7 +67228,10 @@ var render = function() {
                           _c("td", [
                             _c(
                               "p",
-                              { domProps: { innerHTML: _vm._s(post.title) } },
+                              {
+                                staticClass: "title txt-ellipsis",
+                                domProps: { innerHTML: _vm._s(post.title) }
+                              },
                               [_vm._v(_vm._s(post.title))]
                             )
                           ]),
@@ -67237,6 +67240,7 @@ var render = function() {
                             _c(
                               "p",
                               {
+                                staticClass: "description_short txt-ellipsis",
                                 domProps: {
                                   innerHTML: _vm._s(post.description_short)
                                 }
@@ -67259,7 +67263,7 @@ var render = function() {
                             _c(
                               "p",
                               {
-                                staticClass: "description",
+                                staticClass: "description txt-ellipsis",
                                 domProps: {
                                   innerHTML: _vm._s(post.description)
                                 }
