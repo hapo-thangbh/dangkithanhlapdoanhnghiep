@@ -49,6 +49,7 @@
                                     <tr>
                                         <th style="min-width: 20px">ID</th>
                                         <th style="min-width: 100px">Tiêu đề</th>
+                                        <th style="min-width: 200px">Mô tả ngắn</th>
                                         <th style="min-width: 100px">Ảnh thumbnail</th>
                                         <th>Nội dung</th>
                                         <th style="min-width: 60px">Danh mục</th>
@@ -63,6 +64,9 @@
                                         <td>{{ post.id }}</td>
                                         <td>
                                             <p v-html="post.title">{{ post.title }}</p>
+                                        </td>
+                                        <td>
+                                            <p v-html="post.description_short">{{ post.description_short }}</p>
                                         </td>
                                         <td>
                                             <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">

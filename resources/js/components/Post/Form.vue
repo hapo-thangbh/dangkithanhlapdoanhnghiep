@@ -18,12 +18,6 @@
                                 <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
                                 <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
-                                        <!-- <input
-                                            type="text"
-                                            class="form-control"
-                                            v-bind:class="errors[0]?'border-danger':''"
-                                            v-model="post.title"
-                                        > -->
                                         <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.title" 
@@ -36,12 +30,21 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="row form-group">
-                                <label for="tag" class="col-md-1 text-md-right">Tag</label>
-                                <div class="col-md-11">
-                                    <input type="text" class="form-control">
+                            <div class="row form-group">
+                                <label for="title" class="col-md-2 text-md-right">Mô tả ngắn</label>
+                                <div class="col-md-10">
+                                    <ValidationProvider rules="required" name="Mô tả ngắn" v-slot="{ errors }">
+                                        <wysiwyg 
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                            v-model="post.description_short" 
+                                            placeholder=""
+                                            class="h-editor-40"
+                                        />
+
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
@@ -111,7 +114,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-12 text-center">
-                                    <button @click="refresh()" type="button" class="btn btn-sm btn-default">
+                                    <button @click="refresh()" type="button" class="btn btn-sm btn-default" v-if="type==='create'">
                                         <i class="fa fa-refresh"></i> Làm mới
                                     </button>
                                     <button type="submit" class="btn btn-sm btn-success">

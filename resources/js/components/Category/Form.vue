@@ -39,7 +39,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="button" @click="refresh()" class="btn btn-sm btn-default">
+                                    <button type="button" @click="refresh()" class="btn btn-sm btn-default" v-if="type==='create'">
                                         <i class="fa fa-refresh"></i> Làm mới
                                     </button>
                                     <button type="submit" class="btn btn-sm btn-success">

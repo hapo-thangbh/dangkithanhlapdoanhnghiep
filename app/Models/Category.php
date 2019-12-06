@@ -9,7 +9,8 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable=[
-        'name','status'
+        'name',
+        'status'
     ];
 
     public function posts () {

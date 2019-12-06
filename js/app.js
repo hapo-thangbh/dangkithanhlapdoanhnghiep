@@ -2884,6 +2884,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2980,6 +2983,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -65274,24 +65281,26 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "row form-group" }, [
                           _c("div", { staticClass: "col-md-12 text-center" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-default",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.refresh()
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "fa fa-refresh" }),
-                                _vm._v(
-                                  " Làm mới\n                                "
+                            _vm.type === "create"
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-sm btn-default",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.refresh()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", { staticClass: "fa fa-refresh" }),
+                                    _vm._v(
+                                      " Làm mới\n                                "
+                                    )
+                                  ]
                                 )
-                              ]
-                            ),
+                              : _vm._e(),
                             _vm._v(" "),
                             _c(
                               "button",
@@ -66739,6 +66748,70 @@ var render = function() {
                             "label",
                             {
                               staticClass: "col-md-2 text-md-right",
+                              attrs: { for: "title" }
+                            },
+                            [_vm._v("Mô tả ngắn")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-md-10" },
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  rules: "required",
+                                  name: "Mô tả ngắn"
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("wysiwyg", {
+                                            staticClass: "h-editor-40",
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: { placeholder: "" },
+                                            model: {
+                                              value: _vm.post.description_short,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "description_short",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "post.description_short"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-md-2 text-md-right",
                               attrs: { for: "tag" }
                             },
                             [_vm._v("Ảnh thumbnail")]
@@ -67025,24 +67098,26 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "row form-group" }, [
                           _c("div", { staticClass: "col-md-12 text-center" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-default",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.refresh()
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "fa fa-refresh" }),
-                                _vm._v(
-                                  " Làm mới\n                                "
+                            _vm.type === "create"
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-sm btn-default",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.refresh()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", { staticClass: "fa fa-refresh" }),
+                                    _vm._v(
+                                      " Làm mới\n                                "
+                                    )
+                                  ]
                                 )
-                              ]
-                            ),
+                              : _vm._e(),
                             _vm._v(" "),
                             _c(
                               "button",
@@ -67155,6 +67230,18 @@ var render = function() {
                               "p",
                               { domProps: { innerHTML: _vm._s(post.title) } },
                               [_vm._v(_vm._s(post.title))]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "p",
+                              {
+                                domProps: {
+                                  innerHTML: _vm._s(post.description_short)
+                                }
+                              },
+                              [_vm._v(_vm._s(post.description_short))]
                             )
                           ]),
                           _vm._v(" "),
@@ -67322,6 +67409,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "100px" } }, [
           _vm._v("Tiêu đề")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "200px" } }, [
+          _vm._v("Mô tả ngắn")
         ]),
         _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "100px" } }, [
@@ -93398,6 +93489,7 @@ __webpack_require__.r(__webpack_exports__);
     message: '',
     post: {
       title: '',
+      description_short: '',
       image_thumb: '',
       categories: '',
       description: '',
@@ -93426,6 +93518,7 @@ __webpack_require__.r(__webpack_exports__);
     clearPost: function clearPost(context) {
       var data = {
         title: '',
+        description_short: '',
         image_thumb: '',
         categories: '',
         description: '',
