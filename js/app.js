@@ -67172,6 +67172,7 @@ var render = function() {
                             _c(
                               "p",
                               {
+                                staticClass: "description",
                                 domProps: {
                                   innerHTML: _vm._s(post.description)
                                 }

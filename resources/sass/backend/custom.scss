@@ -150,3 +150,11 @@ and (max-width: 768px) {
     width: 100px;
     height: 100px;
 }
+
+.description {
+    max-width: 650px;
+    max-height: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Times New Roman', Times, serif;
+}

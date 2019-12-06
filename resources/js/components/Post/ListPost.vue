@@ -68,7 +68,7 @@
                                             <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">
                                         </td>
                                         <td>
-                                            <p v-html="post.description">{{ post.description }}</p>
+                                            <p v-html="post.description" class="description">{{ post.description }}</p>
                                         </td>
                                         <td>
                                             <label class="label label-default mr-1">{{ post.categories.name }}</label>
