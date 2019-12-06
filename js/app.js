@@ -2884,6 +2884,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2949,9 +2950,6 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     },
     removeImage: function removeImage(e) {
       this.post.image_thumb = '';
-    },
-    showImage: function showImage(img) {
-      return '/public/images/post/' + img;
     }
   })
 });
@@ -3116,8 +3114,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     refresh: function refresh() {
       this.getPosts();
     },
-    showImage: function showImage(img) {
-      return "/public/images/post/" + img;
+    showImage: function showImage() {
+      return "images/post/" + this.posts.image_thumb;
     }
   })
 });
@@ -66808,9 +66806,7 @@ var render = function() {
                                 : _c("div", { staticClass: "text-center" }, [
                                     _c("img", {
                                       staticClass: "image-preview",
-                                      attrs: {
-                                        src: _vm.showImage(_vm.post.image_thumb)
-                                      }
+                                      attrs: { src: _vm.post.image_thumb }
                                     }),
                                     _vm._v(" "),
                                     _c("br"),
@@ -66860,18 +66856,20 @@ var render = function() {
                                               options: _vm.categories,
                                               label: "name",
                                               "track-by": "id",
-                                              placeholder: ""
+                                              placeholder: "",
+                                              multiple: true
                                             },
                                             model: {
-                                              value: _vm.post.categories,
+                                              value: _vm.post.categorySelected,
                                               callback: function($$v) {
                                                 _vm.$set(
                                                   _vm.post,
-                                                  "categories",
+                                                  "categorySelected",
                                                   $$v
                                                 )
                                               },
-                                              expression: "post.categories"
+                                              expression:
+                                                "post.categorySelected"
                                             }
                                           }),
                                           _vm._v(" "),
@@ -67156,11 +67154,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             _c("img", {
-                              staticClass: "image-preview-100",
-                              attrs: {
-                                src: _vm.showImage(post.image_thumb),
-                                alt: "Image not found"
-                              }
+                              attrs: { src: _vm.showImage(), alt: "" }
                             })
                           ]),
                           _vm._v(" "),
@@ -67180,7 +67174,7 @@ var render = function() {
                             _c(
                               "label",
                               { staticClass: "label label-default mr-1" },
-                              [_vm._v(_vm._s(post.categories.name))]
+                              [_vm._v(_vm._s(post.name))]
                             )
                           ]),
                           _vm._v(" "),
@@ -93393,7 +93387,7 @@ __webpack_require__.r(__webpack_exports__);
     post: {
       title: '',
       image_thumb: '',
-      categories: '',
+      categorySelected: [],
       description: '',
       status: ''
     },
@@ -93421,7 +93415,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         title: '',
         image_thumb: '',
-        categories: [],
+        categorySelected: [],
         description: '',
         statue: ''
       };
@@ -93433,6 +93427,7 @@ __webpack_require__.r(__webpack_exports__);
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (_ref) {
           var data = _ref.data;
           context.commit('setPosts', data);
+          console.log(data);
           resolve(data);
         })["catch"](function (err) {
           context.commit('setErrors', err);
@@ -93442,7 +93437,13 @@ __webpack_require__.r(__webpack_exports__);
     //add post
     addPost: function addPost(context, data) {
       data.selected = [];
-      data.selected.push(data.categories.id);
+
+      if (data.categorySelected.length > 0) {
+        data.categorySelected.forEach(function (item) {
+          data.selected.push(item.id);
+        });
+      }
+
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
           var data = _ref2.data;
@@ -93505,8 +93506,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     //update post
     updatePost: function updatePost(context, data) {
-      data.selected = [];
-      data.selected.push(data.categories.id);
       return new Promise(function (resolve) {
         var idPost = data.id;
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
@@ -93616,15 +93615,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })
