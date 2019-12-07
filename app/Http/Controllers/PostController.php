@@ -104,4 +104,10 @@ class PostController extends Controller
         $post = Post::all()->count();
         return $post;
     }
+
+    //Detail post
+    public function detailPost(Request $request, $id) {
+        $post = Post::findOrFail($id);
+        return view('User.detail_post', compact('post'));
+    }
 }

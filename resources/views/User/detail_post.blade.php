@@ -4,94 +4,26 @@
     <article article-id="1009492" article-url="" class="the-article  type-text " topic-id="seo-4150">
         <header class="the-article-header">
             <p class="the-article-category">
-                <a href="/thoi-su.html" title="Thời sự" class="parent_cate">Thời sự</a>
+                <a href="/thoi-su.html" title="Thời sự" class="parent_cate">{{ $post->categories->name }}</a>
             </p>
-            <h1 class="the-article-title">Nữ sinh tử nạn khi đi bê tráp</h1>
+            <h1 class="the-article-title">{{ $post->title }}</h1>
             <ul class="the-article-meta">
-                <li class="the-article-publish">16:12 04/11/2019</li>
+                <li class="the-article-publish">{{ date('H:m d/m/Y', strtotime($post->created_at)) }}</li>
             </ul>
         </header>
         <section class="main">
-            <p class="the-article-summary">Sau khi bê tráp đám cưới, nữ sinh 16 tuổi lên xe Exciter do nam thanh niên
-                điều khiển. Quá trình di chuyển, xe này va chạm với ôtô Howo khiến cô gái tử vong.</p>
+            <p class="the-article-summary">
+                {!! $post->description_short !!}
+            </p>
             <div class="the-article-body">
-                <p>Vụ tai nạn xảy ra lúc 10h45 ngày 4/11, trên quốc lộ 1, đoạn qua thị trấn Hà Trung, huyện Hà Trung,
-                    tỉnh Thanh Hóa.</p>
-                <p>Thời điểm&nbsp;đó, Cù Văn Hoàng (20 tuổi, người địa phương) điều khiển xe máy chở nữ sinh Nguyễn Thị
-                    Thùy Liên di chuyển hướng Thanh Hóa đi Hà Nội.</p>
-                <p>Dọc đường, xe máy va chạm ôtô tải Howo chạy cùng chiều. Tai nạn khiến nữ sinh tử vong tại chỗ, còn
-                    thanh niên điều khiển xe máy bị thương nặng.</p>
-                <table class="picture" align="center">
-                    <tbody>
-                        <tr>
-                            <td class="pic"><img alt="Nu sinh tu nan khi di be trap hinh anh 1 "
-                                    src="https://znews-photo.zadn.vn/w660/Uploaded/ofh_hmzpgazs/2019_11_04/72286736_412129732735309_3590329433795330048_n.jpg"
-                                    width="680" height="425" /></td>
-                        </tr>
-                        <tr>
-                            <td class="pCaption caption">Hiện trường vụ việc. Ảnh: <em>D.L.</em></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>Camera hành trình của một ôtô cho thấy xe máy do Hoàng cầm lái chạy với tốc độ cao. Sau khi vượt qua
-                    nhiều ôtô cùng chiều, xe này gặp nạn. Khi đó, cả hai người ngồi trên xe máy không đội mũ bảo hiểm.
-                </p>
-                <p>Người dân địa phương&nbsp;cho biết tai nạn xảy ra sau khi nhóm của Hoàng đi bê tráp đám cưới.</p>
-                <table class="picture" align="center">
-                    <tbody>
-                        <tr>
-                            <td class="pic"><img alt="Nu sinh tu nan khi di be trap hinh anh 2 "
-                                    src="https://znews-photo.zadn.vn/w660/Uploaded/ofh_hmzpgazs/2019_11_04/map_thanhhoa_hatrung.jpg"
-                                    width="797" height="456" /></td>
-                        </tr>
-                        <tr>
-                            <td class="pCaption caption">Thị trấn Hà Trung. Ảnh: <em>Google Maps.</em></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table align="center" class="article">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="inner-article"><a
-                                        href="/co-gai-20-tuoi-tu-vong-sau-tai-nan-o-tphcm-post1009378.html">
-                                        <p class="cover formatted"
-                                            style="background-image:url(https://znews-photo.zadn.vn/w210/Uploaded/kbd_ivdb/2019_11_04/xo_xat_1.jpg);">
-                                        </p>
-                                        <h2 class="title">Cô gái 20 tuổi tử vong sau tai nạn ở TP.HCM</h2>
-                                        <p class="summary">Va chạm với xe tải trên đường Phạm Văn Bạch, cô gái 20 tuổi
-                                            bị ôtô cán qua người, tử vong tại chỗ.</p>
-                                    </a></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                <p>{!! $post->description !!}</p>
             </div>
 
-
-
-
-
-
-
-
-
-            <div class="the-article-credit">
-
+            {{-- <div class="the-article-credit">
                 <p class="author">Quỳnh An</p>
-
-
-
             </div>
-
-
             <p class="the-article-tags">
-
                 <strong>Nữ sinh tử nạn khi đi bê tráp</strong>
-
-
-
                 <a href="/thanh%2Dh%C3%B3a-tin-tuc.html" title="Thanh Hóa">Thanh Hóa</a>
 
                 <a href="/n%E1%BB%AF%2Dsinh%2Dt%E1%BB%AD%2Dvong-tin-tuc.html" title="nữ sinh tử vong">nữ sinh tử
@@ -108,26 +40,14 @@
                 <a href="/t%E1%BB%AD%2Dvong%2Dkhi%2D%C4%91i%2Db%C3%AA%2Dtr%C3%A1p-tin-tuc.html"
                     title="tử vong khi đi bê tráp">tử vong khi đi bê tráp</a>
 
-
-            </p>
-
-
-
+            </p> --}}
             <section class="sidebar">
-
-
-
                 {{-- <ul class="topics"></ul>
-    
-    
-    
-    <div class="section banners">
-        <div id="advHalfPage" class="banner size_300x600"></div>
-    </div> --}}
+                <div class="section banners">
+                    <div id="advHalfPage" class="banner size_300x600"></div>
+                </div> --}}
 
-
-
-                <div class="section" id="mostview-articles">
+                {{-- <div class="section" id="mostview-articles">
                     <div class="section-header">
                         <h3 class="section-title">Đọc tiếp</h3>
                     </div>
@@ -276,13 +196,11 @@
 
                         </div>
                     </div>
-                </div>
-
-
+                </div> --}}
             </section>
         </section>
 
-        <section class="section recommendation has-sidebar">
+        {{-- <section class="section recommendation has-sidebar">
             <header class="section-title">
                 <h2>Bạn có thể quan tâm</h2>
                 <p class="description"><a href="/thoi-su.html">Thời sự</a></p>
@@ -640,7 +558,7 @@
                     </article>
                 </div>
             </div>
-        </section>
+        </section> --}}
     </article>
 
 </div>

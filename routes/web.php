@@ -25,8 +25,9 @@ Route::get('/admin/{any}', 'HomeController@dashboard')->where('any', '.*');
 /* Người dùng */
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/new-detail', 'HomeController@newDetail')->name('newDetail');
+Route::get('/post/{id}', 'PostController@detailPost')->name('detail_post');
 
 
 /* api */

@@ -761,274 +761,37 @@
 <div class="page-wrapper">
     <section id="section-latest" class="section has-sidebar">
         <header class="section-title">
-            <h3>DÀNH CHO BẠN</h3>
+            <h3>TIN TRONG NƯỚC</h3>
         </header>
         <section class="section-content">
             <div class="article-list listing-layout responsive unique" min-display="6">
-                <article class="article-item type-hasvideo" article-id="1011620" topic-id="2020,3644,3690,3691">
-                    <p class="article-thumbnail">
-                        <a
-                            href="/tran-thanh-nhac-chuyen-do-vo-cua-hari-won-tien-dat-o-le-cuoi-dong-nhi-post1011620.html">
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/wpdhnwhnw/2019_11_09/img470115732947890711630504903_thumb.jpg"
-                                alt="Tran Thanh nhac chuyen do vo cua Hari Won, Tien Dat o le cuoi Dong Nhi hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a
-                                href="/tran-thanh-nhac-chuyen-do-vo-cua-hari-won-tien-dat-o-le-cuoi-dong-nhi-post1011620.html">Trấn
-                                Thành nhắc chuyện đổ vỡ của Hari Won, Tiến Đạt ở lễ cưới Đông Nhi
+                @foreach($posts as $post)
+                    <article class="article-item type-hasvideo">
+                        <p class="article-thumbnail">
+                            <a href="{{ route('detail_post', $post->id) }}">
+                                <img src="{{ asset('public/images/post/'.$post->image_thumb) }}" alt="Image not found">
                             </a>
                         </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">3 giờ trước</span>
-                                <span class="time">19:43</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Giải trí</span>
-
-
-
-                            <span class="category">Sao Việt</span>
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count ">9</span>
-                            <span class="comment-count ">2</span>
-                        </p>
-                        <p class="article-summary">Vợ chồng Trấn Thành đã có mặt tại Phú Quốc tham dự lễ cưới Đông Nhi -
-                            Ông Cao Thắng. Ông xã của Hari Won giữ vai trò MC trong suốt buổi tiệc.</p>
-
-                    </header>
-                </article>
-
-                <article class="article-item type-text" article-id="1011576" topic-id="3920">
-                    <p class="article-thumbnail">
-                        <a href="/vi-sao-lai-co-canh-nong-giua-ba-la-sat-va-thai-thuong-lao-quan-post1011576.html">
-
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/uqvpyciv/2019_11_09/hg.jpg"
-                                alt="Vi sao lai co canh nong giua Ba La Sat va Thai Thuong Lao Quan? hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a href="/vi-sao-lai-co-canh-nong-giua-ba-la-sat-va-thai-thuong-lao-quan-post1011576.html">Vì
-                                sao lại có cảnh nóng giữa Bà La Sát và Thái Thượng Lão Quân?</a>
-                        </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">4 giờ trước</span>
-                                <span class="time">18:00</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Phim ảnh</span>
-
-
-
-                            <span class="category">Phim ảnh</span>
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count ">16</span>
-                            <span class="comment-count ">1</span>
-                        </p>
-                        <p class="article-summary">Đã có giai thoại cho rằng Bà La Sát và Thái Thượng Lão Quân có mối
-                            quan hệ đi ngược với luân thường đạo lý và Hồng Hài Nhi không phải là con của Ngưu Ma Vương.
-
-                        </p>
-
-                    </header>
-                </article>
-
-                <article class="article-item type-text short" article-id="1011533" topic-id="2020,4150">
-                    <p class="article-thumbnail">
-                        <a href="/tranh-tai-san-con-trai-ban-chet-cha-post1011533.html">
-
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/ngotgs/2019_11_09/bonnguoitrongmotgiadinhodongnaibitruysat3fa83f3.jpg"
-                                alt="Tranh tai san, con trai ban chet cha hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a href="/tranh-tai-san-con-trai-ban-chet-cha-post1011533.html">Tranh tài sản, con trai bắn
-                                chết cha</a>
-                        </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">7 giờ trước</span>
-                                <span class="time">15:02</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Pháp luật</span>
-
-
-
-                            <span class="category">Pháp luật</span>
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count ">233</span>
-                            <span class="comment-count ">8</span>
-                        </p>
-                        <p class="article-summary">Mâu thuẫn về việc phân chia tài sản, Quý rình lúc bố đẻ mình sơ hở,
-                            dùng súng bắn 4 phát khiến ông tử vong tại chỗ.</p>
-
-                    </header>
-                </article>
-
-                <article class="article-item type-text short" article-id="1011609" topic-id="2020,4150">
-                    <p class="article-thumbnail">
-                        <a href="/cuop-100-trieu-vi-thieu-tien-chua-benh-cho-vo-post1011609.html">
-
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/ofh_hmzpgazs/2019_11_09/090_thumb.jpg"
-                                alt="Cuop 100 trieu vi thieu tien chua benh cho vo hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a href="/cuop-100-trieu-vi-thieu-tien-chua-benh-cho-vo-post1011609.html">Cướp 100 triệu vì
-                                thiếu tiền chữa bệnh cho vợ</a>
-                        </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">2 giờ trước</span>
-                                <span class="time">20:00</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Pháp luật</span>
-
-
-
-                            <span class="category">Pháp luật</span>
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count ">4</span>
-                            <span class="comment-count hide"></span>
-                        </p>
-                        <p class="article-summary">Hậu khai do vợ bị mắc bệnh ung thư xương và thiếu tiền chữa trị nên
-                            anh ta đã đi cướp 100 triệu.</p>
-
-                    </header>
-                </article>
-
-                <article class="article-item type-hasvideo" article-id="1011613" topic-id="2020,5379">
-                    <p class="article-thumbnail">
-                        <a href="/sao-tre-thai-lan-xin-roi-tuyen-quoc-gia-de-giai-cuu-doi-u19-post1011613.html">
-
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/neg_etpyole/2019_11_09/suphanat.jpg"
-                                alt="Sao tre Thai Lan xin roi tuyen quoc gia de giai cuu doi U19 hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a href="/sao-tre-thai-lan-xin-roi-tuyen-quoc-gia-de-giai-cuu-doi-u19-post1011613.html">Sao
-                                trẻ Thái Lan xin rời tuyển quốc gia để giải cứu đội U19</a>
-                        </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">1 giờ trước</span>
-                                <span class="time">21:00</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Thể thao</span>
-
-
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count hide"></span>
-                            <span class="comment-count hide"></span>
-                        </p>
-                        <p class="article-summary">Tiền đạo Suphanat Mueanta quyết định xin HLV Nishino quay trở lại thi
-                            đấu trận quyết định của U19 Thái Lan với Malaysia, nhằm giúp đội góp mặt tại vòng chung kết
-                            châu Á 2020.</p>
-
-                    </header>
-                </article>
-
-                <article class="article-item type-hasvideo" article-id="1011570" topic-id="3751,5000">
-                    <p class="article-thumbnail">
-                        <a href="/van-hau-toi-khong-muon-roi-heerenveen-chi-sau-mot-mua-giai-post1011570.html">
-
-                            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
-                                data-src="https://znews-photo.zadn.vn/Uploaded/pgi_ubnatyvau/2019_11_09/image20191031T0818342851024x736.jpeg"
-                                alt="Van Hau: 'Toi khong muon roi Heerenveen chi sau mot mua giai' hinh anh" />
-                        </a>
-                    </p>
-                    <header>
-                        <p class="article-title">
-                            <a href="/van-hau-toi-khong-muon-roi-heerenveen-chi-sau-mot-mua-giai-post1011570.html">Văn
-                                Hậu: 'Tôi không muốn rời Heerenveen chỉ sau một mùa giải'</a>
-                        </p>
-                        <p class="article-meta">
-                            <span class="article-publish">
-                                <span class="friendly-time">4 giờ trước</span>
-                                <span class="time">18:05</span>
-                                <span class="date">09/11/2019</span>
-                            </span>
-
-
-                            <span class="category-parent">Thể thao</span>
-
-
-
-                            <span class="category">Bóng đá Việt Nam</span>
-
-                        </p>
-                        <p class="article-count">
-                            <span class="like-count"></span>
-                            <span class="dislike-count"></span>
-                            <span class="rating-count">0</span>
-                            <span class="viral-count hide"></span>
-                            <span class="comment-count hide"></span>
-                        </p>
-                        <p class="article-summary">Đoàn Văn Hậu không giấu tham vọng thể hiện năng lực bản thân và sớm
-                            là thành viên thường xuyên của đội một Heerenveen trong mùa này.</p>
-
-                    </header>
-                </article>
-
-
-
-
+                        <header>
+                            <p class="article-title">
+                                <a href="{{ route('detail_post', $post->id) }}">
+                                    {!! $post->title !!}
+                                </a>
+                            </p>
+                            <p class="article-meta">
+                                <span class="article-publish">
+                                    <span class="date">{{ date('d/m/Y', strtotime($post->created_at)) }}</span>
+                                </span>
+                                <span class="category">{{ $post->categories->name }}</span>
+                            </p>
+                            <p class="article-summary">
+                                {!! $post->description_short !!}
+                            </p>
+                        </header>
+                    </article>
+                @endforeach
             </div>
-
-
-
-            <!-- 39 thi thể trong thùng xe container ở Anh -->
-            <section id="first-news-coverage" class="section news-coverage">
+            {{-- <section id="first-news-coverage" class="section news-coverage">
                 <div class="section-thumbnail">
                     <a href=/toan-canh/39-thi-the-trong-thung-xe-o-anh.html
                         style="background-image: url('https://znews-photo.zadn.vn/w660/Uploaded/Vahroi/Events/0_Bodiesfoundinlorrycontainer_1.jpg')"></a>
@@ -1273,8 +1036,6 @@
                     </div>
                 </div>
             </section>
-
-
 
             <div class="article-list listing-layout responsive unique" min-display="6">
 
@@ -1538,9 +1299,6 @@
 
             </div>
 
-
-
-            <!-- Đám cưới Đông Nhi - Ông Cao Thắng -->
             <section id="second-news-coverage" class="section news-coverage">
                 <div class="section-thumbnail">
                     <a href=/toan-canh/cuoi-dong-nhi.html
@@ -1779,8 +1537,6 @@
                     </div>
                 </div>
             </section>
-
-
 
             <div class="article-list listing-layout responsive unique" min-display="6">
 
@@ -3649,7 +3405,6 @@
 
             </div>
 
-
             <aside class="section-sidebar">
 
 
@@ -3808,16 +3563,16 @@
                 <div id="advPrBox3" class="banner"></div>
                 <div id="advHalfPage" class="banner size_300x600 scrollfixed" size="300x600"></div>
                 <div id="advR3" class="banner size_300x600 scrollfixed" size="300x600"></div>
-            </aside>
+            </aside> --}}
         </section>
     </section>
 </div>
 
-<section class="section ads">
+{{-- <section class="section ads">
     <div id="advMastheadInline" class="banner size_masthead"></div>
-</section>
+</section> --}}
 
-<div class="page-wrapper">
+{{-- <div class="page-wrapper">
     <section id="section-entertainment" class="section category">
         <section class="section-content layout-grid-4">
 
@@ -7095,11 +6850,11 @@
 	            </div>
 	        </aside>
 	    </div>
-	</section> --}}
+	</section>
 
-</div>
+</div> --}}
 
-<div class="page-wrapper">
+{{-- <div class="page-wrapper">
     <section id="section-others" class="section category">
         <section class="section-content layout-grid-4">
 
@@ -9257,7 +9012,7 @@
             </div>
         </section>
     </section>
-</div>
+</div> --}}
 
 <section class="section ads">
     <div id="advMastheadInline2" class="banner size_masthead"></div>
