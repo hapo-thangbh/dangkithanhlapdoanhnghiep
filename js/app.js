@@ -3093,8 +3093,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
@@ -3133,6 +3131,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     showImage: function showImage(img) {
       return "/public/images/post/" + img;
+    },
+    linkPost: function linkPost(id) {
+      window.location.href = "/post/" + id;
     }
   })
 });
@@ -67304,9 +67305,18 @@ var render = function() {
                             "td",
                             { staticClass: "text-center" },
                             [
-                              _c("a", { attrs: { href: "post/`{post.id}`" } }),
-                              _vm._v(" "),
-                              _vm._m(3, true),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-sm btn-success",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.linkPost(post.id)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-eye" })]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "router-link",
@@ -67447,14 +67457,6 @@ var staticRenderFns = [
           [_vm._v("Hành động")]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-sm btn-success" }, [
-      _c("i", { staticClass: "fa fa-eye" })
     ])
   }
 ]

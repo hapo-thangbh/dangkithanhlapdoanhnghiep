@@ -83,11 +83,9 @@
                                         </td>
                                         <td>{{ formartDate(post.created_at) }}</td>
                                         <td class="text-center">
-                                            <a href="post/`{post.id}`"></a>
-                                                <button class="btn btn-sm btn-success">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </a>
+                                            <button class="btn btn-sm btn-success" @click="linkPost(post.id)">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
 
                                             <router-link :to="{ path: '/admin/post/edit/' + post.id }">
                                                 <button class="btn btn-sm btn-primary">
@@ -160,6 +158,9 @@ export default {
         },
         showImage (img) {
             return "/public/images/post/"+img
+        },
+        linkPost (id) {
+            window.location.href="/post/"+id
         }
     }
 }
