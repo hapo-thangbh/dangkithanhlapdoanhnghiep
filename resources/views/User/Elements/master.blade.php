@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('js/frontend/slick/slick.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/frontend/font-awesome.css') }}" type="text/css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="{{ asset('css/frontend/app.css') }}">
+	{{-- <link rel="stylesheet" href="{{ asset('css/frontend/app.css') }}"> --}}
 </head>
 <body>
     @include('User.Elements.header')

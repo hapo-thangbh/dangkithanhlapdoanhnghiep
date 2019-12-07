@@ -288,6 +288,11 @@
                 <p class="description"><a href="/thoi-su.html">Thời sự</a></p>
             </header>
             <div class="section-content">
+                {{-- <div>
+                    <h3 class="font-weight-bold mb-2">Ý KIẾN BẠN ĐỌC</h3>
+                    <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
+                    <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                </div> --}}
                 <div class="article-list listing-layout responsive">
 
 

@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @import url(../bower_components/tooltipster/4.0/dist/css/tooltipster.bundle.min.css);
 @import url("https://fonts.googleapis.com/css?family=Vollkorn:400,600,700&subset=latin-ext,vietnamese");
+textarea{
+  resize: none!important;
+}
 #category-header{margin:40px 0 10px;float:left;width:100%}
 #category-header h2 {
     color: #000;
