@@ -77,7 +77,7 @@ export default new VueRouter({
             component: AddCategory
         },
         {
-            path: '/admin/category/edit',
+            path: '/admin/category/edit/:id',
             name:'editCategory',
             component: EditCategory
         }

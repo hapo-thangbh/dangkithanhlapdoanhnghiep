@@ -764,16 +764,11 @@
             <h3>DÀNH CHO BẠN</h3>
         </header>
         <section class="section-content">
-
-
             <div class="article-list listing-layout responsive unique" min-display="6">
-
-
                 <article class="article-item type-hasvideo" article-id="1011620" topic-id="2020,3644,3690,3691">
                     <p class="article-thumbnail">
                         <a
                             href="/tran-thanh-nhac-chuyen-do-vo-cua-hari-won-tien-dat-o-le-cuoi-dong-nhi-post1011620.html">
-
                             <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg"
                                 data-src="https://znews-photo.zadn.vn/Uploaded/wpdhnwhnw/2019_11_09/img470115732947890711630504903_thumb.jpg"
                                 alt="Tran Thanh nhac chuyen do vo cua Hari Won, Tien Dat o le cuoi Dong Nhi hinh anh" />
@@ -783,7 +778,8 @@
                         <p class="article-title">
                             <a
                                 href="/tran-thanh-nhac-chuyen-do-vo-cua-hari-won-tien-dat-o-le-cuoi-dong-nhi-post1011620.html">Trấn
-                                Thành nhắc chuyện đổ vỡ của Hari Won, Tiến Đạt ở lễ cưới Đông Nhi</a>
+                                Thành nhắc chuyện đổ vỡ của Hari Won, Tiến Đạt ở lễ cưới Đông Nhi
+                            </a>
                         </p>
                         <p class="article-meta">
                             <span class="article-publish">

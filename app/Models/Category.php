@@ -9,6 +9,11 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable=[
-        'name','status'
+        'name',
+        'status'
     ];
+
+    public function posts () {
+        return $this->hasMany(Post::class, 'id');
+    }
 }

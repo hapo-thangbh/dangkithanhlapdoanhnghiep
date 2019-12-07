@@ -1,12 +1,12 @@
 <template>
-    <div class="content-wrapper h-900">
+    <div class="content-wrapper h-1000">
         <section class="content-header">
-            <h1><i class="fa fa-book"></i> Chuyên mục</h1>
+            <h1><i class="fa fa-book"></i> Danh mục</h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a>
                 </li>
-                <li class="active">Danh sách chuyên mục</li>
+                <li class="active">Danh sách danh mục</li>
             </ol>
         </section>
         <section class="content">
@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control" placeholder="Tên chuyên mục">
+                                    <input type="text" class="form-control" placeholder="Tên danh mục">
                                 </div>
 
                                 <div class="col-md-3 form-group">
@@ -43,59 +43,42 @@
                                 <i class="fa fa-plus"></i> Tạo mới
                             </button>
                         </router-link>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th style="width: 300px">Tên chuyên mục</th>
-                                    <th style="width: 50px">Trạng thái</th>
-                                    <th style="width: 50px">Ngày tạo</th>
-                                    <th class="text-center" style="width: 100px">Hành động</th>
-                                </tr>
-                            </thead>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px">ID</th>
+                                        <th style="width: 300px">Tên danh mục</th>
+                                        <th style="width: 50px">Trạng thái</th>
+                                        <th style="width: 50px">Ngày tạo</th>
+                                        <th class="text-center" style="width: 100px">Hành động</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Chuyên mục 1</td>
-                                    <td>
-                                        <label class="label label-success">Công khai</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editCategory' }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
+                                <tbody>
+                                    <tr v-for="category in categories" :key="category.id">
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.name }}</td>
+                                        <td>
+                                            <label class="label label-success" v-if="category.status === 1">Công khai</label>
+                                            <label class="label label-danger" v-else>Riêng tư</label>
+                                        </td>
+                                        <td>{{ formartDate(category.created_at) }}</td>
+                                        <td class="text-center">
+                                            <router-link :to="{ path: '/admin/category/edit/' + category.id }">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </router-link>
+
+                                            <button @click="destroyCategory(category.id)" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </router-link>
-
-                                        <button @click="deleteCategory()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Chuyên mục 2</td>
-                                    <td>
-                                        <label class="label label-danger">Riêng tư</label>
-                                    </td>
-                                    <td>18/11/2019</td>
-                                    <td class="text-center">
-                                        <router-link :to="{ name:'editCategory' }">
-                                            <button class="btn btn-sm btn-primary">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </router-link>
-
-                                        <button @click="deleteCategory()" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,38 +87,47 @@
 </template>
 
 <script>
-    export default {
-        name: 'ListCategory',
-        methods: {
-          deleteCategory() {
+import { mapState, mapActions } from 'vuex'
+export default {
+    name: 'ListCategory',
+    computed: {
+        ...mapState('category', ['categories'])
+    },
+    mounted() {
+        this.getCategories()
+    },
+    methods: {
+        ...mapActions('category',['getCategories','deleteCategory']),
+        destroyCategory(id) {
             swal.fire({
-              title: '',
-              text: "Bạn có chắc chắn muốn xóa?",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Đồng ý',
-              cancelButtonText: 'Hủy bỏ'
+                title: '',
+                text: "Bạn có chắc chắn muốn xóa?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ'
             })
             .then((result) => {
                 if (result.value) {
-                    swal.fire(
-                      'Thành công',
-                      'Bạn đã xóa thành công',
-                      'success'
-                    )
+                    this.deleteCategory(id)
                 }
             })
             .catch(() => {
                 swal.fire(
-                  'Thất bại',
-                  'Xóa không thành công',
-                  'warning'
+                    'Thất bại',
+                    'Xóa không thành công',
+                    'warning'
                 )
             })
-          }
+        },
+        formartDate (date) {
+            return moment(date).format('DD/MM/YYYY')
+        },
+        refresh () {
+            this.getPosts()
         }
     }
-
+}
 </script>

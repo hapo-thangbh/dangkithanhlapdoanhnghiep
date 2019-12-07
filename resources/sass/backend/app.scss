@@ -1,9 +1,10 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 @import '~bootstrap/scss/bootstrap';
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
 @import 'custom';
 @import 'checkbox';
 @import 'header';
 @import 'navbar';
 @import 'dashboard';
+@import 'editor';

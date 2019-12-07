@@ -16,35 +16,89 @@
                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
                             <div class="row form-group">
                                 <label for="title" class="col-md-2 text-md-right">Tiêu đề</label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Tiêu đề" v-slot="{ errors }">
-                                        <input
-                                            type="text"
-                                            class="form-control"
+                                        <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
-                                            v-model="post.title"
-                                        >
+                                            v-model="post.title" 
+                                            placeholder=""
+                                            class="h-editor-40"
+                                        />
+
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                 </div>
                             </div>
 
-                            <!-- <div class="row form-group">
-                                <label for="tag" class="col-md-3 text-md-right">Tag</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control">
+                            <div class="row form-group">
+                                <label for="title" class="col-md-2 text-md-right">Mô tả ngắn</label>
+                                <div class="col-md-10">
+                                    <ValidationProvider rules="required" name="Mô tả ngắn" v-slot="{ errors }">
+                                        <wysiwyg 
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                            v-model="post.description_short" 
+                                            placeholder=""
+                                            class="h-editor-40"
+                                        />
+
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
                                 </div>
-                            </div> -->
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
+                                <div class="col-md-3 d-flex justify-content-start">
+                                    <div v-if="!post.image_thumb">
+                                        <label for="chooseImage">
+                                            <i class="fa fa-cloud-upload icon-upload-thumb"></i>
+                                        </label>
+                                        <ValidationProvider class="d-flex" rules="required" name="Ảnh thumbnail" v-slot="{ errors }">
+                                            <input 
+                                                type="file" 
+                                                id="chooseImage" 
+                                                class="d-none" 
+                                                @change="onFileChange"
+                                                v-bind:class="errors[0]?'border-danger':''"
+                                            >
+                                            <span class="text-danger">{{ errors[0] }}</span>
+                                        </ValidationProvider>
+                                    </div>
+                                    <div v-else class="text-center">
+                                        <img :src="showImage()" class="image-preview"/> <br/>
+                                        <button class="btn btn-sm btn-danger mt-2" @click="removeImage">Xóa ảnh</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
+                                <div class="col-md-10">
+                                    <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
+                                        <multiselect 
+                                            v-model="post.categories" 
+                                            :options="categories"
+                                            label="name"
+                                            track-by="id"
+                                            placeholder=""
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                        ></multiselect>
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+
+                                </div>
+                            </div>
 
                             <div class="row form-group">
                                 <label for="description" class="col-md-2 text-md-right">Nội dung</label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <ValidationProvider rules="required" name="Nội dung" v-slot="{ errors }">
-                                        <textarea 
-                                            id="editor"
+                                        <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
-                                            v-model="post.description"
-                                        ></textarea>
+                                            v-model="post.description" 
+                                            placeholder=""
+                                            class="editor"
+                                        />
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                 </div>
@@ -52,7 +106,7 @@
 
                             <div class="row form-group">
                                 <label for="status" class="col-md-2 text-md-right">Công khai</label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
                                 </div>
@@ -60,7 +114,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-12 text-center">
-                                    <button @click="refresh()" type="button" class="btn btn-sm btn-default">
+                                    <button @click="refresh()" type="button" class="btn btn-sm btn-default" v-if="type==='create'">
                                         <i class="fa fa-refresh"></i> Làm mới
                                     </button>
                                     <button type="submit" class="btn btn-sm btn-success">
@@ -80,6 +134,7 @@
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
+import Multiselect from 'vue-multiselect'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -101,7 +156,8 @@ export default {
     },
     components: {
         ValidationProvider,
-        ValidationObserver
+        ValidationObserver,
+        Multiselect
     },
     mounted() {
         if (this.type === 'create') {
@@ -110,13 +166,15 @@ export default {
             let idPost = this.$route.params.id
             this.editPost(idPost)
         }
-        this.getCkeditor()
+        this.getCategories()
     },
     computed: {
-        ...mapState('post',['post'])
+        ...mapState('post', ['post']),
+        ...mapState('category', ['categories'])
     },
     methods: {
         ...mapActions('post',['clearPost','addPost','editPost','updatePost']),
+        ...mapActions('category', ['getCategories']),
         onSubmit () {
             if (this.type === 'create') {
                 this.addPost(this.post)
@@ -127,9 +185,35 @@ export default {
         refresh () {
             this.clearPost()
         },
-        getCkeditor(){
-            CKEDITOR.replace('editor');
+        onFileChange (e) {
+            var files = e.target.files || e.dataTransfer.files
+            if (!files.length)
+                return
+            this.createImage(files[0])
+        },
+        createImage (file) {
+            var image_thumb = new Image();
+            var reader = new FileReader()
+            var vm = this;
+
+            reader.onload = (e) => {
+                vm.post.image_thumb = e.target.result
+            }
+            reader.readAsDataURL(file)
+        },
+        removeImage (e) {
+            this.post.image_thumb = ''
+        },
+        showImage () {
+            let image = this.post.image_thumb
+            if (image.length > 100) {
+                return this.post.image_thumb
+            } else {
+                return '/public/images/post/'+this.post.image_thumb
+            }
         }
     }
 }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

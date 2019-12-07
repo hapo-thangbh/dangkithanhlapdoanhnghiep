@@ -1,26 +1,21 @@
 import ApiService from '../../api'
 import { reject } from 'q'
-import router from './../../router'
+import router from '../../router'
 
 export default {
     namespaced: true,
     state: {
-        posts:[],
+        categories:[],
         errors: '',
         message: '',
-        post: {
-            title: '',
-            description_short: '',
-            image_thumb: '',
-            categories: '',
-            description: '',
+        category: {
+            name: '',
             status: ''
-        },
-        companies: []
+        }
     },
     mutations: {
-        setPosts (state, data) {
-            state.posts = data
+        setCategories (state, data) {
+            state.categories = data
         },
         setErrors (state, data) {
             state.errors = data
@@ -28,33 +23,27 @@ export default {
         setMessage (state, data) {
             state.message = data
         },
-        setPost (state, data) {
-            state.post = data
+        setCategory (state, data) {
+            state.category = data
         },
-        deletePost (state, data) {
-            state.posts = data
+        deleteCategory (state, data) {
+            state.categories = data
         }
     },
     actions: {
-        clearPost (context) {
+        clearCategory (context) {
             const data = {
                 title: '',
-                description_short: '',
-                image_thumb: '',
-                categories: '',
-                description: '',
                 statue: ''
             }
-            context.commit('setPost', data)
+            context.commit('setCategory', data)
         },
-        //get list post
-        getPosts (context) {
+        //get list category
+        getCategories (context) {
             return new Promise(resolve => {
-                ApiService.get('/api/posts')
-                    .then(({
-                        data
-                    }) => {
-                        context.commit('setPosts', data)
+                ApiService.get('/api/categories')
+                    .then(({data}) => {
+                        context.commit('setCategories', data)
                         resolve(data)
                     })
                     .catch( err => {
@@ -63,16 +52,14 @@ export default {
             })
         },
 
-        //add post
-        addPost (context, data) {
-            data.selected = []            
-            data.selected.push(data.categories.id)
+        //add category
+        addCategory (context, data) {
             return new Promise(resolve => {
-                ApiService.post('/api/posts/add', data)
+                ApiService.post('/api/categories/add', data)
                     .then(({data}) => {
                         if (data.status === 200) {
-                            context.commit('setPost', data.message)
-                            router.push({ name: 'listPost' })
+                            context.commit('setCategory', data.message)
+                            router.push({ name: 'listCategory' })
                             window.toast.fire({
                                 icon: 'success',
                                 title: data.message
@@ -81,7 +68,7 @@ export default {
                         } else {
                             window.toast.fire({
                                 icon: 'error',
-                                message: 'Tạo bài viết thất bại!'
+                                message: 'Tạo danh mục thất bại!'
                             })
                         }
                     })
@@ -92,13 +79,13 @@ export default {
             })
         },
 
-        //delete post
-        deletePost ({context, dispatch}, id) {
+        //delete category
+        deleteCategory ({context, dispatch}, id) {
             return new Promise(resolve => {
-                ApiService.delete('/api/posts/delete/' +  id)
+                ApiService.delete('/api/categories/delete/' +  id)
                     .then(({data}) => {
                         if (data.status === 200) {
-                            dispatch('getPosts')
+                            dispatch('getCategories')
                             window.swal.fire(
                                 '',
                                 data.message,
@@ -121,12 +108,12 @@ export default {
             })
         },
 
-        //get info post
-        editPost (context, idPost) {
+        //get info category
+        editCategory (context, idCategory) {
             return new Promise(resolve => {
-                ApiService.get('/api/posts/edit/' + idPost)
+                ApiService.get('/api/categories/edit/' + idCategory)
                     .then(({ data }) => {
-                        context.commit('setPost', data)
+                        context.commit('setCategory', data)
                         resolve(data)
                     })
                     .catch(err => {
@@ -135,18 +122,16 @@ export default {
             })
         },
 
-        //update post
-        updatePost (context, data) {
-            data.selected = []            
-            data.selected.push(data.categories.id)
+        //update category
+        updateCategory (context, data) {
             return new Promise(resolve => {
-                const idPost = data.id
-                ApiService.put('/api/posts/update/' + idPost, data)
+                const idCategory = data.id
+                ApiService.put('/api/categories/update/' + idCategory, data)
                     .then(({ data }) => {
                         if(data.status === 200) {
-                            context.commit('setPosts', data)
+                            context.commit('setCategories', data)
                             router.push({
-                                name: 'listPost'
+                                name: 'listCategory'
                             })
                             window.toast.fire({
                                 icon: 'success',
