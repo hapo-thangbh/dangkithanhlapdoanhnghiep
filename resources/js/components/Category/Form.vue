@@ -14,37 +14,109 @@
                     </div>
                     <div class="box-body">
                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
-                            <div class="row form-group">
-                                <label for="title" class="col-md-3 text-md-right">Tên danh mục</label>
-                                <div class="col-md-6">
-                                    <ValidationProvider rules="required" name="Tên danh mục" v-slot="{ errors }">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            v-bind:class="errors[0]?'border-danger':''"
-                                            v-model="category.name"
-                                        >
-                                        <span class="text-danger">{{ errors[0] }}</span>
-                                    </ValidationProvider>
-                                </div>
-                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row form-group">
+                                            <label for="title" class="col-md-3 text-md-right">Tên danh mục</label>
+                                            <div class="col-md-9">
+                                                <ValidationProvider rules="required" name="Tên danh mục" v-slot="{ errors }">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        v-bind:class="errors[0]?'border-danger':''"
+                                                        v-model="category.name"
+                                                    >
+                                                    <span class="text-danger">{{ errors[0] }}</span>
+                                                </ValidationProvider>
+                                            </div>
+                                        </div>
 
-                            <div class="row form-group">
-                                <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
-                                <div class="col-md-6">
-                                    <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="category.status"/>
-                                    <label for="switch" class="tgl-checkbox tgl-primary"></label>
-                                </div>
-                            </div>
+                                        <div class="row form-group">
+                                            <label for="title" class="col-md-3 text-md-right">Danh mục cha</label>
+                                            <div class="col-md-9">
+                                                <multiselect 
+                                                    :options="categories"
+                                                    label="name"
+                                                    track-by="id"
+                                                    placeholder=""
+                                                ></multiselect>
+                                            </div>
+                                        </div>
 
-                            <div class="row form-group">
-                                <div class="col-md-12 text-center">
-                                    <button type="button" @click="refresh()" class="btn btn-sm btn-default" v-if="type==='create'">
-                                        <i class="fa fa-refresh"></i> Làm mới
-                                    </button>
-                                    <button type="submit" class="btn btn-sm btn-success">
-                                        <i class="fa fa-check"></i> Xác nhận
-                                    </button>
+                                        <div class="row form-group">
+                                            <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
+                                            <div class="col-md-9">
+                                                <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="category.status"/>
+                                                <label for="switch" class="tgl-checkbox tgl-primary"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Danh mục cha</label> <br/>
+                                                <div>
+                                                    <label class="checkbox-success">
+                                                        <input type="checkbox" id="dansu" name="">
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="lbl-checkbox-success" for="dansu">Dân sự</label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="checkbox-success">
+                                                        <input type="checkbox" id="hinhsu" name="">
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="lbl-checkbox-success" for="hinhsu">Hình sự</label>
+                                                </div>
+                                                
+                                                <div>
+                                                    <label class="checkbox-success">
+                                                        <input type="checkbox" id="honnhan" name="">
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="lbl-checkbox-success" for="honnhan">Hôn nhân</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label>Danh mục con</label> <br/>
+                                                <div>
+                                                    <label class="checkbox-success">
+                                                        <input type="checkbox" id="dansu1" name="">
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="lbl-checkbox-success" for="dansu1">Dân sự 1</label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="checkbox-success">
+                                                        <input type="checkbox" id="dansu2" name="">
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="lbl-checkbox-success" for="dansu2">Dân sự 2</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row form-group">
+                                            <div class="col-md-12 text-center">
+                                                <button type="button" @click="refresh()" class="btn btn-sm btn-default" v-if="type==='create'">
+                                                    <i class="fa fa-refresh"></i> Làm mới
+                                                </button>
+                                                <button type="submit" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-check"></i> Xác nhận
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -59,6 +131,7 @@
 import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
+import Multiselect from 'vue-multiselect'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -74,12 +147,13 @@ export default {
     },
     data() {
         return {
-
+            
         }
     },
     components: {
         ValidationProvider,
-        ValidationObserver
+        ValidationObserver,
+        Multiselect
     },
     mounted() {
         if (this.type === 'create') {

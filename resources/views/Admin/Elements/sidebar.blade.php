@@ -19,11 +19,11 @@
                 </router-link>
             </li>
             <li><router-link :to="{ name: 'listPost' }"><i class="fa fa-paste"></i> Bài viết</router-link></li>
+            <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Danh mục</router-link></li>
             <li><a href="#"><i class="fa fa-comment-o"></i> Bình luận</a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> Hộp thư</a></li>
             <li><router-link :to="{ name:'profile' }"><i class="fa fa-info-circle"></i> Hồ sơ</router-link></li>
             <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Tài khoản</router-link></li>
-            <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Menu</router-link></li>
             <li>
                 <a href="{{ route('admin.logout') }}">
                     <i class="fa fa-power-off"></i> <span>Đăng xuất</span>

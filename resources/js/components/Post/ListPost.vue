@@ -47,14 +47,15 @@
                             <table class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="min-width: 20px">ID</th>
+                                        <th style="min-width: 20px">STT</th>
                                         <th style="min-width: 100px">Tiêu đề</th>
                                         <th style="min-width: 200px">Mô tả ngắn</th>
-                                        <th style="min-width: 100px">Ảnh thumbnail</th>
-                                        <th>Nội dung</th>
+                                        <th style="min-width: 100px">Ảnh đại diện</th>
                                         <th style="min-width: 60px">Danh mục</th>
                                         <th style="min-width: 50px">Trạng thái</th>
-                                        <th style="min-width: 100px">Ngày tạo</th>
+                                        <th style="min-width: 100px">Ngày đăng</th>
+                                        <th style="min-width: 100px">Lượt xem</th>
+                                        <th style="min-width: 100px">Bình luận</th>
                                         <th class="text-center" style="min-width: 150px">Hành động</th>
                                     </tr>
                                 </thead>
@@ -72,9 +73,6 @@
                                             <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">
                                         </td>
                                         <td>
-                                            <p v-html="post.description" class="description txt-ellipsis">{{ post.description }}</p>
-                                        </td>
-                                        <td>
                                             <label class="label label-default mr-1">{{ post.categories.name }}</label>
                                         </td>
                                         <td>
@@ -82,6 +80,8 @@
                                             <label class="label label-danger" v-else>Riêng tư</label>
                                         </td>
                                         <td>{{ formartDate(post.created_at) }}</td>
+                                        <td>0</td>
+                                        <td>0</td>
                                         <td class="text-center">
                                             <button class="btn btn-sm btn-success" @click="linkPost(post.id)">
                                                 <i class="fa fa-eye"></i>

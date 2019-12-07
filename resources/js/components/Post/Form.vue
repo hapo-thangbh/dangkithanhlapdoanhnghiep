@@ -21,7 +21,7 @@
                                         <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.title" 
-                                            placeholder=""
+                                            placeholder="Không quá 200 ký tự"
                                             class="h-editor-40"
                                         />
 
@@ -31,13 +31,25 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="title" class="col-md-2 text-md-right">Mô tả ngắn</label>
+                                <label for="title" class="col-md-2 text-md-right">SEO tiêu đề</label>
                                 <div class="col-md-10">
-                                    <ValidationProvider rules="required" name="Mô tả ngắn" v-slot="{ errors }">
+                                    <textarea 
+                                        name="" 
+                                        class="form-control"
+                                        rows="3"
+                                        placeholder="Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
+                                    ></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="title" class="col-md-2 text-md-right">Mô tả</label>
+                                <div class="col-md-10">
+                                    <ValidationProvider rules="required" name="Mô tả" v-slot="{ errors }">
                                         <wysiwyg 
                                             v-bind:class="errors[0]?'border-danger':''"
                                             v-model="post.description_short" 
-                                            placeholder=""
+                                            placeholder="Không quá 3 dòng văn bản"
                                             class="h-editor-40"
                                         />
 
@@ -47,13 +59,13 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="tag" class="col-md-2 text-md-right">Ảnh thumbnail</label>
+                                <label for="tag" class="col-md-2 text-md-right">Ảnh đại diện</label>
                                 <div class="col-md-3 d-flex justify-content-start">
                                     <div v-if="!post.image_thumb">
                                         <label for="chooseImage">
                                             <i class="fa fa-cloud-upload icon-upload-thumb"></i>
                                         </label>
-                                        <ValidationProvider class="d-flex" rules="required" name="Ảnh thumbnail" v-slot="{ errors }">
+                                        <ValidationProvider class="d-flex" rules="required" name="Ảnh đại diện" v-slot="{ errors }">
                                             <input 
                                                 type="file" 
                                                 id="chooseImage" 
@@ -73,19 +85,18 @@
 
                             <div class="row form-group">
                                 <label for="tag" class="col-md-2 text-md-right">Danh mục</label>
-                                <div class="col-md-10">
+                                <div class="col-md-4">
                                     <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
                                         <multiselect 
                                             v-model="post.categories" 
                                             :options="categories"
                                             label="name"
                                             track-by="id"
-                                            placeholder=""
+                                            placeholder="Lựa chọn danh mục"
                                             v-bind:class="errors[0]?'border-danger':''"
                                         ></multiselect>
                                         <span class="text-danger">{{ errors[0] }}</span>
                                     </ValidationProvider>
-
                                 </div>
                             </div>
 
@@ -105,7 +116,7 @@
                             </div>
 
                             <div class="row form-group">
-                                <label for="status" class="col-md-2 text-md-right">Công khai</label>
+                                <label for="status" class="col-md-2 text-md-right">Hiển thị bài viết</label>
                                 <div class="col-md-10">
                                     <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="post.status"/>
                                     <label for="switch" class="tgl-checkbox tgl-primary"></label>
