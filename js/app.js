@@ -66336,7 +66336,7 @@ var staticRenderFns = [
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "chat" }, [
+        _c("div", { staticClass: "chat-comment" }, [
           _c("div", { staticClass: "chat-header clearfix" }, [
             _c("img", {
               attrs: {
