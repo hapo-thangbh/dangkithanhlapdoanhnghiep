@@ -16,6 +16,12 @@ import ListCategory from './../components/Category/ListCategory.vue'
 import AddCategory from './../components/Category/AddCategory.vue'
 import EditCategory from './../components/Category/EditCategory.vue'
 
+//bình luận
+import Comment from './../components/Comment/Comment.vue'
+
+//hộp thư
+import ListInbox from './../components/Inbox/ListInbox.vue'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -80,6 +86,20 @@ export default new VueRouter({
             path: '/admin/category/edit/:id',
             name:'editCategory',
             component: EditCategory
+        },
+
+        //Bình luận
+        {
+            path: '/admin/comment',
+            name:'comment',
+            component: Comment
+        },
+
+        //Hộp thư
+        {
+            path: '/admin/inbox',
+            name:'listInbox',
+            component: ListInbox
         }
     ]
 })
