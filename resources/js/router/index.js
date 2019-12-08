@@ -16,11 +16,17 @@ import ListCategory from './../components/Category/ListCategory.vue'
 import AddCategory from './../components/Category/AddCategory.vue'
 import EditCategory from './../components/Category/EditCategory.vue'
 
-//bình luận
+//Bình luận
 import Comment from './../components/Comment/Comment.vue'
 
-//hộp thư
+//Hộp thư
 import ListInbox from './../components/Inbox/ListInbox.vue'
+
+//Tài liệu
+import ListDocument from './../components/Document/ListDocument.vue'
+
+//Vị trí quảng cáo
+import ListAdsPosition from './../components/AdsPosition/ListAdsPosition.vue'
 
 Vue.use(VueRouter)
 
@@ -100,6 +106,20 @@ export default new VueRouter({
             path: '/admin/inbox',
             name:'listInbox',
             component: ListInbox
+        },
+
+        //Tài liệu
+        {
+            path: '/admin/document',
+            name:'listDocument',
+            component: ListDocument
+        },
+
+        //Vị trí quảng cáo
+        {
+            path: '/admin/ads_position',
+            name:'listAdsPosition',
+            component: ListAdsPosition
         }
     ]
 })
