@@ -29,6 +29,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/post/{id}', 'PostController@detailPost')->name('detail_post');
 
+// Xóa comment
+Route::get('/delete-comment/{id}', 'PostController@deleteComment')->name('delete_comment');
+// Comment
+Route::post('/comment', 'PostController@comment')->name('comment');
+
 
 /* api */
 Route::group(['prefix' => 'api'], function() {

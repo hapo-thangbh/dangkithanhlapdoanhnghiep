@@ -199,18 +199,29 @@
                 </div> --}}
             </section>
         </section>
+        <div>
+            <h2>Comment</h2>
+            @foreach ($post->comments as $comment)
+            <p>{{ $comment->user->name }} : {{ $comment->description }} <a href="{{ route('delete_comment', $comment->id) }}">Xóa</a></p>
+            <a href="javascript: void(0)" title="" class="reply">Trả lời</a>
+            @endforeach
+            
+        </div>
 
+                <div>
+                    <h3 class="font-weight-bold mb-2">Ý KIẾN BẠN ĐỌC</h3>
+                    <form action="{{ route('comment', ['post_id' => $post->id]) }}" method="POST">
+                        @csrf
+                        <textarea class="form-control" name="description" id="" cols="30" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                    </form>
+                </div>
         {{-- <section class="section recommendation has-sidebar">
             <header class="section-title">
                 <h2>Bạn có thể quan tâm</h2>
                 <p class="description"><a href="/thoi-su.html">Thời sự</a></p>
             </header>
             <div class="section-content">
-                {{-- <div>
-                    <h3 class="font-weight-bold mb-2">Ý KIẾN BẠN ĐỌC</h3>
-                    <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
-                    <button type="submit" class="btn btn-primary">Gửi bình luận</button>
-                </div> --}}
                 <div class="article-list listing-layout responsive">
 
 

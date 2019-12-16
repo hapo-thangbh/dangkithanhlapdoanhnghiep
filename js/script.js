@@ -21,6 +21,12 @@ var Menu=function(){
 	});
 };
 
+var Reply=function(){
+	$('.reply').click(function(event) {
+		
+	});
+}
+
 
 
 
@@ -28,6 +34,7 @@ var Menu=function(){
 $(function(){
 	Search();
 	Menu();
+	Reply();
 });
 
 

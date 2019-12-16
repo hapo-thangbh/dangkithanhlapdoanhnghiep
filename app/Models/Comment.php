@@ -15,11 +15,16 @@ class Comment extends Model
         'status'
     ];
 
-    public function users() {
-        return $this->hasMany(User::class);
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 
-    public function posts() {
-        return $this->hasMany(Post::class);
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+
+    public function replies() {
+        return $this->hasMany(Reply::class);
     }
 }

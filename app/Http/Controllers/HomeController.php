@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
 use App\Models\Post;
 
 class HomeController extends Controller
@@ -34,8 +33,6 @@ class HomeController extends Controller
     }
 
     public function newDetail(){
-        $user = Auth::user();
-        // dd($user->id);
         return view('User.new-detail');
     }
 
