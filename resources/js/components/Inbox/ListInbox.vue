@@ -16,15 +16,15 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control" placeholder="ID">
+                                    <input type="text" class="form-control" placeholder="Tên người gửi">
                                 </div>
 
                                 <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control" placeholder="Tên tin nhắn">
+                                    <input type="date" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control">
+                                    <input type="date" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 form-group">

@@ -12489,3 +12489,42 @@ label {
   height: 0;
 }
 
+.nav-tabs-profile {
+  border-bottom: 0px !important;
+}
+
+.nav-tabs-profile .nav-link {
+  padding: 3px 5px !important;
+  background-color: #00c0ef !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  margin-right: 10px !important;
+  border-radius: 3px !important;
+  margin-top: 3px;
+}
+
+.nav-tabs-profile .nav-link.active {
+  color: #f4f4f4 !important;
+  background-color: #0d7a94 !important;
+}
+
+.child-profile {
+  border: 1px solid #00c0ef;
+  background: #f4f4f445;
+  padding: 5px;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.child-profile:hover {
+  cursor: pointer;
+  box-shadow: 4px 2px 7px 0px #f5d29b;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.child-profile .icon {
+  padding-right: 10px;
+  padding-left: 5px;
+}
+

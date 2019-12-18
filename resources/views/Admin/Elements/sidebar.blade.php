@@ -22,7 +22,7 @@
             <li><router-link :to="{ name: 'listCategory' }"><i class="fa fa-book"></i> Danh mục</router-link></li>
             <li><router-link :to="{ name: 'comment' }"><i class="fa fa-comment-o"></i> Bình luận</router-link></li>
             <li><router-link :to="{ name: 'listInbox' }"><i class="fa fa-envelope"></i> Hộp thư</router-link></li>
-            <li><router-link :to="{ name:'profile' }"><i class="fa fa-info-circle"></i> Hồ sơ</router-link></li>
+            <li><router-link :to="{ name:'listProfile' }"><i class="fa fa-info-circle"></i> Hồ sơ</router-link></li>
             <li><router-link :to="{ name: 'listAdsPosition' }"><i class="fa fa-map-marker"></i> Vị trí quảng cáo</router-link></li>
             <li><router-link :to="{ name: 'listDocument' }"><i class="fa fa-file"></i> Tài liệu</router-link></li>
             <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Tài khoản</router-link></li>

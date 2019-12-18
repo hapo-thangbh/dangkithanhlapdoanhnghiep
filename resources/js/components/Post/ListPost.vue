@@ -15,19 +15,27 @@
                     <div class="box">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control" placeholder="ID">
-                                </div>
-
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-2 form-group">
                                     <input type="text" class="form-control" placeholder="Tiêu đề">
                                 </div>
 
-                                <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control">
+                                <div class="col-md-2 form-group">
+                                    <input type="text" class="form-control" placeholder="Danh mục">
                                 </div>
 
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-2 form-group">
+                                    <input type="text" class="form-control" placeholder="Tác giả">
+                                </div>
+
+                                <div class="col-md-2 form-group">
+                                    <input type="date" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 form-group">
+                                    <input type="date" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 form-group">
                                     <button class="btn btn-primary">
                                         <i class="fa fa-search"></i> Tìm kiếm
                                     </button>
@@ -53,6 +61,7 @@
                                         <th style="min-width: 100px">Ảnh đại diện</th>
                                         <th style="min-width: 60px">Danh mục</th>
                                         <th style="min-width: 50px">Trạng thái</th>
+                                        <th style="min-width: 100px">Tác giả</th>
                                         <th style="min-width: 100px">Ngày đăng</th>
                                         <th style="min-width: 100px">Lượt xem</th>
                                         <th style="min-width: 100px">Bình luận</th>
@@ -79,6 +88,7 @@
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
                                             <label class="label label-danger" v-else>Riêng tư</label>
                                         </td>
+                                        <td>Super Admin</td>
                                         <td>{{ formartDate(post.created_at) }}</td>
                                         <td>0</td>
                                         <td>0</td>

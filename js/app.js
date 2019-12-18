@@ -3915,6 +3915,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ListPost',
@@ -3956,6 +3966,444 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     linkPost: function linkPost(id) {
       window.location.href = "/post/" + id;
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ListCategory',
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
+  mounted: function mounted() {
+    this.getCategories();
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories', 'deleteCategory']), {
+    destroyCategory: function destroyCategory(id) {
+      var _this = this;
+
+      swal.fire({
+        title: '',
+        text: "Bạn có chắc chắn muốn xóa?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Đồng ý',
+        cancelButtonText: 'Hủy bỏ'
+      }).then(function (result) {
+        if (result.value) {
+          _this.deleteCategory(id);
+        }
+      })["catch"](function () {
+        swal.fire('Thất bại', 'Xóa không thành công', 'warning');
+      });
+    },
+    formartDate: function formartDate(date) {
+      return moment(date).format('DD/MM/YYYY');
+    },
+    refresh: function refresh() {
+      this.getPosts();
     }
   })
 });
@@ -68451,21 +68899,21 @@ var staticRenderFns = [
                   _c("div", { staticClass: "col-md-3 form-group" }, [
                     _c("input", {
                       staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "ID" }
+                      attrs: { type: "text", placeholder: "Tên người gửi" }
                     })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3 form-group" }, [
                     _c("input", {
                       staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "Tên tin nhắn" }
+                      attrs: { type: "date" }
                     })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3 form-group" }, [
                     _c("input", {
                       staticClass: "form-control",
-                      attrs: { type: "text" }
+                      attrs: { type: "date" }
                     })
                   ]),
                   _vm._v(" "),
@@ -69490,6 +69938,8 @@ var render = function() {
                                 )
                           ]),
                           _vm._v(" "),
+                          _c("td", [_vm._v("Super Admin")]),
+                          _vm._v(" "),
                           _c("td", [
                             _vm._v(_vm._s(_vm.formartDate(post.created_at)))
                           ]),
@@ -69587,25 +70037,36 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "box-body" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-3 form-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "ID" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 form-group" }, [
+        _c("div", { staticClass: "col-md-2 form-group" }, [
           _c("input", {
             staticClass: "form-control",
             attrs: { type: "text", placeholder: "Tiêu đề" }
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 form-group" }, [
-          _c("input", { staticClass: "form-control", attrs: { type: "text" } })
+        _c("div", { staticClass: "col-md-2 form-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Danh mục" }
+          })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 form-group" }, [
+        _c("div", { staticClass: "col-md-2 form-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Tác giả" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2 form-group" }, [
+          _c("input", { staticClass: "form-control", attrs: { type: "date" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2 form-group" }, [
+          _c("input", { staticClass: "form-control", attrs: { type: "date" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2 form-group" }, [
           _c("button", { staticClass: "btn btn-primary" }, [
             _c("i", { staticClass: "fa fa-search" }),
             _vm._v(" Tìm kiếm\n                                ")
@@ -69643,6 +70104,10 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "100px" } }, [
+          _vm._v("Tác giả")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "100px" } }, [
           _vm._v("Ngày đăng")
         ]),
         _vm._v(" "),
@@ -69659,6 +70124,802 @@ var staticRenderFns = [
           { staticClass: "text-center", staticStyle: { "min-width": "150px" } },
           [_vm._v("Hành động")]
         )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-wrapper h-1000" }, [
+      _c("section", { staticClass: "content-header" }, [
+        _c("h1", [
+          _c("i", { staticClass: "fa fa-info-circle" }),
+          _vm._v(" Hồ sơ")
+        ]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-dashboard" }),
+              _vm._v(" Trang chủ")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "active" }, [_vm._v("Hồ sơ")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "content" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "box" }, [
+              _c("div", { staticClass: "box-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Tên bài viết" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Tên danh mục" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Tác giả" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "date" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "date" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2 form-group" }, [
+                    _c("button", { staticClass: "btn btn-primary" }, [
+                      _c("i", { staticClass: "fa fa-search" }),
+                      _vm._v(" Tìm kiếm\n                                ")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "box-body" }, [
+                _c(
+                  "ul",
+                  {
+                    staticClass: "nav nav-tabs nav-tabs-profile",
+                    attrs: { id: "myTab", role: "tablist" }
+                  },
+                  [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link active",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#datiepnhan",
+                            role: "tab",
+                            "aria-selected": "true"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Đã tiếp nhận (0)\n                                "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#choketqua",
+                            role: "tab",
+                            "aaria-selected": "false"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Chờ kết quả (0)\n                                "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#hoanthanh",
+                            role: "tab",
+                            "aria-selected": "false"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Hoàn thành (0)\n                                "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#huybo",
+                            role: "tab",
+                            "aria-selected": "false"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Huỷ (0)\n                                "
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "tab-content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade show active",
+                      attrs: { id: "datiepnhan", role: "tabpanel" }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: { id: "choketqua", role: "tabpanel" }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3 mt-5" }, [
+                          _c("div", { staticClass: "child-profile" }, [
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-user" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Tác giả:")]),
+                              _vm._v(
+                                " Phạm Đăng Thắng\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "icon",
+                                  staticStyle: { "padding-right": "7px" }
+                                },
+                                [_c("i", { staticClass: "fa fa-book" })]
+                              ),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Thể loại:")]),
+                              _vm._v(
+                                " Thể thao\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("span", { staticClass: "icon" }, [
+                                _c("i", { staticClass: "fa fa-clock-o" })
+                              ]),
+                              _vm._v(" "),
+                              _c("b", [_vm._v("Ngày đăng:")]),
+                              _vm._v(
+                                " 18/12/2019\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-center" }, [
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-eye pink" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                { staticClass: "mr-3", attrs: { href: "#" } },
+                                [_c("i", { staticClass: "fa fa-times red" })]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: { id: "hoanthanh", role: "tabpanel" }
+                    },
+                    [_vm._v("...")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: { id: "huybo", role: "tabpanel" }
+                    },
+                    [_vm._v("...")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
       ])
     ])
   }
@@ -95319,6 +96580,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Profile/ListProfile.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Profile/ListProfile.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListProfile.vue?vue&type=template&id=5a277f0a& */ "./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a&");
+/* harmony import */ var _ListProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListProfile.vue?vue&type=script&lang=js& */ "./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ListProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Profile/ListProfile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ListProfile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Profile/ListProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ListProfile.vue?vue&type=template&id=5a277f0a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Profile/ListProfile.vue?vue&type=template&id=5a277f0a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListProfile_vue_vue_type_template_id_5a277f0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/User/AddUser.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/User/AddUser.vue ***!
@@ -95620,8 +96950,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
 /* harmony import */ var _components_Comment_Comment_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/Comment/Comment.vue */ "./resources/js/components/Comment/Comment.vue");
 /* harmony import */ var _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/Inbox/ListInbox.vue */ "./resources/js/components/Inbox/ListInbox.vue");
-/* harmony import */ var _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/Document/ListDocument.vue */ "./resources/js/components/Document/ListDocument.vue");
-/* harmony import */ var _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/AdsPosition/ListAdsPosition.vue */ "./resources/js/components/AdsPosition/ListAdsPosition.vue");
+/* harmony import */ var _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/Profile/ListProfile.vue */ "./resources/js/components/Profile/ListProfile.vue");
+/* harmony import */ var _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/Document/ListDocument.vue */ "./resources/js/components/Document/ListDocument.vue");
+/* harmony import */ var _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/AdsPosition/ListAdsPosition.vue */ "./resources/js/components/AdsPosition/ListAdsPosition.vue");
 
 
 
@@ -95637,6 +96968,8 @@ __webpack_require__.r(__webpack_exports__);
  //Bình luận
 
  //Hộp thư
+
+ //Hồ sơ
 
  //Tài liệu
 
@@ -95667,7 +97000,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'editUser',
     component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
-    path: '/admin/profile',
+    path: '/admin/auth-profile',
     name: 'profile',
     component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   }, {
@@ -95704,16 +97037,21 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/admin/inbox',
     name: 'listInbox',
     component: _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, //Hồ sơ
+  {
+    path: '/admin/Profile',
+    name: 'listProfile',
+    component: _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
   }, //Tài liệu
   {
     path: '/admin/document',
     name: 'listDocument',
-    component: _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
   }, //Vị trí quảng cáo
   {
     path: '/admin/ads_position',
     name: 'listAdsPosition',
-    component: _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
   }]
 }));
 

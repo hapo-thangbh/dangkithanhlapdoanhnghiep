@@ -22,6 +22,9 @@ import Comment from './../components/Comment/Comment.vue'
 //Hộp thư
 import ListInbox from './../components/Inbox/ListInbox.vue'
 
+//Hồ sơ
+import ListProfile from './../components/Profile/ListProfile.vue'
+
 //Tài liệu
 import ListDocument from './../components/Document/ListDocument.vue'
 
@@ -59,7 +62,7 @@ export default new VueRouter({
             component: EditUser
         },
         {
-            path: '/admin/profile',
+            path: '/admin/auth-profile',
             name:'profile',
             component: Profile
         },
@@ -106,6 +109,13 @@ export default new VueRouter({
             path: '/admin/inbox',
             name:'listInbox',
             component: ListInbox
+        },
+
+        //Hồ sơ
+        {
+            path: '/admin/Profile',
+            name:'listProfile',
+            component: ListProfile
         },
 
         //Tài liệu
