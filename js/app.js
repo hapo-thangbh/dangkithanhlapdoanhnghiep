@@ -2197,20 +2197,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2243,9 +2229,12 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
       var idCategory = this.$route.params.id;
       this.editCategory(idCategory);
     }
+
+    this.getCategoriesParent();
+    this.getCategories();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'category'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'category', 'categoriesParent'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory', 'getCategories', 'getCategoriesParent']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addCategory(this.category);
@@ -2277,11 +2266,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
 //
 //
 //
@@ -66721,239 +66705,115 @@ var render = function() {
                                   [_vm._v("Danh mục cha")]
                                 ),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-md-9" },
-                                  [
-                                    _c("multiselect", {
-                                      attrs: {
-                                        options: _vm.categories,
-                                        label: "name",
-                                        "track-by": "id",
-                                        placeholder: ""
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row form-group" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-md-3 text-md-right",
-                                    attrs: { for: "status" }
-                                  },
-                                  [_vm._v("Trạng thái")]
-                                ),
-                                _vm._v(" "),
                                 _c("div", { staticClass: "col-md-9" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.category.status,
-                                        expression: "category.status"
-                                      }
-                                    ],
-                                    staticClass: "toggle-ios toggle-primary",
-                                    attrs: { type: "checkbox", id: "switch" },
-                                    domProps: {
-                                      checked: Array.isArray(
-                                        _vm.category.status
-                                      )
-                                        ? _vm._i(_vm.category.status, null) > -1
-                                        : _vm.category.status
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.category.status,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              _vm.$set(
-                                                _vm.category,
-                                                "status",
-                                                $$a.concat([$$v])
-                                              )
-                                          } else {
-                                            $$i > -1 &&
-                                              _vm.$set(
-                                                _vm.category,
-                                                "status",
-                                                $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1))
-                                              )
-                                          }
-                                        } else {
-                                          _vm.$set(_vm.category, "status", $$c)
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.category.parent_id,
+                                          expression: "category.parent_id"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.category,
+                                            "parent_id",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
                                         }
                                       }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", {
-                                    staticClass: "tgl-checkbox tgl-primary",
-                                    attrs: { for: "switch" }
-                                  })
+                                    },
+                                    [
+                                      _c("option", { attrs: { value: "" } }, [
+                                        _vm._v("--Chọn danh mục--")
+                                      ]),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.categories, function(cate) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: cate.id,
+                                            domProps: { value: cate.id }
+                                          },
+                                          [_vm._v(" " + _vm._s(cate.name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
                                 ])
                               ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-md-6" }, [
                               _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c("label", [_vm._v("Danh mục cha")]),
-                                  _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-success" },
-                                      [
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            id: "dansu",
-                                            name: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span")
-                                      ]
-                                    ),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-md-6" },
+                                  [
+                                    _c("label", [_vm._v("Danh mục cha")]),
                                     _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "lbl-checkbox-success",
-                                        attrs: { for: "dansu" }
-                                      },
-                                      [_vm._v("Dân sự")]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-success" },
-                                      [
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            id: "hinhsu",
-                                            name: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span")
-                                      ]
-                                    ),
+                                    _c("br"),
                                     _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "lbl-checkbox-success",
-                                        attrs: { for: "hinhsu" }
-                                      },
-                                      [_vm._v("Hình sự")]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-success" },
-                                      [
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            id: "honnhan",
-                                            name: ""
-                                          }
-                                        }),
+                                    _vm._l(_vm.categoriesParent, function(
+                                      cateParent
+                                    ) {
+                                      return _c("div", { key: cateParent.id }, [
+                                        _c(
+                                          "label",
+                                          { staticClass: "checkbox-success" },
+                                          [
+                                            _c("input", {
+                                              attrs: {
+                                                type: "checkbox",
+                                                id: "dansu",
+                                                name: ""
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span")
+                                          ]
+                                        ),
                                         _vm._v(" "),
-                                        _c("span")
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "lbl-checkbox-success",
-                                        attrs: { for: "honnhan" }
-                                      },
-                                      [_vm._v("Hôn nhân")]
-                                    )
-                                  ])
-                                ]),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "lbl-checkbox-success",
+                                            attrs: { for: "dansu" }
+                                          },
+                                          [_vm._v(_vm._s(cateParent.name))]
+                                        )
+                                      ])
+                                    })
+                                  ],
+                                  2
+                                ),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-md-6" }, [
                                   _c("label", [_vm._v("Danh mục con")]),
                                   _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-success" },
-                                      [
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            id: "dansu1",
-                                            name: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span")
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "lbl-checkbox-success",
-                                        attrs: { for: "dansu1" }
-                                      },
-                                      [_vm._v("Dân sự 1")]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-success" },
-                                      [
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            id: "dansu2",
-                                            name: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span")
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "lbl-checkbox-success",
-                                        attrs: { for: "dansu2" }
-                                      },
-                                      [_vm._v("Dân sự 2")]
-                                    )
-                                  ])
+                                  _c("br")
                                 ])
                               ])
                             ])
@@ -67089,20 +66949,6 @@ var render = function() {
                           _c("td", [_vm._v(_vm._s(category.name))]),
                           _vm._v(" "),
                           _c("td", [
-                            category.status === 1
-                              ? _c(
-                                  "label",
-                                  { staticClass: "label label-success" },
-                                  [_vm._v("Công khai")]
-                                )
-                              : _c(
-                                  "label",
-                                  { staticClass: "label label-danger" },
-                                  [_vm._v("Riêng tư")]
-                                )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
                             _vm._v(_vm._s(_vm.formartDate(category.created_at)))
                           ]),
                           _vm._v(" "),
@@ -67230,8 +67076,6 @@ var staticRenderFns = [
         _c("th", { staticStyle: { width: "20px" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", { staticStyle: { width: "300px" } }, [_vm._v("Tên danh mục")]),
-        _vm._v(" "),
-        _c("th", { staticStyle: { width: "50px" } }, [_vm._v("Trạng thái")]),
         _vm._v(" "),
         _c("th", { staticStyle: { width: "50px" } }, [_vm._v("Ngày tạo")]),
         _vm._v(" "),
@@ -97120,16 +96964,20 @@ __webpack_require__.r(__webpack_exports__);
   namespaced: true,
   state: {
     categories: [],
+    categoriesParent: [],
     errors: '',
     message: '',
     category: {
       name: '',
-      status: ''
+      parent_id: ''
     }
   },
   mutations: {
     setCategories: function setCategories(state, data) {
       state.categories = data;
+    },
+    setCategoriesParent: function setCategoriesParent(state, data) {
+      state.categoriesParent = data;
     },
     setErrors: function setErrors(state, data) {
       state.errors = data;
@@ -97147,8 +96995,8 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     clearCategory: function clearCategory(context) {
       var data = {
-        title: '',
-        statue: ''
+        name: '',
+        parent_id: ''
       };
       context.commit('setCategory', data);
     },
@@ -97164,11 +97012,23 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    //get list category parent
+    getCategoriesParent: function getCategoriesParent(context) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/allParent').then(function (_ref2) {
+          var data = _ref2.data;
+          context.commit('setCategoriesParent', data);
+          resolve(data);
+        })["catch"](function (err) {
+          context.commit('setErrors', err);
+        });
+      });
+    },
     //add category
     addCategory: function addCategory(context, data) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/categories/add', data).then(function (_ref2) {
-          var data = _ref2.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/categories/add', data).then(function (_ref3) {
+          var data = _ref3.data;
 
           if (data.status === 200) {
             context.commit('setCategory', data.message);
@@ -97193,12 +97053,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     //delete category
-    deleteCategory: function deleteCategory(_ref3, id) {
-      var context = _ref3.context,
-          dispatch = _ref3.dispatch;
+    deleteCategory: function deleteCategory(_ref4, id) {
+      var context = _ref4.context,
+          dispatch = _ref4.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/categories/delete/' + id).then(function (_ref4) {
-          var data = _ref4.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/categories/delete/' + id).then(function (_ref5) {
+          var data = _ref5.data;
 
           if (data.status === 200) {
             dispatch('getCategories');
@@ -97217,8 +97077,8 @@ __webpack_require__.r(__webpack_exports__);
     //get info category
     editCategory: function editCategory(context, idCategory) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/edit/' + idCategory).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/edit/' + idCategory).then(function (_ref6) {
+          var data = _ref6.data;
           context.commit('setCategory', data);
           resolve(data);
         })["catch"](function (err) {
@@ -97230,8 +97090,8 @@ __webpack_require__.r(__webpack_exports__);
     updateCategory: function updateCategory(context, data) {
       return new Promise(function (resolve) {
         var idCategory = data.id;
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/update/' + idCategory, data).then(function (_ref6) {
-          var data = _ref6.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/update/' + idCategory, data).then(function (_ref7) {
+          var data = _ref7.data;
 
           if (data.status === 200) {
             context.commit('setCategories', data);

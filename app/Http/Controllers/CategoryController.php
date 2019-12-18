@@ -70,4 +70,9 @@ class CategoryController extends Controller
         }
         
     }
+
+    public function allParent() {
+        $categoryParent = Category::whereNull('parent_id')->get();
+        return $categoryParent;
+    }
 }

@@ -35,20 +35,22 @@
                                         <div class="row form-group">
                                             <label for="title" class="col-md-3 text-md-right">Danh mục cha</label>
                                             <div class="col-md-9">
-                                                <multiselect 
+                                                <!-- <multiselect 
+                                                    v-model="category.parent_id"
                                                     :options="categories"
                                                     label="name"
                                                     track-by="id"
                                                     placeholder=""
-                                                ></multiselect>
-                                            </div>
-                                        </div>
+                                                ></multiselect> -->
 
-                                        <div class="row form-group">
-                                            <label for="status" class="col-md-3 text-md-right">Trạng thái</label>
-                                            <div class="col-md-9">
-                                                <input type="checkbox" id="switch" class="toggle-ios toggle-primary" v-model="category.status"/>
-                                                <label for="switch" class="tgl-checkbox tgl-primary"></label>
+                                                <select v-model="category.parent_id" class="form-control">
+                                                    <option value="">--Chọn danh mục--</option>
+                                                    <option
+                                                        v-for="cate in categories"
+                                                        :key="cate.id"
+                                                        :value="cate.id"
+                                                    > {{ cate.name }}</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -57,34 +59,18 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Danh mục cha</label> <br/>
-                                                <div>
+                                                <div v-for="cateParent in categoriesParent" :key="cateParent.id">
                                                     <label class="checkbox-success">
                                                         <input type="checkbox" id="dansu" name="">
                                                         <span></span>
                                                     </label>
-                                                    <label class="lbl-checkbox-success" for="dansu">Dân sự</label>
-                                                </div>
-
-                                                <div>
-                                                    <label class="checkbox-success">
-                                                        <input type="checkbox" id="hinhsu" name="">
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="lbl-checkbox-success" for="hinhsu">Hình sự</label>
-                                                </div>
-                                                
-                                                <div>
-                                                    <label class="checkbox-success">
-                                                        <input type="checkbox" id="honnhan" name="">
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="lbl-checkbox-success" for="honnhan">Hôn nhân</label>
+                                                    <label class="lbl-checkbox-success" for="dansu">{{ cateParent.name }}</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <label>Danh mục con</label> <br/>
-                                                <div>
+                                                <!-- <div>
                                                     <label class="checkbox-success">
                                                         <input type="checkbox" id="dansu1" name="">
                                                         <span></span>
@@ -98,7 +84,7 @@
                                                         <span></span>
                                                     </label>
                                                     <label class="lbl-checkbox-success" for="dansu2">Dân sự 2</label>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -162,12 +148,21 @@ export default {
             let idCategory = this.$route.params.id
             this.editCategory(idCategory)
         }
+        this.getCategoriesParent()
+        this.getCategories()
     },
     computed: {
-        ...mapState('category',['categories','category'])
+        ...mapState('category',['categories','category', 'categoriesParent'])
     },
     methods: {
-        ...mapActions('category',['clearCategory','addCategory','editCategory','updateCategory']),
+        ...mapActions('category',[
+            'clearCategory',
+            'addCategory',
+            'editCategory',
+            'updateCategory', 
+            'getCategories', 
+            'getCategoriesParent'
+        ]),
         onSubmit () {
             if (this.type === 'create') {
                 this.addCategory(this.category)
