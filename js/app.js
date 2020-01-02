@@ -2076,6 +2076,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _api_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../api/index */ "./resources/js/api/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2190,18 +2191,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -2220,7 +2210,10 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     type: String
   },
   data: function data() {
-    return {};
+    return {
+      checkedCateParent: [],
+      childCate: []
+    };
   },
   components: {
     ValidationProvider: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"],
@@ -2250,6 +2243,36 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     },
     refresh: function refresh() {
       this.clearCategory();
+    },
+    check: function check(e) {
+      var element = this.checkedCateParent.findIndex(function (a) {
+        return a === e.target.value;
+      });
+
+      if (element >= 0) {
+        this.checkedCateParent.splice(element, 1);
+      } else {
+        this.checkedCateParent.push(e.target.value);
+      }
+
+      var self = this;
+      return _api_index__WEBPACK_IMPORTED_MODULE_3__["default"].post('/api/childrenCate', this.checkedCateParent).then(function (_ref2) {
+        var data = _ref2.data;
+        data.forEach(function (e) {
+          var index = self.childCate.findIndex(function (a) {
+            return a === e.name;
+          });
+
+          if (index >= 0) {
+            self.childCate.splice(index, 1);
+          } else {
+            self.childCate.push(e.name);
+          } // self.childCate.push(e.name)
+
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   })
 });
@@ -66792,10 +66815,61 @@ var render = function() {
                                           { staticClass: "checkbox-success" },
                                           [
                                             _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.checkedCateParent,
+                                                  expression:
+                                                    "checkedCateParent"
+                                                }
+                                              ],
                                               attrs: {
                                                 type: "checkbox",
-                                                id: "",
-                                                name: ""
+                                                id: cateParent.id
+                                              },
+                                              domProps: {
+                                                value: cateParent.id,
+                                                checked: Array.isArray(
+                                                  _vm.checkedCateParent
+                                                )
+                                                  ? _vm._i(
+                                                      _vm.checkedCateParent,
+                                                      cateParent.id
+                                                    ) > -1
+                                                  : _vm.checkedCateParent
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.check($event)
+                                                },
+                                                change: function($event) {
+                                                  var $$a =
+                                                      _vm.checkedCateParent,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = cateParent.id,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        (_vm.checkedCateParent = $$a.concat(
+                                                          [$$v]
+                                                        ))
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        (_vm.checkedCateParent = $$a
+                                                          .slice(0, $$i)
+                                                          .concat(
+                                                            $$a.slice($$i + 1)
+                                                          ))
+                                                    }
+                                                  } else {
+                                                    _vm.checkedCateParent = $$c
+                                                  }
+                                                }
                                               }
                                             }),
                                             _vm._v(" "),
@@ -66807,7 +66881,7 @@ var render = function() {
                                           "label",
                                           {
                                             staticClass: "lbl-checkbox-success",
-                                            attrs: { for: "" }
+                                            attrs: { for: cateParent.id }
                                           },
                                           [_vm._v(_vm._s(cateParent.name))]
                                         )
@@ -66817,11 +66891,22 @@ var render = function() {
                                   2
                                 ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-md-3" }, [
-                                  _c("label", [_vm._v("Danh mục con")]),
-                                  _vm._v(" "),
-                                  _c("br")
-                                ]),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-md-3" },
+                                  [
+                                    _c("label", [_vm._v("Danh mục con")]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.childCate, function(value) {
+                                      return _c("p", { key: value.id }, [
+                                        _c("i", [_vm._v(_vm._s(value))])
+                                      ])
+                                    })
+                                  ],
+                                  2
+                                ),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-md-4" }, [
                                   _c("label", [_vm._v("Danh sách menu")]),

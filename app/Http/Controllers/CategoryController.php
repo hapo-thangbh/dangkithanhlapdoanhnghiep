@@ -16,10 +16,10 @@ class CategoryController extends Controller
     /* menu tree */
     public function treeView(){       
         $categories = Category::where('parent_id', '=', NULL)->get();
-        $tree='<ul class="filetree">';
+        $tree='<ul id="browser" class="filetree">';
         foreach ($categories as $category) {
-            $tree .='<li class="tree-view closed"<a class="tree-name"><b>'.$category->name.'</b></a>';
-            if(count($category->childs)) {
+             $tree .='<li class="tree-view closed"><a class="tree-name"><b>'.$category->name.'</b></a>';
+             if(count($category->childs)) {
                 $tree .=$this->childView($category);
             }
         }
@@ -104,5 +104,11 @@ class CategoryController extends Controller
     public function allParent() {
         $categoryParent = Category::whereNull('parent_id')->get();
         return $categoryParent;
+    }
+
+    public function childrenCate(Request $request) {
+        $data = $request->all();
+        $childs = Category::whereIn('parent_id', $data)->get();
+        return $childs;
     }
 }

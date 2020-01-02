@@ -51,6 +51,8 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::get('/categories/allParent', 'CategoryController@allParent');
 
+    Route::post('/childrenCate', 'CategoryController@childrenCate');
+
     //User
     Route::get('/users', 'UserController@index');
     Route::get('/users/count','UserController@countUser');

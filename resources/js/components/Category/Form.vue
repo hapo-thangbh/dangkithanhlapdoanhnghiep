@@ -61,30 +61,18 @@
                                                 <label>Danh mục cha</label> <br/>
                                                 <div v-for="cateParent in categoriesParent" :key="cateParent.id">
                                                     <label class="checkbox-success">
-                                                        <input type="checkbox" id="" name="">
+                                                        <input type="checkbox" :id="cateParent.id" v-model="checkedCateParent" @click="check($event)" :value="cateParent.id">
                                                         <span></span>
                                                     </label>
-                                                    <label class="lbl-checkbox-success" for="">{{ cateParent.name }}</label>
+                                                    <label class="lbl-checkbox-success" :for="cateParent.id">{{ cateParent.name }}</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <label>Danh mục con</label> <br/>
-                                                <!-- <div>
-                                                    <label class="checkbox-success">
-                                                        <input type="checkbox" id="dansu1" name="">
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="lbl-checkbox-success" for="dansu1">Dân sự 1</label>
-                                                </div>
-
-                                                <div>
-                                                    <label class="checkbox-success">
-                                                        <input type="checkbox" id="dansu2" name="">
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="lbl-checkbox-success" for="dansu2">Dân sự 2</label>
-                                                </div> -->
+                                                <p v-for="value in childCate" :key="value.id">
+                                                    <i>{{ value }}</i>
+                                                </p>
                                             </div>
 
                                             <div class="col-md-4">
@@ -123,6 +111,7 @@ import { ValidationProvider, ValidationObserver  } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { mapState, mapActions } from 'vuex'
 import Multiselect from 'vue-multiselect'
+import ApiService from './../../api/index'
 
 extend('required', {
     validate: (value, { required }) => {
@@ -138,7 +127,8 @@ export default {
     },
     data() {
         return {
-            
+            checkedCateParent: [],
+            childCate: []
         }
     },
     components: {
@@ -156,6 +146,7 @@ export default {
         this.getCategoriesParent()
         this.getCategories()
         this.getTreeView()
+
     },
     computed: {
         ...mapState('category',['categories','category', 'categoriesParent', 'treeView'])
@@ -179,6 +170,33 @@ export default {
         },
         refresh () {
             this.clearCategory()
+        },
+        check (e) {
+            let element = this.checkedCateParent.findIndex(a => a === e.target.value)
+            if (element >= 0) {
+                this.checkedCateParent.splice(element, 1)
+            } else {
+                this.checkedCateParent.push(e.target.value)
+            }
+
+            const self = this
+            return ApiService.post('/api/childrenCate', this.checkedCateParent)
+                .then(({
+                    data
+                }) => {
+                    data.forEach(function(e) {
+                        let index = self.childCate.findIndex(a => a === e.name)
+                        if (index >= 0) {
+                            self.childCate.splice(index, 1)
+                        } else {
+                            self.childCate.push(e.name)
+                        }
+                        // self.childCate.push(e.name)
+                    })
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 }
