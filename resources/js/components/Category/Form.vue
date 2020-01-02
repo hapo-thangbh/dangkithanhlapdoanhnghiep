@@ -180,18 +180,14 @@ export default {
             }
 
             const self = this
+            console.log(this.checkedCateParent)
             return ApiService.post('/api/childrenCate', this.checkedCateParent)
                 .then(({
                     data
                 }) => {
+                    self.childCate = []
                     data.forEach(function(e) {
-                        let index = self.childCate.findIndex(a => a === e.name)
-                        if (index >= 0) {
-                            self.childCate.splice(index, 1)
-                        } else {
-                            self.childCate.push(e.name)
-                        }
-                        // self.childCate.push(e.name)
+                        self.childCate.push(e.name)
                     })
                 })
                 .catch(error => {

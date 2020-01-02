@@ -2256,19 +2256,12 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
       }
 
       var self = this;
+      console.log(this.checkedCateParent);
       return _api_index__WEBPACK_IMPORTED_MODULE_3__["default"].post('/api/childrenCate', this.checkedCateParent).then(function (_ref2) {
         var data = _ref2.data;
+        self.childCate = [];
         data.forEach(function (e) {
-          var index = self.childCate.findIndex(function (a) {
-            return a === e.name;
-          });
-
-          if (index >= 0) {
-            self.childCate.splice(index, 1);
-          } else {
-            self.childCate.push(e.name);
-          } // self.childCate.push(e.name)
-
+          self.childCate.push(e.name);
         });
       })["catch"](function (error) {
         console.log(error);
