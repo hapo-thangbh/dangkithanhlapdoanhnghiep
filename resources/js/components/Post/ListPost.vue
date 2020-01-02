@@ -56,16 +56,16 @@
                                 <thead>
                                     <tr>
                                         <th style="min-width: 20px">STT</th>
-                                        <th style="min-width: 100px">Tiêu đề</th>
+                                        <th>Tiêu đề</th>
                                         <th style="min-width: 150px">Từ khoá SEO</th>
                                         <th style="min-width: 200px">Mô tả ngắn</th>
-                                        <th style="min-width: 100px">Ảnh đại diện</th>
-                                        <th style="min-width: 100px">Danh mục</th>
-                                        <th style="min-width: 50px">Trạng thái</th>
-                                        <th style="min-width: 100px">Tác giả</th>
-                                        <th style="min-width: 100px">Ngày đăng</th>
-                                        <th style="min-width: 100px">Lượt xem</th>
-                                        <th style="min-width: 100px">Bình luận</th>
+                                        <th>Ảnh đại diện</th>
+                                        <th>Danh mục</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tác giả</th>
+                                        <th>Ngày đăng</th>
+                                        <th>Lượt xem</th>
+                                        <th>Bình luận</th>
                                         <th class="text-center" style="min-width: 150px">Hành động</th>
                                     </tr>
                                 </thead>
@@ -180,3 +180,11 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+    table {
+        th {
+            min-width: 100px;
+        }
+    }
+</style>

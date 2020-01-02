@@ -16,4 +16,8 @@ class UserController extends Controller
         $user = User::all()->count();
         return $user;
     }
+
+    public function getInfoUser() {
+        return auth()->user();
+    }
 }

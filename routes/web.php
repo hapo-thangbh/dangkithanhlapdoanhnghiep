@@ -56,6 +56,7 @@ Route::group(['prefix' => 'api'], function() {
     //User
     Route::get('/users', 'UserController@index');
     Route::get('/users/count','UserController@countUser');
+    Route::get('/infoUser', 'UserController@getInfoUser');
 });
 /* end api */
 
