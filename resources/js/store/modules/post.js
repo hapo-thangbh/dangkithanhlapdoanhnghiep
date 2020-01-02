@@ -11,6 +11,7 @@ export default {
         post: {
             title: '',
             description_short: '',
+            seo_title: '',
             image_thumb: '',
             categories: '',
             description: '',
@@ -40,6 +41,7 @@ export default {
             const data = {
                 title: '',
                 description_short: '',
+                seo_title: '',
                 image_thumb: '',
                 categories: '',
                 description: '',
@@ -81,7 +83,7 @@ export default {
                         } else {
                             window.toast.fire({
                                 icon: 'error',
-                                message: 'Tạo bài viết thất bại!'
+                                title: 'Tạo bài viết thất bại!'
                             })
                         }
                     })

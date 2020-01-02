@@ -33,12 +33,16 @@
                             <div class="row form-group">
                                 <label for="title" class="col-md-2 text-md-right">SEO tiêu đề</label>
                                 <div class="col-md-10">
-                                    <textarea 
-                                        name="" 
-                                        class="form-control"
-                                        rows="3"
-                                        placeholder="Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
-                                    ></textarea>
+                                    <ValidationProvider rules="required" name="SEO tiêu đề" v-slot="{ errors }">
+                                        <textarea 
+                                            v-model="post.seo_title"
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
+                                            v-bind:class="errors[0]?'border-danger':''"
+                                        ></textarea>
+                                        <span class="text-danger">{{ errors[0] }}</span>
+                                    </ValidationProvider>
                                 </div>
                             </div>
 

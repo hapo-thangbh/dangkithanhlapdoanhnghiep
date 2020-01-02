@@ -34,11 +34,11 @@ class AuthController extends Controller
             'password' => Hash::make($request->get('password'))
         ]);
         User::create($data);
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('success','Tạo tài khoản thành công!');
     }
 
     public function logout(){
         auth()->logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('success','Đăng xuất thành công, hẹn gặp lại bạn!');
     }
 }

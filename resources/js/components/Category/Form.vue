@@ -180,7 +180,6 @@ export default {
             }
 
             const self = this
-            console.log(this.checkedCateParent)
             return ApiService.post('/api/childrenCate', this.checkedCateParent)
                 .then(({
                     data

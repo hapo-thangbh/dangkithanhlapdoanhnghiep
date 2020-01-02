@@ -8,8 +8,10 @@ class Post extends Model
 {
     protected $table = 'posts';
     protected $fillable=[
+        'user_id',
         'title',
         'description_short',
+        'seo_title',
         'image_thumb',
         'category_id',
         'description',
@@ -19,5 +21,9 @@ class Post extends Model
 
     public function categories() {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
     }
 }

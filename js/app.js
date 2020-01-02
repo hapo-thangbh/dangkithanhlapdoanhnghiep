@@ -2256,7 +2256,6 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
       }
 
       var self = this;
-      console.log(this.checkedCateParent);
       return _api_index__WEBPACK_IMPORTED_MODULE_3__["default"].post('/api/childrenCate', this.checkedCateParent).then(function (_ref2) {
         var data = _ref2.data;
         self.childCate = [];
@@ -3716,6 +3715,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3812,6 +3815,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -69331,17 +69338,73 @@ var render = function() {
                             [_vm._v("SEO tiêu đề")]
                           ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-10" }, [
-                            _c("textarea", {
-                              staticClass: "form-control",
-                              attrs: {
-                                name: "",
-                                rows: "3",
-                                placeholder:
-                                  "Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
-                              }
-                            })
-                          ])
+                          _c(
+                            "div",
+                            { staticClass: "col-md-10" },
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  rules: "required",
+                                  name: "SEO tiêu đề"
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.post.seo_title,
+                                                expression: "post.seo_title"
+                                              }
+                                            ],
+                                            staticClass: "form-control",
+                                            class: errors[0]
+                                              ? "border-danger"
+                                              : "",
+                                            attrs: {
+                                              rows: "3",
+                                              placeholder:
+                                                "Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
+                                            },
+                                            domProps: {
+                                              value: _vm.post.seo_title
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.post,
+                                                  "seo_title",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v(_vm._s(errors[0]))]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
+                              })
+                            ],
+                            1
+                          )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row form-group" }, [
@@ -69839,6 +69902,14 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             _c(
+                              "label",
+                              { staticClass: "label label-warning" },
+                              [_vm._v(_vm._s(post.seo_title))]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
                               "p",
                               {
                                 staticClass: "description_short txt-ellipsis",
@@ -69882,7 +69953,7 @@ var render = function() {
                                 )
                           ]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Super Admin")]),
+                          _c("td", [_vm._v(_vm._s(post.user.name))]),
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(_vm._s(_vm.formartDate(post.created_at)))
@@ -70031,6 +70102,10 @@ var staticRenderFns = [
           _vm._v("Tiêu đề")
         ]),
         _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "150px" } }, [
+          _vm._v("Từ khoá SEO")
+        ]),
+        _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "200px" } }, [
           _vm._v("Mô tả ngắn")
         ]),
@@ -70039,7 +70114,7 @@ var staticRenderFns = [
           _vm._v("Ảnh đại diện")
         ]),
         _vm._v(" "),
-        _c("th", { staticStyle: { "min-width": "60px" } }, [
+        _c("th", { staticStyle: { "min-width": "100px" } }, [
           _vm._v("Danh mục")
         ]),
         _vm._v(" "),
@@ -97322,6 +97397,7 @@ __webpack_require__.r(__webpack_exports__);
     post: {
       title: '',
       description_short: '',
+      seo_title: '',
       image_thumb: '',
       categories: '',
       description: '',
@@ -97351,6 +97427,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         title: '',
         description_short: '',
+        seo_title: '',
         image_thumb: '',
         categories: '',
         description: '',
@@ -97391,7 +97468,7 @@ __webpack_require__.r(__webpack_exports__);
           } else {
             window.toast.fire({
               icon: 'error',
-              message: 'Tạo bài viết thất bại!'
+              title: 'Tạo bài viết thất bại!'
             });
           }
         })["catch"](function (err) {
@@ -97547,15 +97624,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })

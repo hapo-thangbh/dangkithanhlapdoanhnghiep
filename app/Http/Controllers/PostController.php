@@ -11,13 +11,16 @@ class PostController extends Controller
 {
     //show all post
     public function index(){
-        $post = Post::with(['categories'])->get();
+        $post = Post::with(['categories','user'])->get();
         return $post;
     }
 
     //add post
     public function addPost(PostRequest $request) {
         $data = $request->all();
+
+        $data['user_id'] = auth()->user()->id;
+
         if ($request->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
@@ -30,6 +33,7 @@ class PostController extends Controller
             $data['category_id'] = $categoryId[$i];
             $post = Post::create($data);
         }
+
         
         if ($post) {
             return response()->json([

@@ -57,9 +57,10 @@
                                     <tr>
                                         <th style="min-width: 20px">STT</th>
                                         <th style="min-width: 100px">Tiêu đề</th>
+                                        <th style="min-width: 150px">Từ khoá SEO</th>
                                         <th style="min-width: 200px">Mô tả ngắn</th>
                                         <th style="min-width: 100px">Ảnh đại diện</th>
-                                        <th style="min-width: 60px">Danh mục</th>
+                                        <th style="min-width: 100px">Danh mục</th>
                                         <th style="min-width: 50px">Trạng thái</th>
                                         <th style="min-width: 100px">Tác giả</th>
                                         <th style="min-width: 100px">Ngày đăng</th>
@@ -76,6 +77,9 @@
                                             <p v-html="post.title" class="title txt-ellipsis">{{ post.title }}</p>
                                         </td>
                                         <td>
+                                            <label class="label label-warning">{{ post.seo_title }}</label>
+                                        </td>
+                                        <td>
                                             <p v-html="post.description_short" class="description_short txt-ellipsis">{{ post.description_short }}</p>
                                         </td>
                                         <td>
@@ -88,7 +92,7 @@
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
                                             <label class="label label-danger" v-else>Riêng tư</label>
                                         </td>
-                                        <td>Super Admin</td>
+                                        <td>{{ post.user.name }}</td>
                                         <td>{{ formartDate(post.created_at) }}</td>
                                         <td>0</td>
                                         <td>0</td>
