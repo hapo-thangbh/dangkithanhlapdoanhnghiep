@@ -9456,7 +9456,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".txt-bold[data-v-6c82d4d0] {\n  font-weight: 600 !important;\n}\n.page-post .nav-tabs-profile .nav-link.active[data-v-6c82d4d0] {\n  background-color: #6c757d !important;\n}\n.page-post .nav-tabs-profile .nav-link[data-v-6c82d4d0] {\n  border-radius: 0px !important;\n  padding: 10px !important;\n  background-color: #ccc !important;\n}\n.page-post #previewBeforePost[data-v-6c82d4d0] {\n  font-family: \"Times New Roman\", Times, serif;\n}\n.page-post #previewBeforePost .category[data-v-6c82d4d0] {\n  text-transform: uppercase;\n  font-size: 16px;\n  color: #888;\n  margin: 10px 0 5px 0;\n}\n.page-post #previewBeforePost .title[data-v-6c82d4d0] {\n  font-weight: 700;\n  font-family: \"Times New Roman\", Times, serif !important;\n  margin: 0;\n}\n.page-post #previewBeforePost .uploadBy[data-v-6c82d4d0] {\n  font-size: 16px;\n}", ""]);
+exports.push([module.i, ".txt-bold[data-v-6c82d4d0] {\n  font-weight: 600 !important;\n}\n.page-post .nav-tabs-profile .nav-link.active[data-v-6c82d4d0] {\n  background-color: #6c757d !important;\n}\n.page-post .nav-tabs-profile .nav-link[data-v-6c82d4d0] {\n  border-radius: 0px !important;\n  padding: 10px !important;\n  background-color: #ccc !important;\n}\n.page-post #previewBeforePost[data-v-6c82d4d0] {\n  font-family: \"Times New Roman\", Times, serif;\n}\n.page-post #previewBeforePost .category[data-v-6c82d4d0] {\n  text-transform: uppercase;\n  font-size: 16px;\n  color: #888;\n  margin: 10px 0 5px 0;\n}\n.page-post #previewBeforePost .title[data-v-6c82d4d0] {\n  font-weight: 700;\n  font-family: \"Times New Roman\", Times, serif !important;\n  margin: 0;\n}\n.page-post #previewBeforePost .uploadBy[data-v-6c82d4d0] {\n  font-size: 16px;\n}\n.plr-0[data-v-6c82d4d0] {\n  padding-left: 0px;\n  padding-right: 0px;\n}", ""]);
 
 // exports
 
@@ -69468,7 +69468,7 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("div", { staticClass: "col-md-9" }, [
+                                  _c("div", { staticClass: "col-md-9 plr-0" }, [
                                     _c(
                                       "div",
                                       { staticClass: "row form-group" },

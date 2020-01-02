@@ -37,7 +37,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="createOrUpdate" role="tabpanel">
                                         <form @submit.prevent="passes(onSubmit)" class="pb-5" method="post">
-                                            <div class="col-md-9">
+                                            <div class="col-md-9 plr-0">
                                                 <div class="row form-group">
                                                     <label for="title" class="col-md-12 txt-bold">Tiêu đề</label>
                                                     <div class="col-md-12">
@@ -333,5 +333,10 @@ export default {
                 font-size: 16px;
             }
         }
+    }
+
+    .plr-0 {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 </style>
