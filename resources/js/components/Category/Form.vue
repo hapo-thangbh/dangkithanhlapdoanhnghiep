@@ -70,8 +70,8 @@
 
                                             <div class="col-md-3">
                                                 <label>Danh mục con</label> <br/>
-                                                <p v-for="value in childCate" :key="value.id">
-                                                    <i>{{ value }}</i>
+                                                <p v-for="child in childCate" :key="child.id">
+                                                    <i>{{ child }}</i>
                                                 </p>
                                             </div>
 

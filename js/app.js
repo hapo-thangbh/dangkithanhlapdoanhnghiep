@@ -66892,9 +66892,9 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("br"),
                                     _vm._v(" "),
-                                    _vm._l(_vm.childCate, function(value) {
-                                      return _c("p", { key: value.id }, [
-                                        _c("i", [_vm._v(_vm._s(value))])
+                                    _vm._l(_vm.childCate, function(child) {
+                                      return _c("p", { key: child.id }, [
+                                        _c("i", [_vm._v(_vm._s(child))])
                                       ])
                                     })
                                   ],
