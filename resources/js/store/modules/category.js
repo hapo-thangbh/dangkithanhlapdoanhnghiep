@@ -12,7 +12,8 @@ export default {
         category: {
             name: '',
             parent_id: ''
-        }
+        },
+        treeView: []
     },
     mutations: {
         setCategories (state, data) {
@@ -32,6 +33,9 @@ export default {
         },
         deleteCategory (state, data) {
             state.categories = data
+        },
+        setTreeView (state, data) {
+            state.treeView = data
         }
     },
     actions: {
@@ -165,6 +169,18 @@ export default {
                     })
                     .catch(err => {
                         console.log(err)
+                    })
+            })
+        },
+
+        getTreeView (context) {
+            return new Promise(resolve => {
+                ApiService.get('/api/treeView')
+                    .then(({
+                        data
+                    }) => {
+                        context.commit('setTreeView', data)
+                        resolve(data)
                     })
             })
         }

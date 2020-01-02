@@ -2197,6 +2197,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2232,9 +2237,10 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
 
     this.getCategoriesParent();
     this.getCategories();
+    this.getTreeView();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'category', 'categoriesParent'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory', 'getCategories', 'getCategoriesParent']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'category', 'categoriesParent', 'treeView'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory', 'getCategories', 'getCategoriesParent', 'getTreeView']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addCategory(this.category);
@@ -2266,6 +2272,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -66770,7 +66777,7 @@ var render = function() {
                               _c("div", { staticClass: "row" }, [
                                 _c(
                                   "div",
-                                  { staticClass: "col-md-6" },
+                                  { staticClass: "col-md-3" },
                                   [
                                     _c("label", [_vm._v("Danh mục cha")]),
                                     _vm._v(" "),
@@ -66787,7 +66794,7 @@ var render = function() {
                                             _c("input", {
                                               attrs: {
                                                 type: "checkbox",
-                                                id: "dansu",
+                                                id: "",
                                                 name: ""
                                               }
                                             }),
@@ -66800,7 +66807,7 @@ var render = function() {
                                           "label",
                                           {
                                             staticClass: "lbl-checkbox-success",
-                                            attrs: { for: "dansu" }
+                                            attrs: { for: "" }
                                           },
                                           [_vm._v(_vm._s(cateParent.name))]
                                         )
@@ -66810,10 +66817,25 @@ var render = function() {
                                   2
                                 ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-md-6" }, [
+                                _c("div", { staticClass: "col-md-3" }, [
                                   _c("label", [_vm._v("Danh mục con")]),
                                   _vm._v(" "),
                                   _c("br")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c("label", [_vm._v("Danh sách menu")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: { "list-style": "none" },
+                                      domProps: {
+                                        innerHTML: _vm._s(_vm.treeView)
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(_vm.treeView))]
+                                  )
                                 ])
                               ])
                             ])
@@ -96970,7 +96992,8 @@ __webpack_require__.r(__webpack_exports__);
     category: {
       name: '',
       parent_id: ''
-    }
+    },
+    treeView: []
   },
   mutations: {
     setCategories: function setCategories(state, data) {
@@ -96990,6 +97013,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteCategory: function deleteCategory(state, data) {
       state.categories = data;
+    },
+    setTreeView: function setTreeView(state, data) {
+      state.treeView = data;
     }
   },
   actions: {
@@ -97111,6 +97137,15 @@ __webpack_require__.r(__webpack_exports__);
           }
         })["catch"](function (err) {
           console.log(err);
+        });
+      });
+    },
+    getTreeView: function getTreeView(context) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/treeView').then(function (_ref8) {
+          var data = _ref8.data;
+          context.commit('setTreeView', data);
+          resolve(data);
         });
       });
     }

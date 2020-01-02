@@ -73,6 +73,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <!-- <p v-html="categories">{{ categories }}</p> -->
                         </div>
                     </div>
                 </div>

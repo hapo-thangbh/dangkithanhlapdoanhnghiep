@@ -12009,6 +12009,14 @@ label {
   max-height: 170px;
 }
 
+.filetree {
+  padding-left: 0px;
+}
+
+.filetree .tree-view {
+  list-style: none;
+}
+
 .toggle-ios {
   height: 0;
   width: 0;

@@ -57,18 +57,18 @@
 
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Danh mục cha</label> <br/>
                                                 <div v-for="cateParent in categoriesParent" :key="cateParent.id">
                                                     <label class="checkbox-success">
-                                                        <input type="checkbox" id="dansu" name="">
+                                                        <input type="checkbox" id="" name="">
                                                         <span></span>
                                                     </label>
-                                                    <label class="lbl-checkbox-success" for="dansu">{{ cateParent.name }}</label>
+                                                    <label class="lbl-checkbox-success" for="">{{ cateParent.name }}</label>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Danh mục con</label> <br/>
                                                 <!-- <div>
                                                     <label class="checkbox-success">
@@ -85,6 +85,11 @@
                                                     </label>
                                                     <label class="lbl-checkbox-success" for="dansu2">Dân sự 2</label>
                                                 </div> -->
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Danh sách menu</label>
+                                                <span v-html="treeView" style="list-style: none">{{ treeView }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -150,9 +155,10 @@ export default {
         }
         this.getCategoriesParent()
         this.getCategories()
+        this.getTreeView()
     },
     computed: {
-        ...mapState('category',['categories','category', 'categoriesParent'])
+        ...mapState('category',['categories','category', 'categoriesParent', 'treeView'])
     },
     methods: {
         ...mapActions('category',[
@@ -161,7 +167,8 @@ export default {
             'editCategory',
             'updateCategory', 
             'getCategories', 
-            'getCategoriesParent'
+            'getCategoriesParent',
+            'getTreeView'
         ]),
         onSubmit () {
             if (this.type === 'create') {

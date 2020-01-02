@@ -13,6 +13,36 @@ class CategoryController extends Controller
         return Category::all();
     }
 
+    /* menu tree */
+    public function treeView(){       
+        $categories = Category::where('parent_id', '=', NULL)->get();
+        $tree='<ul class="filetree">';
+        foreach ($categories as $category) {
+            $tree .='<li class="tree-view closed"<a class="tree-name"><b>'.$category->name.'</b></a>';
+            if(count($category->childs)) {
+                $tree .=$this->childView($category);
+            }
+        }
+        $tree .='<ul>';
+        return $tree;
+    }
+    public function childView($category){                 
+        $html ='<ul>';
+        foreach ($category->childs as $arr) {
+            if(count($arr->childs)){
+                $html .='<li class="tree-view closed"><a class="tree-name">- '.$arr->name.'</a>';                  
+                $html.= $this->childView($arr);
+            }else{
+                $html .='<li class="tree-view"><a class="tree-name">- '.$arr->name.'</a>';                                 
+                $html .="</li>";
+            }
+        }
+        
+        $html .="</ul>";
+        return $html;
+    }
+    /* end menu tree */
+
     //add category
     public function addCategory(CategoryRequest $request) {
         $data = $request->all();

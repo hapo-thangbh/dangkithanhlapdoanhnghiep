@@ -172,3 +172,11 @@ and (max-width: 768px) {
     max-width: 400px;
     max-height: 170px;
 }
+
+.filetree {
+    padding-left: 0px;
+
+    .tree-view {
+        list-style: none;
+    }
+}
