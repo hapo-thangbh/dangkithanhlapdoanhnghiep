@@ -3013,28 +3013,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
     return {};
   },
+  components: {},
   mounted: function mounted() {
     this.getCountPost();
     this.getCountUser();
+    this.getPosts();
+    this.getCategories();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']))
 });
 
 /***/ }),
@@ -67701,7 +67694,68 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(6)
+    _c("section", [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-7" }, [
+            _c("div", { staticClass: "box box-primary post" }, [
+              _vm._m(6),
+              _vm._v(" "),
+              _c("div", { staticClass: "box-body" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-striped tabel hover" },
+                  [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _vm._l(_vm.posts, function(post) {
+                      return _c("tr", { key: post.id }, [
+                        _c("td", [_vm._v(_vm._s(post.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(post.title))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(post.user.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(post.view))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _c("span", { staticClass: "mr-2" }, [_vm._v("10")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-2",
+                              staticStyle: { color: "#000", cursor: "pointer" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.linkPost(post.id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(8, true)
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(9),
+            _vm._v(" "),
+            _vm._m(10),
+            _vm._v(" "),
+            _vm._m(11)
+          ]),
+          _vm._v(" "),
+          _vm._m(12)
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -67800,778 +67854,675 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-7" }, [
-            _c("div", { staticClass: "box box-primary post" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("div", { staticClass: "row row-custom-5" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-3 form-group form-custom-group-10" },
-                    [
-                      _c("i", { staticClass: "fa fa-paste" }),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "box-title" }, [
-                        _vm._v("Bài viết")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-2 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "text", placeholder: "Tài khoản" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-2 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "text", placeholder: "Danh mục" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-2 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Từ ngày" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-2 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Đến ngày" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-1 form-group text-center form-custom-group-10"
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
-                        _c("i", { staticClass: "fa fa-search" })
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-striped tabel hover" },
-                  [
-                    _c("tr", [
-                      _c("th", [_vm._v("STT")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Bài viết")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Tài khoản")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Lượt xem")]),
-                      _vm._v(" "),
-                      _c("th", { staticClass: "text-center" }, [
-                        _vm._v("Thời gian truy cập (phút)")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("01")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 01")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("user01")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("100,000")]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "text-center" }, [
-                        _c("span", { staticClass: "mr-1" }, [_vm._v("10")]),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "fa fa-eye" }),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("02")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Bài viết 02")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("user02")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("50,000")]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "text-center" }, [
-                        _c("span", { staticClass: "mr-1" }, [_vm._v("04")]),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "fa fa-eye" }),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "box box-success chat" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-comments-o" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [
-                  _vm._v("Bình luận bài viết")
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "slimScrollDiv",
-                  staticStyle: {
-                    position: "relative",
-                    overflow: "hidden",
-                    width: "auto",
-                    height: "250px"
+    return _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+      _c("div", { staticClass: "row row-custom-5" }, [
+        _c("div", { staticClass: "col-md-3 form-group form-custom-group-10" }, [
+          _c("i", { staticClass: "fa fa-paste" }),
+          _vm._v(" "),
+          _c("h3", { staticClass: "box-title" }, [_vm._v("Bài viết")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-2 col-custom-5 form-group form-custom-group-10"
+          },
+          [
+            _c("input", {
+              staticClass: "form-control form-sm",
+              attrs: { type: "text", placeholder: "Tài khoản" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-2 col-custom-5 form-group form-custom-group-10"
+          },
+          [
+            _c("input", {
+              staticClass: "form-control form-sm",
+              attrs: { type: "text", placeholder: "Danh mục" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-2 col-custom-5 form-group form-custom-group-10"
+          },
+          [
+            _c("input", {
+              staticClass: "form-control form-sm",
+              attrs: { type: "date", placeholder: "Từ ngày" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-2 col-custom-5 form-group form-custom-group-10"
+          },
+          [
+            _c("input", {
+              staticClass: "form-control form-sm",
+              attrs: { type: "date", placeholder: "Đến ngày" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-1 form-group text-center form-custom-group-10"
+          },
+          [
+            _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+              _c("i", { staticClass: "fa fa-search" })
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("STT")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Bài viết")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Tài khoản")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Lượt xem")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "text-center" }, [
+        _vm._v("Thời gian truy cập (phút)")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticStyle: { color: "#4450b7", cursor: "pointer" },
+        attrs: { "data-toggle": "modal", "data-target": "#updateFastPost" }
+      },
+      [_c("i", { staticClass: "fa fa-edit" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "box box-success chat" }, [
+      _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+        _c("i", { staticClass: "fa fa-comments-o" }),
+        _vm._v(" "),
+        _c("h3", { staticClass: "box-title" }, [_vm._v("Bình luận bài viết")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "slimScrollDiv",
+          staticStyle: {
+            position: "relative",
+            overflow: "hidden",
+            width: "auto",
+            height: "250px"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "box-body chat",
+              staticStyle: {
+                overflow: "hidden",
+                width: "auto",
+                height: "250px"
+              },
+              attrs: { id: "chat-box" }
+            },
+            [
+              _c("div", { staticClass: "item" }, [
+                _c("img", {
+                  staticClass: "online",
+                  attrs: {
+                    src:
+                      "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+                    alt: "user image"
                   }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "box-body chat",
-                      staticStyle: {
-                        overflow: "hidden",
-                        width: "auto",
-                        height: "250px"
-                      },
-                      attrs: { id: "chat-box" }
-                    },
-                    [
-                      _c("div", { staticClass: "item" }, [
-                        _c("img", {
-                          staticClass: "online",
-                          attrs: {
-                            src:
-                              "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-                            alt: "user image"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "message" }, [
-                          _c(
-                            "a",
-                            { staticClass: "name", attrs: { href: "#" } },
-                            [
-                              _c(
-                                "small",
-                                { staticClass: "text-muted pull-right" },
-                                [
-                                  _c("i", { staticClass: "fa fa-clock-o" }),
-                                  _vm._v(
-                                    "\n                                            2:15"
-                                  )
-                                ]
-                              ),
-                              _vm._v(
-                                "\n                                        Ngọc Linh\n                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                    Anh Thắng ơi gửi em tài liệu với\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "attachment" }, [
-                          _c("h4", [_vm._v("Tài liệu đính kèm:")]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "filename" }, [
-                            _vm._v(
-                              "\n                                        Tailieu.zip\n                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "pull-right" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary btn-sm btn-flat",
-                                attrs: { type: "button" }
-                              },
-                              [_vm._v("Tải xuống")]
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "item" }, [
-                        _c("img", {
-                          staticClass: "offline",
-                          attrs: {
-                            src:
-                              "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-                            alt: "user image"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "message" }, [
-                          _c(
-                            "a",
-                            { staticClass: "name", attrs: { href: "#" } },
-                            [
-                              _c(
-                                "small",
-                                { staticClass: "text-muted pull-right" },
-                                [
-                                  _c("i", { staticClass: "fa fa-clock-o" }),
-                                  _vm._v(
-                                    "\n                                            5:15"
-                                  )
-                                ]
-                              ),
-                              _vm._v(
-                                "\n                                        Bùi Nam\n                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                    Thế có đi xuống không?\n                                "
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "message" }, [
+                  _c("a", { staticClass: "name", attrs: { href: "#" } }, [
+                    _c("small", { staticClass: "text-muted pull-right" }, [
+                      _c("i", { staticClass: "fa fa-clock-o" }),
+                      _vm._v(
+                        "\n                                            2:15"
+                      )
+                    ]),
+                    _vm._v(
+                      "\n                                        Ngọc Linh\n                                    "
+                    )
+                  ]),
+                  _vm._v(
+                    "\n                                    Anh Thắng ơi gửi em tài liệu với\n                                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "attachment" }, [
+                  _c("h4", [_vm._v("Tài liệu đính kèm:")]),
                   _vm._v(" "),
-                  _c("div", {
-                    staticClass: "slimScrollBar",
-                    staticStyle: {
-                      background: "rgb(0, 0, 0)",
-                      width: "7px",
-                      position: "absolute",
-                      top: "0px",
-                      opacity: "0.4",
-                      display: "none",
-                      "border-radius": "7px",
-                      "z-index": "99",
-                      right: "1px",
-                      height: "184.911px"
-                    }
-                  }),
+                  _c("p", { staticClass: "filename" }, [
+                    _vm._v(
+                      "\n                                        Tailieu.zip\n                                    "
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("div", {
-                    staticClass: "slimScrollRail",
-                    staticStyle: {
-                      width: "7px",
-                      height: "100%",
-                      position: "absolute",
-                      top: "0px",
-                      display: "none",
-                      "border-radius": "7px",
-                      background: "rgb(51, 51, 51)",
-                      opacity: "0.2",
-                      "z-index": "90",
-                      right: "1px"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-footer" }, [
-                _c("div", { staticClass: "input-group" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { placeholder: "Type message..." }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-btn" }, [
+                  _c("div", { staticClass: "pull-right" }, [
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-success",
+                        staticClass: "btn btn-primary btn-sm btn-flat",
                         attrs: { type: "button" }
                       },
-                      [_c("i", { staticClass: "fa fa-plus" })]
+                      [_vm._v("Tải xuống")]
                     )
                   ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item" }, [
+                _c("img", {
+                  staticClass: "offline",
+                  attrs: {
+                    src:
+                      "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+                    alt: "user image"
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "message" }, [
+                  _c("a", { staticClass: "name", attrs: { href: "#" } }, [
+                    _c("small", { staticClass: "text-muted pull-right" }, [
+                      _c("i", { staticClass: "fa fa-clock-o" }),
+                      _vm._v(
+                        "\n                                            5:15"
+                      )
+                    ]),
+                    _vm._v(
+                      "\n                                        Bùi Nam\n                                    "
+                    )
+                  ]),
+                  _vm._v(
+                    "\n                                    Thế có đi xuống không?\n                                "
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "slimScrollBar",
+            staticStyle: {
+              background: "rgb(0, 0, 0)",
+              width: "7px",
+              position: "absolute",
+              top: "0px",
+              opacity: "0.4",
+              display: "none",
+              "border-radius": "7px",
+              "z-index": "99",
+              right: "1px",
+              height: "184.911px"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "slimScrollRail",
+            staticStyle: {
+              width: "7px",
+              height: "100%",
+              position: "absolute",
+              top: "0px",
+              display: "none",
+              "border-radius": "7px",
+              background: "rgb(51, 51, 51)",
+              opacity: "0.2",
+              "z-index": "90",
+              right: "1px"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-footer" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { placeholder: "Type message..." }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-btn" }, [
+            _c(
+              "button",
+              { staticClass: "btn btn-success", attrs: { type: "button" } },
+              [_c("i", { staticClass: "fa fa-plus" })]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "box box-primary question" }, [
+      _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+        _c("i", { staticClass: "fa fa-list" }),
+        _vm._v(" "),
+        _c("h3", { staticClass: "box-title" }, [_vm._v("Câu hỏi chưa trả lời")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-body" }, [
+        _c("table", { staticClass: "table table-striped table-hover" }, [
+          _c("tr", [
+            _c("td", { staticStyle: { width: "20px" } }, [
+              _c("label", { staticClass: "checkbox-success" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", id: "check", name: "remember" }
+                }),
+                _vm._v(" "),
+                _c("span")
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "box box-primary question" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-list" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [
-                  _vm._v("Câu hỏi chưa trả lời")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-striped table-hover" },
-                  [
-                    _c("tr", [
-                      _c("td", { staticStyle: { width: "20px" } }, [
-                        _c("label", { staticClass: "checkbox-success" }, [
-                          _c("input", {
-                            attrs: {
-                              type: "checkbox",
-                              id: "check",
-                              name: "remember"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "20px" } }, [
-                        _vm._v("01")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "550px" } }, [
-                        _vm._v("Những cách chụp ảnh đẹp cùng bạn bè")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { width: "20px" } }, [
-                        _c("label", { staticClass: "checkbox-success" }, [
-                          _c("input", {
-                            attrs: {
-                              type: "checkbox",
-                              id: "check",
-                              name: "remember"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "20px" } }, [
-                        _vm._v("02")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "550px" } }, [
-                        _vm._v("Chấm chấm chấm chấm chấm chấm")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ])
-                  ]
-                )
-              ])
+            _c("td", { staticStyle: { "min-width": "20px" } }, [_vm._v("01")]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "550px" } }, [
+              _vm._v("Những cách chụp ảnh đẹp cùng bạn bè")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "box box-primary todo" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("i", { staticClass: "fa fa-list" }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "box-title" }, [
-                  _vm._v("Những việc cần làm")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-striped table-hover" },
-                  [
-                    _c("tr", [
-                      _c("td", { staticStyle: { width: "20px" } }, [
-                        _c("label", { staticClass: "checkbox-success" }, [
-                          _c("input", {
-                            attrs: {
-                              type: "checkbox",
-                              id: "check",
-                              name: "remember"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "20px" } }, [
-                        _vm._v("01")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "550px" } }, [
-                        _vm._v("Việc làm đầu tiên là đi chơi")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { width: "20px" } }, [
-                        _c("label", { staticClass: "checkbox-success" }, [
-                          _c("input", {
-                            attrs: {
-                              type: "checkbox",
-                              id: "check",
-                              name: "remember"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "20px" } }, [
-                        _vm._v("02")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { "min-width": "550px" } }, [
-                        _vm._v("Việc làm thứ hai là nằm xem film")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "fa fa-edit" })
-                        ])
-                      ])
-                    ])
-                  ]
-                )
+            _c("td", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-edit" })
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-5" }, [
-            _c("div", { staticClass: "box box-primary users" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("div", { staticClass: "row row-custom-5" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-3 form-group form-custom-group-10" },
-                    [
-                      _c("i", { staticClass: "fa fa-user" }),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "box-title" }, [
-                        _vm._v("Tài khoản")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-3 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "text", placeholder: "Tài khoản" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-2 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Từ ngày" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-3 col-custom-5 form-group form-custom-group-10"
-                    },
-                    [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Đến ngày" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-1 form-group text-center form-custom-group-10"
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
-                        _c("i", { staticClass: "fa fa-search" })
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass: "table table-hover table-striped text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c("th", [_vm._v("STT")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Tài khoản")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Bài viết")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Lượt xem")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Thời gian truy cập (phút)")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("1")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Supper admin")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("100")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("3000")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("10")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("2")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("dangthang")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("50")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("3000")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("5")])
-                    ])
-                  ]
-                )
+          _c("tr", [
+            _c("td", { staticStyle: { width: "20px" } }, [
+              _c("label", { staticClass: "checkbox-success" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", id: "check", name: "remember" }
+                }),
+                _vm._v(" "),
+                _c("span")
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "box box-primary file" }, [
-              _c("div", { staticClass: "box-header ui-sortable-handle" }, [
-                _c("div", { staticClass: "row row-custom-5" }, [
+            _c("td", { staticStyle: { "min-width": "20px" } }, [_vm._v("02")]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "550px" } }, [
+              _vm._v("Chấm chấm chấm chấm chấm chấm")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-edit" })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "box box-primary todo" }, [
+      _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+        _c("i", { staticClass: "fa fa-list" }),
+        _vm._v(" "),
+        _c("h3", { staticClass: "box-title" }, [_vm._v("Những việc cần làm")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-body" }, [
+        _c("table", { staticClass: "table table-striped table-hover" }, [
+          _c("tr", [
+            _c("td", { staticStyle: { width: "20px" } }, [
+              _c("label", { staticClass: "checkbox-success" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", id: "check", name: "remember" }
+                }),
+                _vm._v(" "),
+                _c("span")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "20px" } }, [_vm._v("01")]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "550px" } }, [
+              _vm._v("Việc làm đầu tiên là đi chơi")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-edit" })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { staticStyle: { width: "20px" } }, [
+              _c("label", { staticClass: "checkbox-success" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", id: "check", name: "remember" }
+                }),
+                _vm._v(" "),
+                _c("span")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "20px" } }, [_vm._v("02")]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { "min-width": "550px" } }, [
+              _vm._v("Việc làm thứ hai là nằm xem film")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-edit" })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-5" }, [
+      _c("div", { staticClass: "box box-primary users" }, [
+        _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+          _c("div", { staticClass: "row row-custom-5" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-3 form-group form-custom-group-10" },
+              [
+                _c("i", { staticClass: "fa fa-user" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "box-title" }, [_vm._v("Tài khoản")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-3 col-custom-5 form-group form-custom-group-10"
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control form-sm",
+                  attrs: { type: "text", placeholder: "Tài khoản" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-2 col-custom-5 form-group form-custom-group-10"
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control form-sm",
+                  attrs: { type: "date", placeholder: "Từ ngày" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-3 col-custom-5 form-group form-custom-group-10"
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control form-sm",
+                  attrs: { type: "date", placeholder: "Đến ngày" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-1 form-group text-center form-custom-group-10"
+              },
+              [
+                _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+                  _c("i", { staticClass: "fa fa-search" })
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "box-body" }, [
+          _c(
+            "table",
+            { staticClass: "table table-hover table-striped text-center" },
+            [
+              _c("tr", [
+                _c("th", [_vm._v("STT")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Tài khoản")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Bài viết")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Lượt xem")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Thời gian truy cập (phút)")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Supper admin")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("100")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3000")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("10")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dangthang")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("50")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3000")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5")])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box box-primary file" }, [
+        _c("div", { staticClass: "box-header ui-sortable-handle" }, [
+          _c("div", { staticClass: "row row-custom-5" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-5 form-group form-custom-group-10" },
+              [
+                _c("i", { staticClass: "fa fa-file" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "box-title" }, [_vm._v("Hồ sơ")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-3 col-custom-5 form-group form-custom-group-10"
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control form-sm",
+                  attrs: { type: "date", placeholder: "Từ ngày" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-3 col-custom-5 form-group form-custom-group-10"
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control form-sm",
+                  attrs: { type: "date", placeholder: "Đến ngày" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-1 form-group text-center form-custom-group-10"
+              },
+              [
+                _c("button", { staticClass: "btn btn-xs btn-primary" }, [
+                  _c("i", { staticClass: "fa fa-search" })
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "box-body" }, [
+          _c(
+            "table",
+            { staticClass: "table table-hover table-striped text-center" },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
                   _c(
-                    "div",
-                    { staticClass: "col-md-5 form-group form-custom-group-10" },
-                    [
-                      _c("i", { staticClass: "fa fa-file" }),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "box-title" }, [_vm._v("Hồ sơ")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
+                    "table",
                     {
                       staticClass:
-                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                        "table table-responsive border-none table-color"
                     },
                     [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Từ ngày" }
-                      })
+                      _c("tr", [
+                        _c(
+                          "td",
+                          { staticStyle: { "vertical-align": "middle" } },
+                          [_vm._v("Doanh thu")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("table", [
+                            _c("tr", [_c("td", [_vm._v("Đã tiếp nhận")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Huỷ")])])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("table", [
+                            _c("tr", [_c("td", [_vm._v("1000")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("500")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("400")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("100")])])
+                          ])
+                        ])
+                      ])
                     ]
-                  ),
-                  _vm._v(" "),
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
                   _c(
-                    "div",
+                    "table",
                     {
                       staticClass:
-                        "col-md-3 col-custom-5 form-group form-custom-group-10"
+                        "table table-responsive border-none table-color"
                     },
                     [
-                      _c("input", {
-                        staticClass: "form-control form-sm",
-                        attrs: { type: "date", placeholder: "Đến ngày" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-md-1 form-group text-center form-custom-group-10"
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-xs btn-primary" }, [
-                        _c("i", { staticClass: "fa fa-search" })
+                      _c("tr", [
+                        _c(
+                          "td",
+                          { staticStyle: { "vertical-align": "middle" } },
+                          [_vm._v("Hồ sơ")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("table", [
+                            _c("tr", [_c("td", [_vm._v("Đã tiếp nhận")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("Huỷ")])])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("table", [
+                            _c("tr", [_c("td", [_vm._v("1000")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("500")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("400")])]),
+                            _vm._v(" "),
+                            _c("tr", [_c("td", [_vm._v("100")])])
+                          ])
+                        ])
                       ])
                     ]
                   )
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass: "table table-hover table-striped text-center"
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c(
-                          "table",
-                          {
-                            staticClass:
-                              "table table-responsive border-none table-color"
-                          },
-                          [
-                            _c("tr", [
-                              _c(
-                                "td",
-                                { staticStyle: { "vertical-align": "middle" } },
-                                [_vm._v("Doanh thu")]
-                              ),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("table", [
-                                  _c("tr", [
-                                    _c("td", [_vm._v("Đã tiếp nhận")])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Huỷ")])])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("table", [
-                                  _c("tr", [_c("td", [_vm._v("1000")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("500")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("400")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("100")])])
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c(
-                          "table",
-                          {
-                            staticClass:
-                              "table table-responsive border-none table-color"
-                          },
-                          [
-                            _c("tr", [
-                              _c(
-                                "td",
-                                { staticStyle: { "vertical-align": "middle" } },
-                                [_vm._v("Hồ sơ")]
-                              ),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("table", [
-                                  _c("tr", [
-                                    _c("td", [_vm._v("Đã tiếp nhận")])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Chờ kết quả")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Hoàn thành")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("Huỷ")])])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("table", [
-                                  _c("tr", [_c("td", [_vm._v("1000")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("500")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("400")])]),
-                                  _vm._v(" "),
-                                  _c("tr", [_c("td", [_vm._v("100")])])
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
               ])
-            ])
-          ])
+            ]
+          )
         ])
       ])
     ])

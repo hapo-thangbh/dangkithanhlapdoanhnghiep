@@ -99,29 +99,19 @@
                                 <th class="text-center">Thời gian truy cập (phút)</th>
                             </tr>
 
-                            <tr>
-                                <td>01</td>
-                                <td>Bài viết 01</td>
-                                <td>user01</td>
-                                <td>100,000</td>
+                            <tr v-for="post in posts" :key="post.id">
+                                <td>{{ post.id }}</td>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.user.name }}</td>
+                                <td>{{ post.view }}</td>
                                 <td class="text-center">
-                                    <span class="mr-1">10</span>
-                                    <i class="fa fa-eye"></i>
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                    <span class="mr-2">10</span>
 
-                            <tr>
-                                <td>02</td>
-                                <td>Bài viết 02</td>
-                                <td>user02</td>
-                                <td>50,000</td>
-                                <td class="text-center">
-                                    <span class="mr-1">04</span>
-                                    <i class="fa fa-eye"></i>
-                                    <a href="#">
+                                    <a @click="linkPost(post.id)" style="color: #000; cursor: pointer" class="mr-2">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <a data-toggle="modal" data-target="#updateFastPost" style="color: #4450b7; cursor: pointer">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
@@ -460,15 +450,24 @@ export default {
 
         }
     },
+    components: {
+        
+    },
     mounted() {
         this.getCountPost()
         this.getCountUser()
+        this.getPosts()
+        this.getCategories()
     },
     computed: {
         ...mapState('dashboard', ['countPost', 'countUser']),
+        ...mapState('post',['posts']),
+        ...mapState('category',['categories']),
     },
     methods: {
         ...mapActions('dashboard', ['getCountPost', 'getCountUser']),
+        ...mapActions('post',['getPosts']),
+        ...mapActions('category',['getCategories']),
     }
 }
 </script>
