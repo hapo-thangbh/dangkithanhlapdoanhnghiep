@@ -4778,7 +4778,8 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     if (this.type === 'create') {
       this.clearUser();
     } else {
-      var idUser = this.$route.params.id; // this.editUser(idUser)
+      var idUser = this.$route.params.id;
+      this.editUser(idUser);
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('user', ['user'])),
@@ -4787,7 +4788,7 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     ValidationObserver: vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"],
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default.a
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('user', ['addUser', 'updateUser', 'clearUser']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('user', ['addUser', 'updateUser', 'clearUser', 'editUser', 'updateUser']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addUser(this.user);
@@ -72346,7 +72347,9 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "txt-white",
-                                  attrs: { to: { name: "editUser" } }
+                                  attrs: {
+                                    to: { path: "/admin/user/edit/" + user.id }
+                                  }
                                 },
                                 [
                                   _c(
@@ -98048,7 +98051,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'addUser',
     component: _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/admin/user/edit',
+    path: '/admin/user/edit/:id',
     name: 'editUser',
     component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
@@ -98678,12 +98681,25 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    //get info user
+    editUser: function editUser(context, idUser) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/users/edit/' + idUser).then(function (_ref3) {
+          var data = _ref3.data;
+          console.log(data);
+          context.commit('setUser', data);
+          resolve(data);
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      });
+    },
     //update user
     updateUser: function updateUser(context, data) {
       var id = data.id;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/users/edit/' + id, data).then(function (_ref3) {
-          var data = _ref3.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/users/edit/' + id, data).then(function (_ref4) {
+          var data = _ref4.data;
 
           if (data.status === 200) {
             context.commit('setUser', data);
@@ -98707,12 +98723,12 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    deleteUser: function deleteUser(_ref4, id) {
-      var context = _ref4.context,
-          dispatch = _ref4.dispatch;
+    deleteUser: function deleteUser(_ref5, id) {
+      var context = _ref5.context,
+          dispatch = _ref5.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/users/delete/' + id).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/users/delete/' + id).then(function (_ref6) {
+          var data = _ref6.data;
 
           if (data.status === 200) {
             dispatch('getUsers');

@@ -92,6 +92,21 @@ export default {
             })
         },
 
+        //get info user
+        editUser (context, idUser) {
+            return new Promise(resolve => {
+                ApiService.get('/api/users/edit/' + idUser)
+                    .then(({ data }) => {
+                        console.log(data)
+                        context.commit('setUser', data)
+                        resolve(data)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+        },
+
         //update user
         updateUser (context, data) {
             let id = data.id

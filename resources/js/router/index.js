@@ -57,7 +57,7 @@ export default new VueRouter({
             component: AddUser
         },
         {
-            path: '/admin/user/edit',
+            path: '/admin/user/edit/:id',
             name: 'editUser',
             component: EditUser
         },

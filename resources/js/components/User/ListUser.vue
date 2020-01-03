@@ -67,7 +67,7 @@
                                         </td>
                                         <td>{{ formatDate(user.created_at) }}</td>
                                         <td class="text-center">
-                                            <router-link :to="{ name:'editUser' }" class="txt-white">
+                                            <router-link :to="{ path: '/admin/user/edit/' + user.id }" class="txt-white">
                                                 <button class="btn btn-sm btn-primary">
                                                     <i class="fa fa-edit"></i>
                                                 </button>

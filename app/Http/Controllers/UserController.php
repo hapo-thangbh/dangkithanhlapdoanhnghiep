@@ -51,7 +51,7 @@ class UserController extends Controller
         }
     }
 
-    public function editPost($id) {
+    public function edit($id) {
         $user = User::find($id);
         return response($user);
     }

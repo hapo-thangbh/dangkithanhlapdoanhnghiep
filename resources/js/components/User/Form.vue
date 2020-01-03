@@ -171,7 +171,7 @@ export default {
             this.clearUser()
         } else {
             let idUser = this.$route.params.id
-            // this.editUser(idUser)
+            this.editUser(idUser)
         }
     },
     computed: {
@@ -183,7 +183,7 @@ export default {
         Multiselect
     },
     methods: {
-        ...mapActions('user', ['addUser', 'updateUser', 'clearUser']),
+        ...mapActions('user', ['addUser', 'updateUser', 'clearUser', 'editUser', 'updateUser']),
         onSubmit () {
             if (this.type === 'create') {
                 this.addUser(this.user)
