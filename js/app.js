@@ -98686,7 +98686,6 @@ __webpack_require__.r(__webpack_exports__);
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/users/edit/' + idUser).then(function (_ref3) {
           var data = _ref3.data;
-          console.log(data);
           context.commit('setUser', data);
           resolve(data);
         })["catch"](function (err) {
@@ -98698,8 +98697,9 @@ __webpack_require__.r(__webpack_exports__);
     updateUser: function updateUser(context, data) {
       var id = data.id;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/users/edit/' + id, data).then(function (_ref4) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/users/edit/' + id, data).then(function (_ref4) {
           var data = _ref4.data;
+          console.log(data);
 
           if (data.status === 200) {
             context.commit('setUser', data);

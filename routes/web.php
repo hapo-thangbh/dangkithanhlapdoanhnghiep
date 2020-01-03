@@ -60,7 +60,7 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::post('/users/create', 'UserController@store');
     Route::get('/users/edit/{id}', 'UserController@edit');
-    Route::post('/users/edit/{id}', 'UserController@update');
+    Route::put('/users/edit/{id}', 'UserController@update');
 
     Route::delete('/users/delete/{id}', 'UserController@deleteUser');
 });

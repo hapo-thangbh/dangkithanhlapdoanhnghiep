@@ -57,19 +57,22 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $user = User::findOrFail($id);
         $data = array_merge($request->all(),[
             'password' => Hash::make($request->get('password'))
         ]);
+        
         $data['created_at']=Carbon::now('Asia/Ho_Chi_Minh');
         $data['updated_at']=Carbon::now('Asia/Ho_Chi_Minh');
 
-        if ($request->avatar) {
+        if ($request->avatar != $user->avatar) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->avatar, 0, strpos
             ($request->avatar, ';')))[1])[1];
-            \Image::make($request->avatar)->save(PUBLIC_PATH_FILEUPLOAD_AVATAR.$fileName);
+            \Image::make($request->avatar)->save(PUBLIC_PATH_FILEUPLOAD_POST.$fileName);
             $data['avatar'] = $fileName;
         }
-        $user = User::insert($data);
+        
+        $user->update($data);
 
         if ($user) {
             return response()->json([

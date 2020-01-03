@@ -97,7 +97,6 @@ export default {
             return new Promise(resolve => {
                 ApiService.get('/api/users/edit/' + idUser)
                     .then(({ data }) => {
-                        console.log(data)
                         context.commit('setUser', data)
                         resolve(data)
                     })
@@ -111,10 +110,11 @@ export default {
         updateUser (context, data) {
             let id = data.id
             return new Promise(resolve => {
-                ApiService.post('/api/users/edit/' + id, data)
+                ApiService.put('/api/users/edit/' + id, data)
                 .then(({
                     data
                 }) => {
+                    console.log(data)
                     if (data.status === 200) {
                         context.commit('setUser', data)
                         router.push({ name: 'listUser' })
