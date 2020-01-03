@@ -57,6 +57,12 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('/users', 'UserController@index');
     Route::get('/users/count','UserController@countUser');
     Route::get('/infoUser', 'UserController@getInfoUser');
+
+    Route::post('/users/create', 'UserController@store');
+    Route::get('/users/edit/{id}', 'UserController@edit');
+    Route::post('/users/edit/{id}', 'UserController@update');
+
+    Route::delete('/users/delete/{id}', 'UserController@deleteUser');
 });
 /* end api */
 

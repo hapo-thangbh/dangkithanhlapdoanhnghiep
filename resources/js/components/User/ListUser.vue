@@ -51,7 +51,7 @@
                                         <th>Tên tài khoản</th>
                                         <th>Email</th>
                                         <th>Quyền người dùng</th>
-                                        <td>Ngày tạo</td>
+                                        <th>Ngày tạo</th>
                                         <th class="text-center">Hành động</th>
                                     </tr>
                                 </thead>
@@ -65,7 +65,7 @@
                                             <label class="label label-warning" v-if="user.level === 1">Quản trị viên</label>
                                             <label class="label label-primary" v-else>Người dùng</label>
                                         </td>
-                                        <td>{{ user.created_at }}</td>
+                                        <td>{{ formatDate(user.created_at) }}</td>
                                         <td class="text-center">
                                             <router-link :to="{ name:'editUser' }" class="txt-white">
                                                 <button class="btn btn-sm btn-primary">
@@ -73,7 +73,7 @@
                                                 </button>
                                             </router-link>
 
-                                            <button @click="deleteUser()" class="btn btn-sm btn-danger">
+                                            <button @click="destroyUser(user.id)" class="btn btn-sm btn-danger">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -100,34 +100,33 @@ export default {
         ...mapState('user', ['users'])
     },
     methods: {
-        ...mapActions('user', ['getUsers']),
-        deleteUser() {
+        ...mapActions('user', ['getUsers', 'deleteUser']),
+        destroyUser(id) {
             swal.fire({
-                    title: '',
-                    text: "Bạn có chắc chắn muốn xóa?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Đồng ý',
-                    cancelButtonText: 'Hủy bỏ'
-                })
-                .then((result) => {
-                    if (result.value) {
-                        swal.fire(
-                            'Thành công',
-                            'Bạn đã xóa thành công',
-                            'success'
-                        )
-                    }
-                })
-                .catch(() => {
-                    swal.fire(
-                        'Thất bại',
-                        'Xóa không thành công',
-                        'warning'
-                    )
-                })
+                title: '',
+                text: "Bạn có chắc chắn muốn xóa?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ'
+            })
+            .then((result) => {
+                if (result.value) {
+                    this.deleteUser(id)
+                }
+            })
+            .catch(() => {
+                swal.fire(
+                  'Thất bại',
+                  'Xóa tài khoản không thành công',
+                  'warning'
+                )
+            })
+        },
+        formatDate (date) {
+            return moment(date).format('DD/MM/YYYY')
         }
     }
 }
