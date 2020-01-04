@@ -22,5 +22,7 @@
 	<script src="{{ asset('js/frontend/slick/slick.js') }}"></script>
 	<script src="{{ asset('js/frontend/script.js') }}"></script>
 	<script src="{{ asset('js/frontend/app.js') }}"></script>
+
+	@yield('script')
 </body>
 </html>

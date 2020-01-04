@@ -135,7 +135,14 @@ class PostController extends Controller
         Reply::create([
             'comment_id' => $request->comment_id,
             'description' => $request->description,
+            'user_id' => Auth::user()->id,
         ]);
+        return redirect()->back();
+    }
+
+    // Xóa reply
+    public function deleteReply($id) {
+        Reply::findOrFail($id)->delete();
         return redirect()->back();
     }
 }
