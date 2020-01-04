@@ -15,7 +15,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->text('title');
+            $table->string('seo_title')->nullable();
             $table->text('description_short');
             $table->string('image_thumb');
             $table->unsignedBigInteger('category_id');
@@ -24,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->integer('view')->default(0);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

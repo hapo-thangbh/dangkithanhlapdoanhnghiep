@@ -16,6 +16,21 @@ import ListCategory from './../components/Category/ListCategory.vue'
 import AddCategory from './../components/Category/AddCategory.vue'
 import EditCategory from './../components/Category/EditCategory.vue'
 
+//Bình luận
+import Comment from './../components/Comment/Comment.vue'
+
+//Hộp thư
+import ListInbox from './../components/Inbox/ListInbox.vue'
+
+//Hồ sơ
+import ListProfile from './../components/Profile/ListProfile.vue'
+
+//Tài liệu
+import ListDocument from './../components/Document/ListDocument.vue'
+
+//Vị trí quảng cáo
+import ListAdsPosition from './../components/AdsPosition/ListAdsPosition.vue'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -42,12 +57,12 @@ export default new VueRouter({
             component: AddUser
         },
         {
-            path: '/admin/user/edit',
+            path: '/admin/user/edit/:id',
             name: 'editUser',
             component: EditUser
         },
         {
-            path: '/admin/profile',
+            path: '/admin/auth-profile',
             name:'profile',
             component: Profile
         },
@@ -80,6 +95,41 @@ export default new VueRouter({
             path: '/admin/category/edit/:id',
             name:'editCategory',
             component: EditCategory
+        },
+
+        //Bình luận
+        {
+            path: '/admin/comment',
+            name:'comment',
+            component: Comment
+        },
+
+        //Hộp thư
+        {
+            path: '/admin/inbox',
+            name:'listInbox',
+            component: ListInbox
+        },
+
+        //Hồ sơ
+        {
+            path: '/admin/Profile',
+            name:'listProfile',
+            component: ListProfile
+        },
+
+        //Tài liệu
+        {
+            path: '/admin/document',
+            name:'listDocument',
+            component: ListDocument
+        },
+
+        //Vị trí quảng cáo
+        {
+            path: '/admin/ads_position',
+            name:'listAdsPosition',
+            component: ListAdsPosition
         }
     ]
 })

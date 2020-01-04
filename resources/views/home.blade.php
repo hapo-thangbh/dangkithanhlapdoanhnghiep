@@ -764,7 +764,23 @@
             <h3>TIN TRONG NƯỚC</h3>
         </header>
         <section class="section-content">
-            <div class="article-list listing-layout responsive unique" min-display="6">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--Nha chu thich-->
+            
+            {{-- <div class="article-list listing-layout responsive unique" min-display="6">
                 @foreach($posts as $post)
                     <article class="article-item type-hasvideo">
                         <p class="article-thumbnail">
@@ -790,7 +806,26 @@
                         </header>
                     </article>
                 @endforeach
-            </div>
+            </div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {{-- <section id="first-news-coverage" class="section news-coverage">
                 <div class="section-thumbnail">
                     <a href=/toan-canh/39-thi-the-trong-thung-xe-o-anh.html

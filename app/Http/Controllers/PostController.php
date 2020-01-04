@@ -13,17 +13,21 @@ class PostController extends Controller
 {
     //show all post
     public function index(){
-        $post = Post::with(['categories'])->get();
+        $post = Post::with(['categories','user'])->get();
         return $post;
     }
 
     //add post
     public function addPost(PostRequest $request) {
         $data = $request->all();
+
+        $data['user_id'] = auth()->user()->id;
+
         if ($request->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
-            \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
+            // \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
+            \Image::make($request->image_thumb)->save(PUBLIC_PATH_FILEUPLOAD_POST.$fileName);
             $data['image_thumb'] = $fileName;
         }
 
@@ -32,6 +36,7 @@ class PostController extends Controller
             $data['category_id'] = $categoryId[$i];
             $post = Post::create($data);
         }
+
         
         if ($post) {
             return response()->json([
@@ -56,11 +61,12 @@ class PostController extends Controller
     public function updatePost(PostRequest $request, $id) {
         $post = Post::findOrFail($id);
         $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
 
         if ($request->image_thumb != $post->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
-            \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
+            \Image::make($request->image_thumb)->save(PUBLIC_PATH_FILEUPLOAD_POST.$fileName);
             $data['image_thumb'] = $fileName;
         }
 

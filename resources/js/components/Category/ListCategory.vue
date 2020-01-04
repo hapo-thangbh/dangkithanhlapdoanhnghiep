@@ -49,7 +49,6 @@
                                     <tr>
                                         <th style="width: 20px">ID</th>
                                         <th style="width: 300px">Tên danh mục</th>
-                                        <th style="width: 50px">Trạng thái</th>
                                         <th style="width: 50px">Ngày tạo</th>
                                         <th class="text-center" style="width: 100px">Hành động</th>
                                     </tr>
@@ -59,10 +58,6 @@
                                     <tr v-for="category in categories" :key="category.id">
                                         <td>{{ category.id }}</td>
                                         <td>{{ category.name }}</td>
-                                        <td>
-                                            <label class="label label-success" v-if="category.status === 1">Công khai</label>
-                                            <label class="label label-danger" v-else>Riêng tư</label>
-                                        </td>
                                         <td>{{ formartDate(category.created_at) }}</td>
                                         <td class="text-center">
                                             <router-link :to="{ path: '/admin/category/edit/' + category.id }">
@@ -78,6 +73,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <!-- <p v-html="categories">{{ categories }}</p> -->
                         </div>
                     </div>
                 </div>

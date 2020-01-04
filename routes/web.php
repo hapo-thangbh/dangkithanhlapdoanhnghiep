@@ -43,6 +43,7 @@ Route::get('/delete-reply/{id}', 'PostController@deleteReply')->name('delete_rep
 
 /* api */
 Route::group(['prefix' => 'api'], function() {
+    //Post
     Route::get('/posts','PostController@index');
     Route::post('/posts/add','PostController@addPost');
     Route::get('/posts/edit/{id}','PostController@editPost');
@@ -51,15 +52,28 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::get('/posts/count','PostController@countPost');
 
-
+    //Category
     Route::get('/categories','CategoryController@index');
+    Route::get('/treeView','CategoryController@treeView');
     Route::post('/categories/add','CategoryController@addCategory');
     Route::get('/categories/edit/{id}','CategoryController@editCategory');
     Route::put('/categories/update/{id}','CategoryController@updateCategory');
     Route::delete('/categories/delete/{id}','CategoryController@deleteCategory');
 
+    Route::get('/categories/allParent', 'CategoryController@allParent');
+
+    Route::post('/childrenCate', 'CategoryController@childrenCate');
+
+    //User
     Route::get('/users', 'UserController@index');
     Route::get('/users/count','UserController@countUser');
+    Route::get('/infoUser', 'UserController@getInfoUser');
+
+    Route::post('/users/create', 'UserController@store');
+    Route::get('/users/edit/{id}', 'UserController@edit');
+    Route::put('/users/edit/{id}', 'UserController@update');
+
+    Route::delete('/users/delete/{id}', 'UserController@deleteUser');
 });
 /* end api */
 

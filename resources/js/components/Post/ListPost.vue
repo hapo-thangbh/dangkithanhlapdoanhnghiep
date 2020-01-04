@@ -15,19 +15,27 @@
                     <div class="box">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control" placeholder="ID">
-                                </div>
-
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-2 form-group">
                                     <input type="text" class="form-control" placeholder="Tiêu đề">
                                 </div>
 
-                                <div class="col-md-3 form-group">
-                                    <input type="text" class="form-control">
+                                <div class="col-md-2 form-group">
+                                    <input type="text" class="form-control" placeholder="Danh mục">
                                 </div>
 
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-2 form-group">
+                                    <input type="text" class="form-control" placeholder="Tác giả">
+                                </div>
+
+                                <div class="col-md-2 form-group">
+                                    <input type="date" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 form-group">
+                                    <input type="date" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 form-group">
                                     <button class="btn btn-primary">
                                         <i class="fa fa-search"></i> Tìm kiếm
                                     </button>
@@ -47,14 +55,17 @@
                             <table class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="min-width: 20px">ID</th>
-                                        <th style="min-width: 100px">Tiêu đề</th>
+                                        <th style="min-width: 20px">STT</th>
+                                        <th>Tiêu đề</th>
+                                        <th style="min-width: 150px">Từ khoá SEO</th>
                                         <th style="min-width: 200px">Mô tả ngắn</th>
-                                        <th style="min-width: 100px">Ảnh thumbnail</th>
-                                        <th>Nội dung</th>
-                                        <th style="min-width: 60px">Danh mục</th>
-                                        <th style="min-width: 50px">Trạng thái</th>
-                                        <th style="min-width: 100px">Ngày tạo</th>
+                                        <th>Ảnh đại diện</th>
+                                        <th>Danh mục</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tác giả</th>
+                                        <th>Ngày đăng</th>
+                                        <th>Lượt xem</th>
+                                        <th>Bình luận</th>
                                         <th class="text-center" style="min-width: 150px">Hành động</th>
                                     </tr>
                                 </thead>
@@ -66,13 +77,13 @@
                                             <p v-html="post.title" class="title txt-ellipsis">{{ post.title }}</p>
                                         </td>
                                         <td>
+                                            <label class="label label-warning">{{ post.seo_title }}</label>
+                                        </td>
+                                        <td>
                                             <p v-html="post.description_short" class="description_short txt-ellipsis">{{ post.description_short }}</p>
                                         </td>
                                         <td>
                                             <img :src="showImage(post.image_thumb)" class="image-preview-100" alt="Image not found">
-                                        </td>
-                                        <td>
-                                            <p v-html="post.description" class="description txt-ellipsis">{{ post.description }}</p>
                                         </td>
                                         <td>
                                             <label class="label label-default mr-1">{{ post.categories.name }}</label>
@@ -81,13 +92,14 @@
                                             <label class="label label-success" v-if="post.status == 1">Công khai</label>
                                             <label class="label label-danger" v-else>Riêng tư</label>
                                         </td>
+                                        <td>{{ post.user.name }}</td>
                                         <td>{{ formartDate(post.created_at) }}</td>
+                                        <td>0</td>
+                                        <td>0</td>
                                         <td class="text-center">
-                                            <a href="post/`{post.id}`"></a>
-                                                <button class="btn btn-sm btn-success">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </a>
+                                            <button class="btn btn-sm btn-success" @click="linkPost(post.id)">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
 
                                             <router-link :to="{ path: '/admin/post/edit/' + post.id }">
                                                 <button class="btn btn-sm btn-primary">
@@ -160,8 +172,19 @@ export default {
         },
         showImage (img) {
             return "/public/images/post/"+img
+        },
+        linkPost (id) {
+            window.location.href="/post/"+id
         }
     }
 }
 
 </script>
+
+<style lang="scss">
+    table {
+        th {
+            min-width: 100px;
+        }
+    }
+</style>
