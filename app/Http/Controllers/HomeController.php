@@ -32,6 +32,10 @@ class HomeController extends Controller
         return view('User.contact');
     }
 
+    public function newDetail(){
+        return view('User.new-detail');
+    }
+
     public function dashboard(){
         return view('Admin.Elements.master');
     }

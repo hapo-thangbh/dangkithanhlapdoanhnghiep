@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Reply;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
-use DB;
+use DB,Auth;
 
 class PostController extends Controller
 {
@@ -115,5 +117,31 @@ class PostController extends Controller
     public function detailPost(Request $request, $id) {
         $post = Post::findOrFail($id);
         return view('User.detail_post', compact('post'));
+    }
+
+    // Xóa comment
+    public function deleteComment($id) {
+        Comment::findOrFail($id)->delete();
+        return redirect()->back();
+    }
+
+    // Comment
+    public function comment(Request $request) {
+        Comment::create([
+            'user_id' => Auth::user()->id,
+            'post_id' => $request->post_id,
+            'description' => $request->description,
+            'status' => 0
+        ]);
+        return redirect()->back();
+    }
+
+    // Reply
+    public function reply(Request $request) {
+        Reply::create([
+            'comment_id' => $request->comment_id,
+            'description' => $request->description,
+        ]);
+        return redirect()->back();
     }
 }

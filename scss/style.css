@@ -1,9 +1,6 @@
 @charset "UTF-8";
 @import url(../bower_components/tooltipster/4.0/dist/css/tooltipster.bundle.min.css);
 @import url("https://fonts.googleapis.com/css?family=Vollkorn:400,600,700&subset=latin-ext,vietnamese");
-textarea{
-  resize: none!important;
-}
 #category-header{margin:40px 0 10px;float:left;width:100%}
 #category-header h2 {
     color: #000;
@@ -2624,8 +2621,15 @@ transform:translate3d(0, -15px, 0)}90%{-webkit-transform:translate3d(0, -4px, 0)
   content: "\e965";
 }
 
+<<<<<<< HEAD
+
+
+
+/*Lien he*/
+=======
 /* Liên hệ */
 
 @media (min-width: 768px){
   
 }
+>>>>>>> fbc5b9c016e1bcc4e8dc7cbcae28e0daa3bae0f0
