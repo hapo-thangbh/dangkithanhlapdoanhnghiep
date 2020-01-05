@@ -35,6 +35,12 @@ Route::get('/delete-comment/{id}', 'PostController@deleteComment')->name('delete
 Route::post('/comment', 'PostController@comment')->name('comment');
 
 
+// Reply
+Route::post('/reply', 'PostController@reply')->name('reply');
+// Xóa reply
+Route::get('/delete-reply/{id}', 'PostController@deleteReply')->name('delete_reply');
+
+
 /* api */
 Route::group(['prefix' => 'api'], function() {
     //Post
