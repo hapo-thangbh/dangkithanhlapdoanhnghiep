@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <label class="checkbox-primary">
-                            <input type="checkbox" id="check" name="remember">
+                            <input type="checkbox" id="check" name="remember" checked>
                             <span></span>
                         </label>
                         <label class="lbl-checkbox-primary" for="check">Nhớ mật khẩu</label>
