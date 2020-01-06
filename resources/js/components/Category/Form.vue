@@ -46,7 +46,7 @@
                                                 <select v-model="category.parent_id" class="form-control">
                                                     <option value="">--Chọn danh mục--</option>
                                                     <option
-                                                        v-for="cate in categories"
+                                                        v-for="cate in allCategories"
                                                         :key="cate.id"
                                                         :value="cate.id"
                                                     > {{ cate.name }}</option>
@@ -144,12 +144,12 @@ export default {
             this.editCategory(idCategory)
         }
         this.getCategoriesParent()
-        this.getCategories()
+        this.getAllCategories()
         this.getTreeView()
 
     },
     computed: {
-        ...mapState('category',['categories','category', 'categoriesParent', 'treeView'])
+        ...mapState('category',['allCategories','category', 'categoriesParent', 'treeView'])
     },
     methods: {
         ...mapActions('category',[
@@ -157,7 +157,7 @@ export default {
             'addCategory',
             'editCategory',
             'updateCategory', 
-            'getCategories', 
+            'getAllCategories', 
             'getCategoriesParent',
             'getTreeView'
         ]),

@@ -2229,11 +2229,11 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
     }
 
     this.getCategoriesParent();
-    this.getCategories();
+    this.getAllCategories();
     this.getTreeView();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'category', 'categoriesParent', 'treeView'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory', 'getCategories', 'getCategoriesParent', 'getTreeView']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['allCategories', 'category', 'categoriesParent', 'treeView'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['clearCategory', 'addCategory', 'editCategory', 'updateCategory', 'getAllCategories', 'getCategoriesParent', 'getTreeView']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addCategory(this.category);
@@ -2397,13 +2397,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default.a
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
+  computed: {},
   beforeMount: function beforeMount() {
     this.getResults();
   },
-  mounted: function mounted() {
-    this.getCategories();
-  },
+  mounted: function mounted() {},
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories', 'deleteCategory']), {
     destroyCategory: function destroyCategory(id) {
       var _this = this;
@@ -4056,12 +4054,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default.a
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
   mounted: function mounted() {
-    this.getPosts();
     this.getCategories();
+    this.getResults();
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts', 'deletePost']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['deletePost']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {
     destroyPost: function destroyPost(id) {
       var _this = this;
 
@@ -5022,10 +5020,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   mounted: function mounted() {
-    this.getUsers();
     this.getResults();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('user', ['users'])),
+  computed: {},
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('user', ['getUsers', 'deleteUser']), {
     destroyUser: function destroyUser(id) {
       var _this = this;
@@ -61487,7 +61484,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.4.1
+* sweetalert2 v9.5.4
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -61799,7 +61796,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -62327,7 +62324,14 @@ var renderContainer = function renderContainer(instance, params) {
   handlePositionParam(container, params.position);
   handleGrowParam(container, params.grow); // Custom class
 
-  applyCustomClass(container, params, 'container');
+  applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
+
+  var queueStep = document.body.getAttribute('data-swal2-queue-step');
+
+  if (queueStep) {
+    container.setAttribute('data-queue-step', queueStep);
+    document.body.removeAttribute('data-swal2-queue-step');
+  }
 };
 
 /**
@@ -62651,6 +62655,71 @@ var renderImage = function renderImage(instance, params) {
   applyCustomClass(image, params, 'image');
 };
 
+var currentSteps = [];
+/*
+ * Global function for chaining sweetAlert popups
+ */
+
+var queue = function queue(steps) {
+  var Swal = this;
+  currentSteps = steps;
+
+  var resetAndResolve = function resetAndResolve(resolve, value) {
+    currentSteps = [];
+    resolve(value);
+  };
+
+  var queueResult = [];
+  return new Promise(function (resolve) {
+    (function step(i, callback) {
+      if (i < currentSteps.length) {
+        document.body.setAttribute('data-swal2-queue-step', i);
+        Swal.fire(currentSteps[i]).then(function (result) {
+          if (typeof result.value !== 'undefined') {
+            queueResult.push(result.value);
+            step(i + 1, callback);
+          } else {
+            resetAndResolve(resolve, {
+              dismiss: result.dismiss
+            });
+          }
+        });
+      } else {
+        resetAndResolve(resolve, {
+          value: queueResult
+        });
+      }
+    })(0);
+  });
+};
+/*
+ * Global function for getting the index of current popup in queue
+ */
+
+var getQueueStep = function getQueueStep() {
+  return getContainer().getAttribute('data-queue-step');
+};
+/*
+ * Global function for inserting a popup to the queue
+ */
+
+var insertQueueStep = function insertQueueStep(step, index) {
+  if (index && index < currentSteps.length) {
+    return currentSteps.splice(index, 0, step);
+  }
+
+  return currentSteps.push(step);
+};
+/*
+ * Global function for deleting a popup from the queue
+ */
+
+var deleteQueueStep = function deleteQueueStep(index) {
+  if (typeof currentSteps[index] !== 'undefined') {
+    currentSteps.splice(index, 1);
+  }
+};
+
 var createStepElement = function createStepElement(step) {
   var stepEl = document.createElement('li');
   addClass(stepEl, swalClasses['progress-step']);
@@ -62678,7 +62747,7 @@ var renderProgressSteps = function renderProgressSteps(instance, params) {
 
   show(progressStepsContainer);
   progressStepsContainer.innerHTML = '';
-  var currentProgressStep = parseInt(params.currentProgressStep === null ? Swal.getQueueStep() : params.currentProgressStep);
+  var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
 
   if (currentProgressStep >= params.progressSteps.length) {
     warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
@@ -62740,10 +62809,15 @@ var renderPopup = function renderPopup(instance, params) {
 
   if (params.background) {
     popup.style.background = params.background;
-  } // Default Class
+  } // Classes
 
 
-  popup.className = swalClasses.popup;
+  addClasses(popup, params);
+};
+
+var addClasses = function addClasses(popup, params) {
+  // Default Class + showClass when updating Swal.update({})
+  popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
 
   if (params.toast) {
     addClass([document.documentElement, document.body], swalClasses['toast-shown']);
@@ -62757,11 +62831,11 @@ var renderPopup = function renderPopup(instance, params) {
 
   if (typeof params.customClass === 'string') {
     addClass(popup, params.customClass);
-  } // Add showClass when updating Swal.update({})
+  } // Icon class (#1842)
 
 
-  if (isVisible(popup)) {
-    addClass(popup, params.showClass.popup);
+  if (params.icon) {
+    addClass(popup, swalClasses["icon-".concat(params.icon)]);
   }
 };
 
@@ -62852,73 +62926,6 @@ function mixin(mixinParams) {
 
   return MixinSwal;
 }
-
-// private global state for the queue feature
-var currentSteps = [];
-/*
- * Global function for chaining sweetAlert popups
- */
-
-var queue = function queue(steps) {
-  var Swal = this;
-  currentSteps = steps;
-
-  var resetAndResolve = function resetAndResolve(resolve, value) {
-    currentSteps = [];
-    document.body.removeAttribute('data-swal2-queue-step');
-    resolve(value);
-  };
-
-  var queueResult = [];
-  return new Promise(function (resolve) {
-    (function step(i, callback) {
-      if (i < currentSteps.length) {
-        document.body.setAttribute('data-swal2-queue-step', i);
-        Swal.fire(currentSteps[i]).then(function (result) {
-          if (typeof result.value !== 'undefined') {
-            queueResult.push(result.value);
-            step(i + 1, callback);
-          } else {
-            resetAndResolve(resolve, {
-              dismiss: result.dismiss
-            });
-          }
-        });
-      } else {
-        resetAndResolve(resolve, {
-          value: queueResult
-        });
-      }
-    })(0);
-  });
-};
-/*
- * Global function for getting the index of current popup in queue
- */
-
-var getQueueStep = function getQueueStep() {
-  return document.body.getAttribute('data-swal2-queue-step');
-};
-/*
- * Global function for inserting a popup to the queue
- */
-
-var insertQueueStep = function insertQueueStep(step, index) {
-  if (index && index < currentSteps.length) {
-    return currentSteps.splice(index, 0, step);
-  }
-
-  return currentSteps.push(step);
-};
-/*
- * Global function for deleting a popup from the queue
- */
-
-var deleteQueueStep = function deleteQueueStep(index) {
-  if (typeof currentSteps[index] !== 'undefined') {
-    currentSteps.splice(index, 1);
-  }
-};
 
 /**
  * Show spinner instead of Confirm button
@@ -63717,16 +63724,11 @@ function setParameters(params) {
   init(params);
 }
 
-function swalOpenAnimationFinished(popup, container) {
-  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-  container.style.overflowY = 'auto';
-}
 /**
  * Open popup, add necessary classes and styles, fix scrollbar
  *
  * @param {Array} params
  */
-
 
 var openPopup = function openPopup(params) {
   var container = getContainer();
@@ -63736,7 +63738,7 @@ var openPopup = function openPopup(params) {
     params.onBeforeOpen(popup);
   }
 
-  addClasses(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
+  addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
 
   setScrollingVisibility(container, popup);
 
@@ -63755,10 +63757,22 @@ var openPopup = function openPopup(params) {
   }
 };
 
+function swalOpenAnimationFinished(event) {
+  var popup = getPopup();
+
+  if (event.target !== popup) {
+    return;
+  }
+
+  var container = getContainer();
+  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+  container.style.overflowY = 'auto';
+}
+
 var setScrollingVisibility = function setScrollingVisibility(container, popup) {
   if (animationEndEvent && hasCssAnimation(popup)) {
     container.style.overflowY = 'hidden';
-    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished.bind(null, popup, container));
+    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
   } else {
     container.style.overflowY = 'auto';
   }
@@ -63779,7 +63793,7 @@ var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding
   });
 };
 
-var addClasses = function addClasses(container, popup, params) {
+var addClasses$1 = function addClasses(container, popup, params) {
   addClass(container, params.showClass.backdrop);
   show(popup); // Animate popup right after showing it
 
@@ -64465,7 +64479,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.4.1';
+SweetAlert.version = '9.5.4';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -64591,7 +64605,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "required_if", function() { return required_if; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "size", function() { return size; });
 /**
-  * vee-validate v3.1.3
+  * vee-validate v3.2.1
   * (c) 2019 Abdelrahman Awad
   * @license MIT
   */
@@ -65304,7 +65318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /**
-  * vee-validate v3.1.3
+  * vee-validate v3.2.1
   * (c) 2019 Abdelrahman Awad
   * @license MIT
   */
@@ -65590,13 +65604,6 @@ var RuleContainer = /** @class */ (function () {
         }
         RULES[name] = __assign({ lazy: false, computesRequired: false }, rule);
     };
-    RuleContainer.iterate = function (fn) {
-        var keys = Object.keys(RULES);
-        var length = keys.length;
-        for (var i = 0; i < length; i++) {
-            fn(keys[i], RULES[keys[i]]);
-        }
-    };
     RuleContainer.isLazy = function (name) {
         var _a;
         return !!((_a = RULES[name]) === null || _a === void 0 ? void 0 : _a.lazy);
@@ -65604,14 +65611,6 @@ var RuleContainer = /** @class */ (function () {
     RuleContainer.isRequireRule = function (name) {
         var _a;
         return !!((_a = RULES[name]) === null || _a === void 0 ? void 0 : _a.computesRequired);
-    };
-    RuleContainer.isTargetRule = function (name) {
-        var _a;
-        var definition = RuleContainer.getRuleDefinition(name);
-        if (!((_a = definition) === null || _a === void 0 ? void 0 : _a.params)) {
-            return false;
-        }
-        return definition.params.some(function (param) { return !!param.isTarget; });
     };
     RuleContainer.getRuleDefinition = function (ruleName) {
         return RULES[ruleName];
@@ -66026,13 +66025,12 @@ function _test(field, value, rule) {
                             }];
                     }
                     if (!isObject(result)) {
-                        result = { valid: result, data: {} };
+                        result = { valid: result };
                     }
                     return [2 /*return*/, {
                             valid: result.valid,
                             required: result.required,
-                            data: result.data || {},
-                            error: result.valid ? undefined : _generateFieldError(field, value, ruleSchema, rule.name, params, result.data)
+                            error: result.valid ? undefined : _generateFieldError(field, value, ruleSchema, rule.name, params)
                         }];
             }
         });
@@ -66041,11 +66039,11 @@ function _test(field, value, rule) {
 /**
  * Generates error messages.
  */
-function _generateFieldError(field, value, ruleSchema, ruleName, params, data) {
+function _generateFieldError(field, value, ruleSchema, ruleName, params) {
     var message = field.customMessages[ruleName] || ruleSchema.message;
     var ruleTargets = _getRuleTargets(field, ruleSchema, ruleName);
     var _a = _getUserTargets(field, ruleSchema, ruleName, message), userTargets = _a.userTargets, userMessage = _a.userMessage;
-    var values = __assign(__assign(__assign(__assign(__assign({}, (params || {})), (data || {})), { _field_: field.name, _value_: value, _rule_: ruleName }), ruleTargets), userTargets);
+    var values = __assign(__assign(__assign(__assign({}, (params || {})), { _field_: field.name, _value_: value, _rule_: ruleName }), ruleTargets), userTargets);
     return {
         msg: function () { return _normalizeMessage(userMessage || getConfig().defaultMessage, field.name, values); },
         rule: ruleName
@@ -66069,19 +66067,14 @@ function _getRuleTargets(field, ruleSchema, ruleName) {
     }
     for (var index = 0; index < params.length; index++) {
         var param = params[index];
-        if (!param.isTarget) {
+        var key = ruleConfig[index];
+        if (!isLocator(key)) {
             continue;
         }
-        var key = ruleConfig[index];
-        if (isLocator(key)) {
-            key = key.__locatorRef;
-        }
+        key = key.__locatorRef;
         var name_1 = field.names[key] || key;
-        if (numTargets === 1) {
-            names._target_ = name_1;
-            break;
-        }
-        names["_" + param.name + "Target_"] = name_1;
+        names[param.name] = name_1;
+        names["_" + param.name + "_"] = field.crossTable[key];
     }
     return names;
 }
@@ -66107,14 +66100,8 @@ function _getUserTargets(field, ruleSchema, ruleName, userMessage) {
         }
         // grab the name of the target
         var name = rule.__locatorRef;
-        var placeholder = "_" + name + "Target_";
-        userTargets[placeholder] = field.names[name] || name;
-        userTargets[name] = field.names[name] || name;
-        // update template if it's a string
-        if (typeof userMessage === 'string') {
-            var rx = new RegExp("{" + param.name + "}", 'g');
-            userMessage = userMessage.replace(rx, "{" + placeholder + "}");
-        }
+        userTargets[param.name] = field.names[name] || name;
+        userTargets["_" + param.name + "_"] = field.crossTable[name];
     });
     return {
         userTargets: userTargets,
@@ -66201,7 +66188,7 @@ var Dictionary = /** @class */ (function () {
         // find if specific message for that field was specified.
         message = ((_c = (_b = (_a = this.container[locale]) === null || _a === void 0 ? void 0 : _a.fields) === null || _b === void 0 ? void 0 : _b[field]) === null || _c === void 0 ? void 0 : _c[rule]) || ((_e = (_d = this.container[locale]) === null || _d === void 0 ? void 0 : _d.messages) === null || _e === void 0 ? void 0 : _e[rule]);
         if (!message) {
-            message = getConfig().defaultMessage;
+            message = '{field} is not valid';
         }
         field = (_h = (_g = (_f = this.container[locale]) === null || _f === void 0 ? void 0 : _f.names) === null || _g === void 0 ? void 0 : _g[field], (_h !== null && _h !== void 0 ? _h : field));
         return isCallable(message) ? message(field, values) : interpolate(message, __assign(__assign({}, values), { _field_: field }));
@@ -66216,46 +66203,26 @@ var Dictionary = /** @class */ (function () {
     return Dictionary;
 }());
 var DICTIONARY;
-var INSTALLED = false;
-function updateRules() {
-    if (INSTALLED) {
-        return;
-    }
-    RuleContainer.iterate(function (name, schema) {
-        var _a, _b;
-        if (schema.message && !DICTIONARY.hasRule(name)) {
-            DICTIONARY.merge((_a = {},
-                _a[DICTIONARY.locale] = {
-                    messages: (_b = {},
-                        _b[name] = schema.message,
-                        _b)
-                },
-                _a));
-        }
-        extend(name, {
-            message: function (field, values) {
-                return DICTIONARY.resolve(field, name, values || {});
-            }
-        });
-    });
-    INSTALLED = true;
-}
 function localize(locale, dictionary) {
     var _a;
     if (!DICTIONARY) {
         DICTIONARY = new Dictionary('en', {});
+        setConfig({
+            defaultMessage: function (field, values) {
+                var _a;
+                return DICTIONARY.resolve(field, (_a = values) === null || _a === void 0 ? void 0 : _a._rule_, values || {});
+            }
+        });
     }
     if (typeof locale === 'string') {
         DICTIONARY.locale = locale;
         if (dictionary) {
             DICTIONARY.merge((_a = {}, _a[locale] = dictionary, _a));
         }
-        updateRules();
         localeChanged();
         return;
     }
     DICTIONARY.merge(locale);
-    updateRules();
 }
 
 var isEvent = function (evt) {
@@ -66475,23 +66442,23 @@ function resolveTextualRules(vnode) {
     var rules = {};
     if (!attrs)
         return rules;
-    if (attrs.type === 'email') {
+    if (attrs.type === 'email' && RuleContainer.getRuleDefinition('email')) {
         rules.email = ['multiple' in attrs];
     }
-    if (attrs.pattern) {
+    if (attrs.pattern && RuleContainer.getRuleDefinition('regex')) {
         rules.regex = attrs.pattern;
     }
-    if (attrs.maxlength >= 0) {
+    if (attrs.maxlength >= 0 && RuleContainer.getRuleDefinition('max')) {
         rules.max = attrs.maxlength;
     }
-    if (attrs.minlength >= 0) {
+    if (attrs.minlength >= 0 && RuleContainer.getRuleDefinition('min')) {
         rules.min = attrs.minlength;
     }
     if (attrs.type === 'number') {
-        if (isSpecified(attrs.min)) {
+        if (isSpecified(attrs.min) && RuleContainer.getRuleDefinition('min_value')) {
             rules.min_value = Number(attrs.min);
         }
-        if (isSpecified(attrs.max)) {
+        if (isSpecified(attrs.max) && RuleContainer.getRuleDefinition('max_value')) {
             rules.max_value = Number(attrs.max);
         }
     }
@@ -66499,13 +66466,13 @@ function resolveTextualRules(vnode) {
 }
 function resolveRules(vnode) {
     var _a;
-    var htmlTags = ['input', 'select'];
+    var htmlTags = ['input', 'select', 'textarea'];
     var attrs = (_a = vnode.data) === null || _a === void 0 ? void 0 : _a.attrs;
     if (!includes(htmlTags, vnode.tag) || !attrs) {
         return {};
     }
     var rules = {};
-    if ('required' in attrs && attrs.required !== false) {
+    if ('required' in attrs && attrs.required !== false && RuleContainer.getRuleDefinition('required')) {
         rules.required = attrs.type === 'checkbox' ? [true] : true;
     }
     if (isTextInput(vnode)) {
@@ -66569,7 +66536,12 @@ function onRenderUpdate(vm, value) {
     if (!validateNow) {
         return;
     }
-    vm.validateSilent().then(vm.immediate || vm.flags.validated ? vm.applyResult : identity);
+    var validate = function () { return vm.validateSilent().then(vm.immediate || vm.flags.validated ? vm.applyResult : identity); };
+    if (vm.initialized) {
+        validate();
+        return;
+    }
+    vm.$once('hook:mounted', function () { return validate(); });
 }
 function computeModeSetting(ctx) {
     var compute = (isCallable(ctx.mode) ? ctx.mode : modes[ctx.mode]);
@@ -66804,7 +66776,7 @@ var ValidationProvider = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
     },
     beforeDestroy: function () {
         // cleanup reference.
-        this.$_veeObserver.unsubscribe(this.id);
+        this.$_veeObserver.unobserve(this.id);
     },
     activated: function () {
         this.isActive = true;
@@ -66830,6 +66802,7 @@ var ValidationProvider = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
             var flags = createFlags();
             flags.required = this.isRequired;
             this.setFlags(flags);
+            this.failedRules = {};
             this.validateSilent();
         },
         validate: function () {
@@ -66968,18 +66941,18 @@ function updateRenderingContextRefs(vm) {
     }
     // vid was changed.
     if (id !== providedId && vm.$_veeObserver.refs[id] === vm) {
-        vm.$_veeObserver.unsubscribe(id);
+        vm.$_veeObserver.unobserve(id);
     }
     vm.id = providedId;
-    vm.$_veeObserver.subscribe(vm);
+    vm.$_veeObserver.observe(vm);
 }
 function createObserver() {
     return {
         refs: {},
-        subscribe: function (vm) {
+        observe: function (vm) {
             this.refs[vm.id] = vm;
         },
-        unsubscribe: function (id) {
+        unobserve: function (id) {
             delete this.refs[id];
         }
     };
@@ -67022,7 +66995,8 @@ var OBSERVER_COUNTER = 0;
 function data$1() {
     var refs = {};
     var errors = {};
-    var flags = {};
+    var flags = createObserverFlags();
+    var fields = {};
     // FIXME: Not sure of this one can be typed, circular type reference.
     var observers = [];
     return {
@@ -67030,7 +67004,8 @@ function data$1() {
         refs: refs,
         observers: observers,
         errors: errors,
-        flags: flags
+        flags: flags,
+        fields: fields
     };
 }
 function provideSelf() {
@@ -67078,25 +67053,12 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
         this.id = this.vid;
         register(this);
         var onChange = debounce(function (_a) {
-            var errors = _a.errors, flags = _a.flags;
+            var errors = _a.errors, flags = _a.flags, fields = _a.fields;
             _this.errors = errors;
             _this.flags = flags;
+            _this.fields = fields;
         }, 16);
-        this.$watch(function () {
-            var vms = __spreadArrays(values(_this.refs), _this.observers);
-            var errors = {};
-            var flags = {};
-            var length = vms.length;
-            for (var i = 0; i < length; i++) {
-                var vm = vms[i];
-                errors[vm.id] = vm.errors;
-            }
-            FLAGS_STRATEGIES.forEach(function (_a) {
-                var flag = _a[0], method = _a[1];
-                flags[flag] = vms[method](function (vm) { return vm.flags[flag]; });
-            });
-            return { errors: errors, flags: flags };
-        }, onChange);
+        this.$watch(computeObserverState, onChange);
     },
     activated: function () {
         register(this);
@@ -67112,7 +67074,7 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
         return this.slim && children.length <= 1 ? children[0] : h(this.tag, { on: this.$listeners }, children);
     },
     methods: {
-        subscribe: function (subscriber, kind) {
+        observe: function (subscriber, kind) {
             var _a;
             if (kind === void 0) { kind = 'provider'; }
             if (kind === 'observer') {
@@ -67121,7 +67083,7 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
             }
             this.refs = __assign(__assign({}, this.refs), (_a = {}, _a[subscriber.id] = subscriber, _a));
         },
-        unsubscribe: function (id, kind) {
+        unobserve: function (id, kind) {
             if (kind === void 0) { kind = 'provider'; }
             if (kind === 'provider') {
                 var provider = this.refs[id];
@@ -67187,16 +67149,44 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
 });
 function unregister(vm) {
     if (vm.$_veeObserver) {
-        vm.$_veeObserver.unsubscribe(vm.id, 'observer');
+        vm.$_veeObserver.unobserve(vm.id, 'observer');
     }
 }
 function register(vm) {
     if (vm.$_veeObserver) {
-        vm.$_veeObserver.subscribe(vm, 'observer');
+        vm.$_veeObserver.observe(vm, 'observer');
     }
 }
 function prepareSlotProps(vm) {
-    return __assign(__assign({}, vm.flags), { errors: vm.errors, validate: vm.validate, passes: vm.handleSubmit, handleSubmit: vm.handleSubmit, reset: vm.reset });
+    return __assign(__assign({}, vm.flags), { errors: vm.errors, fields: vm.fields, validate: vm.validate, passes: vm.handleSubmit, handleSubmit: vm.handleSubmit, reset: vm.reset });
+}
+// Creates a modified version of validation flags
+function createObserverFlags() {
+    return __assign(__assign({}, createFlags()), { valid: true, invalid: false });
+}
+function computeObserverState() {
+    var vms = __spreadArrays(values(this.refs), this.observers);
+    var errors = {};
+    var flags = createObserverFlags();
+    var fields = {};
+    var length = vms.length;
+    for (var i = 0; i < length; i++) {
+        var vm = vms[i];
+        // validation provider
+        if (Array.isArray(vm.errors)) {
+            errors[vm.id] = vm.errors;
+            fields[vm.id] = __assign({ id: vm.id, name: vm.name, failedRules: vm.failedRules }, vm.flags);
+            continue;
+        }
+        // Nested observer, merge errors and fields
+        errors = __assign(__assign({}, errors), vm.errors);
+        fields = __assign(__assign({}, fields), vm.fields);
+    }
+    FLAGS_STRATEGIES.forEach(function (_a) {
+        var flag = _a[0], method = _a[1];
+        flags[flag] = vms[method](function (vm) { return vm.flags[flag]; });
+    });
+    return { errors: errors, flags: flags, fields: fields };
 }
 
 function withValidation(component, mapProps) {
@@ -67243,7 +67233,7 @@ function withValidation(component, mapProps) {
     return hoc;
 }
 
-var version = '3.1.3';
+var version = '3.2.1';
 
 
 
@@ -67782,7 +67772,7 @@ var render = function() {
                                         _vm._v("--Chọn danh mục--")
                                       ]),
                                       _vm._v(" "),
-                                      _vm._l(_vm.categories, function(cate) {
+                                      _vm._l(_vm.allCategories, function(cate) {
                                         return _c(
                                           "option",
                                           {
@@ -71197,7 +71187,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.posts, function(post) {
+                      _vm._l(_vm.posts.data, function(post) {
                         return _c("tr", { key: post.id }, [
                           _c("td", [_vm._v(_vm._s(post.id))]),
                           _vm._v(" "),
@@ -71328,6 +71318,24 @@ var render = function() {
                       0
                     )
                   ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row pull-right" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-md-12" },
+                  [
+                    _c("pagination", {
+                      attrs: {
+                        data: _vm.posts,
+                        "show-disabled": true,
+                        limit: 1
+                      },
+                      on: { "pagination-change-page": _vm.getResults }
+                    })
+                  ],
+                  1
                 )
               ])
             ],
@@ -76487,7 +76495,7 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.10
+ * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -78453,7 +78461,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   isUsingMicroTask = true;
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
   // Fallback to setImmediate.
-  // Techinically it leverages the (macro) task queue,
+  // Technically it leverages the (macro) task queue,
   // but it is still a better choice than setTimeout.
   timerFunc = function () {
     setImmediate(flushCallbacks);
@@ -78542,7 +78550,7 @@ var initProxy;
     warn(
       "Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " +
       'properties starting with "$" or "_" are not proxied in the Vue instance to ' +
-      'prevent conflicts with Vue internals' +
+      'prevent conflicts with Vue internals. ' +
       'See: https://vuejs.org/v2/api/#data',
       target
     );
@@ -79402,7 +79410,7 @@ function bindDynamicKeys (baseObj, values) {
     if (typeof key === 'string' && key) {
       baseObj[values[i]] = values[i + 1];
     } else if (key !== '' && key !== null) {
-      // null is a speical value for explicitly removing a binding
+      // null is a special value for explicitly removing a binding
       warn(
         ("Invalid value for dynamic directive argument (expected string or null): " + key),
         this
@@ -79897,6 +79905,12 @@ function _createElement (
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
     if (config.isReservedTag(tag)) {
       // platform built-in elements
+      if (isDef(data) && isDef(data.nativeOn)) {
+        warn(
+          ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
+          context
+        );
+      }
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
@@ -80022,7 +80036,7 @@ function renderMixin (Vue) {
     // render self
     var vnode;
     try {
-      // There's no need to maintain a stack becaues all render fns are called
+      // There's no need to maintain a stack because all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm;
@@ -81921,7 +81935,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.10';
+Vue.version = '2.6.11';
 
 /*  */
 
@@ -82594,7 +82608,7 @@ function createPatchFunction (backend) {
     }
   }
 
-  function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
+  function removeVnodes (vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
       var ch = vnodes[startIdx];
       if (isDef(ch)) {
@@ -82705,7 +82719,7 @@ function createPatchFunction (backend) {
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;
       addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
     } else if (newStartIdx > newEndIdx) {
-      removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+      removeVnodes(oldCh, oldStartIdx, oldEndIdx);
     }
   }
 
@@ -82797,7 +82811,7 @@ function createPatchFunction (backend) {
         if (isDef(oldVnode.text)) { nodeOps.setTextContent(elm, ''); }
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
-        removeVnodes(elm, oldCh, 0, oldCh.length - 1);
+        removeVnodes(oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
         nodeOps.setTextContent(elm, '');
       }
@@ -83026,7 +83040,7 @@ function createPatchFunction (backend) {
 
         // destroy old node
         if (isDef(parentElm)) {
-          removeVnodes(parentElm, [oldVnode], 0, 0);
+          removeVnodes([oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
           invokeDestroyHook(oldVnode);
         }
@@ -85732,7 +85746,7 @@ var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
 var endTag = new RegExp(("^<\\/" + qnameCapture + "[^>]*>"));
 var doctype = /^<!DOCTYPE [^>]+>/i;
-// #7298: escape - to avoid being pased as HTML comment when inlined in page
+// #7298: escape - to avoid being passed as HTML comment when inlined in page
 var comment = /^<!\--/;
 var conditionalComment = /^<!\[/;
 
@@ -86017,7 +86031,7 @@ function parseHTML (html, options) {
 /*  */
 
 var onRE = /^@|^v-on:/;
-var dirRE = /^v-|^@|^:/;
+var dirRE = /^v-|^@|^:|^#/;
 var forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
 var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
@@ -86641,7 +86655,7 @@ function processSlotContent (el) {
           if (el.parent && !maybeComponent(el.parent)) {
             warn$2(
               "<template v-slot> can only appear at the root level inside " +
-              "the receiving the component",
+              "the receiving component",
               el
             );
           }
@@ -87204,7 +87218,7 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/;
+var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function(?:\s+[\w$]+)?\s*\(/;
 var fnInvokeRE = /\([^)]*?\);*$/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
@@ -87973,6 +87987,8 @@ function checkNode (node, warn) {
           var range = node.rawAttrsMap[name];
           if (name === 'v-for') {
             checkFor(node, ("v-for=\"" + value + "\""), warn, range);
+          } else if (name === 'v-slot' || name[0] === '#') {
+            checkFunctionParameterExpression(value, (name + "=\"" + value + "\""), warn, range);
           } else if (onRE.test(name)) {
             checkEvent(value, (name + "=\"" + value + "\""), warn, range);
           } else {
@@ -87992,9 +88008,9 @@ function checkNode (node, warn) {
 }
 
 function checkEvent (exp, text, warn, range) {
-  var stipped = exp.replace(stripStringRE, '');
-  var keywordMatch = stipped.match(unaryOperatorsRE);
-  if (keywordMatch && stipped.charAt(keywordMatch.index - 1) !== '$') {
+  var stripped = exp.replace(stripStringRE, '');
+  var keywordMatch = stripped.match(unaryOperatorsRE);
+  if (keywordMatch && stripped.charAt(keywordMatch.index - 1) !== '$') {
     warn(
       "avoid using JavaScript unary operator as property name: " +
       "\"" + (keywordMatch[0]) + "\" in expression " + (text.trim()),
@@ -88046,6 +88062,19 @@ function checkExpression (exp, text, warn, range) {
         range
       );
     }
+  }
+}
+
+function checkFunctionParameterExpression (exp, text, warn, range) {
+  try {
+    new Function(exp, '');
+  } catch (e) {
+    warn(
+      "invalid function parameter expression: " + (e.message) + " in\n\n" +
+      "    " + exp + "\n\n" +
+      "  Raw expression: " + (text.trim()) + "\n",
+      range
+    );
   }
 }
 
@@ -98968,7 +98997,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       context.commit('setCategory', data);
     },
-    //get list category for index
+    //get list category for paginate
     getCategories: function getCategories(context) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories').then(function (_ref) {
@@ -98980,6 +99009,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    //get list category do not paginate
     getAllCategories: function getAllCategories(context) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/all').then(function (_ref2) {
@@ -99191,7 +99221,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
-    posts: [],
+    // posts: {},
+    allPosts: {},
     errors: '',
     message: '',
     post: {
@@ -99206,6 +99237,9 @@ __webpack_require__.r(__webpack_exports__);
     companies: []
   },
   mutations: {
+    setAllPosts: function setAllPosts(state, data) {
+      state.allPosts = data;
+    },
     setPosts: function setPosts(state, data) {
       state.posts = data;
     },
@@ -99235,7 +99269,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       context.commit('setPost', data);
     },
-    //get list post
+    //get list post for paginate
     getPosts: function getPosts(context) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (_ref) {
@@ -99247,13 +99281,24 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    getAllPosts: function getAllPosts(context) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/all').then(function (_ref2) {
+          var data = _ref2.data;
+          context.commit('setAllPosts', data);
+          resolve(data);
+        })["catch"](function (err) {
+          context.commit('setErrors', err);
+        });
+      });
+    },
     //add post
     addPost: function addPost(context, data) {
       data.selected = [];
       data.selected.push(data.categories.id);
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref2) {
-          var data = _ref2.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/posts/add', data).then(function (_ref3) {
+          var data = _ref3.data;
 
           if (data.status === 200) {
             context.commit('setPost', data.message);
@@ -99278,12 +99323,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     //delete post
-    deletePost: function deletePost(_ref3, id) {
-      var context = _ref3.context,
-          dispatch = _ref3.dispatch;
+    deletePost: function deletePost(_ref4, id) {
+      var context = _ref4.context,
+          dispatch = _ref4.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref4) {
-          var data = _ref4.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/posts/delete/' + id).then(function (_ref5) {
+          var data = _ref5.data;
 
           if (data.status === 200) {
             dispatch('getPosts');
@@ -99302,8 +99347,8 @@ __webpack_require__.r(__webpack_exports__);
     //get info post
     editPost: function editPost(context, idPost) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts/edit/' + idPost).then(function (_ref6) {
+          var data = _ref6.data;
           context.commit('setPost', data);
           resolve(data);
         })["catch"](function (err) {
@@ -99317,8 +99362,8 @@ __webpack_require__.r(__webpack_exports__);
       data.selected.push(data.categories.id);
       return new Promise(function (resolve) {
         var idPost = data.id;
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref6) {
-          var data = _ref6.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/posts/update/' + idPost, data).then(function (_ref7) {
+          var data = _ref7.data;
 
           if (data.status === 200) {
             context.commit('setPosts', data);
@@ -99542,15 +99587,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })

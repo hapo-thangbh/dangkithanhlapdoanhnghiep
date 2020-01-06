@@ -5,7 +5,7 @@ import router from '../../router'
 export default {
     namespaced: true,
     state: {
-        categories:{},
+        categories: {},
         allCategories: {},
         categoriesParent: [],
         errors: '',
@@ -50,7 +50,8 @@ export default {
             }
             context.commit('setCategory', data)
         },
-        //get list category for index
+
+        //get list category for paginate
         getCategories (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/categories')
@@ -64,6 +65,7 @@ export default {
             })
         },
 
+        //get list category do not paginate
         getAllCategories (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/categories/all')

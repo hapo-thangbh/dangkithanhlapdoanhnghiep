@@ -13,8 +13,12 @@ class PostController extends Controller
 {
     //show all post
     public function index(){
-        $post = Post::with(['categories','user'])->get();
+        $post = Post::with(['categories','user'])->paginate(PAGE_LIMIT);
         return $post;
+    }
+
+    public function getAllPosts() {
+        return Post::with(['categories','user'])->get();
     }
 
     //add post

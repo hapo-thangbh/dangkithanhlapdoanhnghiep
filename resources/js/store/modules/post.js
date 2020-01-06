@@ -5,7 +5,8 @@ import router from './../../router'
 export default {
     namespaced: true,
     state: {
-        posts:[],
+        // posts: {},
+        allPosts: {},
         errors: '',
         message: '',
         post: {
@@ -20,6 +21,9 @@ export default {
         companies: []
     },
     mutations: {
+        setAllPosts (state, data) {
+            state.allPosts = data
+        },
         setPosts (state, data) {
             state.posts = data
         },
@@ -49,7 +53,8 @@ export default {
             }
             context.commit('setPost', data)
         },
-        //get list post
+
+        //get list post for paginate
         getPosts (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/posts')
@@ -57,6 +62,21 @@ export default {
                         data
                     }) => {
                         context.commit('setPosts', data)
+                        resolve(data)
+                    })
+                    .catch( err => {
+                        context.commit('setErrors', err)
+                    })
+            })
+        },
+
+        getAllPosts (context) {
+            return new Promise(resolve => {
+                ApiService.get('/api/posts/all')
+                    .then(({
+                        data
+                    }) => {
+                        context.commit('setAllPosts', data)
                         resolve(data)
                     })
                     .catch( err => {

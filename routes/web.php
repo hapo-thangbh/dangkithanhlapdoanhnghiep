@@ -45,6 +45,7 @@ Route::get('/delete-reply/{id}', 'PostController@deleteReply')->name('delete_rep
 Route::group(['prefix' => 'api'], function() {
     //Post
     Route::get('/posts','PostController@index');
+    Route::get('/posts/all','PostController@getAllPosts');
     Route::post('/posts/add','PostController@addPost');
     Route::get('/posts/edit/{id}','PostController@editPost');
     Route::put('/posts/update/{id}','PostController@updatePost');

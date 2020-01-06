@@ -107,13 +107,13 @@ export default {
         pagination
     },
     computed: {
-        ...mapState('category', ['categories'])
+        
     },
     beforeMount() {
         this.getResults()
     },
     mounted() {
-        this.getCategories()
+        
     },
     methods: {
         ...mapActions('category',['getCategories','deleteCategory']),

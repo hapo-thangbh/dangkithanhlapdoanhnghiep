@@ -113,11 +113,10 @@ export default {
         pagination
     },
     mounted() {
-        this.getUsers()
         this.getResults()
     },
     computed: {
-        ...mapState('user', ['users'])
+        
     },
     methods: {
         ...mapActions('user', ['getUsers', 'deleteUser']),

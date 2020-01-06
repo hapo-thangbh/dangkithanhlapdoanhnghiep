@@ -71,7 +71,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr v-for="post in posts" :key="post.id">
+                                    <tr v-for="post in posts.data" :key="post.id">
                                         <td>{{ post.id }}</td>
                                         <td>
                                             <p v-html="post.title" class="title txt-ellipsis">{{ post.title }}</p>
@@ -115,7 +115,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <div class="row pull-right">
+                        <div class="row pull-right">
                             <div class="col-md-12">
                                 <pagination 
                                     :data="posts" 
@@ -124,7 +124,7 @@
                                     :limit="1"
                                 ></pagination>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,15 +146,16 @@ export default {
         pagination
     },
     computed: {
-        ...mapState('post',['posts']),
+        // ...mapState('post',['posts']),
         ...mapState('category',['categories']),
+        
     },
     mounted() {
-        this.getPosts()
         this.getCategories()
+        this.getResults()
     },
     methods: {
-        ...mapActions('post',['getPosts','deletePost']),
+        ...mapActions('post',['deletePost']),
         ...mapActions('category',['getCategories']),
         destroyPost(id) {
             swal.fire({
