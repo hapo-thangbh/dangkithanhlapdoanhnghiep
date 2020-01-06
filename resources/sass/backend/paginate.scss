@@ -1,0 +1,13 @@
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #3c8dbc !important;
+    border-color: #3c8dbc !important;
+
+}
+
+.page-link {
+    &:focus {
+        box-shadow: none !important;
+    }
+}

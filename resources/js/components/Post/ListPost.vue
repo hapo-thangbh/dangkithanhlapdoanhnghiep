@@ -115,6 +115,16 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!-- <div class="row pull-right">
+                            <div class="col-md-12">
+                                <pagination 
+                                    :data="posts" 
+                                    @pagination-change-page="getResults"
+                                    :show-disabled="true"
+                                    :limit="1"
+                                ></pagination>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -124,10 +134,16 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import pagination from 'laravel-vue-pagination'
 export default {
     name: 'ListPost',
+    data() {
+        return {
+            posts: {}
+        }
+    },
     components: {
-
+        pagination
     },
     computed: {
         ...mapState('post',['posts']),
@@ -175,7 +191,13 @@ export default {
         },
         linkPost (id) {
             window.location.href="/post/"+id
-        }
+        },
+        getResults(page = 1) {
+			axios.get('/api/posts?page=' + page)
+				.then(data => {
+					this.posts = data.data;
+				});
+		}
     }
 }
 

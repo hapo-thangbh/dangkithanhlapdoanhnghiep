@@ -57,7 +57,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr v-for="user in users" :key="user.id">
+                                    <tr v-for="user in users.data" :key="user.id">
                                         <td>{{ user.id }}</td>
                                         <td>{{ user.username }}</td>
                                         <td>{{ user.email }}</td>
@@ -81,6 +81,17 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                <pagination 
+                                    :data="users" 
+                                    @pagination-change-page="getResults"
+                                    :show-disabled="true"
+                                    :limit="1"
+                                ></pagination>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,11 +101,20 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-
+import pagination from 'laravel-vue-pagination'
 export default {
     name: 'ListUser',
+    data() {
+        return {
+            users: {}
+        }
+    },
+    components: {
+        pagination
+    },
     mounted() {
         this.getUsers()
+        this.getResults()
     },
     computed: {
         ...mapState('user', ['users'])
@@ -127,7 +147,13 @@ export default {
         },
         formatDate (date) {
             return moment(date).format('DD/MM/YYYY')
-        }
+        },
+        getResults(page = 1) {
+			axios.get('/api/users?page=' + page)
+				.then(data => {
+					this.users = data.data;
+				});
+		}
     }
 }
 

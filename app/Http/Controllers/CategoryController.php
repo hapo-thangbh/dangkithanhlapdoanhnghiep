@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     //show all category
     public function index(){
-        return Category::all();
+        return Category::paginate(PAGE_LIMIT);
     }
 
     /* menu tree */

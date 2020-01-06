@@ -55,7 +55,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr v-for="category in categories" :key="category.id">
+                                    <tr v-for="category in categories.data" :key="category.id">
                                         <td>{{ category.id }}</td>
                                         <td>{{ category.name }}</td>
                                         <td>{{ formartDate(category.created_at) }}</td>
@@ -73,7 +73,17 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- <p v-html="categories">{{ categories }}</p> -->
+                        </div>
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                <pagination 
+                                    :data="categories" 
+                                    @pagination-change-page="getResults"
+                                    :show-disabled="true"
+                                    :limit="1"
+                                >
+                                </pagination>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,10 +94,23 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import pagination from 'laravel-vue-pagination'
+import ApiService from './../../api/index'
 export default {
     name: 'ListCategory',
+    data() {
+        return {
+            categories: {}
+        }
+    },
+    components: {
+        pagination
+    },
     computed: {
         ...mapState('category', ['categories'])
+    },
+    beforeMount() {
+        this.getResults()
     },
     mounted() {
         this.getCategories()
@@ -123,7 +146,13 @@ export default {
         },
         refresh () {
             this.getPosts()
-        }
+        },
+        getResults(page = 1) {
+			axios.get('/api/categories?page=' + page)
+				.then(data => {
+					this.categories = data.data;
+				});
+		}
     }
 }
 </script>

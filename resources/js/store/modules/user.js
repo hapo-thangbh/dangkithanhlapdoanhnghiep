@@ -5,7 +5,7 @@ import router from './../../router'
 export default {
     namespaced: true,
     state: {
-        users:[],
+        users: {},
         errors: '',
         user: {
             username: '',
@@ -163,6 +163,6 @@ export default {
                         reject(err)
                     })
             })
-        },
+        }
     }
 }

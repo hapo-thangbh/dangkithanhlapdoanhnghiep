@@ -4,4 +4,5 @@
 
     if (!defined('ADMIN')) define('ADMIN', 1);
     if (!defined('USER')) define('USER', 0);
+    if (!defined('PAGE_LIMIT')) define('PAGE_LIMIT', 2);
 ?>

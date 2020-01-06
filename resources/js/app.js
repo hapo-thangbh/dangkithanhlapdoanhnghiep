@@ -10,8 +10,11 @@ import router from './router/index'
 import { min, required, email } from 'vee-validate/dist/rules'
 import wysiwyg from "vue-wysiwyg"
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+// Vue.component('pagination', require('laravel-vue-pagination'));
+import pagination from 'laravel-vue-pagination'
 
 Vue.use(wysiwyg, {})
+Vue.use(pagination)
 
 extend('required', required)
 extend('min', min)

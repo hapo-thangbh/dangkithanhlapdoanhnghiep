@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::all();
+        $users = User::paginate(PAGE_LIMIT);
         return response($users);
     }
 
