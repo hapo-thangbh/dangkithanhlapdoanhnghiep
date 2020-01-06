@@ -105,7 +105,6 @@
                         <div class="col-md-12">
                             <ValidationProvider rules="required" name="Quyền người dùng" v-slot="{ errors }">
                                 <input 
-                                    name="level" 
                                     id="admin" 
                                     type="radio" 
                                     value="1"
@@ -113,7 +112,6 @@
                                 > <label for="admin">Admin</label>
 
                                 <input 
-                                    name="level" 
                                     id="user" 
                                     type="radio" 
                                     value="0"

@@ -4751,8 +4751,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -72159,7 +72157,6 @@ var render = function() {
                                           }
                                         ],
                                         attrs: {
-                                          name: "level",
                                           id: "admin",
                                           type: "radio",
                                           value: "1"
@@ -72192,7 +72189,6 @@ var render = function() {
                                           }
                                         ],
                                         attrs: {
-                                          name: "level",
                                           id: "user",
                                           type: "radio",
                                           value: "0"
