@@ -109,7 +109,7 @@
                                                         <ValidationProvider rules="required" name="Danh mục" v-slot="{ errors }">
                                                             <multiselect 
                                                                 v-model="post.categories" 
-                                                                :options="categories"
+                                                                :options="allCategories"
                                                                 label="name"
                                                                 track-by="id"
                                                                 placeholder="Lựa chọn danh mục"
@@ -231,14 +231,15 @@ export default {
         }
         this.getCategories()
         this.getInfoUser()
+        this.getAllCategories()
     },
     computed: {
         ...mapState('post', ['post']),
-        ...mapState('category', ['categories'])
+        ...mapState('category', ['categories', 'allCategories'])
     },
     methods: {
         ...mapActions('post',['clearPost','addPost','editPost','updatePost']),
-        ...mapActions('category', ['getCategories']),
+        ...mapActions('category', ['getCategories', 'getAllCategories']),
         onSubmit () {
             if (this.type === 'create') {
                 this.addPost(this.post)

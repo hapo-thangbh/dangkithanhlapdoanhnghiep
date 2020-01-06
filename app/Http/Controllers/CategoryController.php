@@ -13,6 +13,10 @@ class CategoryController extends Controller
         return Category::paginate(PAGE_LIMIT);
     }
 
+    public function getAllCategories(){
+        return Category::all();
+    }
+
     /* menu tree */
     public function treeView(){       
         $categories = Category::where('parent_id', '=', NULL)->get();

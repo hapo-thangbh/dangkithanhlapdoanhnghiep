@@ -54,6 +54,8 @@ Route::group(['prefix' => 'api'], function() {
 
     //Category
     Route::get('/categories','CategoryController@index');
+    Route::get('/categories/all','CategoryController@getAllCategories');
+    
     Route::get('/treeView','CategoryController@treeView');
     Route::post('/categories/add','CategoryController@addCategory');
     Route::get('/categories/edit/{id}','CategoryController@editCategory');

@@ -3832,9 +3832,10 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_0__["extend"])('required', {
 
     this.getCategories();
     this.getInfoUser();
+    this.getAllCategories();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('post', ['post']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['clearPost', 'addPost', 'editPost', 'updatePost']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['getCategories']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('post', ['post']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('category', ['categories', 'allCategories'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('post', ['clearPost', 'addPost', 'editPost', 'updatePost']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('category', ['getCategories', 'getAllCategories']), {
     onSubmit: function onSubmit() {
       if (this.type === 'create') {
         this.addPost(this.post);
@@ -70686,7 +70687,7 @@ var render = function() {
                                                               : "",
                                                             attrs: {
                                                               options:
-                                                                _vm.categories,
+                                                                _vm.allCategories,
                                                               label: "name",
                                                               "track-by": "id",
                                                               placeholder:
@@ -98923,6 +98924,7 @@ __webpack_require__.r(__webpack_exports__);
   namespaced: true,
   state: {
     categories: {},
+    allCategories: {},
     categoriesParent: [],
     errors: '',
     message: '',
@@ -98935,6 +98937,9 @@ __webpack_require__.r(__webpack_exports__);
   mutations: {
     setCategories: function setCategories(state, data) {
       state.categories = data;
+    },
+    setAllCategories: function setAllCategories(state, data) {
+      state.allCategories = data;
     },
     setCategoriesParent: function setCategoriesParent(state, data) {
       state.categoriesParent = data;
@@ -98963,7 +98968,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       context.commit('setCategory', data);
     },
-    //get list category
+    //get list category for index
     getCategories: function getCategories(context) {
       return new Promise(function (resolve) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories').then(function (_ref) {
@@ -98975,11 +98980,22 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    getAllCategories: function getAllCategories(context) {
+      return new Promise(function (resolve) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/all').then(function (_ref2) {
+          var data = _ref2.data;
+          context.commit('setAllCategories', data);
+          resolve(data);
+        })["catch"](function (err) {
+          context.commit('setErrors', err);
+        });
+      });
+    },
     //get list category parent
     getCategoriesParent: function getCategoriesParent(context) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/allParent').then(function (_ref2) {
-          var data = _ref2.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/allParent').then(function (_ref3) {
+          var data = _ref3.data;
           context.commit('setCategoriesParent', data);
           resolve(data);
         })["catch"](function (err) {
@@ -98990,8 +99006,8 @@ __webpack_require__.r(__webpack_exports__);
     //add category
     addCategory: function addCategory(context, data) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/categories/add', data).then(function (_ref3) {
-          var data = _ref3.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/categories/add', data).then(function (_ref4) {
+          var data = _ref4.data;
 
           if (data.status === 200) {
             context.commit('setCategory', data.message);
@@ -99016,12 +99032,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     //delete category
-    deleteCategory: function deleteCategory(_ref4, id) {
-      var context = _ref4.context,
-          dispatch = _ref4.dispatch;
+    deleteCategory: function deleteCategory(_ref5, id) {
+      var context = _ref5.context,
+          dispatch = _ref5.dispatch;
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/categories/delete/' + id).then(function (_ref5) {
-          var data = _ref5.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]('/api/categories/delete/' + id).then(function (_ref6) {
+          var data = _ref6.data;
 
           if (data.status === 200) {
             dispatch('getCategories');
@@ -99040,8 +99056,8 @@ __webpack_require__.r(__webpack_exports__);
     //get info category
     editCategory: function editCategory(context, idCategory) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/edit/' + idCategory).then(function (_ref6) {
-          var data = _ref6.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/edit/' + idCategory).then(function (_ref7) {
+          var data = _ref7.data;
           context.commit('setCategory', data);
           resolve(data);
         })["catch"](function (err) {
@@ -99053,8 +99069,8 @@ __webpack_require__.r(__webpack_exports__);
     updateCategory: function updateCategory(context, data) {
       return new Promise(function (resolve) {
         var idCategory = data.id;
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/update/' + idCategory, data).then(function (_ref7) {
-          var data = _ref7.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/update/' + idCategory, data).then(function (_ref8) {
+          var data = _ref8.data;
 
           if (data.status === 200) {
             context.commit('setCategories', data);
@@ -99079,8 +99095,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     getTreeView: function getTreeView(context) {
       return new Promise(function (resolve) {
-        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/treeView').then(function (_ref8) {
-          var data = _ref8.data;
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/treeView').then(function (_ref9) {
+          var data = _ref9.data;
           context.commit('setTreeView', data);
           resolve(data);
         });

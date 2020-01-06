@@ -6,6 +6,7 @@ export default {
     namespaced: true,
     state: {
         categories:{},
+        allCategories: {},
         categoriesParent: [],
         errors: '',
         message: '',
@@ -18,6 +19,9 @@ export default {
     mutations: {
         setCategories (state, data) {
             state.categories = data
+        },
+        setAllCategories (state, data) {
+            state.allCategories = data
         },
         setCategoriesParent (state, data) {
             state.categoriesParent = data
@@ -46,12 +50,25 @@ export default {
             }
             context.commit('setCategory', data)
         },
-        //get list category
+        //get list category for index
         getCategories (context) {
             return new Promise(resolve => {
                 ApiService.get('/api/categories')
                     .then(({data}) => {
                         context.commit('setCategories', data)
+                        resolve(data)
+                    })
+                    .catch( err => {
+                        context.commit('setErrors', err)
+                    })
+            })
+        },
+
+        getAllCategories (context) {
+            return new Promise(resolve => {
+                ApiService.get('/api/categories/all')
+                    .then(({data}) => {
+                        context.commit('setAllCategories', data)
                         resolve(data)
                     })
                     .catch( err => {
