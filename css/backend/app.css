@@ -12236,6 +12236,20 @@ label {
   min-height: 1200px !important;
 }
 
+.post {
+  padding-bottom: 0px !important;
+}
+
+.paginate-xs {
+  margin: 5px 0 !important;
+  float: right;
+}
+
+.paginate-xs .page-item .page-link {
+  padding: 2px 7px !important;
+  line-height: 1 !important;
+}
+
 .editor {
   min-height: 600px;
 }

@@ -2597,6 +2597,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js");
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3045,21 +3047,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
   data: function data() {
-    return {};
+    return {
+      posts: {}
+    };
   },
-  components: {},
+  components: {
+    pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default.a
+  },
   mounted: function mounted() {
     this.getCountPost();
-    this.getCountUser();
-    this.getPosts();
+    this.getCountUser(); // this.getPosts()
+
+    this.getResults();
     this.getCategories();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('post', ['posts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {
+    getResults: function getResults() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/api/posts?page=' + page).then(function (data) {
+        _this.posts = data.data;
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -68556,48 +68581,62 @@ var render = function() {
             _c("div", { staticClass: "box box-primary post" }, [
               _vm._m(6),
               _vm._v(" "),
-              _c("div", { staticClass: "box-body" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-striped tabel hover" },
-                  [
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _vm._l(_vm.posts, function(post) {
-                      return _c("tr", { key: post.id }, [
-                        _c("td", [_vm._v(_vm._s(post.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(post.title))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(post.user.name))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(post.view))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _c("span", { staticClass: "mr-2" }, [_vm._v("10")]),
+              _c(
+                "div",
+                { staticClass: "box-body" },
+                [
+                  _c(
+                    "table",
+                    { staticClass: "table table-striped tabel hover" },
+                    [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _vm._l(_vm.posts.data, function(post) {
+                        return _c("tr", { key: post.id }, [
+                          _c("td", [_vm._v(_vm._s(post.id))]),
                           _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "mr-2",
-                              staticStyle: { color: "#000", cursor: "pointer" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.linkPost(post.id)
+                          _c("td", [_vm._v(_vm._s(post.title))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(post.user.name))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(post.view))]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-center" }, [
+                            _c("span", { staticClass: "mr-2" }, [_vm._v("10")]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "mr-2",
+                                staticStyle: {
+                                  color: "#000",
+                                  cursor: "pointer"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.linkPost(post.id)
+                                  }
                                 }
-                              }
-                            },
-                            [_c("i", { staticClass: "fa fa-eye" })]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(8, true)
+                              },
+                              [_c("i", { staticClass: "fa fa-eye" })]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(8, true)
+                          ])
                         ])
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ])
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("pagination", {
+                    staticClass: "paginate-xs",
+                    attrs: { data: _vm.posts, "show-disabled": true, limit: 1 },
+                    on: { "pagination-change-page": _vm.getResults }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _vm._m(9),
@@ -99221,7 +99260,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
-    // posts: {},
+    posts: {},
     allPosts: {},
     errors: '',
     message: '',

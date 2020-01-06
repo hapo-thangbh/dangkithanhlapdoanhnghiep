@@ -5,7 +5,7 @@ import router from './../../router'
 export default {
     namespaced: true,
     state: {
-        // posts: {},
+        posts: {},
         allPosts: {},
         errors: '',
         message: '',

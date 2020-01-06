@@ -99,7 +99,7 @@
                                 <th class="text-center">Thời gian truy cập (phút)</th>
                             </tr>
 
-                            <tr v-for="post in posts" :key="post.id">
+                            <tr v-for="post in posts.data" :key="post.id">
                                 <td>{{ post.id }}</td>
                                 <td>{{ post.title }}</td>
                                 <td>{{ post.user.name }}</td>
@@ -117,6 +117,14 @@
                                 </td>
                             </tr>
                           </table>
+
+                           <pagination 
+                                :data="posts" 
+                                @pagination-change-page="getResults"
+                                :show-disabled="true"
+                                :limit="1"
+                                class="paginate-xs"
+                            ></pagination>
                         </div>
                       </div>
 
@@ -442,32 +450,41 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import pagination from 'laravel-vue-pagination'
 
 export default {
     name: 'Dashboard',
     data() {
         return {
-
+            posts: {}
         }
     },
     components: {
-        
+        pagination
     },
     mounted() {
         this.getCountPost()
         this.getCountUser()
-        this.getPosts()
+        // this.getPosts()
+        this.getResults()
         this.getCategories()
+
     },
     computed: {
         ...mapState('dashboard', ['countPost', 'countUser']),
-        ...mapState('post',['posts']),
+        // ...mapState('post',['posts']),
         ...mapState('category',['categories']),
     },
     methods: {
         ...mapActions('dashboard', ['getCountPost', 'getCountUser']),
         ...mapActions('post',['getPosts']),
         ...mapActions('category',['getCategories']),
+        getResults(page = 1) {
+			axios.get('/api/posts?page=' + page)
+				.then(data => {
+					this.posts = data.data;
+				});
+		}
     }
 }
 </script>
