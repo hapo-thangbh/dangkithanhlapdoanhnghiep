@@ -69560,7 +69560,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "tab-content" }, [
+                        _c("div", { staticClass: "tab-content w-100" }, [
                           _c(
                             "div",
                             {
@@ -69581,664 +69581,689 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("div", { staticClass: "col-md-9 plr-0" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "title" }
-                                          },
-                                          [_vm._v("Tiêu đề")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                rules: "required",
-                                                name: "Tiêu đề"
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function(ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("wysiwyg", {
-                                                          staticClass:
-                                                            "h-editor-40",
-                                                          class: errors[0]
-                                                            ? "border-danger"
-                                                            : "",
-                                                          attrs: {
-                                                            placeholder:
-                                                              "Không quá 200 ký tự"
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm.post.title,
-                                                            callback: function(
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.post,
-                                                                "title",
-                                                                $$v
-                                                              )
-                                                            },
-                                                            expression:
-                                                              "post.title"
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-9 col-lg-9 plr-0" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "title" }
+                                            },
+                                            [_vm._v("Tiêu đề")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  rules: "required",
+                                                  name: "Tiêu đề"
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function(ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("wysiwyg", {
                                                             staticClass:
-                                                              "text-danger"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(errors[0])
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    }
-                                                  }
-                                                ],
-                                                null,
-                                                true
-                                              )
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "title" }
-                                          },
-                                          [_vm._v("SEO tiêu đề")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                rules: "required",
-                                                name: "SEO tiêu đề"
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function(ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("textarea", {
-                                                          directives: [
+                                                              "h-editor-40",
+                                                            class: errors[0]
+                                                              ? "border-danger"
+                                                              : "",
+                                                            attrs: {
+                                                              placeholder:
+                                                                "Không quá 200 ký tự"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.post.title,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.post,
+                                                                  "title",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "post.title"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
                                                             {
-                                                              name: "model",
-                                                              rawName:
-                                                                "v-model",
+                                                              staticClass:
+                                                                "text-danger"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  errors[0]
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ],
+                                                  null,
+                                                  true
+                                                )
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "title" }
+                                            },
+                                            [_vm._v("SEO tiêu đề")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  rules: "required",
+                                                  name: "SEO tiêu đề"
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function(ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("textarea", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.post
+                                                                    .seo_title,
+                                                                expression:
+                                                                  "post.seo_title"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control",
+                                                            class: errors[0]
+                                                              ? "border-danger"
+                                                              : "",
+                                                            attrs: {
+                                                              rows: "3",
+                                                              placeholder:
+                                                                "Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
+                                                            },
+                                                            domProps: {
                                                               value:
                                                                 _vm.post
-                                                                  .seo_title,
+                                                                  .seo_title
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.post,
+                                                                  "seo_title",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "text-danger"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  errors[0]
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ],
+                                                  null,
+                                                  true
+                                                )
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "title" }
+                                            },
+                                            [_vm._v("Mô tả")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  rules: "required",
+                                                  name: "Mô tả"
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function(ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("wysiwyg", {
+                                                            staticClass:
+                                                              "h-editor-40",
+                                                            class: errors[0]
+                                                              ? "border-danger"
+                                                              : "",
+                                                            attrs: {
+                                                              placeholder:
+                                                                "Không quá 3 dòng văn bản"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.post
+                                                                  .description_short,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.post,
+                                                                  "description_short",
+                                                                  $$v
+                                                                )
+                                                              },
                                                               expression:
-                                                                "post.seo_title"
+                                                                "post.description_short"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "text-danger"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  errors[0]
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ],
+                                                  null,
+                                                  true
+                                                )
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "description" }
+                                            },
+                                            [_vm._v("Nội dung")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  rules: "required",
+                                                  name: "Nội dung"
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function(ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("wysiwyg", {
+                                                            staticClass:
+                                                              "editor",
+                                                            class: errors[0]
+                                                              ? "border-danger"
+                                                              : "",
+                                                            attrs: {
+                                                              placeholder: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.post
+                                                                  .description,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.post,
+                                                                  "description",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "post.description"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "text-danger"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  errors[0]
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ],
+                                                  null,
+                                                  true
+                                                )
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-3 col-lg-3" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "tag" }
+                                            },
+                                            [_vm._v("Danh mục")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  rules: "required",
+                                                  name: "Danh mục"
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function(ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("multiselect", {
+                                                            class: errors[0]
+                                                              ? "border-danger"
+                                                              : "",
+                                                            attrs: {
+                                                              options:
+                                                                _vm.categories,
+                                                              label: "name",
+                                                              "track-by": "id",
+                                                              placeholder:
+                                                                "Lựa chọn danh mục"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.post
+                                                                  .categories,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.post,
+                                                                  "categories",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "post.categories"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "text-danger"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  errors[0]
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ],
+                                                  null,
+                                                  true
+                                                )
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "tag" }
+                                            },
+                                            [_vm._v("Ảnh đại diện")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-md-12 d-flex justify-content-start"
+                                            },
+                                            [
+                                              !_vm.post.image_thumb
+                                                ? _c(
+                                                    "div",
+                                                    [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          attrs: {
+                                                            for: "chooseImage"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "fa fa-cloud-upload icon-upload-thumb"
+                                                          })
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("ValidationProvider", {
+                                                        staticClass: "d-flex",
+                                                        attrs: {
+                                                          rules: "required",
+                                                          name: "Ảnh đại diện"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "default",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var errors =
+                                                                  ref.errors
+                                                                return [
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "d-none",
+                                                                    class: errors[0]
+                                                                      ? "border-danger"
+                                                                      : "",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "file",
+                                                                      id:
+                                                                        "chooseImage"
+                                                                    },
+                                                                    on: {
+                                                                      change:
+                                                                        _vm.onFileChange
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "text-danger"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          errors[0]
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              }
                                                             }
                                                           ],
-                                                          staticClass:
-                                                            "form-control",
-                                                          class: errors[0]
-                                                            ? "border-danger"
-                                                            : "",
-                                                          attrs: {
-                                                            rows: "3",
-                                                            placeholder:
-                                                              "Tùy chọn có thể bỏ nhập, tối đa 60 ký tự"
-                                                          },
-                                                          domProps: {
-                                                            value:
-                                                              _vm.post.seo_title
-                                                          },
-                                                          on: {
-                                                            input: function(
-                                                              $event
-                                                            ) {
-                                                              if (
-                                                                $event.target
-                                                                  .composing
-                                                              ) {
-                                                                return
-                                                              }
-                                                              _vm.$set(
-                                                                _vm.post,
-                                                                "seo_title",
-                                                                $event.target
-                                                                  .value
-                                                              )
-                                                            }
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "text-danger"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(errors[0])
-                                                            )
-                                                          ]
+                                                          null,
+                                                          true
                                                         )
-                                                      ]
-                                                    }
-                                                  }
-                                                ],
-                                                null,
-                                                true
-                                              )
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "title" }
-                                          },
-                                          [_vm._v("Mô tả")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                rules: "required",
-                                                name: "Mô tả"
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function(ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("wysiwyg", {
-                                                          staticClass:
-                                                            "h-editor-40",
-                                                          class: errors[0]
-                                                            ? "border-danger"
-                                                            : "",
-                                                          attrs: {
-                                                            placeholder:
-                                                              "Không quá 3 dòng văn bản"
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm.post
-                                                                .description_short,
-                                                            callback: function(
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.post,
-                                                                "description_short",
-                                                                $$v
-                                                              )
-                                                            },
-                                                            expression:
-                                                              "post.description_short"
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "text-danger"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(errors[0])
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    }
-                                                  }
-                                                ],
-                                                null,
-                                                true
-                                              )
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "description" }
-                                          },
-                                          [_vm._v("Nội dung")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                rules: "required",
-                                                name: "Nội dung"
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function(ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("wysiwyg", {
-                                                          staticClass: "editor",
-                                                          class: errors[0]
-                                                            ? "border-danger"
-                                                            : "",
-                                                          attrs: {
-                                                            placeholder: ""
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm.post
-                                                                .description,
-                                                            callback: function(
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.post,
-                                                                "description",
-                                                                $$v
-                                                              )
-                                                            },
-                                                            expression:
-                                                              "post.description"
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "text-danger"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(errors[0])
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    }
-                                                  }
-                                                ],
-                                                null,
-                                                true
-                                              )
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-md-3" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "tag" }
-                                          },
-                                          [_vm._v("Danh mục")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                rules: "required",
-                                                name: "Danh mục"
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function(ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("multiselect", {
-                                                          class: errors[0]
-                                                            ? "border-danger"
-                                                            : "",
-                                                          attrs: {
-                                                            options:
-                                                              _vm.categories,
-                                                            label: "name",
-                                                            "track-by": "id",
-                                                            placeholder:
-                                                              "Lựa chọn danh mục"
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm.post
-                                                                .categories,
-                                                            callback: function(
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.post,
-                                                                "categories",
-                                                                $$v
-                                                              )
-                                                            },
-                                                            expression:
-                                                              "post.categories"
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "text-danger"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(errors[0])
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    }
-                                                  }
-                                                ],
-                                                null,
-                                                true
-                                              )
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "tag" }
-                                          },
-                                          [_vm._v("Ảnh đại diện")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-md-12 d-flex justify-content-start"
-                                          },
-                                          [
-                                            !_vm.post.image_thumb
-                                              ? _c(
-                                                  "div",
-                                                  [
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        attrs: {
-                                                          for: "chooseImage"
-                                                        }
-                                                      },
-                                                      [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-cloud-upload icon-upload-thumb"
-                                                        })
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("ValidationProvider", {
-                                                      staticClass: "d-flex",
-                                                      attrs: {
-                                                        rules: "required",
-                                                        name: "Ảnh đại diện"
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "default",
-                                                            fn: function(ref) {
-                                                              var errors =
-                                                                ref.errors
-                                                              return [
-                                                                _c("input", {
-                                                                  staticClass:
-                                                                    "d-none",
-                                                                  class: errors[0]
-                                                                    ? "border-danger"
-                                                                    : "",
-                                                                  attrs: {
-                                                                    type:
-                                                                      "file",
-                                                                    id:
-                                                                      "chooseImage"
-                                                                  },
-                                                                  on: {
-                                                                    change:
-                                                                      _vm.onFileChange
-                                                                  }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "span",
-                                                                  {
-                                                                    staticClass:
-                                                                      "text-danger"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      _vm._s(
-                                                                        errors[0]
-                                                                      )
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            }
-                                                          }
-                                                        ],
-                                                        null,
-                                                        true
-                                                      )
-                                                    })
-                                                  ],
-                                                  1
-                                                )
-                                              : _c(
-                                                  "div",
-                                                  {
-                                                    staticClass: "text-center"
-                                                  },
-                                                  [
-                                                    _c("img", {
-                                                      staticClass:
-                                                        "image-preview",
-                                                      attrs: {
-                                                        src: _vm.showImage()
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c("br"),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "button",
-                                                      {
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                : _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "text-center"
+                                                    },
+                                                    [
+                                                      _c("img", {
                                                         staticClass:
-                                                          "btn btn-sm btn-danger mt-2",
-                                                        on: {
-                                                          click: _vm.removeImage
+                                                          "image-preview",
+                                                        attrs: {
+                                                          src: _vm.showImage()
                                                         }
-                                                      },
-                                                      [_vm._v("Xóa ảnh")]
-                                                    )
-                                                  ]
-                                                )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "row form-group" },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "col-md-12 txt-bold",
-                                            attrs: { for: "status" }
-                                          },
-                                          [_vm._v("Hiển thị bài viết")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.post.status,
-                                                  expression: "post.status"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "toggle-ios toggle-primary",
-                                              attrs: {
-                                                type: "checkbox",
-                                                id: "switch"
-                                              },
-                                              domProps: {
-                                                checked: Array.isArray(
-                                                  _vm.post.status
-                                                )
-                                                  ? _vm._i(
-                                                      _vm.post.status,
-                                                      null
-                                                    ) > -1
-                                                  : _vm.post.status
-                                              },
-                                              on: {
-                                                change: function($event) {
-                                                  var $$a = _vm.post.status,
-                                                    $$el = $event.target,
-                                                    $$c = $$el.checked
-                                                      ? true
-                                                      : false
-                                                  if (Array.isArray($$a)) {
-                                                    var $$v = null,
-                                                      $$i = _vm._i($$a, $$v)
-                                                    if ($$el.checked) {
-                                                      $$i < 0 &&
-                                                        _vm.$set(
-                                                          _vm.post,
-                                                          "status",
-                                                          $$a.concat([$$v])
-                                                        )
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("br"),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "btn btn-sm btn-danger mt-2",
+                                                          on: {
+                                                            click:
+                                                              _vm.removeImage
+                                                          }
+                                                        },
+                                                        [_vm._v("Xóa ảnh")]
+                                                      )
+                                                    ]
+                                                  )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "row form-group" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "col-md-12 txt-bold",
+                                              attrs: { for: "status" }
+                                            },
+                                            [_vm._v("Hiển thị bài viết")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.post.status,
+                                                    expression: "post.status"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "toggle-ios toggle-primary",
+                                                attrs: {
+                                                  type: "checkbox",
+                                                  id: "switch"
+                                                },
+                                                domProps: {
+                                                  checked: Array.isArray(
+                                                    _vm.post.status
+                                                  )
+                                                    ? _vm._i(
+                                                        _vm.post.status,
+                                                        null
+                                                      ) > -1
+                                                    : _vm.post.status
+                                                },
+                                                on: {
+                                                  change: function($event) {
+                                                    var $$a = _vm.post.status,
+                                                      $$el = $event.target,
+                                                      $$c = $$el.checked
+                                                        ? true
+                                                        : false
+                                                    if (Array.isArray($$a)) {
+                                                      var $$v = null,
+                                                        $$i = _vm._i($$a, $$v)
+                                                      if ($$el.checked) {
+                                                        $$i < 0 &&
+                                                          _vm.$set(
+                                                            _vm.post,
+                                                            "status",
+                                                            $$a.concat([$$v])
+                                                          )
+                                                      } else {
+                                                        $$i > -1 &&
+                                                          _vm.$set(
+                                                            _vm.post,
+                                                            "status",
+                                                            $$a
+                                                              .slice(0, $$i)
+                                                              .concat(
+                                                                $$a.slice(
+                                                                  $$i + 1
+                                                                )
+                                                              )
+                                                          )
+                                                      }
                                                     } else {
-                                                      $$i > -1 &&
-                                                        _vm.$set(
-                                                          _vm.post,
-                                                          "status",
-                                                          $$a
-                                                            .slice(0, $$i)
-                                                            .concat(
-                                                              $$a.slice($$i + 1)
-                                                            )
-                                                        )
+                                                      _vm.$set(
+                                                        _vm.post,
+                                                        "status",
+                                                        $$c
+                                                      )
                                                     }
-                                                  } else {
-                                                    _vm.$set(
-                                                      _vm.post,
-                                                      "status",
-                                                      $$c
-                                                    )
                                                   }
                                                 }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("label", {
-                                              staticClass:
-                                                "tgl-checkbox tgl-primary",
-                                              attrs: { for: "switch" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]),
+                                              }),
+                                              _vm._v(" "),
+                                              _c("label", {
+                                                staticClass:
+                                                  "tgl-checkbox tgl-primary",
+                                                attrs: { for: "switch" }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "col-md-12" }, [
                                     _c(
@@ -97394,15 +97419,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./resources/js/components/Post/Form.vue ***!
   \***********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form_vue_vue_type_template_id_6c82d4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue?vue&type=template&id=6c82d4d0&scoped=true& */ "./resources/js/components/Post/Form.vue?vue&type=template&id=6c82d4d0&scoped=true&");
 /* harmony import */ var _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form.vue?vue&type=script&lang=js& */ "./resources/js/components/Post/Form.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var vue_multiselect_dist_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var vue_multiselect_dist_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _Form_vue_vue_type_style_index_1_id_6c82d4d0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form.vue?vue&type=style&index=1&id=6c82d4d0&lang=scss&scoped=true& */ "./resources/js/components/Post/Form.vue?vue&type=style&index=1&id=6c82d4d0&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -97436,7 +97460,7 @@ component.options.__file = "resources/js/components/Post/Form.vue"
 /*!************************************************************************!*\
   !*** ./resources/js/components/Post/Form.vue?vue&type=script&lang=js& ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98779,15 +98803,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })
