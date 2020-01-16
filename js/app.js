@@ -98917,8 +98917,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   }, {
     path: '/admin/auth-profile',
     name: 'profile',
-    component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    beforeEnter: guardAdmin
+    component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   }, {
     path: '/admin/post',
     name: 'listPost',
@@ -98979,6 +98978,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'listAdsPosition',
     component: _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
     beforeEnter: guardAdmin
+  }, {
+    path: '*',
+    redirect: {
+      name: 'dashboard'
+    }
   }]
 }));
 

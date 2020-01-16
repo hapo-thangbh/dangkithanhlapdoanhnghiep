@@ -71,8 +71,7 @@ export default new VueRouter({
         {
             path: '/admin/auth-profile',
             name:'profile',
-            component: Profile,
-            beforeEnter: guardAdmin
+            component: Profile
         },
         {
             path: '/admin/post',
@@ -149,6 +148,12 @@ export default new VueRouter({
             name:'listAdsPosition',
             component: ListAdsPosition,
             beforeEnter: guardAdmin
+        },
+        {
+            path: '*',
+            redirect: {
+              name: 'dashboard'
+            }
         }
     ]
 })
