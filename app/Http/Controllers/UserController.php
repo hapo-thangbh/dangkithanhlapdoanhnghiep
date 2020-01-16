@@ -10,6 +10,7 @@ use Carbon\Carbon;
 class UserController extends Controller
 {
     public function index() {
+        $this->authorize('admin');
         $users = User::paginate(PAGE_LIMIT);
         return response($users);
     }
@@ -24,6 +25,7 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
+        $this->authorize('admin');
         $data = array_merge($request->all(),[
             'password' => Hash::make($request->get('password'))
         ]);
@@ -88,6 +90,7 @@ class UserController extends Controller
     }
 
     public function deleteUser($id) {
+        $this->authorize('admin');
         $user = User::find($id);
         $deleteUser = $user->delete($id);
         if ($deleteUser) {

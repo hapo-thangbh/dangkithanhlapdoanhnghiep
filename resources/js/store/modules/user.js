@@ -158,7 +158,7 @@ export default {
                             context.commit('setErrors', data.error)
                         }
                     })
-                    .catch(err => {
+                    .catch((err) => {
                         console.log(err)
                         reject(err)
                     })

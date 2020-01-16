@@ -61529,7 +61529,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.5.4
+* sweetalert2 v9.4.1
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -61841,7 +61841,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -62369,14 +62369,7 @@ var renderContainer = function renderContainer(instance, params) {
   handlePositionParam(container, params.position);
   handleGrowParam(container, params.grow); // Custom class
 
-  applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
-
-  var queueStep = document.body.getAttribute('data-swal2-queue-step');
-
-  if (queueStep) {
-    container.setAttribute('data-queue-step', queueStep);
-    document.body.removeAttribute('data-swal2-queue-step');
-  }
+  applyCustomClass(container, params, 'container');
 };
 
 /**
@@ -62700,71 +62693,6 @@ var renderImage = function renderImage(instance, params) {
   applyCustomClass(image, params, 'image');
 };
 
-var currentSteps = [];
-/*
- * Global function for chaining sweetAlert popups
- */
-
-var queue = function queue(steps) {
-  var Swal = this;
-  currentSteps = steps;
-
-  var resetAndResolve = function resetAndResolve(resolve, value) {
-    currentSteps = [];
-    resolve(value);
-  };
-
-  var queueResult = [];
-  return new Promise(function (resolve) {
-    (function step(i, callback) {
-      if (i < currentSteps.length) {
-        document.body.setAttribute('data-swal2-queue-step', i);
-        Swal.fire(currentSteps[i]).then(function (result) {
-          if (typeof result.value !== 'undefined') {
-            queueResult.push(result.value);
-            step(i + 1, callback);
-          } else {
-            resetAndResolve(resolve, {
-              dismiss: result.dismiss
-            });
-          }
-        });
-      } else {
-        resetAndResolve(resolve, {
-          value: queueResult
-        });
-      }
-    })(0);
-  });
-};
-/*
- * Global function for getting the index of current popup in queue
- */
-
-var getQueueStep = function getQueueStep() {
-  return getContainer().getAttribute('data-queue-step');
-};
-/*
- * Global function for inserting a popup to the queue
- */
-
-var insertQueueStep = function insertQueueStep(step, index) {
-  if (index && index < currentSteps.length) {
-    return currentSteps.splice(index, 0, step);
-  }
-
-  return currentSteps.push(step);
-};
-/*
- * Global function for deleting a popup from the queue
- */
-
-var deleteQueueStep = function deleteQueueStep(index) {
-  if (typeof currentSteps[index] !== 'undefined') {
-    currentSteps.splice(index, 1);
-  }
-};
-
 var createStepElement = function createStepElement(step) {
   var stepEl = document.createElement('li');
   addClass(stepEl, swalClasses['progress-step']);
@@ -62792,7 +62720,7 @@ var renderProgressSteps = function renderProgressSteps(instance, params) {
 
   show(progressStepsContainer);
   progressStepsContainer.innerHTML = '';
-  var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
+  var currentProgressStep = parseInt(params.currentProgressStep === null ? Swal.getQueueStep() : params.currentProgressStep);
 
   if (currentProgressStep >= params.progressSteps.length) {
     warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
@@ -62854,15 +62782,10 @@ var renderPopup = function renderPopup(instance, params) {
 
   if (params.background) {
     popup.style.background = params.background;
-  } // Classes
+  } // Default Class
 
 
-  addClasses(popup, params);
-};
-
-var addClasses = function addClasses(popup, params) {
-  // Default Class + showClass when updating Swal.update({})
-  popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
+  popup.className = swalClasses.popup;
 
   if (params.toast) {
     addClass([document.documentElement, document.body], swalClasses['toast-shown']);
@@ -62876,11 +62799,11 @@ var addClasses = function addClasses(popup, params) {
 
   if (typeof params.customClass === 'string') {
     addClass(popup, params.customClass);
-  } // Icon class (#1842)
+  } // Add showClass when updating Swal.update({})
 
 
-  if (params.icon) {
-    addClass(popup, swalClasses["icon-".concat(params.icon)]);
+  if (isVisible(popup)) {
+    addClass(popup, params.showClass.popup);
   }
 };
 
@@ -62971,6 +62894,73 @@ function mixin(mixinParams) {
 
   return MixinSwal;
 }
+
+// private global state for the queue feature
+var currentSteps = [];
+/*
+ * Global function for chaining sweetAlert popups
+ */
+
+var queue = function queue(steps) {
+  var Swal = this;
+  currentSteps = steps;
+
+  var resetAndResolve = function resetAndResolve(resolve, value) {
+    currentSteps = [];
+    document.body.removeAttribute('data-swal2-queue-step');
+    resolve(value);
+  };
+
+  var queueResult = [];
+  return new Promise(function (resolve) {
+    (function step(i, callback) {
+      if (i < currentSteps.length) {
+        document.body.setAttribute('data-swal2-queue-step', i);
+        Swal.fire(currentSteps[i]).then(function (result) {
+          if (typeof result.value !== 'undefined') {
+            queueResult.push(result.value);
+            step(i + 1, callback);
+          } else {
+            resetAndResolve(resolve, {
+              dismiss: result.dismiss
+            });
+          }
+        });
+      } else {
+        resetAndResolve(resolve, {
+          value: queueResult
+        });
+      }
+    })(0);
+  });
+};
+/*
+ * Global function for getting the index of current popup in queue
+ */
+
+var getQueueStep = function getQueueStep() {
+  return document.body.getAttribute('data-swal2-queue-step');
+};
+/*
+ * Global function for inserting a popup to the queue
+ */
+
+var insertQueueStep = function insertQueueStep(step, index) {
+  if (index && index < currentSteps.length) {
+    return currentSteps.splice(index, 0, step);
+  }
+
+  return currentSteps.push(step);
+};
+/*
+ * Global function for deleting a popup from the queue
+ */
+
+var deleteQueueStep = function deleteQueueStep(index) {
+  if (typeof currentSteps[index] !== 'undefined') {
+    currentSteps.splice(index, 1);
+  }
+};
 
 /**
  * Show spinner instead of Confirm button
@@ -63769,11 +63759,16 @@ function setParameters(params) {
   init(params);
 }
 
+function swalOpenAnimationFinished(popup, container) {
+  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+  container.style.overflowY = 'auto';
+}
 /**
  * Open popup, add necessary classes and styles, fix scrollbar
  *
  * @param {Array} params
  */
+
 
 var openPopup = function openPopup(params) {
   var container = getContainer();
@@ -63783,7 +63778,7 @@ var openPopup = function openPopup(params) {
     params.onBeforeOpen(popup);
   }
 
-  addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
+  addClasses(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
 
   setScrollingVisibility(container, popup);
 
@@ -63802,22 +63797,10 @@ var openPopup = function openPopup(params) {
   }
 };
 
-function swalOpenAnimationFinished(event) {
-  var popup = getPopup();
-
-  if (event.target !== popup) {
-    return;
-  }
-
-  var container = getContainer();
-  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-  container.style.overflowY = 'auto';
-}
-
 var setScrollingVisibility = function setScrollingVisibility(container, popup) {
   if (animationEndEvent && hasCssAnimation(popup)) {
     container.style.overflowY = 'hidden';
-    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished.bind(null, popup, container));
   } else {
     container.style.overflowY = 'auto';
   }
@@ -63838,7 +63821,7 @@ var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding
   });
 };
 
-var addClasses$1 = function addClasses(container, popup, params) {
+var addClasses = function addClasses(container, popup, params) {
   addClass(container, params.showClass.backdrop);
   show(popup); // Animate popup right after showing it
 
@@ -64524,7 +64507,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.5.4';
+SweetAlert.version = '9.4.1';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -64650,7 +64633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "required_if", function() { return required_if; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "size", function() { return size; });
 /**
-  * vee-validate v3.2.1
+  * vee-validate v3.1.3
   * (c) 2019 Abdelrahman Awad
   * @license MIT
   */
@@ -65363,7 +65346,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /**
-  * vee-validate v3.2.1
+  * vee-validate v3.1.3
   * (c) 2019 Abdelrahman Awad
   * @license MIT
   */
@@ -65649,6 +65632,13 @@ var RuleContainer = /** @class */ (function () {
         }
         RULES[name] = __assign({ lazy: false, computesRequired: false }, rule);
     };
+    RuleContainer.iterate = function (fn) {
+        var keys = Object.keys(RULES);
+        var length = keys.length;
+        for (var i = 0; i < length; i++) {
+            fn(keys[i], RULES[keys[i]]);
+        }
+    };
     RuleContainer.isLazy = function (name) {
         var _a;
         return !!((_a = RULES[name]) === null || _a === void 0 ? void 0 : _a.lazy);
@@ -65656,6 +65646,14 @@ var RuleContainer = /** @class */ (function () {
     RuleContainer.isRequireRule = function (name) {
         var _a;
         return !!((_a = RULES[name]) === null || _a === void 0 ? void 0 : _a.computesRequired);
+    };
+    RuleContainer.isTargetRule = function (name) {
+        var _a;
+        var definition = RuleContainer.getRuleDefinition(name);
+        if (!((_a = definition) === null || _a === void 0 ? void 0 : _a.params)) {
+            return false;
+        }
+        return definition.params.some(function (param) { return !!param.isTarget; });
     };
     RuleContainer.getRuleDefinition = function (ruleName) {
         return RULES[ruleName];
@@ -66070,12 +66068,13 @@ function _test(field, value, rule) {
                             }];
                     }
                     if (!isObject(result)) {
-                        result = { valid: result };
+                        result = { valid: result, data: {} };
                     }
                     return [2 /*return*/, {
                             valid: result.valid,
                             required: result.required,
-                            error: result.valid ? undefined : _generateFieldError(field, value, ruleSchema, rule.name, params)
+                            data: result.data || {},
+                            error: result.valid ? undefined : _generateFieldError(field, value, ruleSchema, rule.name, params, result.data)
                         }];
             }
         });
@@ -66084,11 +66083,11 @@ function _test(field, value, rule) {
 /**
  * Generates error messages.
  */
-function _generateFieldError(field, value, ruleSchema, ruleName, params) {
+function _generateFieldError(field, value, ruleSchema, ruleName, params, data) {
     var message = field.customMessages[ruleName] || ruleSchema.message;
     var ruleTargets = _getRuleTargets(field, ruleSchema, ruleName);
     var _a = _getUserTargets(field, ruleSchema, ruleName, message), userTargets = _a.userTargets, userMessage = _a.userMessage;
-    var values = __assign(__assign(__assign(__assign({}, (params || {})), { _field_: field.name, _value_: value, _rule_: ruleName }), ruleTargets), userTargets);
+    var values = __assign(__assign(__assign(__assign(__assign({}, (params || {})), (data || {})), { _field_: field.name, _value_: value, _rule_: ruleName }), ruleTargets), userTargets);
     return {
         msg: function () { return _normalizeMessage(userMessage || getConfig().defaultMessage, field.name, values); },
         rule: ruleName
@@ -66112,14 +66111,19 @@ function _getRuleTargets(field, ruleSchema, ruleName) {
     }
     for (var index = 0; index < params.length; index++) {
         var param = params[index];
-        var key = ruleConfig[index];
-        if (!isLocator(key)) {
+        if (!param.isTarget) {
             continue;
         }
-        key = key.__locatorRef;
+        var key = ruleConfig[index];
+        if (isLocator(key)) {
+            key = key.__locatorRef;
+        }
         var name_1 = field.names[key] || key;
-        names[param.name] = name_1;
-        names["_" + param.name + "_"] = field.crossTable[key];
+        if (numTargets === 1) {
+            names._target_ = name_1;
+            break;
+        }
+        names["_" + param.name + "Target_"] = name_1;
     }
     return names;
 }
@@ -66145,8 +66149,14 @@ function _getUserTargets(field, ruleSchema, ruleName, userMessage) {
         }
         // grab the name of the target
         var name = rule.__locatorRef;
-        userTargets[param.name] = field.names[name] || name;
-        userTargets["_" + param.name + "_"] = field.crossTable[name];
+        var placeholder = "_" + name + "Target_";
+        userTargets[placeholder] = field.names[name] || name;
+        userTargets[name] = field.names[name] || name;
+        // update template if it's a string
+        if (typeof userMessage === 'string') {
+            var rx = new RegExp("{" + param.name + "}", 'g');
+            userMessage = userMessage.replace(rx, "{" + placeholder + "}");
+        }
     });
     return {
         userTargets: userTargets,
@@ -66233,7 +66243,7 @@ var Dictionary = /** @class */ (function () {
         // find if specific message for that field was specified.
         message = ((_c = (_b = (_a = this.container[locale]) === null || _a === void 0 ? void 0 : _a.fields) === null || _b === void 0 ? void 0 : _b[field]) === null || _c === void 0 ? void 0 : _c[rule]) || ((_e = (_d = this.container[locale]) === null || _d === void 0 ? void 0 : _d.messages) === null || _e === void 0 ? void 0 : _e[rule]);
         if (!message) {
-            message = '{field} is not valid';
+            message = getConfig().defaultMessage;
         }
         field = (_h = (_g = (_f = this.container[locale]) === null || _f === void 0 ? void 0 : _f.names) === null || _g === void 0 ? void 0 : _g[field], (_h !== null && _h !== void 0 ? _h : field));
         return isCallable(message) ? message(field, values) : interpolate(message, __assign(__assign({}, values), { _field_: field }));
@@ -66248,26 +66258,46 @@ var Dictionary = /** @class */ (function () {
     return Dictionary;
 }());
 var DICTIONARY;
+var INSTALLED = false;
+function updateRules() {
+    if (INSTALLED) {
+        return;
+    }
+    RuleContainer.iterate(function (name, schema) {
+        var _a, _b;
+        if (schema.message && !DICTIONARY.hasRule(name)) {
+            DICTIONARY.merge((_a = {},
+                _a[DICTIONARY.locale] = {
+                    messages: (_b = {},
+                        _b[name] = schema.message,
+                        _b)
+                },
+                _a));
+        }
+        extend(name, {
+            message: function (field, values) {
+                return DICTIONARY.resolve(field, name, values || {});
+            }
+        });
+    });
+    INSTALLED = true;
+}
 function localize(locale, dictionary) {
     var _a;
     if (!DICTIONARY) {
         DICTIONARY = new Dictionary('en', {});
-        setConfig({
-            defaultMessage: function (field, values) {
-                var _a;
-                return DICTIONARY.resolve(field, (_a = values) === null || _a === void 0 ? void 0 : _a._rule_, values || {});
-            }
-        });
     }
     if (typeof locale === 'string') {
         DICTIONARY.locale = locale;
         if (dictionary) {
             DICTIONARY.merge((_a = {}, _a[locale] = dictionary, _a));
         }
+        updateRules();
         localeChanged();
         return;
     }
     DICTIONARY.merge(locale);
+    updateRules();
 }
 
 var isEvent = function (evt) {
@@ -66487,23 +66517,23 @@ function resolveTextualRules(vnode) {
     var rules = {};
     if (!attrs)
         return rules;
-    if (attrs.type === 'email' && RuleContainer.getRuleDefinition('email')) {
+    if (attrs.type === 'email') {
         rules.email = ['multiple' in attrs];
     }
-    if (attrs.pattern && RuleContainer.getRuleDefinition('regex')) {
+    if (attrs.pattern) {
         rules.regex = attrs.pattern;
     }
-    if (attrs.maxlength >= 0 && RuleContainer.getRuleDefinition('max')) {
+    if (attrs.maxlength >= 0) {
         rules.max = attrs.maxlength;
     }
-    if (attrs.minlength >= 0 && RuleContainer.getRuleDefinition('min')) {
+    if (attrs.minlength >= 0) {
         rules.min = attrs.minlength;
     }
     if (attrs.type === 'number') {
-        if (isSpecified(attrs.min) && RuleContainer.getRuleDefinition('min_value')) {
+        if (isSpecified(attrs.min)) {
             rules.min_value = Number(attrs.min);
         }
-        if (isSpecified(attrs.max) && RuleContainer.getRuleDefinition('max_value')) {
+        if (isSpecified(attrs.max)) {
             rules.max_value = Number(attrs.max);
         }
     }
@@ -66511,13 +66541,13 @@ function resolveTextualRules(vnode) {
 }
 function resolveRules(vnode) {
     var _a;
-    var htmlTags = ['input', 'select', 'textarea'];
+    var htmlTags = ['input', 'select'];
     var attrs = (_a = vnode.data) === null || _a === void 0 ? void 0 : _a.attrs;
     if (!includes(htmlTags, vnode.tag) || !attrs) {
         return {};
     }
     var rules = {};
-    if ('required' in attrs && attrs.required !== false && RuleContainer.getRuleDefinition('required')) {
+    if ('required' in attrs && attrs.required !== false) {
         rules.required = attrs.type === 'checkbox' ? [true] : true;
     }
     if (isTextInput(vnode)) {
@@ -66581,12 +66611,7 @@ function onRenderUpdate(vm, value) {
     if (!validateNow) {
         return;
     }
-    var validate = function () { return vm.validateSilent().then(vm.immediate || vm.flags.validated ? vm.applyResult : identity); };
-    if (vm.initialized) {
-        validate();
-        return;
-    }
-    vm.$once('hook:mounted', function () { return validate(); });
+    vm.validateSilent().then(vm.immediate || vm.flags.validated ? vm.applyResult : identity);
 }
 function computeModeSetting(ctx) {
     var compute = (isCallable(ctx.mode) ? ctx.mode : modes[ctx.mode]);
@@ -66821,7 +66846,7 @@ var ValidationProvider = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
     },
     beforeDestroy: function () {
         // cleanup reference.
-        this.$_veeObserver.unobserve(this.id);
+        this.$_veeObserver.unsubscribe(this.id);
     },
     activated: function () {
         this.isActive = true;
@@ -66847,7 +66872,6 @@ var ValidationProvider = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
             var flags = createFlags();
             flags.required = this.isRequired;
             this.setFlags(flags);
-            this.failedRules = {};
             this.validateSilent();
         },
         validate: function () {
@@ -66986,18 +67010,18 @@ function updateRenderingContextRefs(vm) {
     }
     // vid was changed.
     if (id !== providedId && vm.$_veeObserver.refs[id] === vm) {
-        vm.$_veeObserver.unobserve(id);
+        vm.$_veeObserver.unsubscribe(id);
     }
     vm.id = providedId;
-    vm.$_veeObserver.observe(vm);
+    vm.$_veeObserver.subscribe(vm);
 }
 function createObserver() {
     return {
         refs: {},
-        observe: function (vm) {
+        subscribe: function (vm) {
             this.refs[vm.id] = vm;
         },
-        unobserve: function (id) {
+        unsubscribe: function (id) {
             delete this.refs[id];
         }
     };
@@ -67040,8 +67064,7 @@ var OBSERVER_COUNTER = 0;
 function data$1() {
     var refs = {};
     var errors = {};
-    var flags = createObserverFlags();
-    var fields = {};
+    var flags = {};
     // FIXME: Not sure of this one can be typed, circular type reference.
     var observers = [];
     return {
@@ -67049,8 +67072,7 @@ function data$1() {
         refs: refs,
         observers: observers,
         errors: errors,
-        flags: flags,
-        fields: fields
+        flags: flags
     };
 }
 function provideSelf() {
@@ -67098,12 +67120,25 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
         this.id = this.vid;
         register(this);
         var onChange = debounce(function (_a) {
-            var errors = _a.errors, flags = _a.flags, fields = _a.fields;
+            var errors = _a.errors, flags = _a.flags;
             _this.errors = errors;
             _this.flags = flags;
-            _this.fields = fields;
         }, 16);
-        this.$watch(computeObserverState, onChange);
+        this.$watch(function () {
+            var vms = __spreadArrays(values(_this.refs), _this.observers);
+            var errors = {};
+            var flags = {};
+            var length = vms.length;
+            for (var i = 0; i < length; i++) {
+                var vm = vms[i];
+                errors[vm.id] = vm.errors;
+            }
+            FLAGS_STRATEGIES.forEach(function (_a) {
+                var flag = _a[0], method = _a[1];
+                flags[flag] = vms[method](function (vm) { return vm.flags[flag]; });
+            });
+            return { errors: errors, flags: flags };
+        }, onChange);
     },
     activated: function () {
         register(this);
@@ -67119,7 +67154,7 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
         return this.slim && children.length <= 1 ? children[0] : h(this.tag, { on: this.$listeners }, children);
     },
     methods: {
-        observe: function (subscriber, kind) {
+        subscribe: function (subscriber, kind) {
             var _a;
             if (kind === void 0) { kind = 'provider'; }
             if (kind === 'observer') {
@@ -67128,7 +67163,7 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
             }
             this.refs = __assign(__assign({}, this.refs), (_a = {}, _a[subscriber.id] = subscriber, _a));
         },
-        unobserve: function (id, kind) {
+        unsubscribe: function (id, kind) {
             if (kind === void 0) { kind = 'provider'; }
             if (kind === 'provider') {
                 var provider = this.refs[id];
@@ -67194,44 +67229,16 @@ var ValidationObserver = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
 });
 function unregister(vm) {
     if (vm.$_veeObserver) {
-        vm.$_veeObserver.unobserve(vm.id, 'observer');
+        vm.$_veeObserver.unsubscribe(vm.id, 'observer');
     }
 }
 function register(vm) {
     if (vm.$_veeObserver) {
-        vm.$_veeObserver.observe(vm, 'observer');
+        vm.$_veeObserver.subscribe(vm, 'observer');
     }
 }
 function prepareSlotProps(vm) {
-    return __assign(__assign({}, vm.flags), { errors: vm.errors, fields: vm.fields, validate: vm.validate, passes: vm.handleSubmit, handleSubmit: vm.handleSubmit, reset: vm.reset });
-}
-// Creates a modified version of validation flags
-function createObserverFlags() {
-    return __assign(__assign({}, createFlags()), { valid: true, invalid: false });
-}
-function computeObserverState() {
-    var vms = __spreadArrays(values(this.refs), this.observers);
-    var errors = {};
-    var flags = createObserverFlags();
-    var fields = {};
-    var length = vms.length;
-    for (var i = 0; i < length; i++) {
-        var vm = vms[i];
-        // validation provider
-        if (Array.isArray(vm.errors)) {
-            errors[vm.id] = vm.errors;
-            fields[vm.id] = __assign({ id: vm.id, name: vm.name, failedRules: vm.failedRules }, vm.flags);
-            continue;
-        }
-        // Nested observer, merge errors and fields
-        errors = __assign(__assign({}, errors), vm.errors);
-        fields = __assign(__assign({}, fields), vm.fields);
-    }
-    FLAGS_STRATEGIES.forEach(function (_a) {
-        var flag = _a[0], method = _a[1];
-        flags[flag] = vms[method](function (vm) { return vm.flags[flag]; });
-    });
-    return { errors: errors, flags: flags, fields: fields };
+    return __assign(__assign({}, vm.flags), { errors: vm.errors, validate: vm.validate, passes: vm.handleSubmit, handleSubmit: vm.handleSubmit, reset: vm.reset });
 }
 
 function withValidation(component, mapProps) {
@@ -67278,7 +67285,7 @@ function withValidation(component, mapProps) {
     return hoc;
 }
 
-var version = '3.2.1';
+var version = '3.1.3';
 
 
 
@@ -76566,7 +76573,7 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.11
+ * Vue.js v2.6.10
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -78532,7 +78539,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   isUsingMicroTask = true;
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
   // Fallback to setImmediate.
-  // Technically it leverages the (macro) task queue,
+  // Techinically it leverages the (macro) task queue,
   // but it is still a better choice than setTimeout.
   timerFunc = function () {
     setImmediate(flushCallbacks);
@@ -78621,7 +78628,7 @@ var initProxy;
     warn(
       "Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " +
       'properties starting with "$" or "_" are not proxied in the Vue instance to ' +
-      'prevent conflicts with Vue internals. ' +
+      'prevent conflicts with Vue internals' +
       'See: https://vuejs.org/v2/api/#data',
       target
     );
@@ -79481,7 +79488,7 @@ function bindDynamicKeys (baseObj, values) {
     if (typeof key === 'string' && key) {
       baseObj[values[i]] = values[i + 1];
     } else if (key !== '' && key !== null) {
-      // null is a special value for explicitly removing a binding
+      // null is a speical value for explicitly removing a binding
       warn(
         ("Invalid value for dynamic directive argument (expected string or null): " + key),
         this
@@ -79976,12 +79983,6 @@ function _createElement (
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
     if (config.isReservedTag(tag)) {
       // platform built-in elements
-      if (isDef(data) && isDef(data.nativeOn)) {
-        warn(
-          ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
-          context
-        );
-      }
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
@@ -80107,7 +80108,7 @@ function renderMixin (Vue) {
     // render self
     var vnode;
     try {
-      // There's no need to maintain a stack because all render fns are called
+      // There's no need to maintain a stack becaues all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm;
@@ -82006,7 +82007,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.11';
+Vue.version = '2.6.10';
 
 /*  */
 
@@ -82679,7 +82680,7 @@ function createPatchFunction (backend) {
     }
   }
 
-  function removeVnodes (vnodes, startIdx, endIdx) {
+  function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
       var ch = vnodes[startIdx];
       if (isDef(ch)) {
@@ -82790,7 +82791,7 @@ function createPatchFunction (backend) {
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;
       addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
     } else if (newStartIdx > newEndIdx) {
-      removeVnodes(oldCh, oldStartIdx, oldEndIdx);
+      removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
     }
   }
 
@@ -82882,7 +82883,7 @@ function createPatchFunction (backend) {
         if (isDef(oldVnode.text)) { nodeOps.setTextContent(elm, ''); }
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
-        removeVnodes(oldCh, 0, oldCh.length - 1);
+        removeVnodes(elm, oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
         nodeOps.setTextContent(elm, '');
       }
@@ -83111,7 +83112,7 @@ function createPatchFunction (backend) {
 
         // destroy old node
         if (isDef(parentElm)) {
-          removeVnodes([oldVnode], 0, 0);
+          removeVnodes(parentElm, [oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
           invokeDestroyHook(oldVnode);
         }
@@ -85817,7 +85818,7 @@ var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
 var endTag = new RegExp(("^<\\/" + qnameCapture + "[^>]*>"));
 var doctype = /^<!DOCTYPE [^>]+>/i;
-// #7298: escape - to avoid being passed as HTML comment when inlined in page
+// #7298: escape - to avoid being pased as HTML comment when inlined in page
 var comment = /^<!\--/;
 var conditionalComment = /^<!\[/;
 
@@ -86102,7 +86103,7 @@ function parseHTML (html, options) {
 /*  */
 
 var onRE = /^@|^v-on:/;
-var dirRE = /^v-|^@|^:|^#/;
+var dirRE = /^v-|^@|^:/;
 var forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
 var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
@@ -86726,7 +86727,7 @@ function processSlotContent (el) {
           if (el.parent && !maybeComponent(el.parent)) {
             warn$2(
               "<template v-slot> can only appear at the root level inside " +
-              "the receiving component",
+              "the receiving the component",
               el
             );
           }
@@ -87289,7 +87290,7 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function(?:\s+[\w$]+)?\s*\(/;
+var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/;
 var fnInvokeRE = /\([^)]*?\);*$/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
@@ -88058,8 +88059,6 @@ function checkNode (node, warn) {
           var range = node.rawAttrsMap[name];
           if (name === 'v-for') {
             checkFor(node, ("v-for=\"" + value + "\""), warn, range);
-          } else if (name === 'v-slot' || name[0] === '#') {
-            checkFunctionParameterExpression(value, (name + "=\"" + value + "\""), warn, range);
           } else if (onRE.test(name)) {
             checkEvent(value, (name + "=\"" + value + "\""), warn, range);
           } else {
@@ -88079,9 +88078,9 @@ function checkNode (node, warn) {
 }
 
 function checkEvent (exp, text, warn, range) {
-  var stripped = exp.replace(stripStringRE, '');
-  var keywordMatch = stripped.match(unaryOperatorsRE);
-  if (keywordMatch && stripped.charAt(keywordMatch.index - 1) !== '$') {
+  var stipped = exp.replace(stripStringRE, '');
+  var keywordMatch = stipped.match(unaryOperatorsRE);
+  if (keywordMatch && stipped.charAt(keywordMatch.index - 1) !== '$') {
     warn(
       "avoid using JavaScript unary operator as property name: " +
       "\"" + (keywordMatch[0]) + "\" in expression " + (text.trim()),
@@ -88133,19 +88132,6 @@ function checkExpression (exp, text, warn, range) {
         range
       );
     }
-  }
-}
-
-function checkFunctionParameterExpression (exp, text, warn, range) {
-  try {
-    new Function(exp, '');
-  } catch (e) {
-    warn(
-      "invalid function parameter expression: " + (e.message) + " in\n\n" +
-      "    " + exp + "\n\n" +
-      "  Raw expression: " + (text.trim()) + "\n",
-      range
-    );
   }
 }
 
@@ -98858,22 +98844,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/Dashboard.vue */ "./resources/js/components/Dashboard.vue");
-/* harmony import */ var _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/User/ListUser.vue */ "./resources/js/components/User/ListUser.vue");
-/* harmony import */ var _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/User/AddUser.vue */ "./resources/js/components/User/AddUser.vue");
-/* harmony import */ var _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/User/EditUser.vue */ "./resources/js/components/User/EditUser.vue");
-/* harmony import */ var _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/User/Profile.vue */ "./resources/js/components/User/Profile.vue");
-/* harmony import */ var _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/Post/ListPost.vue */ "./resources/js/components/Post/ListPost.vue");
-/* harmony import */ var _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/Post/AddPost.vue */ "./resources/js/components/Post/AddPost.vue");
-/* harmony import */ var _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/Post/EditPost.vue */ "./resources/js/components/Post/EditPost.vue");
-/* harmony import */ var _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/Category/ListCategory.vue */ "./resources/js/components/Category/ListCategory.vue");
-/* harmony import */ var _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/Category/AddCategory.vue */ "./resources/js/components/Category/AddCategory.vue");
-/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
-/* harmony import */ var _components_Comment_Comment_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/Comment/Comment.vue */ "./resources/js/components/Comment/Comment.vue");
-/* harmony import */ var _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/Inbox/ListInbox.vue */ "./resources/js/components/Inbox/ListInbox.vue");
-/* harmony import */ var _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/Profile/ListProfile.vue */ "./resources/js/components/Profile/ListProfile.vue");
-/* harmony import */ var _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/Document/ListDocument.vue */ "./resources/js/components/Document/ListDocument.vue");
-/* harmony import */ var _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/AdsPosition/ListAdsPosition.vue */ "./resources/js/components/AdsPosition/ListAdsPosition.vue");
+/* harmony import */ var _api_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../api/index */ "./resources/js/api/index.js");
+/* harmony import */ var _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/Dashboard.vue */ "./resources/js/components/Dashboard.vue");
+/* harmony import */ var _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/User/ListUser.vue */ "./resources/js/components/User/ListUser.vue");
+/* harmony import */ var _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/User/AddUser.vue */ "./resources/js/components/User/AddUser.vue");
+/* harmony import */ var _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/User/EditUser.vue */ "./resources/js/components/User/EditUser.vue");
+/* harmony import */ var _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/User/Profile.vue */ "./resources/js/components/User/Profile.vue");
+/* harmony import */ var _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/Post/ListPost.vue */ "./resources/js/components/Post/ListPost.vue");
+/* harmony import */ var _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/Post/AddPost.vue */ "./resources/js/components/Post/AddPost.vue");
+/* harmony import */ var _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/Post/EditPost.vue */ "./resources/js/components/Post/EditPost.vue");
+/* harmony import */ var _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/Category/ListCategory.vue */ "./resources/js/components/Category/ListCategory.vue");
+/* harmony import */ var _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/Category/AddCategory.vue */ "./resources/js/components/Category/AddCategory.vue");
+/* harmony import */ var _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/Category/EditCategory.vue */ "./resources/js/components/Category/EditCategory.vue");
+/* harmony import */ var _components_Comment_Comment_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/Comment/Comment.vue */ "./resources/js/components/Comment/Comment.vue");
+/* harmony import */ var _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/Inbox/ListInbox.vue */ "./resources/js/components/Inbox/ListInbox.vue");
+/* harmony import */ var _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/Profile/ListProfile.vue */ "./resources/js/components/Profile/ListProfile.vue");
+/* harmony import */ var _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/Document/ListDocument.vue */ "./resources/js/components/Document/ListDocument.vue");
+/* harmony import */ var _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../components/AdsPosition/ListAdsPosition.vue */ "./resources/js/components/AdsPosition/ListAdsPosition.vue");
+
 
 
 
@@ -98901,80 +98889,120 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   linkActiveClass: 'open active',
+  base: '/',
   routes: [{
     path: '/admin',
-    redirect: '/admin/dashboard'
+    redirect: '/admin/dashboard',
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/dashboard',
     name: 'dashboard',
-    component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/user',
     name: 'listUser',
-    component: _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _components_User_ListUser_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/user/add',
     name: 'addUser',
-    component: _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_User_AddUser_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/user/edit/:id',
     name: 'editUser',
-    component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_User_EditUser_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/auth-profile',
     name: 'profile',
-    component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _components_User_Profile_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/post',
     name: 'listPost',
-    component: _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _components_Post_ListPost_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/post/add',
     name: 'addPost',
-    component: _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _components_Post_AddPost_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/post/edit/:id',
     name: 'editPost',
-    component: _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _components_Post_EditPost_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/category',
     name: 'listCategory',
-    component: _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _components_Category_ListCategory_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/category/add',
     name: 'addCategory',
-    component: _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _components_Category_AddCategory_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    beforeEnter: guardAdmin
   }, {
     path: '/admin/category/edit/:id',
     name: 'editCategory',
-    component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+    component: _components_Category_EditCategory_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    beforeEnter: guardAdmin
   }, //Bình luận
   {
     path: '/admin/comment',
     name: 'comment',
-    component: _components_Comment_Comment_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _components_Comment_Comment_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+    beforeEnter: guardAdmin
   }, //Hộp thư
   {
     path: '/admin/inbox',
     name: 'listInbox',
-    component: _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
+    component: _components_Inbox_ListInbox_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    beforeEnter: guardAdmin
   }, //Hồ sơ
   {
     path: '/admin/Profile',
     name: 'listProfile',
-    component: _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+    beforeEnter: guardAdmin
   }, //Tài liệu
   {
     path: '/admin/document',
     name: 'listDocument',
-    component: _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+    beforeEnter: guardAdmin
   }, //Vị trí quảng cáo
   {
     path: '/admin/ads_position',
     name: 'listAdsPosition',
-    component: _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
+    beforeEnter: guardAdmin
   }]
 }));
+
+function guardAdmin(to, from, next) {
+  return new Promise(function (resolve) {
+    var user = axios.get('/api/infoUser').then(function (_ref) {
+      var data = _ref.data;
+
+      if (data.level === 1) {
+        if (to.name == 'dashboard' || to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listProfile' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+          next();
+        } else {
+          next('/admin');
+        }
+      } else if (data.level === 0) {
+        if (to.name == 'dashboard' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+          next();
+        } else {
+          next('/admin');
+        }
+      }
+    });
+  });
+}
 
 /***/ }),
 
@@ -99675,15 +99703,15 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Freelancer\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\jquery.min.js */"./resources/css/modules/admin/js/jquery.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap.min.js */"./resources/css/modules/admin/js/bootstrap.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\bootstrap-datepicker.min.js */"./resources/css/modules/admin/js/bootstrap-datepicker.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\fastclick.js */"./resources/css/modules/admin/js/fastclick.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\adminlte.min.js */"./resources/css/modules/admin/js/adminlte.min.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\css\modules\admin\js\app.js */"./resources/css/modules/admin/js/app.js");
+__webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\Project\dangkithanhlapdoanhnghiep\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
 
 
 /***/ })

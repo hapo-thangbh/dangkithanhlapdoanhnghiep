@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import ApiService from './../api/index'
 
 import Dashboard from './../components/Dashboard.vue'
 
@@ -36,100 +37,156 @@ Vue.use(VueRouter)
 export default new VueRouter({
     mode:'history',
     linkActiveClass: 'open active',
+    base: '/',
     routes: [
         {
             path: '/admin',
-            redirect: '/admin/dashboard'
+            redirect: '/admin/dashboard',
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/dashboard',
             name: 'dashboard',
-            component: Dashboard
+            component: Dashboard,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/user',
             name: 'listUser',
-            component: ListUser
+            component: ListUser,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/user/add',
             name: 'addUser',
-            component: AddUser
+            component: AddUser,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/user/edit/:id',
             name: 'editUser',
-            component: EditUser
+            component: EditUser,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/auth-profile',
             name:'profile',
-            component: Profile
+            component: Profile,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/post',
             name:'listPost',
-            component: ListPost
+            component: ListPost,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/post/add',
             name:'addPost',
-            component: AddPost
+            component: AddPost,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/post/edit/:id',
             name:'editPost',
-            component: EditPost
+            component: EditPost,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/category',
             name:'listCategory',
-            component: ListCategory
+            component: ListCategory,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/category/add',
             name:'addCategory',
-            component: AddCategory
+            component: AddCategory,
+            beforeEnter: guardAdmin
         },
         {
             path: '/admin/category/edit/:id',
             name:'editCategory',
-            component: EditCategory
+            component: EditCategory,
+            beforeEnter: guardAdmin
         },
 
         //Bình luận
         {
             path: '/admin/comment',
             name:'comment',
-            component: Comment
+            component: Comment,
+            beforeEnter: guardAdmin
         },
 
         //Hộp thư
         {
             path: '/admin/inbox',
             name:'listInbox',
-            component: ListInbox
+            component: ListInbox,
+            beforeEnter: guardAdmin
         },
 
         //Hồ sơ
         {
             path: '/admin/Profile',
             name:'listProfile',
-            component: ListProfile
+            component: ListProfile,
+            beforeEnter: guardAdmin
         },
 
         //Tài liệu
         {
             path: '/admin/document',
             name:'listDocument',
-            component: ListDocument
+            component: ListDocument,
+            beforeEnter: guardAdmin
         },
 
         //Vị trí quảng cáo
         {
             path: '/admin/ads_position',
             name:'listAdsPosition',
-            component: ListAdsPosition
+            component: ListAdsPosition,
+            beforeEnter: guardAdmin
         }
     ]
 })
+
+function guardAdmin (to, from, next) {
+    return new Promise(resolve => {
+        const user = axios.get('/api/infoUser')
+            .then(({data}) => {
+                if (data.level === 1) {
+                    if (to.name == 'dashboard' ||
+                        to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
+                        to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+                        to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+                        to.name == 'comment' || 
+                        to.name == 'listInbox' ||
+                        to.name == 'listProfile' || 
+                        to.name == 'listDocument' || 
+                        to.name == 'listAdsPosition'
+                    ) {
+                        next()
+                    } else {
+                        next('/admin')
+                    }
+                } else if (data.level === 0) {
+                    if (to.name == 'dashboard' || 
+                        to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+                        to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+                        to.name == 'comment' || 
+                        to.name == 'listInbox' ||
+                        to.name == 'listDocument' || 
+                        to.name == 'listAdsPosition'
+                    ) {
+                        next()
+                    } else {
+                        next('/admin')
+                    }
+                }
+                
+            })
+    })    
+}

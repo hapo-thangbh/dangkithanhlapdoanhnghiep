@@ -44,27 +44,30 @@ Route::get('/delete-reply/{id}', 'PostController@deleteReply')->name('delete_rep
 /* api */
 Route::group(['prefix' => 'api'], function() {
     //Post
-    Route::get('/posts','PostController@index');
-    Route::get('/posts/all','PostController@getAllPosts');
-    Route::post('/posts/add','PostController@addPost');
-    Route::get('/posts/edit/{id}','PostController@editPost');
-    Route::put('/posts/update/{id}','PostController@updatePost');
-    Route::delete('/posts/delete/{id}','PostController@deletePost');
 
-    Route::get('/posts/count','PostController@countPost');
+    Route::group(['prefix' => 'posts'], function() {
+        Route::get('/','PostController@index');
+        Route::get('/all','PostController@getAllPosts');
+        Route::post('/add','PostController@addPost');
+        Route::get('/edit/{id}','PostController@editPost');
+        Route::put('/update/{id}','PostController@updatePost');
+        Route::delete('/delete/{id}','PostController@deletePost');
+
+        Route::get('/count','PostController@countPost');
+    });
+    
 
     //Category
-    Route::get('/categories','CategoryController@index');
-    Route::get('/categories/all','CategoryController@getAllCategories');
-    
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/','CategoryController@index');
+        Route::get('/all','CategoryController@getAllCategories');
+        Route::post('/add','CategoryController@addCategory');
+        Route::get('/edit/{id}','CategoryController@editCategory');
+        Route::put('/update/{id}','CategoryController@updateCategory');
+        Route::delete('/delete/{id}','CategoryController@deleteCategory');
+        Route::get('/allParent', 'CategoryController@allParent');
+    });
     Route::get('/treeView','CategoryController@treeView');
-    Route::post('/categories/add','CategoryController@addCategory');
-    Route::get('/categories/edit/{id}','CategoryController@editCategory');
-    Route::put('/categories/update/{id}','CategoryController@updateCategory');
-    Route::delete('/categories/delete/{id}','CategoryController@deleteCategory');
-
-    Route::get('/categories/allParent', 'CategoryController@allParent');
-
     Route::post('/childrenCate', 'CategoryController@childrenCate');
 
     //User
