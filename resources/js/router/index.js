@@ -159,39 +159,34 @@ export default new VueRouter({
 })
 
 function guardAdmin (to, from, next) {
-    return new Promise(resolve => {
-        const user = axios.get('/api/infoUser')
-            .then(({data}) => {
-                if (data.level === 1) {
-                    if (to.name == 'dashboard' ||
-                        to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
-                        to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
-                        to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-                        to.name == 'comment' || 
-                        to.name == 'listInbox' ||
-                        to.name == 'listProfile' || 
-                        to.name == 'listDocument' || 
-                        to.name == 'listAdsPosition'
-                    ) {
-                        next()
-                    } else {
-                        next('/admin')
-                    }
-                } else if (data.level === 0) {
-                    if (to.name == 'dashboard' || 
-                        to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
-                        to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-                        to.name == 'comment' || 
-                        to.name == 'listInbox' ||
-                        to.name == 'listDocument' || 
-                        to.name == 'listAdsPosition'
-                    ) {
-                        next()
-                    } else {
-                        next('/admin')
-                    }
-                }
-                
-            })
-    })    
+    let user = localStorage.getItem('infoUser')
+    if (user.level === 1) {
+        if (to.name == 'dashboard' ||
+            to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
+            to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+            to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+            to.name == 'comment' || 
+            to.name == 'listInbox' ||
+            to.name == 'listProfile' || 
+            to.name == 'listDocument' || 
+            to.name == 'listAdsPosition'
+        ) {
+            next()
+        } else {
+            next('/admin')
+        }
+    } else if (user.level === 0) {
+        if (to.name == 'dashboard' || 
+            to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+            to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+            to.name == 'comment' || 
+            to.name == 'listInbox' ||
+            to.name == 'listDocument' || 
+            to.name == 'listAdsPosition'
+        ) {
+            next()
+        } else {
+            next('/admin')
+        }
+    }
 }

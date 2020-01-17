@@ -31,11 +31,11 @@
             @can('admin')
             <li><router-link :to="{ name: 'listUser' }"><i class="fa fa-users"></i> Tài khoản</router-link></li>
             @endcan
-            <li>
-                <a href="{{ route('admin.logout') }}">
+            <!-- <li>
+                <a href="{{ route('admin.logout') }}" id="logout">
                     <i class="fa fa-power-off"></i> <span>Đăng xuất</span>
                 </a>
-            </li>
+            </li> -->
 
             <!--<li class="header">LABELS</li>
              <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li> -->

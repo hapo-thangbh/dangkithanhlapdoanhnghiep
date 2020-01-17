@@ -28,4 +28,9 @@
     </body>
 </html>
 
+<script>
+    $('#logout').on('click', function() {
+        localStorage.clear()
+    })
+</script>
 

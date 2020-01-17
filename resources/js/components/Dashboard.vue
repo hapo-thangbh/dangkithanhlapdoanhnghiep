@@ -475,6 +475,17 @@ export default {
         this.$router.afterEach((to, from) => {
             this.$Progress.finish()
         })
+
+        window.onload = function() {
+            // if (localStorage) {
+            //     document.getElementById('formLogin').addEventListener('submit', function() {
+            //         var username = document.getElementById('username').value;
+            //         localStorage.setItem('username', username);
+            //     });
+            // }
+               
+        }
+        
     },
     mounted() {
         this.getCountPost()
@@ -483,6 +494,7 @@ export default {
         this.getResults()
         this.getCategories()
         this.$Progress.finish()
+        this.getUser()
     },
     computed: {
         ...mapState('dashboard', ['countPost', 'countUser']),
@@ -498,7 +510,17 @@ export default {
 				.then(data => {
 					this.posts = data.data;
 				});
-		}
+        },
+        getUser () {
+            return new Promise(resolve => {
+                axios.get('/api/infoUser')
+                    .then(({data}) => {
+                        if (localStorage) {
+                            localStorage.setItem('infoUser', JSON.stringify(data))
+                        }
+                    })
+            })
+        }
     }
 }
 </script>

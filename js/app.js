@@ -3085,6 +3085,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.$router.afterEach(function (to, from) {
       _this.$Progress.finish();
     });
+
+    window.onload = function () {// if (localStorage) {
+      //     document.getElementById('formLogin').addEventListener('submit', function() {
+      //         var username = document.getElementById('username').value;
+      //         localStorage.setItem('username', username);
+      //     });
+      // }
+    };
   },
   mounted: function mounted() {
     this.getCountPost();
@@ -3093,6 +3101,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getResults();
     this.getCategories();
     this.$Progress.finish();
+    this.getUser();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('dashboard', ['countPost', 'countUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('category', ['categories'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('dashboard', ['getCountPost', 'getCountUser']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('post', ['getPosts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {
@@ -3102,6 +3111,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('/api/posts?page=' + page).then(function (data) {
         _this2.posts = data.data;
+      });
+    },
+    getUser: function getUser() {
+      return new Promise(function (resolve) {
+        axios.get('/api/infoUser').then(function (_ref) {
+          var data = _ref.data;
+
+          if (localStorage) {
+            localStorage.setItem('infoUser', JSON.stringify(data));
+          }
+        });
       });
     }
   })
@@ -98987,25 +99007,21 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 }));
 
 function guardAdmin(to, from, next) {
-  return new Promise(function (resolve) {
-    var user = axios.get('/api/infoUser').then(function (_ref) {
-      var data = _ref.data;
+  var user = localStorage.getItem('infoUser');
 
-      if (data.level === 1) {
-        if (to.name == 'dashboard' || to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listProfile' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
-          next();
-        } else {
-          next('/admin');
-        }
-      } else if (data.level === 0) {
-        if (to.name == 'dashboard' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
-          next();
-        } else {
-          next('/admin');
-        }
-      }
-    });
-  });
+  if (user.level === 1) {
+    if (to.name == 'dashboard' || to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listProfile' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+      next();
+    } else {
+      next('/admin');
+    }
+  } else if (user.level === 0) {
+    if (to.name == 'dashboard' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+      next();
+    } else {
+      next('/admin');
+    }
+  }
 }
 
 /***/ }),

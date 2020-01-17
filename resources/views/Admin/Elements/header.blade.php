@@ -131,7 +131,7 @@
                                 <router-link :to="{ name: 'profile' }" class="btn btn-default btn-flat">Thông tin cá nhân</router-link>
                             </div>
                             <div class="pull-right">
-                                <a class="btn btn-default btn-flat" href="{{ route('admin.logout') }}">Đăng xuất
+                                <a class="btn btn-default btn-flat" id="logout" href="{{ route('admin.logout') }}">Đăng xuất
                             </a>
                             </div>
                         </li>
