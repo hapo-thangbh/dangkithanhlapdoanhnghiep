@@ -3085,14 +3085,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.$router.afterEach(function (to, from) {
       _this.$Progress.finish();
     });
-
-    window.onload = function () {// if (localStorage) {
-      //     document.getElementById('formLogin').addEventListener('submit', function() {
-      //         var username = document.getElementById('username').value;
-      //         localStorage.setItem('username', username);
-      //     });
-      // }
-    };
   },
   mounted: function mounted() {
     this.getCountPost();
@@ -3114,6 +3106,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     getUser: function getUser() {
+      console.log('ts');
       return new Promise(function (resolve) {
         axios.get('/api/infoUser').then(function (_ref) {
           var data = _ref.data;
@@ -98881,6 +98874,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Profile_ListProfile_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/Profile/ListProfile.vue */ "./resources/js/components/Profile/ListProfile.vue");
 /* harmony import */ var _components_Document_ListDocument_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/Document/ListDocument.vue */ "./resources/js/components/Document/ListDocument.vue");
 /* harmony import */ var _components_AdsPosition_ListAdsPosition_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../components/AdsPosition/ListAdsPosition.vue */ "./resources/js/components/AdsPosition/ListAdsPosition.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_19__);
 
 
 
@@ -98903,6 +98898,7 @@ __webpack_require__.r(__webpack_exports__);
  //Tài liệu
 
  //Vị trí quảng cáo
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -99007,21 +99003,55 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 }));
 
 function guardAdmin(to, from, next) {
-  var user = localStorage.getItem('infoUser');
+  // let user = localStorage.getItem('infoUser')
+  // if (user.level === 1) {
+  //     if (to.name == 'dashboard' ||
+  //         to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
+  //         to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+  //         to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+  //         to.name == 'comment' || 
+  //         to.name == 'listInbox' ||
+  //         to.name == 'listProfile' || 
+  //         to.name == 'listDocument' || 
+  //         to.name == 'listAdsPosition'
+  //     ) {
+  //         next()
+  //     } else {
+  //         next('/admin')
+  //     }
+  // } else if (user.level === 0) {
+  //     if (to.name == 'dashboard' || 
+  //         to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
+  //         to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
+  //         to.name == 'comment' || 
+  //         to.name == 'listInbox' ||
+  //         to.name == 'listDocument' || 
+  //         to.name == 'listAdsPosition'
+  //     ) {
+  //         next()
+  //     } else {
+  //         next('/admin')
+  //     }
+  // }
+  return new Promise(function (resolve) {
+    axios.get('/api/infoUser').then(function (_ref) {
+      var data = _ref.data;
 
-  if (user.level === 1) {
-    if (to.name == 'dashboard' || to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listProfile' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
-      next();
-    } else {
-      next('/admin');
-    }
-  } else if (user.level === 0) {
-    if (to.name == 'dashboard' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
-      next();
-    } else {
-      next('/admin');
-    }
-  }
+      if (data.level === 1) {
+        if (to.name == 'dashboard' || to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listProfile' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+          next();
+        } else {
+          next('/admin');
+        }
+      } else if (data.level === 0) {
+        if (to.name == 'dashboard' || to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' || to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' || to.name == 'comment' || to.name == 'listInbox' || to.name == 'listDocument' || to.name == 'listAdsPosition') {
+          next();
+        } else {
+          next('/admin');
+        }
+      }
+    });
+  });
 }
 
 /***/ }),

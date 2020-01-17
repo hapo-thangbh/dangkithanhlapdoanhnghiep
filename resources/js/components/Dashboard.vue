@@ -475,17 +475,6 @@ export default {
         this.$router.afterEach((to, from) => {
             this.$Progress.finish()
         })
-
-        window.onload = function() {
-            // if (localStorage) {
-            //     document.getElementById('formLogin').addEventListener('submit', function() {
-            //         var username = document.getElementById('username').value;
-            //         localStorage.setItem('username', username);
-            //     });
-            // }
-               
-        }
-        
     },
     mounted() {
         this.getCountPost()
@@ -512,6 +501,7 @@ export default {
 				});
         },
         getUser () {
+            console.log('ts')
             return new Promise(resolve => {
                 axios.get('/api/infoUser')
                     .then(({data}) => {
