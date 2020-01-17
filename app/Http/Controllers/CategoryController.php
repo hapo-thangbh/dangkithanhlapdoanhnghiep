@@ -102,7 +102,6 @@ class CategoryController extends Controller
                 'error' => 'Xoá danh mục thất bại!'
             ]);
         }
-        
     }
 
     public function allParent() {

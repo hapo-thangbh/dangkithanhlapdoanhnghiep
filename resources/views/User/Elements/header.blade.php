@@ -5,9 +5,10 @@
         </h1>
         <nav class="category-menu">
             <ul>
+                @foreach($menuParent as $menu)
                 <li class="parent thoi-su ">
-                    <a href="/thoi-su.html" title="Thời sự">Thời sự</a>
-                    <div class="subcate">
+                    <a href="/thoi-su.html" title="Thời sự">{{$menu->name }}</a>
+                    <!-- <div class="subcate">
                         <ul>
                             <li >
                                 <a href="/chinh-tri.html" >Chính trị</a>
@@ -19,9 +20,12 @@
                                 <a href="/do-thi.html" >Đô thị</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </li>
-                <li class="parent phap-luat ">
+                @endforeach
+
+
+                <!-- <li class="parent phap-luat ">
                     <a href="/phap-luat.html" title="Pháp luật">Pháp luật</a>
                     <div class="subcate">
                         <ul>
@@ -296,7 +300,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
                 
                 <li class="parent giao-duc ">
                     <a href="/giao-duc.html" title="Giáo dục">Giáo dục</a>
@@ -999,3 +1003,5 @@
         </div>
     </div>
 </header>
+
+

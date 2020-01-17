@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Category;
 use App\Models\Reply;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
@@ -120,7 +121,8 @@ class PostController extends Controller
     //Detail post
     public function detailPost(Request $request, $id) {
         $post = Post::findOrFail($id);
-        return view('User.detail_post', compact('post'));
+        $menuParent = Category::whereNull('parent_id')->get();
+        return view('User.detail_post', compact('post','menuParent'));
     }
 
     // Xóa comment

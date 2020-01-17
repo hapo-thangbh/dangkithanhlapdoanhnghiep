@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::with('categories')->get();
-        return view('home', compact('posts'));
+        $menuParent = Category::whereNull('parent_id')->get();
+        return view('home', compact('posts','menuParent'));
     }
 
     public function contact(){

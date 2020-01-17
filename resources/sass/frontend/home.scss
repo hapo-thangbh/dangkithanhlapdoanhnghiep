@@ -1,0 +1,12 @@
+.article-summary {
+    span {
+        font-weight: normal !important;
+        font-size: 15px !important;
+    }
+}
+
+a {
+    &:hover {
+        text-decoration: none !important;
+    }
+}

@@ -1,7 +1,7 @@
 @extends('User.Elements.master')
 @section('content')
 <div class="page-wrapper">
-    <section id="widget-ticker">
+    <!-- <section id="widget-ticker">
         <div class="latest-news ">
             <h2><a href="/" title="Tin tức 24h">Tin tức 24h</a></h2>
             <ul>
@@ -45,9 +45,9 @@
                         kim vì học sinh không biết xem giờ</a></li>
             </ul>
         </div>
-    </section>
+    </section> -->
 
-    <section id="section-featured" class="section">
+    <!-- <section id="section-featured" class="section">
         <div class="section-content">
 
             <div data-content="newsfeatured" class="article-list">
@@ -464,9 +464,9 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 
-    {{-- <section id="section-multimedia" class="section">
+    <!-- <section id="section-multimedia" class="section">
         <header class="section-title">
             <h3>MULTIMEDIA</h3>
             <ul>
@@ -755,32 +755,16 @@
 				</article>
             </div>
         </div>
-    </section> --}}
+    </section> -->
 </div>
 
-<div class="page-wrapper">
+<div class="page-wrapper" style="padding-top: 90px">
     <section id="section-latest" class="section has-sidebar">
         <header class="section-title">
             <h3>TIN TRONG NƯỚC</h3>
         </header>
         <section class="section-content">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!--Nha chu thich-->
-            
-            {{-- <div class="article-list listing-layout responsive unique" min-display="6">
+            <div class="article-list listing-layout responsive unique" min-display="6">
                 @foreach($posts as $post)
                     <article class="article-item type-hasvideo">
                         <p class="article-thumbnail">
@@ -806,7 +790,7 @@
                         </header>
                     </article>
                 @endforeach
-            </div> --}}
+            </div>
 
 
 
