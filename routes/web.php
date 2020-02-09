@@ -67,6 +67,14 @@ Route::group(['prefix' => 'api'], function() {
         Route::delete('/delete/{id}','CategoryController@deleteCategory');
         Route::get('/allParent', 'CategoryController@allParent');
     });
+
+    //Account Social
+    Route::group(['prefix' => 'social_accounts'], function() {
+        Route::get('/','SocialAccountController@index');
+        Route::post('/add','SocialAccountController@addSocialAccount');
+        Route::delete('/delete/{id}','SocialAccountController@deleteSocialAccount');
+    });
+
     Route::get('/treeView','CategoryController@treeView');
     Route::post('/childrenCate', 'CategoryController@childrenCate');
 
