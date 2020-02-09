@@ -29,6 +29,10 @@ import ListProfile from './../components/Profile/ListProfile.vue'
 //Tài liệu
 import ListDocument from './../components/Document/ListDocument.vue'
 
+//Tài khoản xã hội
+import ListSocialAccount from './../components/SocialAccount/ListSocialAccount.vue'
+import AddSocialAccount from './../components/SocialAccount/AddSocialAccount.vue'
+
 //Vị trí quảng cáo
 import ListAdsPosition from './../components/AdsPosition/ListAdsPosition.vue'
 import Axios from 'axios'
@@ -155,6 +159,20 @@ export default new VueRouter({
             redirect: {
               name: 'dashboard'
             }
+        },
+
+        // Tài khoản xã hội
+        {
+            path: '/admin/social_accounts',
+            name:'listSocialAccount',
+            component: ListSocialAccount,
+            beforeEnter: guardAdmin
+        },
+        {
+            path: '/admin/social_account/add',
+            name:'addSocialAccount',
+            component: AddSocialAccount,
+            beforeEnter: guardAdmin
         }
     ]
 })
@@ -200,6 +218,7 @@ function guardAdmin (to, from, next) {
                     to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
                     to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
                     to.name == 'comment' || 
+                    to.name == 'listSocialAccount' || to.name == 'addSocialAccount' ||
                     to.name == 'listInbox' ||
                     to.name == 'listProfile' || 
                     to.name == 'listDocument' || 
@@ -214,6 +233,7 @@ function guardAdmin (to, from, next) {
                     to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
                     to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
                     to.name == 'comment' || 
+                    to.name == 'listSocialAccount' || to.name == 'addSocialAccount' ||
                     to.name == 'listInbox' ||
                     to.name == 'listDocument' || 
                     to.name == 'listAdsPosition'

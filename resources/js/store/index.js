@@ -5,6 +5,7 @@ import post from './modules/post'
 import category from './modules/category'
 import user from './modules/user'
 import dashboard from './modules/dashboard'
+import social_account from './modules/social_account'
 
 const state = {
 
@@ -26,7 +27,8 @@ const modules = {
     post,
     category,
     user,
-    dashboard
+    dashboard,
+    social_account
 }
 
 export default new Vuex.Store({

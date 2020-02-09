@@ -25,6 +25,7 @@
             @can('admin')
             <li><router-link :to="{ name:'listProfile' }"><i class="fa fa-info-circle"></i> Hồ sơ</router-link></li>
             @endcan
+            <li><router-link :to="{ name: 'listSocialAccount' }"><i class="fa fa-user"></i> Tài khoản xã hội</router-link></li>
             <li><router-link :to="{ name: 'listAdsPosition' }"><i class="fa fa-map-marker"></i> Vị trí quảng cáo</router-link></li>
             <li><router-link :to="{ name: 'listDocument' }"><i class="fa fa-file"></i> Tài liệu</router-link></li>
 
