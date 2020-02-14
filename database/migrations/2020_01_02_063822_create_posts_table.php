@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('description_short');
             $table->string('image_thumb');
             $table->unsignedBigInteger('category_id');
-            $table->text('description');
+            $table->longText('description');
             $table->boolean('status')->default(0)->nullable();
             $table->integer('view')->default(0);
             $table->timestamps();

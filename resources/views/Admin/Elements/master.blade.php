@@ -9,9 +9,10 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/backend/app.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/backend/all.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/backend/font-awesome/css/font-awesome.css') }}">
+{{--        <link rel="stylesheet" href="{{ asset('css/backend/font-awesome/css/font-awesome.css') }}">--}}
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper" id="app">

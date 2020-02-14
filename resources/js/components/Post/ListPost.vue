@@ -117,8 +117,8 @@
                         </div>
                         <div class="row pull-right">
                             <div class="col-md-12">
-                                <pagination 
-                                    :data="posts" 
+                                <pagination
+                                    :data="posts"
                                     @pagination-change-page="getResults"
                                     :show-disabled="true"
                                     :limit="1"
@@ -148,7 +148,7 @@ export default {
     computed: {
         // ...mapState('post',['posts']),
         ...mapState('category',['categories']),
-        
+
     },
     mounted() {
         this.getCategories()
@@ -188,7 +188,7 @@ export default {
             this.getPosts()
         },
         showImage (img) {
-            return "/public/images/post/"+img
+            return "/images/post/"+img
         },
         linkPost (id) {
             window.location.href="/post/"+id

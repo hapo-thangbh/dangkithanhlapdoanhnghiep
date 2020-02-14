@@ -46,32 +46,27 @@ export default new VueRouter({
     routes: [
         {
             path: '/admin',
-            redirect: '/admin/dashboard',
-            beforeEnter: guardAdmin
+            redirect: '/admin/dashboard'
         },
         {
             path: '/admin/dashboard',
             name: 'dashboard',
-            component: Dashboard,
-            beforeEnter: guardAdmin
+            component: Dashboard
         },
         {
             path: '/admin/user',
             name: 'listUser',
-            component: ListUser,
-            beforeEnter: guardAdmin
+            component: ListUser
         },
         {
             path: '/admin/user/add',
             name: 'addUser',
-            component: AddUser,
-            beforeEnter: guardAdmin
+            component: AddUser
         },
         {
             path: '/admin/user/edit/:id',
             name: 'editUser',
-            component: EditUser,
-            beforeEnter: guardAdmin
+            component: EditUser
         },
         {
             path: '/admin/auth-profile',
@@ -81,78 +76,67 @@ export default new VueRouter({
         {
             path: '/admin/post',
             name:'listPost',
-            component: ListPost,
-            beforeEnter: guardAdmin
+            component: ListPost
         },
         {
             path: '/admin/post/add',
             name:'addPost',
-            component: AddPost,
-            beforeEnter: guardAdmin
+            component: AddPost
         },
         {
             path: '/admin/post/edit/:id',
             name:'editPost',
-            component: EditPost,
-            beforeEnter: guardAdmin
+            component: EditPost
         },
         {
             path: '/admin/category',
             name:'listCategory',
-            component: ListCategory,
-            beforeEnter: guardAdmin
+            component: ListCategory
         },
         {
             path: '/admin/category/add',
             name:'addCategory',
-            component: AddCategory,
-            beforeEnter: guardAdmin
+            component: AddCategory
         },
         {
             path: '/admin/category/edit/:id',
             name:'editCategory',
-            component: EditCategory,
-            beforeEnter: guardAdmin
+            component: EditCategory
         },
 
         //Bình luận
         {
             path: '/admin/comment',
             name:'comment',
-            component: Comment,
-            beforeEnter: guardAdmin
+            component: Comment
         },
 
         //Hộp thư
         {
             path: '/admin/inbox',
             name:'listInbox',
-            component: ListInbox,
-            beforeEnter: guardAdmin
+            component: ListInbox
         },
 
         //Hồ sơ
         {
             path: '/admin/Profile',
             name:'listProfile',
-            component: ListProfile,
-            beforeEnter: guardAdmin
+            component: ListProfile
         },
 
         //Tài liệu
         {
             path: '/admin/document',
             name:'listDocument',
-            component: ListDocument,
-            beforeEnter: guardAdmin
+            component: ListDocument
         },
 
         //Vị trí quảng cáo
         {
             path: '/admin/ads_position',
             name:'listAdsPosition',
-            component: ListAdsPosition,
-            beforeEnter: guardAdmin
+            component: ListAdsPosition
         },
         {
             path: '*',
@@ -165,14 +149,12 @@ export default new VueRouter({
         {
             path: '/admin/social_accounts',
             name:'listSocialAccount',
-            component: ListSocialAccount,
-            beforeEnter: guardAdmin
+            component: ListSocialAccount
         },
         {
             path: '/admin/social_account/add',
             name:'addSocialAccount',
-            component: AddSocialAccount,
-            beforeEnter: guardAdmin
+            component: AddSocialAccount
         }
     ]
 })
@@ -184,10 +166,10 @@ function guardAdmin (to, from, next) {
     //         to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
     //         to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
     //         to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-    //         to.name == 'comment' || 
+    //         to.name == 'comment' ||
     //         to.name == 'listInbox' ||
-    //         to.name == 'listProfile' || 
-    //         to.name == 'listDocument' || 
+    //         to.name == 'listProfile' ||
+    //         to.name == 'listDocument' ||
     //         to.name == 'listAdsPosition'
     //     ) {
     //         next()
@@ -195,12 +177,12 @@ function guardAdmin (to, from, next) {
     //         next('/admin')
     //     }
     // } else if (user.level === 0) {
-    //     if (to.name == 'dashboard' || 
+    //     if (to.name == 'dashboard' ||
     //         to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
     //         to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-    //         to.name == 'comment' || 
+    //         to.name == 'comment' ||
     //         to.name == 'listInbox' ||
-    //         to.name == 'listDocument' || 
+    //         to.name == 'listDocument' ||
     //         to.name == 'listAdsPosition'
     //     ) {
     //         next()
@@ -217,11 +199,11 @@ function guardAdmin (to, from, next) {
                     to.name == 'listUser' || to.name == 'addUser' || to.name == 'editUser' ||
                     to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
                     to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-                    to.name == 'comment' || 
+                    to.name == 'comment' ||
                     to.name == 'listSocialAccount' || to.name == 'addSocialAccount' ||
                     to.name == 'listInbox' ||
-                    to.name == 'listProfile' || 
-                    to.name == 'listDocument' || 
+                    to.name == 'listProfile' ||
+                    to.name == 'listDocument' ||
                     to.name == 'listAdsPosition'
                 ) {
                     next()
@@ -229,13 +211,13 @@ function guardAdmin (to, from, next) {
                     next('/admin')
                 }
             } else if (data.level === 0) {
-                if (to.name == 'dashboard' || 
+                if (to.name == 'dashboard' ||
                     to.name == 'listPost' || to.name == 'addPost' || to.name == 'editPost' ||
                     to.name == 'listCategory' || to.name == 'addCategory' || to.name == 'editCategory' ||
-                    to.name == 'comment' || 
+                    to.name == 'comment' ||
                     to.name == 'listSocialAccount' || to.name == 'addSocialAccount' ||
                     to.name == 'listInbox' ||
-                    to.name == 'listDocument' || 
+                    to.name == 'listDocument' ||
                     to.name == 'listAdsPosition'
                 ) {
                     next()

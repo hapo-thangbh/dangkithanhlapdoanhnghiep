@@ -478,14 +478,14 @@
             </ul>
         </header>
         <div class="section-content ">
-            
+
             <div class="article-list multimedia-layout">
-                
+
 
 				<article class="article-item type-picture type-hasvideo picked-multi" article-id="1011577" topic-id="2002,2020,3644,3659,3663,3690,3759,3918,4765,4771,5276">
 				    <p class="article-thumbnail">
 				        <a href="/nha-phuong-va-dan-sao-mac-goi-cam-du-cuoi-dong-nhi-ong-cao-thang-post1011577.html" >
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/qfssu/2019_11_09/6b1281d9ac4d4a13135c.jpg" alt="Nha Phuong va dan sao mac goi cam du cuoi Dong Nhi, Ong Cao Thang hinh anh" />
 				        </a>
 				    </p>
@@ -500,13 +500,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Giải trí</span>
-				            
 
-				            
+				            <span class="category-parent">Giải trí</span>
+
+
+
 				            <span class="category">Sao Việt</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -516,14 +516,14 @@
 				            <span class="comment-count ">2</span>
 				        </p>
 				        <p class="article-summary">Lễ cưới Đông Nhi, Ông Cao Thắng có sự tham gia của hàng trăm khách mời với nhiều nghệ sĩ nổi tiếng như Trấn Thành, Noo Phước Thịnh, Đức Phúc...</p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-picture type-hasvideo picked-multi" article-id="1011589" topic-id="2002,2020,3644,3670">
 				    <p class="article-thumbnail">
 				        <a href="/hoang-thuy-linh-gil-le-mac-dong-dieu-sanh-buoc-du-le-cuoi-dong-nhi-post1011589.html" >
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/unvjuas/2019_11_09/b2c4065bcbce2d9074df.jpg" alt="Hoang Thuy Linh - Gil Le mac dong dieu, sanh buoc du le cuoi Dong Nhi hinh anh" />
 				        </a>
 				    </p>
@@ -538,13 +538,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Giải trí</span>
-				            
 
-				            
+				            <span class="category-parent">Giải trí</span>
+
+
+
 				            <span class="category">Sao Việt</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -554,14 +554,14 @@
 				            <span class="comment-count ">3</span>
 				        </p>
 				        <p class="article-summary">Gil Lê và Hoàng Thùy Linh lựa chọn trang phục đồng điệu, sánh bước bên nhau tại đám cưới Đông Nhi. Hai người đang vướng nghi vấn hẹn hò. </p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-picture picked-multi short" article-id="1010218" topic-id="2002,4465,4885">
 				    <p class="article-thumbnail">
 				        <a href="/canh-sac-mua-thu-do-ruc-khap-nuoc-my-post1010218.html" >
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/lerl/2019_11_06/New_England6.jpg" alt="Canh sac mua thu do ruc khap nuoc My hinh anh" />
 				        </a>
 				    </p>
@@ -576,13 +576,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Du lịch</span>
-				            
 
-				            
+				            <span class="category-parent">Du lịch</span>
+
+
+
 				            <span class="category">Địa điểm du lịch</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -592,16 +592,16 @@
 				            <span class="comment-count ">7</span>
 				        </p>
 				        <p class="article-summary">Khác với sự nhộn nhịp, hiện đại ở New York hay Boston, mùa thu tại các tiểu bang ở New England mang vẻ đẹp yên bình với gam màu vàng, đỏ rực rỡ. </p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-video picked-multi" article-id="1011521" topic-id="2002,5058">
 				    <p class="article-thumbnail">
 				        <a href="/video-co-the-be-cong-duong-dan-bay-nhu-phim-hollywood-hay-khong-post1011521.html" >
-				            
+
 				            <span class="duration-video show-time">02:34</span>
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/qhj_jwrscslhfo/2019_11_09/ad.jpg" alt="Co the be cong duong dan bay nhu phim Hollywood hay khong? hinh anh" />
 				        </a>
 				    </p>
@@ -616,13 +616,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Công nghệ</span>
-				            
 
-				            
+				            <span class="category-parent">Công nghệ</span>
+
+
+
 				            <span class="category">Công nghệ</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -632,14 +632,14 @@
 				            <span class="comment-count ">1</span>
 				        </p>
 				        <p class="article-summary">Tốc độ bắn của súng rất nhanh nên rất khó có thể bẻ cong được đường đạn bay. Kari, Grant và Tory đã chế tạo ra robot có khả năng lia đồ vật và thực hiện thí nghiệm này.</p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-picture picked-multi" article-id="1011398" topic-id="2002">
 				    <p class="article-thumbnail">
 				        <a href="/ben-trong-tau-du-lich-lon-nhat-hanh-tinh-co-gan-3000-phong-post1011398.html" >
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/mdf_nemrxw/2019_11_09/5ac3dbbb7a74af22008b4687.jpg" alt="Ben trong tau du lich lon nhat hanh tinh, co gan 3.000 phong hinh anh" />
 				        </a>
 				    </p>
@@ -654,13 +654,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Kinh doanh</span>
-				            
 
-				            
+				            <span class="category-parent">Kinh doanh</span>
+
+
+
 				            <span class="category">Kinh doanh</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -670,16 +670,16 @@
 				            <span class="comment-count hide"></span>
 				        </p>
 				        <p class="article-summary">Tàu "Symphony of the Seas" nặng hơn 228.000 tấn của Công ty Royal Caribbean International là tàu du lịch lớn nhất thế giới. Nó bắt đầu hoạt động vào năm 2018.</p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-video picked-multi" article-id="1011587" topic-id="2002,3644">
 				    <p class="article-thumbnail">
 				        <a href="/video-nhieu-nghe-si-chuc-phuc-dong-nhi-ong-cao-thang-tai-le-cuoi-post1011587.html" origin-id="1074753358">
-				            
+
 				            <span class="duration-video show-time">02:33</span>
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/ofh_zsgkqzph/2019_11_09/a4b22a2210b6f6e8afa7_zava.jpg" alt="Nhieu nghe si chuc phuc Dong Nhi - Ong Cao Thang tai le cuoi hinh anh" />
 				        </a>
 				    </p>
@@ -694,13 +694,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Giải trí</span>
-				            
 
-				            
+				            <span class="category-parent">Giải trí</span>
+
+
+
 				            <span class="category">Giải trí</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -710,16 +710,16 @@
 				            <span class="comment-count ">1</span>
 				        </p>
 				        <p class="article-summary">Chiều 9/11, rất đông nghệ sĩ đã tham dự lễ cưới và chúc phúc cho Đông Nhi - Ông Cao Thắng tại bãi biển rộng 8.000 m2 ở Phú Quốc.</p>
-				        
+
 				    </header>
 				</article>
 
 				<article class="article-item type-video picked-multi" article-id="1011443" topic-id="2002,2207,4150">
 				    <p class="article-thumbnail">
 				        <a href="/video-cong-an-tphcm-noi-ve-vu-quan-xa-lo-bi-chem-chet-post1011443.html" origin-id="1074753049">
-				            
+
 				            <span class="duration-video show-time">01:04</span>
-				            
+
 				            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/lce_jwqcz/2019_11_09/Outro_zingvn_200_00_49_13Still001.jpg" alt="Cong an TP.HCM noi ve vu Quan 'Xa Lo' bi chem chet hinh anh" />
 				        </a>
 				    </p>
@@ -734,13 +734,13 @@
 				                <span class="date">09/11/2019</span>
 				            </span>
 
-				            
-				            <span class="category-parent">Pháp luật</span>
-				            
 
-				            
+				            <span class="category-parent">Pháp luật</span>
+
+
+
 				            <span class="category">Pháp luật</span>
-				            
+
 				        </p>
 				        <p class="article-count">
 				            <span class="like-count"></span>
@@ -750,7 +750,7 @@
 				            <span class="comment-count hide"></span>
 				        </p>
 				        <p class="article-summary">"Quân là giang hồ có máu mặt, sẵn sàng 1 mất 1 còn với đối thủ. Khi bị nhóm 20 người truy sát, anh ta đã chống trả nhưng yếu thế hơn và bị chém chết", đại diện PC02 nói.</p>
-				        
+
 				    </header>
 				</article>
             </div>
@@ -769,7 +769,7 @@
                     <article class="article-item type-hasvideo">
                         <p class="article-thumbnail">
                             <a href="{{ route('detail_post', $post->id) }}">
-                                <img src="{{ asset('public/images/post/'.$post->image_thumb) }}" alt="Image not found">
+                                <img src="{{ asset('images/post/'.$post->image_thumb) }}" alt="Image not found">
                             </a>
                         </p>
                         <header>
@@ -791,25 +791,6 @@
                     </article>
                 @endforeach
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             {{-- <section id="first-news-coverage" class="section news-coverage">
                 <div class="section-thumbnail">
                     <a href=/toan-canh/39-thi-the-trong-thung-xe-o-anh.html
@@ -6396,9 +6377,9 @@
 					<article class="article-item type-video" article-id="1010394" topic-id="2121,2245">
 					    <p class="article-thumbnail">
 					        <a href="/video-canh-diu-hiu-o-lang-ty-phu-co-2700-nguoi-xuat-ngoai-post1010394.html" origin-id="1074752176">
-					            
+
 					            <span class="duration-video show-time">02:26</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/gtnjj3/2019_11_06/C003600_02_47_34Still001.jpg" alt="Canh diu hiu o lang ty phu co 2.700 nguoi xuat ngoai hinh anh" />
 					        </a>
 					    </p>
@@ -6413,13 +6394,13 @@
 					                <span class="date">07/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Thời sự</span>
-					            
 
-					            
+					            <span class="category-parent">Thời sự</span>
+
+
+
 					            <span class="category">Thời sự</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6429,16 +6410,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Với 2.700 người lao động ở nước ngoài, xã Cương Gián (Nghi Xuân, Hà Tĩnh) giàu lên trông thấy. Biệt thự san sát nhưng cuộc sống nơi đây đìu hiu, chỉ còn người già và trẻ nhỏ.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1003467" topic-id="2121,5514">
 					    <p class="article-thumbnail">
 					        <a href="/video-nguoi-mau-14-tuoi-cut-mot-tay-em-da-dam-de-lo-khiem-khuyet-cua-minh-post1003467.html" >
-					            
+
 					            <span class="duration-video show-time">05:33</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/lce_jwqqc/2019_10_19/cong_chua_ung_thu_thumb.jpg" alt="Nguoi mau 14 tuoi cut mot tay: 'Em da dam de lo khiem khuyet cua minh' hinh anh" />
 					        </a>
 					    </p>
@@ -6453,13 +6434,13 @@
 					                <span class="date">03/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Đời sống</span>
-					            
 
-					            
+					            <span class="category-parent">Đời sống</span>
+
+
+
 					            <span class="category">Sống đẹp</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6469,16 +6450,16 @@
 					            <span class="comment-count ">6</span>
 					        </p>
 					        <p class="article-summary">Ngày bé, để Hà Phương khỏi tự ti, mẹ nói rằng tay em sẽ mọc ra, em chỉ để quên tay trong bụng mẹ. Đến lớp 5, Phương mới hiểu rằng cánh tay bị cụt không thể mọc ra được nữa.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video short" article-id="1011639" topic-id="2239,3835,4016">
 					    <p class="article-thumbnail">
 					        <a href="/video-quang-ngai-khan-truong-ung-pho-bao-so-6-post1011639.html" >
-					            
+
 					            <span class="duration-video show-time">02:15</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/jugtzb/2019_11_09/Bao_2.jpg" alt="Quang Ngai khan truong ung pho bao so 6 hinh anh" />
 					        </a>
 					    </p>
@@ -6493,13 +6474,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Thời sự</span>
-					            
 
-					            
+					            <span class="category-parent">Thời sự</span>
+
+
+
 					            <span class="category">Thời sự</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6509,16 +6490,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Tỉnh Quảng Ngãi huy động quân đội giúp dân chằng chéo nhà cửa, neo đậu tàu thuyền vào nơi an toàn trước khi cơn bão số 6 đổ bộ.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1011643" topic-id="">
 					    <p class="article-thumbnail">
 					        <a href="/video-nghi-van-bich-phuong-hat-nhep-ca-khuc-rang-anh-mai-o-ben-post1011643.html" origin-id="1074753451">
-					            
+
 					            <span class="duration-video show-time">00:45</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/aybjsww/2019_11_09/RIN3514BICHPHUONGcopy52661567130144_thumb.jpg" alt="Nghi van Bich Phuong hat nhep ca khuc 'Rang anh mai o ben' hinh anh" />
 					        </a>
 					    </p>
@@ -6533,13 +6514,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Âm nhạc</span>
-					            
 
-					            
+					            <span class="category-parent">Âm nhạc</span>
+
+
+
 					            <span class="category">Nhạc Việt</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6549,16 +6530,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Bích Phương gặp sự cố, suýt ngã trên sân khấu nhưng tiếng hát vẫn vang lên. Điều này khiến khán giả nghi ngờ nữ ca sĩ hát nhép.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video short" article-id="1011470" topic-id="2208,4120">
 					    <p class="article-thumbnail">
 					        <a href="/video-lai-oto-di-trom-hoa-trong-dem-o-ha-noi-post1011470.html" >
-					            
+
 					            <span class="duration-video show-time">00:46</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/qhj_jwrscslhfo/2019_11_09/4.jpg" alt="Lai oto di trom hoa trong dem o Ha Noi hinh anh" />
 					        </a>
 					    </p>
@@ -6573,13 +6554,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Thời sự</span>
-					            
 
-					            
+					            <span class="category-parent">Thời sự</span>
+
+
+
 					            <span class="category">Thời sự</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6589,16 +6570,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Sau một lúc đỗ xe trước cửa nhà, người đàn ông trong ôtô nhanh chóng bước ra trộm chậu hoa rồi bỏ đi. Vụ trộm xảy ra rạng sáng 6/11 ở quận Đống Đa, Hà Nội.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1011196" topic-id="">
 					    <p class="article-thumbnail">
 					        <a href="/video-bi-quyet-giup-ban-so-huu-lan-da-cang-bong-sang-min-post1011196.html" >
-					            
+
 					            <span class="duration-video show-time">02:02</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/rohunwa/2019_11_08/Tay_te_bao_chet_cover_VDO.jpg" alt="Bi quyet giup ban so huu lan da cang bong, sang min hinh anh" />
 					        </a>
 					    </p>
@@ -6613,13 +6594,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Thời trang</span>
-					            
 
-					            
+					            <span class="category-parent">Thời trang</span>
+
+
+
 					            <span class="category">Làm đẹp</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6629,16 +6610,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Thường xuyên tẩy tế bào chết sẽ giúp bạn có được làn da mịn màng, đều màu, hạn chế tình trạng tắc nghẽn lỗ chân lông hay nổi mụn.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video short" article-id="1011456" topic-id="">
 					    <p class="article-thumbnail">
 					        <a href="/video-lao-oto-vao-ban-trai-nguoi-yeu-cu-post1011456.html" origin-id="1011455">
-					            
+
 					            <span class="duration-video show-time">00:28</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/bgtngt/2019_11_09/Roy_Kowalski_.jpg" alt="Lao oto vao ban trai nguoi yeu cu hinh anh" />
 					        </a>
 					    </p>
@@ -6663,16 +6644,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Cay cú vì bạn gái cũ yêu người khác, Roy Kowalski đã rình và lao xe vào người này rồi sau đó quay lại đánh nhau. </p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1011582" topic-id="">
 					    <p class="article-thumbnail">
 					        <a href="/video-vo-chong-tran-thanh-du-dam-cuoi-dong-nhi-ong-cao-thang-post1011582.html" origin-id="1011585">
-					            
+
 					            <span class="duration-video show-time">00:50</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/unvjuas/2019_11_09/Anh_chup_Man_hinh_20191109_luc_171600.jpg" alt="Vo chong Tran Thanh du dam cuoi Dong Nhi - Ong Cao Thang hinh anh" />
 					        </a>
 					    </p>
@@ -6687,13 +6668,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Giải trí</span>
-					            
 
-					            
+					            <span class="category-parent">Giải trí</span>
+
+
+
 					            <span class="category">Sao Việt</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6703,16 +6684,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Trấn Thành và Hari Won xuất hiện tại sân bay Phú Quốc muộn hơn các nghệ sĩ khác.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video short" article-id="1011611" topic-id="3644,3659">
 					    <p class="article-thumbnail">
 					        <a href="/video-ngo-thanh-van-nhan-duoc-hoa-cuoi-cua-dong-nhi-post1011611.html" origin-id="1074753436">
-					            
+
 					            <span class="duration-video show-time">02:47</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/ofh_zsgkqzph/2019_11_09/73523446_510617369522578_9189317627711848448_n.jpg" alt="Ngo Thanh Van nhan duoc hoa cuoi cua Dong Nhi hinh anh" />
 					        </a>
 					    </p>
@@ -6727,13 +6708,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Giải trí</span>
-					            
 
-					            
+					            <span class="category-parent">Giải trí</span>
+
+
+
 					            <span class="category">Giải trí</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6743,16 +6724,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Một trong những giây phút mà khách mời mong chờ chính là tung hoa cưới. Một thành viên trong ê-kíp của Đông Nhi nhận được hoa cưới, sau đó bó hoa được đưa tới Ngô Thanh Vân.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video short" article-id="1011547" topic-id="3864">
 					    <p class="article-thumbnail">
 					        <a href="/video-marvel-sua-lai-hinh-anh-sieu-anh-hung-viet-nam-post1011547.html" origin-id="1011544">
-					            
+
 					            <span class="duration-video show-time">00:44</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/lce_uxlcq/2019_11_09/maxresdefault_1.jpg" alt="Marvel sua lai hinh anh sieu anh hung Viet Nam hinh anh" />
 					        </a>
 					    </p>
@@ -6767,13 +6748,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Công nghệ</span>
-					            
 
-					            
+					            <span class="category-parent">Công nghệ</span>
+
+
+
 					            <span class="category">eSports</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6783,16 +6764,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Thông qua đoạn clip giới thiệu Sky Kirin, Marvel ngầm cho thấy những hình ảnh được làm lại của siêu anh hùng Việt Nam Blue Dragon.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1011602" topic-id="3644">
 					    <p class="article-thumbnail">
 					        <a href="/video-dong-nhi-noi-o-le-cuoi-gap-anh-thang-la-dinh-menh-cua-doi-minh-post1011602.html" origin-id="1074753436">
-					            
+
 					            <span class="duration-video show-time">03:04</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/ofh_zsgkqzph/2019_11_09/Untitled.jpg" alt="Dong Nhi noi o le cuoi: 'Gap anh Thang la dinh menh cua doi minh' hinh anh" />
 					        </a>
 					    </p>
@@ -6807,13 +6788,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Giải trí</span>
-					            
 
-					            
+					            <span class="category-parent">Giải trí</span>
+
+
+
 					            <span class="category">Giải trí</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6823,16 +6804,16 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Đông Nhi tâm sự trước các khách mới rằng cô luôn tin vào tình yêu và việc gặp Ông Cao Thắng chính là định mệnh của đời cô.</p>
-					        
+
 					    </header>
 					</article>
 
 					<article class="article-item type-video" article-id="1011594" topic-id="3644">
 					    <p class="article-thumbnail">
 					        <a href="/video-dong-nhi-va-ong-cao-thang-khoc-khi-hon-nhau-trong-le-cuoi-post1011594.html" origin-id="1074753358">
-					            
+
 					            <span class="duration-video show-time">01:56</span>
-					            
+
 					            <img src="https://static-znews.zadn.vn/images/bg_imageloading.jpg" data-src="https://znews-photo.zadn.vn/Uploaded/qfssu/2019_11_09/75252859_914896112229371_4982740058583859200_n_thumb.jpg" alt="Dong Nhi va Ong Cao Thang khoc khi hon nhau trong le cuoi hinh anh" />
 					        </a>
 					    </p>
@@ -6847,13 +6828,13 @@
 					                <span class="date">09/11/2019</span>
 					            </span>
 
-					            
-					            <span class="category-parent">Giải trí</span>
-					            
 
-					            
+					            <span class="category-parent">Giải trí</span>
+
+
+
 					            <span class="category">Sao Việt</span>
-					            
+
 					        </p>
 					        <p class="article-count">
 					            <span class="like-count"></span>
@@ -6863,7 +6844,7 @@
 					            <span class="comment-count hide"></span>
 					        </p>
 					        <p class="article-summary">Ông Cao Thắng vừa khóc vừa gửi lời cảm ơn Đông Nhi. "Cảm ơn em đã dành hết thanh xuân của mình cho anh. Anh yêu em" - nam ca sĩ xúc động nói. </p>
-					        
+
 					    </header>
 					</article>
 	            </div>

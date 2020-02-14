@@ -31,8 +31,8 @@ class PostController extends Controller
         if ($request->image_thumb) {
             $fileName = time().'.' . explode('/', explode(':', substr($request->image_thumb, 0, strpos
             ($request->image_thumb, ';')))[1])[1];
-            // \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
-            \Image::make($request->image_thumb)->save(PUBLIC_PATH_FILEUPLOAD_POST.$fileName);
+             \Image::make($request->image_thumb)->save(public_path('/images/post/').$fileName);
+//            \Image::make($request->image_thumb)->save(PUBLIC_PATH_FILEUPLOAD_POST.$fileName);
             $data['image_thumb'] = $fileName;
         }
 
@@ -42,7 +42,7 @@ class PostController extends Controller
             $post = Post::create($data);
         }
 
-        
+
         if ($post) {
             return response()->json([
                 'status' => 200,
@@ -109,7 +109,7 @@ class PostController extends Controller
                 'error' => 'Xoá bài viết thất bại!'
             ]);
         }
-        
+
     }
 
     //Count post
