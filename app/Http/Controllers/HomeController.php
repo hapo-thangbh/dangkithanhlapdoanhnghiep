@@ -25,9 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('categories')->get();
-        $menuParent = Category::whereNull('parent_id')->get();
-        return view('home', compact('posts','menuParent'));
+        $categories = Category::with(['childs', 'posts' => function ($query) {
+            $query->orderBy('created_at', 'desc')->take(config('app.take_categories'));
+        }])->isParent()->get();
+        $newPosts = Post::orderByDesc('created_at')->take(8)->get();
+        $data = [
+            'categories' => $categories,
+            'newPosts' => $newPosts
+        ];
+        return view('home', $data);
     }
 
     public function contact(){

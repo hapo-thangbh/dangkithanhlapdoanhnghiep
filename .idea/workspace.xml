@@ -2,96 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b371574-b023-492e-8454-71d872d24ac6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dangkithanhlapdoanhnghiep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dangkithanhlapdoanhnghiep.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/.bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/HELP-US-OUT.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/css/font-awesome.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/animated.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/screen-reader.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/less/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_animated.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_larger.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_path.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_stacked.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/backend/font-awesome/scss/font-awesome.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/frontend/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/frontend/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/frontend/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/frontend/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_02_063822_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_02_063822_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/default.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/vendor/@ckeditor/ckeditor5-ckfinder/theme/icons/browse-files.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/drag-handle.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/backend/toastr.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/backend/toastr.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/jquery-2.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/slick/slick.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/frontend/slick/slick.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-2.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post/ListPost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Elements/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Elements/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Elements/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/Elements/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/Elements/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/Elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/Elements/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,6 +163,7 @@
       <workItem from="1581653170906" duration="7540000" />
       <workItem from="1581671116318" duration="226000" />
       <workItem from="1581671515097" duration="345000" />
+      <workItem from="1581907800699" duration="7760000" />
     </task>
     <servers />
   </component>
@@ -266,9 +184,9 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="667" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1581671516145">
+    <state x="667" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1581907801618">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581671516145" />
+    <state x="667" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581907801618" />
   </component>
 </project>

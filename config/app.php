@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'take_categories' => env('TAKE_CATEGORIES', 5),
+    'image_path' => env('IMAGE_PATH', 'images/post/'),
 
     /*
     |--------------------------------------------------------------------------

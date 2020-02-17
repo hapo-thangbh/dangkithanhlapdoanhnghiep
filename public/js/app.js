@@ -4145,7 +4145,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getPosts();
     },
     showImage: function showImage(img) {
-      return "/public/images/post/" + img;
+      return "/images/post/" + img;
     },
     linkPost: function linkPost(id) {
       window.location.href = "/post/" + id;

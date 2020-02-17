@@ -14,11 +14,18 @@ class Category extends Model
         'url'
     ];
 
-    public function posts () {
+    public function posts()
+    {
         return $this->hasMany(Post::class, 'id');
     }
 
-    public function childs(){
+    public function childs()
+    {
         return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
+    public function scopeIsParent($query)
+    {
+        return $query->whereNull('parent_id');
     }
 }
